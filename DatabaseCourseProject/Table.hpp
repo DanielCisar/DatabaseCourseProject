@@ -15,7 +15,9 @@ private:
 	std::string name;
 	std::string filename;
 
+
 public:
+
 	Table(const std::vector<TableColumn> columns, const std::string name, const std::string filename);
 	~Table();
 
@@ -30,7 +32,7 @@ public:
 	std::string toString() const;
 
 	template<typename T>
-	void select(int numberOfColumn, T value) const;
+	std::string select(int numberOfColumn, T value) const;
 
 	void addColumn(std::string name, std::string type);
 
@@ -49,4 +51,6 @@ public:
 
 	template<typename T>
 	void agregate(int searchColumn, T searchValue, int targetColumn, std::string operation);
+
+
 };
