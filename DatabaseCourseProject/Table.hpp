@@ -16,6 +16,7 @@ private:
 	std::string filename;
 
 	void deleteGivenRow(int index);
+	bool isNumber(const std::string& s);
 public:
 
 	Table(const std::vector<TableColumn> columns, const std::string name, const std::string filename);
@@ -50,7 +51,7 @@ public:
 	int count(int searchColumn, T value) const;
 
 	template<typename T>
-	void agregate(int searchColumn, T searchValue, int targetColumn, std::string operation);
+	double agregate(int searchColumn, T searchValue, int targetColumn, std::string operation);
 
 
 };
