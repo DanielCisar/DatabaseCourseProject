@@ -27,7 +27,7 @@ public:
 
 	std::vector<std::string> describe() const;
 
-	void print() const;
+	std::string toString() const;
 
 	template<typename T>
 	void select(int numberOfColumn, T value) const;
