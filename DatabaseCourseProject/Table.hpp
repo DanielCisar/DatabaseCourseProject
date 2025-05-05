@@ -15,7 +15,7 @@ private:
 	std::string name;
 	std::string filename;
 
-
+	void deleteGivenRow(int index);
 public:
 
 	Table(const std::vector<TableColumn> columns, const std::string name, const std::string filename);
