@@ -16,7 +16,12 @@ private:
 	std::string filename;
 
 	void deleteGivenRow(int index);
-	bool isNumber(const std::string& s);
+
+	template <typename T>
+	bool checkValidityOfTemplateParameters(const T& value);
+
+	template <typename T>
+	bool checkEquivelenceBetweenColumnAndType(int column, const T& value);
 public:
 
 	Table(const std::vector<TableColumn> columns, const std::string name, const std::string filename);
