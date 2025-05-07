@@ -18,9 +18,21 @@
     <ClInclude Include="Table.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Catalog.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TableColumn.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TableImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TableColumnImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
