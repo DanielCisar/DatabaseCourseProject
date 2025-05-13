@@ -15,15 +15,15 @@ public:
 	TableColumn(std::string name, std::string type);
 	~TableColumn();
 
-	std::string getName();
-	std::string getType();
-	std::vector<std::string> getContent();
+	std::string getName() const;
+	std::string getType() const;
+	std::vector<std::string> getContent() const;
 
 	template <typename T>
-	int findIndexOfGivenCell(T value);
+	int findIndexOfGivenCell(T value) const;
 
 	template <typename T>
 	void changeValueAtGivenIndex(int index, T value);
 
-
+	std::string returnValueAtGivenIndex(int index) const;
 };

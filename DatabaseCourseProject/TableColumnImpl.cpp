@@ -23,17 +23,18 @@ bool TableColumn::checkEquivelenceBetweenColumnAndType(const T& value) {
 	return false;
 }
 
-std::string TableColumn::getName() {
-	return name;
+std::string TableColumn::getName() const{
+	return this->name;
 }
-std::string TableColumn::getType() {
-	return type;
+std::string TableColumn::getType() const{
+	return this->type;
 }
-std::vector<std::string> TableColumn::getContent() {
-	return content;
+std::vector<std::string> TableColumn::getContent() const{
+	return this->content;
 }
+
 template <typename T>
-int TableColumn::findIndexOfGivenCell(T value) {
+int TableColumn::findIndexOfGivenCell(T value) const{
 	int i = 0;
 	for (std::string cell : content) {
 		if (std::is_same<T, std::string>::value) {
@@ -61,4 +62,8 @@ void TableColumn::changeValueAtGivenIndex(int index, T value) {
 		throw std::invalid_argument("This column doesn't accept this value type. ");
 	}
 	content[index] = std::to_string(value);
+}
+
+std::string TableColumn::returnValueAtGivenIndex(int index) const {
+	return content[index];
 }

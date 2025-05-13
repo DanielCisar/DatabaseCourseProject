@@ -13,27 +13,45 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Entities">
+      <UniqueIdentifier>{81c251dc-5f06-443a-8c15-c3b78b45dd2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO">
+      <UniqueIdentifier>{fd58ef6f-d71a-456a-a3cd-abb848fd8b77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\EntityHeaders">
+      <UniqueIdentifier>{2ed0723b-3d44-4151-8ec6-179ab3266db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IOHeaders">
+      <UniqueIdentifier>{73121b0e-c2f8-48a2-9374-71ee88457945}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Table.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Catalog.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\EntityHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Table.hpp">
+      <Filter>Header Files\EntityHeaders</Filter>
     </ClInclude>
     <ClInclude Include="TableColumn.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\EntityHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="InputFileReader.hpp">
+      <Filter>Header Files\IOHeaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TableImpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CatalogImpl.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="TableColumnImpl.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="TableImpl.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="InputFileReaderImpl.cpp">
+      <Filter>Source Files\IO</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

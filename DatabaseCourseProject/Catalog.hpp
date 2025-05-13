@@ -7,8 +7,10 @@ class Catalog {
 private:
 	std::vector<Table> tableCollection;
 	const std::string catalogPath;
+
 public:
 	Catalog(const std::string catalogPath);
+	~Catalog();
 	void addTable(Table table);
 	void removeTable(int index);
 	Table returnTableByName(std::string name) const;

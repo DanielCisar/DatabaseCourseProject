@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.hpp" />
+    <ClInclude Include="InputFileReader.hpp" />
     <ClInclude Include="Table.hpp" />
     <ClInclude Include="TableColumn.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CatalogImpl.cpp" />
+    <ClCompile Include="InputFileReaderImpl.cpp" />
     <ClCompile Include="TableColumnImpl.cpp" />
     <ClCompile Include="TableImpl.cpp" />
   </ItemGroup>

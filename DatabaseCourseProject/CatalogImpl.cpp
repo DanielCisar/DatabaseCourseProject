@@ -5,6 +5,10 @@ Catalog::Catalog(const std::string catalogPath) : catalogPath(catalogPath){
 
 }
 
+Catalog::~Catalog() {
+
+}
+
 void Catalog::addTable(Table table) {
 	tableCollection.push_back(table);
 }
