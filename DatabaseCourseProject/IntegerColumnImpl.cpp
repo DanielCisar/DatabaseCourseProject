@@ -28,16 +28,20 @@ int IntegerColumn::getValueAtGivenIndex(int index) const {
 }
 
 
-void IntegerColumn::changeValueAtIndex(int index, int val) {
+void IntegerColumn::changeValueAtIndex(int index, std::string val) {
+	int value = std::stoi(val);
+
 	if (index < 0 || index >= content.size()) {
 		throw std::invalid_argument("Invalid index. ");
 	}
-	content[index] = val;
+	content[index] = value;
 }
-int IntegerColumn::findIndexOfValue(int val) const{
+int IntegerColumn::findIndexOfValue(std::string val) const{
 	int index = 0;
+	int value = std::stoi(val);
+
 	for (auto v : content) {
-		if (val == v) {
+		if (value == v) {
 			return index;
 		}
 		++index;
@@ -46,8 +50,8 @@ int IntegerColumn::findIndexOfValue(int val) const{
 
 }
 
-void IntegerColumn::addCell(int cell) {
-	content.push_back(cell);
+void IntegerColumn::addCell(std::string cell) {
+	content.push_back(std::stoi(cell));
 }
 
 void IntegerColumn::deleteCell(int index) {

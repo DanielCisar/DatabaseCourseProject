@@ -29,16 +29,19 @@ double DoubleColumn::getValueAtGivenIndex(int index) const {
 }
 
 
-void DoubleColumn::changeValueAtIndex(int index, double val) {
+void DoubleColumn::changeValueAtIndex(int index, std::string val) {
+	double value = std::stod(val);
+
 	if (index < 0 || index >= content.size()) {
 		throw std::invalid_argument("Invalid index. ");
 	}
-	content[index] = val;
+	content[index] = value;
 }
-int DoubleColumn::findIndexOfValue(double val) const {
+int DoubleColumn::findIndexOfValue(std::string val) const {
+	double value = std::stod(val);
 	int index = 0;
 	for (auto v : content) {
-		if (val == v) {
+		if (value == v) {
 			return index;
 		}
 		++index;
@@ -47,8 +50,8 @@ int DoubleColumn::findIndexOfValue(double val) const {
 
 }
 
-void DoubleColumn::addCell(double cell) {
-	content.push_back(cell);
+void DoubleColumn::addCell(std::string cell) {
+	content.push_back(std::stod(cell));
 }
 
 void DoubleColumn::deleteCell(int index) {

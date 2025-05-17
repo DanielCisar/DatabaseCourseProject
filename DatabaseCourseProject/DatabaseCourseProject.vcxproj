@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.hpp" />
+    <ClInclude Include="ColumnFactory.hpp" />
     <ClInclude Include="ColumnType.hpp" />
     <ClInclude Include="DoubleColumn.hpp" />
     <ClInclude Include="InputFileReader.hpp" />
@@ -138,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CatalogImpl.cpp" />
+    <ClCompile Include="ColumnFactoryImpl.cpp" />
     <ClCompile Include="DoubleColumnImpl.cpp" />
     <ClCompile Include="InputFileReaderImpl.cpp" />
     <ClCompile Include="IntegerColumnImpl.cpp" />

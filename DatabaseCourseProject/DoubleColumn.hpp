@@ -19,10 +19,10 @@ public:
 
 	double getValueAtGivenIndex(int index) const;
 
-	void changeValueAtIndex(int index, double val);
-	int findIndexOfValue(double val) const;
+	void changeValueAtIndex(int index, std::string val) override;
+	int findIndexOfValue(std::string val) const override;
 
-	void addCell(double cell);
+	void addCell(std::string cell) override;
 
 	void deleteCell(int index) override;
 

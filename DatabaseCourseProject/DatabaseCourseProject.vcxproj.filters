@@ -31,6 +31,12 @@
     <Filter Include="Header Files\EnumClasses">
       <UniqueIdentifier>{3923f129-cf6b-4480-95dc-9e063b3196ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\FactoriesHeader">
+      <UniqueIdentifier>{6185ea86-b1f0-4d5b-9750-ffd35def5276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Factories">
+      <UniqueIdentifier>{95af7232-a236-4a17-92ed-c8a8f86140a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.hpp">
@@ -57,6 +63,9 @@
     <ClInclude Include="ColumnType.hpp">
       <Filter>Header Files\EnumClasses</Filter>
     </ClInclude>
+    <ClInclude Include="ColumnFactory.hpp">
+      <Filter>Header Files\FactoriesHeader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CatalogImpl.cpp">
@@ -79,6 +88,9 @@
     </ClCompile>
     <ClCompile Include="IntegerColumnImpl.cpp">
       <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="ColumnFactoryImpl.cpp">
+      <Filter>Source Files\Factories</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
