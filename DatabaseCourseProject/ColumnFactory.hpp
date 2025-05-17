@@ -10,7 +10,7 @@ public:
 	ColumnFactory();
 	~ColumnFactory();
 
-	StringColumn makeStringColumn(std::string name);
-	IntegerColumn makeIntegerColumn(std::string name);
-	DoubleColumn makeDoubleColumn(std::string name);
+	StringColumn* makeStringColumn(std::string name);
+	IntegerColumn* makeIntegerColumn(std::string name);
+	DoubleColumn* makeDoubleColumn(std::string name);
 };

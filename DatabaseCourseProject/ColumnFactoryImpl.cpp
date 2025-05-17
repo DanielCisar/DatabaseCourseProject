@@ -12,12 +12,12 @@ ColumnFactory::~ColumnFactory() {
 
 }
 
-StringColumn ColumnFactory::makeStringColumn(std::string name) {
-	return StringColumn(name);
+StringColumn* ColumnFactory::makeStringColumn(std::string name) {
+	return new StringColumn(name);
 }
-IntegerColumn ColumnFactory::makeIntegerColumn(std::string name) {
-	return IntegerColumn(name);
+IntegerColumn* ColumnFactory::makeIntegerColumn(std::string name) {
+	return new IntegerColumn(name);
 }
-DoubleColumn ColumnFactory::makeDoubleColumn(std::string name) {
-	return DoubleColumn(name);
+DoubleColumn* ColumnFactory::makeDoubleColumn(std::string name) {
+	return new DoubleColumn(name);
 }
