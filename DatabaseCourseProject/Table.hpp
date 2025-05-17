@@ -5,28 +5,24 @@
 
 class Table {
 private:
-	std::vector<TableColumn> columns;
+	std::vector<TableColumn*> columns;
 	std::string name;
 	std::string filename;
 
-
-	template <typename T>
-	bool checkValidityOfTemplateParameters(const T& value);
-
-	template <typename T>
-	bool checkEquivelenceBetweenColumnAndType(int column, const T& value);
 public:
 
-	Table(const std::vector<TableColumn> columns, const std::string name, const std::string filename);
+	Table(const std::vector<TableColumn*> columns, const std::string name, const std::string filename);
 
 	~Table();
 
-	//TODO: Think about copy constructor and assignment operator and iterator
+	using iterator = std::vector<TableColumn*>::iterator;
+	using const_iterator = std::vector<TableColumn*>::const_iterator;
 
-	using iterator = std::vector<TableColumn>::iterator;
-	
 	iterator begin() { return columns.begin(); }
 	iterator end() { return columns.end(); }
+
+	const_iterator begin() const { return columns.begin(); }
+	const_iterator end() const { return columns.end(); }
 
 	std::string getName() const;
 

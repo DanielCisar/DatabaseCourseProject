@@ -50,3 +50,15 @@ int DoubleColumn::findIndexOfValue(double val) const {
 void DoubleColumn::addCell(double cell) {
 	content.push_back(cell);
 }
+
+void DoubleColumn::deleteCell(int index) {
+	content.erase(content.begin() + index);
+}
+
+int DoubleColumn::getSize() {
+	return content.size();
+}
+
+std::string DoubleColumn::returnValueAtGivenIndexAsString(int index) const {
+	return std::to_string(content[index]);
+}

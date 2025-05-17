@@ -49,3 +49,14 @@ int IntegerColumn::findIndexOfValue(int val) const{
 void IntegerColumn::addCell(int cell) {
 	content.push_back(cell);
 }
+
+void IntegerColumn::deleteCell(int index) {
+	content.erase(content.begin() + index);
+}
+
+int IntegerColumn::getSize() {
+	return content.size();
+}
+std::string IntegerColumn::returnValueAtGivenIndexAsString(int index) const {
+	return std::to_string(content[index]);
+}

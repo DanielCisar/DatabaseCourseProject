@@ -49,3 +49,15 @@ int StringColumn::findIndexOfValue(std::string val) const{
 void StringColumn::addCell(std::string cell) {
 	content.push_back(cell);
 }
+
+void StringColumn::deleteCell(int index) {
+	content.erase(content.begin() + index);
+}
+
+int StringColumn::getSize() {
+	return content.size();
+}
+
+std::string StringColumn::returnValueAtGivenIndexAsString(int index) const {
+	return content[index];
+}

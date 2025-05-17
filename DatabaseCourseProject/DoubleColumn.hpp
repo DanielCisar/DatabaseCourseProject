@@ -23,4 +23,11 @@ public:
 	int findIndexOfValue(double val) const;
 
 	void addCell(double cell);
+
+	void deleteCell(int index) override;
+
+	int getSize() override;
+
+	std::string returnValueAtGivenIndexAsString(int index) const override;
+
 };
