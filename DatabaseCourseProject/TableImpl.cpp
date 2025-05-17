@@ -55,3 +55,7 @@ std::string Table::toString() const {
 int Table::getNumberOfColumns() const {
 	return columns.size();
 }
+
+void Table::addColumn(TableColumn* col) {
+	columns.push_back(col);
+}

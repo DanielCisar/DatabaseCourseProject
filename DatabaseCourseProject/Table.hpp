@@ -34,5 +34,7 @@ public:
 
 	void deleteGivenRow(int index);
 
+	void addColumn(TableColumn* col);
+
 	int getNumberOfColumns() const;
 };
