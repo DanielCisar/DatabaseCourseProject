@@ -128,12 +128,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.hpp" />
+    <ClInclude Include="DoubleColumn.hpp" />
+    <ClInclude Include="IntegerColumn.hpp" />
+    <ClInclude Include="StringColumn.hpp" />
     <ClInclude Include="Table.hpp" />
     <ClInclude Include="TableColumn.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CatalogImpl.cpp" />
-    <ClCompile Include="TableColumnImpl.cpp" />
+    <ClCompile Include="DoubleColumnImpl.cpp" />
+    <ClCompile Include="IntegerColumnImpl.cpp" />
+    <ClCompile Include="StringColumnImpl.cpp" />
     <ClCompile Include="TableImpl.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

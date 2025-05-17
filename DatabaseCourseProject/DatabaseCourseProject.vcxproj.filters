@@ -24,6 +24,15 @@
     <ClInclude Include="TableColumn.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DoubleColumn.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringColumn.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IntegerColumn.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TableImpl.cpp">
@@ -32,7 +41,13 @@
     <ClCompile Include="CatalogImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TableColumnImpl.cpp">
+    <ClCompile Include="StringColumnImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IntegerColumnImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleColumnImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
