@@ -15,5 +15,5 @@ public:
 	virtual void changeValueAtIndex(int index, std::string val) = 0;
 	virtual int findIndexOfValue(std::string val) const = 0;
 	virtual void addCell(std::string cell) = 0;
-
+	virtual std::string getTypeAsString() const = 0;
 };

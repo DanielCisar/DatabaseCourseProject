@@ -1,0 +1,19 @@
+#include "InputConsoleReader.hpp"
+#include <vector>
+#include <string>
+
+InputConsoleReader::InputConsoleReader(CommandParser parser) : parser(parser){
+
+}
+InputConsoleReader::~InputConsoleReader() {
+
+}
+
+std::vector<std::string> InputConsoleReader::parseLine() {
+
+    std::string input;
+
+    std::getline(std::cin, input);
+
+    return parser.parseCommand(input, ' ');
+}

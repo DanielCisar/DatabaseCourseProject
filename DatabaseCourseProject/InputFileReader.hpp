@@ -6,14 +6,16 @@
 #include <string>
 #include "Table.hpp"
 #include "ColumnFactory.hpp"
+#include "CommandParser.hpp"
 
 class InputFileReader {
 private:
-	std::string filepath;
 	ColumnFactory factory;
-	std::vector<std::string> split(const std::string& line, char delimiter);
+	CommandParser parser;
+
 public:
-	InputFileReader(std::string filepath, ColumnFactory cf);
+	InputFileReader(ColumnFactory cf, CommandParser parser);
 	~InputFileReader();
-	Table readFromFile();
+
+	Table readFromFile(std::string filepath);
 };

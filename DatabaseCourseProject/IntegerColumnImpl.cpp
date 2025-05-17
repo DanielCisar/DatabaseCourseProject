@@ -61,6 +61,11 @@ void IntegerColumn::deleteCell(int index) {
 int IntegerColumn::getSize() {
 	return content.size();
 }
+
 std::string IntegerColumn::returnValueAtGivenIndexAsString(int index) const {
 	return std::to_string(content[index]);
+}
+
+std::string IntegerColumn::getTypeAsString() const {
+	return "Integer";
 }

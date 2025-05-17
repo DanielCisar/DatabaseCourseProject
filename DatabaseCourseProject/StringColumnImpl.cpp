@@ -61,3 +61,7 @@ int StringColumn::getSize() {
 std::string StringColumn::returnValueAtGivenIndexAsString(int index) const {
 	return content[index];
 }
+
+std::string StringColumn::getTypeAsString() const {
+	return "String";
+}

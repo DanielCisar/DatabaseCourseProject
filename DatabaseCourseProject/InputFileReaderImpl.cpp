@@ -12,32 +12,17 @@
 #include <stdexcept>
 #include "ColumnType.hpp"
 
-InputFileReader::InputFileReader(std::string filepath, ColumnFactory cf) : filepath(filepath), factory(cf){
+InputFileReader::InputFileReader(ColumnFactory cf, CommandParser parser) :
+  factory(cf)
+, parser(parser)
+{
     
 }
 InputFileReader::~InputFileReader() {
-	//impl if neccesary 
-}
-std::vector<std::string> InputFileReader::split(const std::string& line, char delimiter) {
-    std::vector<std::string> tokens;
-    int pos = 0;
-    int prevPos = 0;
-
-    for (char el : line) {
-        if (el == delimiter) {
-            std::string subStr = line.substr(prevPos + 1, pos + 1);
-
-            tokens.push_back(subStr);
-
-            prevPos = pos;
-        }
-        ++pos;
-    }
-
-    return tokens;
+	
 }
 
-Table InputFileReader::readFromFile() {
+Table InputFileReader::readFromFile(std::string filepath) {
     std::ifstream file(filepath);
     if (!file.is_open()) {
         throw std::runtime_error("Failed to open file: " + filepath);
@@ -50,11 +35,11 @@ Table InputFileReader::readFromFile() {
 
     line = "";
     std::getline(file, line);
-    std::vector<std::string> types = split(line, ',');
+    std::vector<std::string> types = parser.parseCommand(line, ',');
 
     line = "";
     std::getline(file, line);
-    std::vector<std::string> columnNames = split(line, ',');
+    std::vector<std::string> columnNames = parser.parseCommand(line, ',');
 
     std::vector<TableColumn*> columns;
 
@@ -74,7 +59,7 @@ Table InputFileReader::readFromFile() {
     }
 
     while (std::getline(file, line)) {
-        std::vector<std::string> values = split(line, ',');
+        std::vector<std::string> values = parser.parseCommand(line, ',');
         if (values.size() != columns.size()) {
             throw std::runtime_error("Row length does not match number of columns. ");
         }

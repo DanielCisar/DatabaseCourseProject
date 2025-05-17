@@ -30,4 +30,5 @@ public:
 
 	std::string returnValueAtGivenIndexAsString(int index) const override;
 
+	std::string getTypeAsString() const override;
 };

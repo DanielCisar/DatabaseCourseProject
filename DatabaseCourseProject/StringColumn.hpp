@@ -30,4 +30,6 @@ public:
 	int getSize() override;
 
 	std::string returnValueAtGivenIndexAsString(int index) const override;
+
+	std::string getTypeAsString() const override;
 };

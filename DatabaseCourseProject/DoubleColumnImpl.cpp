@@ -65,3 +65,7 @@ int DoubleColumn::getSize() {
 std::string DoubleColumn::returnValueAtGivenIndexAsString(int index) const {
 	return std::to_string(content[index]);
 }
+
+std::string DoubleColumn::getTypeAsString() const {
+	return "Double";
+}
