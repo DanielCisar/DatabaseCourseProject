@@ -25,6 +25,12 @@
     <Filter Include="Header Files\IOHeaders">
       <UniqueIdentifier>{73121b0e-c2f8-48a2-9374-71ee88457945}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\AbstractHeaders">
+      <UniqueIdentifier>{f04050d2-856a-4c34-8adc-4c254564eca9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\EnumClasses">
+      <UniqueIdentifier>{3923f129-cf6b-4480-95dc-9e063b3196ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.hpp">
@@ -33,11 +39,23 @@
     <ClInclude Include="Table.hpp">
       <Filter>Header Files\EntityHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="TableColumn.hpp">
-      <Filter>Header Files\EntityHeaders</Filter>
-    </ClInclude>
     <ClInclude Include="InputFileReader.hpp">
       <Filter>Header Files\IOHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleColumn.hpp">
+      <Filter>Header Files\EntityHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="StringColumn.hpp">
+      <Filter>Header Files\EntityHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="IntegerColumn.hpp">
+      <Filter>Header Files\EntityHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TableColumn.hpp">
+      <Filter>Header Files\AbstractHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ColumnType.hpp">
+      <Filter>Header Files\EnumClasses</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +70,15 @@
     </ClCompile>
     <ClCompile Include="InputFileReaderImpl.cpp">
       <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleColumnImpl.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="StringColumnImpl.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="IntegerColumnImpl.cpp">
+      <Filter>Source Files\Entities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
