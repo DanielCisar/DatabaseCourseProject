@@ -25,32 +25,22 @@ double DoubleColumn::getValueAtGivenIndex(int index) const {
 	if (index < 0 || index >= content.size()) {
 		throw std::invalid_argument("Invalid index. ");
 	}
+
+	if (isNull[index] == true) {
+		throw std::invalid_argument("Value at given index is NULL. ");
+	}
+
+
 	return content[index];
 }
 
-
-void DoubleColumn::changeValueAtIndex(int index, std::string val) {
-	double value = std::stod(val);
-
-	if (index < 0 || index >= content.size()) {
-		throw std::invalid_argument("Invalid index. ");
-	}
-	content[index] = value;
-}
-int DoubleColumn::findIndexOfValue(std::string val) const {
-	double value = std::stod(val);
-	int index = 0;
-	for (auto v : content) {
-		if (value == v) {
-			return index;
-		}
-		++index;
-	}
-	throw std::invalid_argument("No such value found. ");
-
-}
-
 void DoubleColumn::addCell(std::string cell) {
+	if (cell == "NULL") {
+		content.push_back(0.0);
+		isNull.push_back(true);
+		return;
+	}
+
 	content.push_back(std::stod(cell));
 }
 
@@ -63,6 +53,9 @@ int DoubleColumn::getSize() {
 }
 
 std::string DoubleColumn::returnValueAtGivenIndexAsString(int index) const {
+	if (isNull[index] == true) {
+		return "NULL";
+	}
 	return std::to_string(content[index]);
 }
 

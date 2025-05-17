@@ -24,33 +24,42 @@ std::string StringColumn::getValueAtGivenIndex(int index) const {
 	if (index < 0 || index >= content.size()) {
 		throw std::invalid_argument("Invalid index. ");
 	}
+	if (isNull[index] == true) {
+		return "NULL";
+	}
 	return content[index];
 }
-
 
 void StringColumn::changeValueAtIndex(int index, std::string val) {
 	if (index < 0 || index >= content.size()) {
 		throw std::invalid_argument("Invalid index. ");
 	}
-	content[index] = val;
-}
-int StringColumn::findIndexOfValue(std::string val) const{
-	int index = 0;
-	for (auto v : content) {
-		if (val == v) {
-			return index;
-		}
-		++index;
+	
+	if (val != "NULL") {
+		content[index] = val;
+		isNull[index] = false;
+		return;
 	}
-	throw std::invalid_argument("No such value found. ");
-
+	
+	content[index] = "";
+	isNull[index] = true;
+	
 }
 
 void StringColumn::addCell(std::string cell) {
+	if (cell == "NULL") {
+		isNull.push_back(true);
+		content.push_back("");
+		return;
+	}
 	content.push_back(cell);
 }
 
 void StringColumn::deleteCell(int index) {
+	if (index < 0 || index >= content.size()) {
+		throw std::invalid_argument("Invalid index. ");
+	}
+
 	content.erase(content.begin() + index);
 }
 
@@ -59,6 +68,13 @@ int StringColumn::getSize() {
 }
 
 std::string StringColumn::returnValueAtGivenIndexAsString(int index) const {
+	if (index < 0 || index >= content.size()) {
+		throw std::invalid_argument("Invalid index. ");
+	}
+
+	if (isNull[index] == true) {
+		return "NULL";
+	}
 	return content[index];
 }
 

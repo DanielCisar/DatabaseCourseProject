@@ -6,6 +6,7 @@
 class IntegerColumn : public TableColumn {
 private:
 	std::vector<int> content;
+	std::vector<bool> isNull;
 	std::string name;
 	std::string type;
 
@@ -21,7 +22,6 @@ public:
 
 
 	void changeValueAtIndex(int index, std::string val) override;
-	int findIndexOfValue(std::string val) const override;
 
 	void addCell(std::string cell) override;
 

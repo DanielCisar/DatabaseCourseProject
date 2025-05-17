@@ -24,33 +24,35 @@ int IntegerColumn::getValueAtGivenIndex(int index) const {
 	if (index < 0 || index >= content.size()) {
 		throw std::invalid_argument("Invalid index. ");
 	}
+	if (isNull[index] == true) {
+		throw std::invalid_argument("Value at given index is NULL. ");
+	}
+
 	return content[index];
 }
 
 
 void IntegerColumn::changeValueAtIndex(int index, std::string val) {
-	int value = std::stoi(val);
-
 	if (index < 0 || index >= content.size()) {
 		throw std::invalid_argument("Invalid index. ");
 	}
-	content[index] = value;
-}
-int IntegerColumn::findIndexOfValue(std::string val) const{
-	int index = 0;
+
+	if (val == "NULL") {
+		content[index] = 0;
+		isNull[index] = true;
+		return;
+	}
 	int value = std::stoi(val);
 
-	for (auto v : content) {
-		if (value == v) {
-			return index;
-		}
-		++index;
-	}
-	throw std::invalid_argument("No such value found. ");
-
+	content[index] = value;
 }
 
 void IntegerColumn::addCell(std::string cell) {
+	if (cell == "NULL") {
+		content.push_back(0);
+		isNull.push_back(true);
+		return;
+	}
 	content.push_back(std::stoi(cell));
 }
 
@@ -63,6 +65,9 @@ int IntegerColumn::getSize() {
 }
 
 std::string IntegerColumn::returnValueAtGivenIndexAsString(int index) const {
+	if (isNull[index] == true) {
+		return "NULL";
+	}
 	return std::to_string(content[index]);
 }
 

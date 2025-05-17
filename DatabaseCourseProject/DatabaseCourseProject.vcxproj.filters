@@ -101,9 +101,6 @@
     <ClCompile Include="CatalogImpl.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="TableColumnImpl.cpp">
-      <Filter>Source Files\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="TableImpl.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>

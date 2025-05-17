@@ -154,7 +154,6 @@
     <ClCompile Include="OutputConsoleWritterImpl.cpp" />
     <ClCompile Include="OutputFileWritterImpl.cpp" />
     <ClCompile Include="StringColumnImpl.cpp" />
-    <ClCompile Include="TableColumnImpl.cpp" />
     <ClCompile Include="TableImpl.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

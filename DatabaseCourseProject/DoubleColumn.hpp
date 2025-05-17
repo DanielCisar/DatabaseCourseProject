@@ -6,6 +6,7 @@
 class DoubleColumn : public TableColumn {
 private:
 	std::vector<double> content;
+	std::vector<bool> isNull;
 	std::string name;
 	std::string type;
 
@@ -20,7 +21,6 @@ public:
 	double getValueAtGivenIndex(int index) const;
 
 	void changeValueAtIndex(int index, std::string val) override;
-	int findIndexOfValue(std::string val) const override;
 
 	void addCell(std::string cell) override;
 
