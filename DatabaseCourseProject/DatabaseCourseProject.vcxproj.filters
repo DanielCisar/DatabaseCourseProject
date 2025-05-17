@@ -13,42 +13,57 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\EntitiesAbstract">
+      <UniqueIdentifier>{18bb6868-201b-4cc8-a832-7f42a7ee880e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\EntitiesHeader">
+      <UniqueIdentifier>{20650d7e-24aa-42c8-be97-758debd12ad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\EntitiesImpl">
+      <UniqueIdentifier>{121b4ab3-bc3a-4d59-a593-4e6fa575b454}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\EnumTypes">
+      <UniqueIdentifier>{32d49aad-9d25-4910-aa8f-c8aa43224803}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Table.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Catalog.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TableColumn.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\EntitiesAbstract</Filter>
     </ClInclude>
-    <ClInclude Include="DoubleColumn.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Table.hpp">
+      <Filter>Header Files\EntitiesHeader</Filter>
     </ClInclude>
     <ClInclude Include="StringColumn.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\EntitiesHeader</Filter>
     </ClInclude>
     <ClInclude Include="IntegerColumn.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\EntitiesHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleColumn.hpp">
+      <Filter>Header Files\EntitiesHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Catalog.hpp">
+      <Filter>Header Files\EntitiesHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="ColumnType.hpp">
+      <Filter>Header Files\EnumTypes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TableImpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CatalogImpl.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\EntitiesImpl</Filter>
     </ClCompile>
     <ClCompile Include="StringColumnImpl.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\EntitiesImpl</Filter>
     </ClCompile>
     <ClCompile Include="IntegerColumnImpl.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\EntitiesImpl</Filter>
     </ClCompile>
     <ClCompile Include="DoubleColumnImpl.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\EntitiesImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogImpl.cpp">
+      <Filter>Source Files\EntitiesImpl</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

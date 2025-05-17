@@ -13,8 +13,8 @@ StringColumn::~StringColumn() {
 std::string StringColumn::getName() const {
 	return name;
 }
-std::string StringColumn::getType() const {
-	return "String";
+ColumnType StringColumn::getType() const {
+	return ColumnType::STRING;
 }
 std::vector<std::string> StringColumn::getContent() const {
 	return content;

@@ -14,7 +14,7 @@ public:
 	~DoubleColumn();
 
 	std::string getName() const override;
-	std::string getType() const override;
+	ColumnType getType() const override;
 	std::vector<double> getContent() const;
 
 	double getValueAtGivenIndex(int index) const;

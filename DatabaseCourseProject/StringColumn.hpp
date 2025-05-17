@@ -14,7 +14,7 @@ public:
 	~StringColumn();
 
 	std::string getName() const override;
-	std::string getType() const override;
+	ColumnType getType() const override;
 	std::vector<std::string> getContent() const;
 
 	std::string getValueAtGivenIndex(int index) const;

@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.hpp" />
+    <ClInclude Include="ColumnType.hpp" />
     <ClInclude Include="DoubleColumn.hpp" />
     <ClInclude Include="IntegerColumn.hpp" />
     <ClInclude Include="StringColumn.hpp" />

@@ -13,8 +13,8 @@ DoubleColumn::~DoubleColumn() {
 std::string DoubleColumn::getName() const {
 	return name;
 }
-std::string DoubleColumn::getType() const {
-	return "String";
+ColumnType DoubleColumn::getType() const {
+	return ColumnType::DOUBLE;
 }
 std::vector<double> DoubleColumn::getContent() const {
 	return content;

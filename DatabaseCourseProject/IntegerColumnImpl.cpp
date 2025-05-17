@@ -13,8 +13,8 @@ IntegerColumn::~IntegerColumn() {
 std::string IntegerColumn::getName() const {
 	return name;
 }
-std::string IntegerColumn::getType() const {
-	return "String";
+ColumnType IntegerColumn::getType() const {
+	return ColumnType::INTEGER;
 }
 std::vector<int> IntegerColumn::getContent() const {
 	return content;
