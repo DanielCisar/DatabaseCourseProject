@@ -14,7 +14,6 @@
 
 InputFileReader::InputFileReader(ColumnFactory cf, CommandParser parser) :
   factory(cf)
-, parser(parser)
 {
     
 }
@@ -22,7 +21,7 @@ InputFileReader::~InputFileReader() {
 	
 }
 
-Table InputFileReader::readFromFile(std::string filepath) {
+Table InputFileReader::readTableFromFile(const std::string& filepath) {
     std::ifstream file(filepath);
     if (!file.is_open()) {
         throw std::runtime_error("Failed to open file: " + filepath);
@@ -35,11 +34,11 @@ Table InputFileReader::readFromFile(std::string filepath) {
 
     line = "";
     std::getline(file, line);
-    std::vector<std::string> types = parser.parseCommand(line, ',');
+    std::vector<std::string> types = CommandParser::parseCommand(line, ',');
 
     line = "";
     std::getline(file, line);
-    std::vector<std::string> columnNames = parser.parseCommand(line, ',');
+    std::vector<std::string> columnNames = CommandParser::parseCommand(line, ',');
 
     std::vector<TableColumn*> columns;
 
@@ -59,7 +58,7 @@ Table InputFileReader::readFromFile(std::string filepath) {
     }
 
     while (std::getline(file, line)) {
-        std::vector<std::string> values = parser.parseCommand(line, ',');
+        std::vector<std::string> values = CommandParser::parseCommand(line, ',');
         if (values.size() != columns.size()) {
             throw std::runtime_error("Row length does not match number of columns. ");
         }
@@ -76,4 +75,37 @@ Table InputFileReader::readFromFile(std::string filepath) {
     file.close();
 
     return Table(columns, tableName, filepath);
+}
+
+Catalog InputFileReader::readCatalogFromFile(const std::string& filepath) {
+    std::ifstream file(filepath);
+    if (!file.is_open()) {
+        throw std::runtime_error("Failed to open file: " + filepath);
+    }
+
+    Catalog catalog(filepath);
+
+    std::string line;
+
+    while (std::getline(file, line)) {
+        if (line.empty()) {
+            continue;
+        }
+        std::vector<std::string> tokens = CommandParser::parseCommand(line, ',');
+
+        if (tokens.size() != 1) {
+            throw std::runtime_error("Invalid line in catalog CSV file: " + line);
+        }
+        
+        std::string tableFilePath = tokens[1];
+
+        try {
+            catalog.addTable(readTableFromFile(tableFilePath));
+        }
+        catch(const std::runtime_error& e){
+            continue;
+        }
+    }
+    
+    return catalog;
 }

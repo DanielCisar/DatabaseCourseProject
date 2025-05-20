@@ -5,8 +5,6 @@
 #include "CommandParser.hpp"
 
 class InputConsoleReader {
-private:
-	CommandParser parser;
 public:
 	InputConsoleReader(CommandParser parser);
 	~InputConsoleReader();

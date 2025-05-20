@@ -43,11 +43,14 @@
     <Filter Include="Source Files\Core">
       <UniqueIdentifier>{30465b4f-9140-4a59-b446-7af096a1d0fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Utilities">
-      <UniqueIdentifier>{c80d1047-7f04-43e1-97f1-32ae800aa202}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\UtilitiesHeader">
+    <Filter Include="Header Files\Utilities">
       <UniqueIdentifier>{6faa4c16-d0d8-40cf-a68b-8ac60af7c8de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RepositoryHeader">
+      <UniqueIdentifier>{ca8289bd-6a7c-4feb-9992-a339ab1a57bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Repository">
+      <UniqueIdentifier>{fb10e529-97e0-40fa-a621-cab0f6192593}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -78,23 +81,29 @@
     <ClInclude Include="ColumnFactory.hpp">
       <Filter>Header Files\FactoriesHeader</Filter>
     </ClInclude>
-    <ClInclude Include="FileCommandsManager.hpp">
+    <ClInclude Include="CatalogCommandsManager.hpp">
       <Filter>Header Files\CoreHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ComandLineManager.hpp">
+    <ClInclude Include="CommandLineManager.hpp">
       <Filter>Header Files\CoreHeaders</Filter>
     </ClInclude>
     <ClInclude Include="InputConsoleReader.hpp">
       <Filter>Header Files\IOHeaders</Filter>
     </ClInclude>
     <ClInclude Include="CommandParser.hpp">
-      <Filter>Header Files\UtilitiesHeader</Filter>
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="OutputConsoleWriter.hpp">
       <Filter>Header Files\IOHeaders</Filter>
     </ClInclude>
     <ClInclude Include="OutputFileWritter.hpp">
       <Filter>Header Files\IOHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="FileUtils.hpp">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogRepository.hpp">
+      <Filter>Header Files\RepositoryHeader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -122,14 +131,17 @@
     <ClCompile Include="InputConsoleReaderImpl.cpp">
       <Filter>Source Files\IO</Filter>
     </ClCompile>
-    <ClCompile Include="CommandParserImpl.cpp">
-      <Filter>Source Files\Utilities</Filter>
-    </ClCompile>
     <ClCompile Include="OutputConsoleWritterImpl.cpp">
       <Filter>Source Files\IO</Filter>
     </ClCompile>
     <ClCompile Include="OutputFileWritterImpl.cpp">
       <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandLineManagerImpl.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogRepositoryImpl.cpp">
+      <Filter>Source Files\Repository</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

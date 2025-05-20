@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-InputConsoleReader::InputConsoleReader(CommandParser parser) : parser(parser){
+InputConsoleReader::InputConsoleReader(CommandParser parser) {
 
 }
 InputConsoleReader::~InputConsoleReader() {
@@ -15,5 +15,5 @@ std::vector<std::string> InputConsoleReader::parseLine() {
 
     std::getline(std::cin, input);
 
-    return parser.parseCommand(input, ' ');
+    return CommandParser::parseCommand(input, ' ');
 }

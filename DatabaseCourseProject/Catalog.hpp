@@ -14,6 +14,7 @@ public:
 	void addTable(Table table);
 	void removeTable(int index);
 	Table returnTableByName(std::string name) const;
+	std::string getPath() const;
 
 	std::vector<Table>::iterator begin();
 	std::vector <Table>::iterator end();

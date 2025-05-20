@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.hpp" />
+    <ClInclude Include="CatalogRepository.hpp" />
     <ClInclude Include="ColumnFactory.hpp" />
     <ClInclude Include="ColumnType.hpp" />
-    <ClInclude Include="ComandLineManager.hpp" />
+    <ClInclude Include="CommandLineManager.hpp" />
     <ClInclude Include="CommandParser.hpp" />
     <ClInclude Include="DoubleColumn.hpp" />
-    <ClInclude Include="FileCommandsManager.hpp" />
+    <ClInclude Include="CatalogCommandsManager.hpp" />
+    <ClInclude Include="FileUtils.hpp" />
     <ClInclude Include="InputConsoleReader.hpp" />
     <ClInclude Include="InputFileReader.hpp" />
     <ClInclude Include="IntegerColumn.hpp" />
@@ -145,8 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CatalogImpl.cpp" />
+    <ClCompile Include="CatalogRepositoryImpl.cpp" />
     <ClCompile Include="ColumnFactoryImpl.cpp" />
-    <ClCompile Include="CommandParserImpl.cpp" />
+    <ClCompile Include="CommandLineManagerImpl.cpp" />
     <ClCompile Include="DoubleColumnImpl.cpp" />
     <ClCompile Include="InputConsoleReaderImpl.cpp" />
     <ClCompile Include="InputFileReaderImpl.cpp" />

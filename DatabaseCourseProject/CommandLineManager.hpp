@@ -9,16 +9,18 @@
 #include <vector>
 #include <string>
 #include "Catalog.hpp"
-
+#include "CatalogRepository.hpp"
 class CommandLineManager {
 private:
-	Catalog catalog;
-	std::string openedFile;
+	CatalogRepository repo;
+	bool loadedFileExists;
+	Catalog* currentLoadedFile;
+
 public:
-	CommandLineManager();
+	CommandLineManager(CatalogRepository repo);
 	~CommandLineManager();
 
-	Table open(std::string filepath);
+	Table open(const std::string& filepath);
 	void close();
 	void save();
 	void saveAs(std::string filepath);

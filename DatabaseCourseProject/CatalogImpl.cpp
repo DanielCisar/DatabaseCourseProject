@@ -1,5 +1,6 @@
 #include "Catalog.hpp"
 #include <vector>
+#include <stdexcept>
 
 Catalog::Catalog(const std::string catalogPath) : catalogPath(catalogPath){
 
@@ -10,6 +11,12 @@ Catalog::~Catalog() {
 }
  
 void Catalog::addTable(Table table) {
+	for (auto& t : tableCollection) {
+		if (table.getName() == t.getName()) {
+			throw std::runtime_error("Duplicate table name in catalog: " + table.getName());
+		}
+	}
+
 	tableCollection.push_back(table);
 }
 
@@ -31,4 +38,8 @@ Table Catalog::returnTableByName(std::string name) const{
 			return table;
 		}
 	}
+}
+
+std::string Catalog::getPath() const {
+	return this->catalogPath;
 }

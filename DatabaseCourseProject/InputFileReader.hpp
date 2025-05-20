@@ -7,15 +7,15 @@
 #include "Table.hpp"
 #include "ColumnFactory.hpp"
 #include "CommandParser.hpp"
+#include "Catalog.hpp"
 
 class InputFileReader {
 private:
 	ColumnFactory factory;
-	CommandParser parser;
-
 public:
 	InputFileReader(ColumnFactory cf, CommandParser parser);
 	~InputFileReader();
 
-	Table readFromFile(std::string filepath);
+	Table readTableFromFile(const std::string& filepath);
+	Catalog readCatalogFromFile(const std::string& filepath);
 };
