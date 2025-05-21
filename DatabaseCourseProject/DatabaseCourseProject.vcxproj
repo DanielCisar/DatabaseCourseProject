@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.hpp" />
-    <ClInclude Include="CatalogRepository.hpp" />
     <ClInclude Include="ColumnFactory.hpp" />
     <ClInclude Include="ColumnType.hpp" />
     <ClInclude Include="CommandLineManager.hpp" />
@@ -147,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CatalogImpl.cpp" />
-    <ClCompile Include="CatalogRepositoryImpl.cpp" />
     <ClCompile Include="ColumnFactoryImpl.cpp" />
     <ClCompile Include="CommandLineManagerImpl.cpp" />
     <ClCompile Include="DoubleColumnImpl.cpp" />

@@ -16,12 +16,10 @@
 #include <ostream>
 #include <iostream>
 
-CommandLineManager::CommandLineManager(CatalogRepository repo,
-	InputFileReader fileReader, 
+CommandLineManager::CommandLineManager(InputFileReader fileReader, 
 	OutputConsoleWritter outputConsoleWriter, 
 	OutputFileWritter outputFileWritter
 ) :
-repo(repo),
 loadedFileExists(false), 
 currentLoadedFile(nullptr), 
 fileReader(fileReader), 
@@ -134,3 +132,18 @@ void CommandLineManager::saveAs(std::string filepath) {
 		outputConsoleWriter.printLine(e.what());
 	}
 }
+
+void CommandLineManager::help() {
+	outputConsoleWriter.printLine("The following commands are supported:");
+	outputConsoleWriter.printLine("open <file>	opens <file>");
+	outputConsoleWriter.printLine("close			closes currently opened file");
+	outputConsoleWriter.printLine("save			saves the currently open file");
+	outputConsoleWriter.printLine("saveas <file>	saves the currently open file in <file>");
+	outputConsoleWriter.printLine("help			prints this information");
+	outputConsoleWriter.printLine("exit			exists the program");
+}
+
+void CommandLineManager::close() {
+	outputConsoleWriter.printLine("Exiting the program…");
+}
+

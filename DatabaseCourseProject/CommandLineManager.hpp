@@ -17,15 +17,13 @@
 
 class CommandLineManager {
 private:
-	CatalogRepository repo;
 	bool loadedFileExists;
 	Catalog* currentLoadedFile;
 	InputFileReader fileReader;
 	OutputConsoleWritter outputConsoleWriter;
 	OutputFileWritter outputFileWritter;
 public:
-	CommandLineManager(CatalogRepository repo
-		, InputFileReader fileReader
+	CommandLineManager(InputFileReader fileReader
 		, OutputConsoleWritter outputConsoleWriter
 		, OutputFileWritter outputFileWritter
 	);
@@ -37,4 +35,5 @@ public:
 	void save();
 	void saveAs(std::string filepath);
 	void help();
+	void exit();
 };
