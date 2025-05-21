@@ -5,7 +5,7 @@
 
 class TableColumn {
 public:
-	~TableColumn(){}
+	~TableColumn() = default;
 
 	virtual std::string getName() const = 0;
 	virtual ColumnType getType() const = 0;

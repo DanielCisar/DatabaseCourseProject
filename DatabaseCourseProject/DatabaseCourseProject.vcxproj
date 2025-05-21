@@ -138,6 +138,7 @@
     <ClInclude Include="InputConsoleReader.hpp" />
     <ClInclude Include="InputFileReader.hpp" />
     <ClInclude Include="IntegerColumn.hpp" />
+    <ClInclude Include="Operations.hpp" />
     <ClInclude Include="OutputConsoleWriter.hpp" />
     <ClInclude Include="OutputFileWritter.hpp" />
     <ClInclude Include="StringColumn.hpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="TableColumn.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CatalogCommandsManagerImpl.cpp" />
     <ClCompile Include="CatalogImpl.cpp" />
     <ClCompile Include="ColumnFactoryImpl.cpp" />
     <ClCompile Include="CommandLineManagerImpl.cpp" />

@@ -34,6 +34,8 @@ public:
 
 	std::string toString() const;
 
+	std::string printRow(int index) const;
+
 	void deleteGivenRow(int index);
 
 	void addColumn(TableColumn* col);

@@ -52,6 +52,16 @@ std::string Table::toString() const {
 	return result;
 }
 
+std::string Table::printRow(int index) const {
+	std::string result = "";
+	
+	const TableColumn* column = columns[index];
+
+	result += column->returnValueAtGivenIndexAsString(index) + " ";
+
+	return result;
+}
+
 int Table::getNumberOfColumns() const {
 	return columns.size();
 }
