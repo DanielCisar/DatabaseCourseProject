@@ -9,7 +9,15 @@ Catalog::Catalog(const std::string catalogPath) : catalogPath(catalogPath){
 Catalog::~Catalog() {
 
 }
- 
+
+Catalog& Catalog::operator=(const Catalog& other) {
+	if (this != &other) {
+		this->tableCollection = other.tableCollection;
+		this->catalogPath = other.catalogPath;
+	}
+	return *this;
+}
+
 void Catalog::addTable(Table table) {
 	for (auto& t : tableCollection) {
 		if (table.getName() == t.getName()) {

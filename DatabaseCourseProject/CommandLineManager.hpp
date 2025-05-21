@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Table.hpp"
 #include "TableColumn.hpp"
 #include "DoubleColumn.hpp"
@@ -10,17 +11,28 @@
 #include <string>
 #include "Catalog.hpp"
 #include "CatalogRepository.hpp"
+#include "InputFileReader.hpp"
+#include "OutputConsoleWriter.hpp"
+#include "OutputFileWritter.hpp"
+
 class CommandLineManager {
 private:
 	CatalogRepository repo;
 	bool loadedFileExists;
 	Catalog* currentLoadedFile;
-
+	InputFileReader fileReader;
+	OutputConsoleWritter outputConsoleWriter;
+	OutputFileWritter outputFileWritter;
 public:
-	CommandLineManager(CatalogRepository repo);
+	CommandLineManager(CatalogRepository repo
+		, InputFileReader fileReader
+		, OutputConsoleWritter outputConsoleWriter
+		, OutputFileWritter outputFileWritter
+	);
+
 	~CommandLineManager();
 
-	Table open(const std::string& filepath);
+	void open(const std::string& filepath);
 	void close();
 	void save();
 	void saveAs(std::string filepath);

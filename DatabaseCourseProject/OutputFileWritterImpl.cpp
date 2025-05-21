@@ -43,3 +43,16 @@ void OutputFileWritter::writeTableToFile(Table table, std::string filepath) {
 	out.close();
 
 }
+
+void OutputFileWritter::writeCatalogToFile(Catalog catalog, std::string filepath) {
+	std::ofstream out(filepath);
+	if (!out.is_open()) {
+		throw std::runtime_error("Unable to open file: " + filepath);
+	}
+	for (const Table& table : catalog) {
+		out << table.getName() << "," << table.getFilename() << "\n";
+	}
+
+	out.close();
+
+}

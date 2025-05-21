@@ -15,6 +15,8 @@ public:
 
 	~Table();
 
+	Table& operator=(const Table& other);
+
 	using iterator = std::vector<TableColumn*>::iterator;
 	using const_iterator = std::vector<TableColumn*>::const_iterator;
 
@@ -37,4 +39,6 @@ public:
 	void addColumn(TableColumn* col);
 
 	int getNumberOfColumns() const;
+
+	void setTablePath(std::string filename);
 };

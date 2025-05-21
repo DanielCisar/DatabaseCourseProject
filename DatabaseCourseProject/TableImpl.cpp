@@ -59,3 +59,15 @@ int Table::getNumberOfColumns() const {
 void Table::addColumn(TableColumn* col) {
 	columns.push_back(col);
 }
+Table& Table::operator=(const Table& other) {
+	if (this != &other) {
+		this->columns = other.columns;
+		this->filename = other.filename;
+		this->name = other.name;
+	}
+	return *this;
+}
+
+void Table::setTablePath(std::string filename) {
+	this->filename = filename;
+}
