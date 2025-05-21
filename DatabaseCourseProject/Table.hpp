@@ -32,8 +32,6 @@ public:
 
 	std::string getColumnNameAtGivenIndex(int index) const;
 
-	std::string toString() const;
-
 	std::string printRow(int index) const;
 
 	void deleteGivenRow(int index);
