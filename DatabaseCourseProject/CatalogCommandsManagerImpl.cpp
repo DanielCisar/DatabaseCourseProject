@@ -3,11 +3,13 @@
 CatalogCommandManager::CatalogCommandManager(
     InputFileReader fileReader,
     OutputConsoleWritter outputConsoleWriter,
-    OutputFileWritter outputFileWritter) :
+    OutputFileWritter outputFileWritter,
+    InputConsoleReader inputConsoleReader) :
     loadedCatalog(nullptr),
     fileReader(fileReader),
     outputConsoleWriter(outputConsoleWriter),
-    outputFileWritter(outputFileWritter)
+    outputFileWritter(outputFileWritter),
+    inputConsoleReader(inputConsoleReader)
 {
 }
 
@@ -78,11 +80,94 @@ void CatalogCommandManager::describe(const std::string& name)
 
 void CatalogCommandManager::print(const std::string& name)
 {
+    if (!loadedCatalogExists) {
+        throw std::runtime_error("There is no file opened! ");
+    }
+
+    try {
+        Table table = loadedCatalog->returnTableByName(name);
+        const int pageSize = 10;
+        int currentPage = 0;
+
+        int totalRows = table.getNumberOfColumns();
+        int totalPages = (totalRows + pageSize - 1) / pageSize;
+
+        std::string command;
+
+        while (true) {
+            outputConsoleWriter.printLine("Table: " + name);
+            outputConsoleWriter.printLine("Page " + std::to_string(currentPage + 1) + " of " + std::to_string(totalPages));
+
+            for (auto& col : table) {
+                outputConsoleWriter.printLine(col->getName() + "\t");
+            }
+            std::cout << "\n";
+
+            int start = currentPage * pageSize;
+            int end = std::min(start + pageSize, totalRows);
+            
+            for (int i = start; i < end; i++) {
+                std::vector<std::string> row;
+                for (auto& col : table) {
+                    outputConsoleWriter.printLine(col->returnValueAtGivenIndexAsString(i) + "\t");
+                }
+                std::cout << "\n";
+
+            }
+
+            outputConsoleWriter.printLine("\nCommands: next, prev, exit\n");
+            inputConsoleReader.readLine();
+
+            if (command == "next") {
+                if (currentPage + 1 < totalPages) {
+                    ++currentPage;
+                }
+                else {
+                    outputConsoleWriter.printLine("Already on last page. ");
+                }
+            }
+            else if (command == "prev") {
+                if (currentPage > 0) {
+                    --currentPage;
+                }
+                else {
+                    outputConsoleWriter.printLine("Already on first page. ");
+                }
+            }
+            else if (command == "exit") {
+                break;
+            }
+            else {
+                outputConsoleWriter.printLine("Unknown command. Use next, prev, or exit. ");
+            }
+        }
+
+    }
+    catch (const std::exception& e) {
+        outputConsoleWriter.printLine(e.what());
+    }
 
 }
 
 void CatalogCommandManager::select(int numberOfColumn, std::string value, const std::string& name)
 {
+    if (!loadedCatalogExists) {
+        throw std::runtime_error("There is no file opened! ");
+    }
+
+    TableColumn* columnToSearch = loadedCatalog->returnTableByName(name).getColumnAtGivenIndex(numberOfColumn);
+
+    if (numberOfColumn < 0 || numberOfColumn >= columnToSearch->getSize()) {
+        throw std::out_of_range("Invalid column index");
+    }
+
+    int size = columnToSearch->getSize();
+
+    for (int i = 0; i < size; i++) {
+        if (columnToSearch->matchesValues(i, value)) {
+            
+        }
+    }
 }
 
 void CatalogCommandManager::addColumn(const std::string& tableName,

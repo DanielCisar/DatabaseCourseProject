@@ -32,4 +32,6 @@ public:
 	std::string returnValueAtGivenIndexAsString(int index) const override;
 
 	std::string getTypeAsString() const override;
+
+	bool matchesValues(int rowIndex, const std::string& value) const override;
 };

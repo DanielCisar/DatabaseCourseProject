@@ -13,6 +13,7 @@
 #include "InputFileReader.hpp"
 #include "OutputConsoleWriter.hpp"
 #include "OutputFileWritter.hpp"
+#include "InputConsoleReader.hpp"
 
 class CatalogCommandManager {
 private:
@@ -20,12 +21,14 @@ private:
 	InputFileReader fileReader;
 	OutputConsoleWritter outputConsoleWriter;
 	OutputFileWritter outputFileWritter;
+	InputConsoleReader inputConsoleReader;
 
 	bool loadedCatalogExists();
 public:
 	CatalogCommandManager(InputFileReader fileReader,
 		OutputConsoleWritter outputConsoleWriter,
-		OutputFileWritter outputFileWritter);
+		OutputFileWritter outputFileWritter,
+		InputConsoleReader inputConsoleReader);
 	~CatalogCommandManager();
 
 	void import(const std::string& filepath);

@@ -41,4 +41,7 @@ public:
 	int getNumberOfColumns() const;
 
 	void setTablePath(std::string filename);
+
+	TableColumn* getColumnAtGivenIndex(int index) const;
+
 };

@@ -81,3 +81,7 @@ std::string StringColumn::returnValueAtGivenIndexAsString(int index) const {
 std::string StringColumn::getTypeAsString() const {
 	return "String";
 }
+
+bool StringColumn::matchesValues(int rowIndex, const std::string& value) const {
+	return getValueAtGivenIndex(rowIndex) == value;
+}

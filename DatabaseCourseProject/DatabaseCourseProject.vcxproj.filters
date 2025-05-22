@@ -49,9 +49,6 @@
     <Filter Include="Header Files\RepositoryHeader">
       <UniqueIdentifier>{ca8289bd-6a7c-4feb-9992-a339ab1a57bb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Repository">
-      <UniqueIdentifier>{fb10e529-97e0-40fa-a621-cab0f6192593}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.hpp">
@@ -102,8 +99,8 @@
     <ClInclude Include="FileUtils.hpp">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="CatalogRepository.hpp">
-      <Filter>Header Files\RepositoryHeader</Filter>
+    <ClInclude Include="Operations.hpp">
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -140,8 +137,8 @@
     <ClCompile Include="CommandLineManagerImpl.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="CatalogRepositoryImpl.cpp">
-      <Filter>Source Files\Repository</Filter>
+    <ClCompile Include="CatalogCommandsManagerImpl.cpp">
+      <Filter>Source Files\Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

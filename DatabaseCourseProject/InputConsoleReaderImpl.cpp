@@ -9,7 +9,7 @@ InputConsoleReader::~InputConsoleReader() {
 
 }
 
-std::vector<std::string> InputConsoleReader::parseLine() {
+std::vector<std::string> InputConsoleReader::readLine() {
 
     std::string input;
 

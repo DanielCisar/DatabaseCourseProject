@@ -62,3 +62,14 @@ std::string DoubleColumn::returnValueAtGivenIndexAsString(int index) const {
 std::string DoubleColumn::getTypeAsString() const {
 	return "Double";
 }
+
+bool DoubleColumn::matchesValues(int rowIndex, const std::string& value) const {
+	try {
+		double doubleVal = std::stod(value);
+		return getValueAtGivenIndex(rowIndex) == doubleVal;
+	}
+	catch (...) {
+		return false;
+	}
+
+}

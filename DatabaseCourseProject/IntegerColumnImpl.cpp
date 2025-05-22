@@ -74,3 +74,13 @@ std::string IntegerColumn::returnValueAtGivenIndexAsString(int index) const {
 std::string IntegerColumn::getTypeAsString() const {
 	return "Integer";
 }
+
+bool IntegerColumn::matchesValues(int rowIndex, const std::string& value) const {
+	try {
+		int intVal = std::stoi(value);
+		return getValueAtGivenIndex(rowIndex) == intVal;
+	}
+	catch (...) {
+		return false;
+	}
+}

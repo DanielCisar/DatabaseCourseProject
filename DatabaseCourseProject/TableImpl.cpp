@@ -66,3 +66,8 @@ Table& Table::operator=(const Table& other) {
 void Table::setTablePath(std::string filename) {
 	this->filename = filename;
 }
+
+TableColumn* Table::getColumnAtGivenIndex(int index) const {
+	return columns[index];
+}
+
