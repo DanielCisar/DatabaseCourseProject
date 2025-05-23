@@ -21,13 +21,31 @@ std::vector<double> DoubleColumn::getContent() const {
 	return content;
 }
 
+void DoubleColumn::changeValueAtIndex(int index, std::string val) {
+	if (index < 0 || index >= content.size()) {
+		throw std::runtime_error("Invalid index. ");
+	}
+	if (val == "NULL") {
+		content[index] = 0;
+		isNull[index] = true;
+		return;
+	}
+	try {
+		double doubleVal = std::stod(val);
+		content[index] = doubleVal;
+	}
+	catch (...) {
+		throw std::runtime_error("Tried adding value that does not match to column type. ");
+	}
+}
+
 double DoubleColumn::getValueAtGivenIndex(int index) const {
 	if (index < 0 || index >= content.size()) {
-		throw std::invalid_argument("Invalid index. ");
+		throw std::runtime_error("Invalid index. ");
 	}
 
 	if (isNull[index] == true) {
-		throw std::invalid_argument("Value at given index is NULL. ");
+		throw std::runtime_error("Value at given index is NULL. ");
 	}
 
 
@@ -45,11 +63,15 @@ void DoubleColumn::addCell(std::string cell) {
 		content.push_back(doubleVal);
 	}
 	catch (...) {
-		throw std::invalid_argument("Type does not match. ");
+		throw std::runtime_error("Type does not match. ");
 	}
 }
 
 void DoubleColumn::deleteCell(int index) {
+	if (index < 0 || index >= content.size()) {
+		throw std::runtime_error("Invalid index. ");
+	}
+
 	content.erase(content.begin() + index);
 }
 
@@ -58,6 +80,10 @@ int DoubleColumn::getSize() {
 }
 
 std::string DoubleColumn::returnValueAtGivenIndexAsString(int index) const {
+	if (index < 0 || index >= content.size()) {
+		throw std::runtime_error("Invalid index. ");
+	}
+
 	if (isNull[index] == true) {
 		return "NULL";
 	}
@@ -69,6 +95,10 @@ std::string DoubleColumn::getTypeAsString() const {
 }
 
 bool DoubleColumn::matchesValues(int rowIndex, const std::string& value) const {
+	if (rowIndex < 0 || rowIndex >= content.size()) {
+		throw std::runtime_error("Invalid index. ");
+	}
+
 	if (isNull[rowIndex] && value == "NULL") {
 		return true;
 	}

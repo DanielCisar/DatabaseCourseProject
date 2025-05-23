@@ -22,7 +22,7 @@ std::vector<std::string> StringColumn::getContent() const {
 
 std::string StringColumn::getValueAtGivenIndex(int index) const {
 	if (index < 0 || index >= content.size()) {
-		throw std::invalid_argument("Invalid index. ");
+		throw std::runtime_error("Invalid index. ");
 	}
 	if (isNull[index] == true) {
 		return "NULL";
@@ -32,7 +32,7 @@ std::string StringColumn::getValueAtGivenIndex(int index) const {
 
 void StringColumn::changeValueAtIndex(int index, std::string val) {
 	if (index < 0 || index >= content.size()) {
-		throw std::invalid_argument("Invalid index. ");
+		throw std::runtime_error("Invalid index. ");
 	}
 	
 	if (val != "NULL") {
@@ -57,7 +57,7 @@ void StringColumn::addCell(std::string cell) {
 
 void StringColumn::deleteCell(int index) {
 	if (index < 0 || index >= content.size()) {
-		throw std::invalid_argument("Invalid index. ");
+		throw std::runtime_error("Invalid index. ");
 	}
 
 	content.erase(content.begin() + index);
@@ -69,7 +69,7 @@ int StringColumn::getSize() {
 
 std::string StringColumn::returnValueAtGivenIndexAsString(int index) const {
 	if (index < 0 || index >= content.size()) {
-		throw std::invalid_argument("Invalid index. ");
+		throw std::runtime_error("Invalid index. ");
 	}
 
 	if (isNull[index] == true) {
@@ -83,6 +83,10 @@ std::string StringColumn::getTypeAsString() const {
 }
 
 bool StringColumn::matchesValues(int rowIndex, const std::string& value) const {
+	if (rowIndex < 0 || rowIndex >= content.size()) {
+		throw std::runtime_error("Invalid index. ");
+	}
+
 	if (isNull[rowIndex] && value == "NULL") {
 		return true;
 	}

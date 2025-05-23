@@ -130,11 +130,11 @@
     <ClInclude Include="Catalog.hpp" />
     <ClInclude Include="ColumnFactory.hpp" />
     <ClInclude Include="ColumnType.hpp" />
-    <ClInclude Include="ColumnUtils.hpp" />
     <ClInclude Include="CommandLineManager.hpp" />
     <ClInclude Include="CommandParser.hpp" />
     <ClInclude Include="DoubleColumn.hpp" />
-    <ClInclude Include="CatalogCommandsManager.hpp" />
+    <ClInclude Include="CatalogCommandManager.hpp" />
+    <ClInclude Include="Engine.hpp" />
     <ClInclude Include="FileUtils.hpp" />
     <ClInclude Include="InputConsoleReader.hpp" />
     <ClInclude Include="InputFileReader.hpp" />
@@ -154,11 +154,13 @@
     <ClCompile Include="CommandLineManagerImpl.cpp" />
     <ClCompile Include="CommandParserImpl.cpp" />
     <ClCompile Include="DoubleColumnImpl.cpp" />
+    <ClCompile Include="EngineImpl.cpp" />
     <ClCompile Include="FileUtilsImpl.cpp" />
     <ClCompile Include="InputConsoleReaderImpl.cpp" />
     <ClCompile Include="InputFileReaderImpl.cpp" />
     <ClCompile Include="IntegerColumnImpl.cpp" />
     <ClCompile Include="IOUtilsImpl.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="OperationsImpl.cpp" />
     <ClCompile Include="OutputConsoleWritterImpl.cpp" />
     <ClCompile Include="OutputFileWritterImpl.cpp" />

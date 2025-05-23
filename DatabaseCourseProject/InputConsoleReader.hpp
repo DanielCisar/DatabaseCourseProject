@@ -6,7 +6,7 @@
 
 class InputConsoleReader {
 public:
-	InputConsoleReader(CommandParser parser);
+	InputConsoleReader();
 	~InputConsoleReader();
 
 	std::vector<std::string> readLine() const;

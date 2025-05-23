@@ -1,4 +1,4 @@
-#include "CatalogCommandsManager.hpp"
+#include "CatalogCommandManager.hpp"
 #include "IOUtils.hpp"
 #include <stdexcept>
 #include "Operations.hpp"
@@ -30,7 +30,7 @@ bool CatalogCommandManager::loadedCatalogExists() {
 
 void CatalogCommandManager::import(const std::string& filepath)
 {
-    if (!loadedCatalogExists) {
+    if (!loadedCatalogExists()) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -48,7 +48,7 @@ void CatalogCommandManager::import(const std::string& filepath)
 
 void CatalogCommandManager::showTables()
 {
-    if (!loadedCatalogExists) {
+    if (!loadedCatalogExists()) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -59,9 +59,13 @@ void CatalogCommandManager::showTables()
     }
 }
 
+void CatalogCommandManager::exportTable(const std::string& name, const std::string& filepath) {
+    outputFileWritter.writeTableToFile(loadedCatalog->returnTableByName(name), filepath);
+}
+
 void CatalogCommandManager::describe(const std::string& name)
 {
-    if (!loadedCatalogExists) {
+    if (!loadedCatalogExists()) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -83,7 +87,7 @@ void CatalogCommandManager::describe(const std::string& name)
 
 void CatalogCommandManager::print(const std::string& name)
 {
-    if (!loadedCatalogExists) {
+    if (!loadedCatalogExists()) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -119,12 +123,11 @@ void CatalogCommandManager::print(const std::string& name)
 
 void CatalogCommandManager::select(int numberOfColumn, std::string value, const std::string& name)
 {
+    if (!loadedCatalogExists()) {
+        throw std::runtime_error("There is no file opened! ");
+    }
     try {
         Table table = loadedCatalog->returnTableByName(name);
-
-        if (!loadedCatalogExists) {
-            throw std::runtime_error("There is no file opened! ");
-        }
 
         TableColumn* columnToSearch = table.getColumnAtGivenIndex(numberOfColumn);
 
@@ -154,18 +157,26 @@ void CatalogCommandManager::addColumn(const std::string& tableName,
     const std::string& columnName,
     ColumnType columnType)
 {
-    Table table = loadedCatalog->returnTableByName(tableName);
-
-    int colSize = table.getColumnAtGivenIndex(0)->getSize();
-
-    if (columnType == ColumnType::STRING) {
-        table.addColumn(ColumnFactory::makeStringColumn(columnName));
+    if (!loadedCatalogExists()) {
+        throw std::runtime_error("There is no file opened! ");
     }
-    else if (columnType == ColumnType::INTEGER) {
-        table.addColumn(ColumnFactory::makeIntegerColumn(columnName));
+    try {
+        Table table = loadedCatalog->returnTableByName(tableName);
+
+        int colSize = table.getColumnAtGivenIndex(0)->getSize();
+
+        if (columnType == ColumnType::STRING) {
+            table.addColumn(ColumnFactory::makeStringColumn(columnName));
+        }
+        else if (columnType == ColumnType::INTEGER) {
+            table.addColumn(ColumnFactory::makeIntegerColumn(columnName));
+        }
+        else {
+            table.addColumn(ColumnFactory::makeDoubleColumn(columnName));
+        }
     }
-    else {
-        table.addColumn(ColumnFactory::makeDoubleColumn(columnName));
+    catch (const std::exception& e) {
+        outputConsoleWriter.printLine(e.what());
     }
 }
 
@@ -175,6 +186,9 @@ void CatalogCommandManager::update(const std::string& tableName,
     int targetColumn,
     std::string targetValue)
 {
+    if (!loadedCatalogExists()) {
+        throw std::runtime_error("There is no file opened! ");
+    }
     try {
         Table table = loadedCatalog->returnTableByName(tableName);
 
@@ -197,6 +211,9 @@ void CatalogCommandManager::deleteRows(const std::string& tableName,
     int searchColumn,
     std::string searchValue)
 {
+    if (!loadedCatalogExists()) {
+        throw std::runtime_error("There is no file opened! ");
+    }
     try {
         Table table = loadedCatalog->returnTableByName(tableName);
 
@@ -217,6 +234,9 @@ void CatalogCommandManager::deleteRows(const std::string& tableName,
 
 void CatalogCommandManager::insert(const std::string& tableName, std::vector<std::string> values)
 {
+    if (!loadedCatalogExists()) {
+        throw std::runtime_error("There is no file opened! ");
+    }
     try {
         Table table = loadedCatalog->returnTableByName(tableName);
 
@@ -234,11 +254,14 @@ void CatalogCommandManager::insert(const std::string& tableName, std::vector<std
     }
 }
 
-Table CatalogCommandManager::innerJoin(const std::string& tableName1,
+void CatalogCommandManager::innerJoin(const std::string& tableName1,
     int column1,
     const std::string& tableName2,
     int column2)
 {
+    if (!loadedCatalogExists()) {
+        throw std::runtime_error("There is no file opened! ");
+    }
     try {
         Table table1 = loadedCatalog->returnTableByName(tableName1);
         Table table2 = loadedCatalog->returnTableByName(tableName2);
@@ -290,7 +313,8 @@ Table CatalogCommandManager::innerJoin(const std::string& tableName1,
             }
         }
         //TODO think of file path
-        return Table(resultCols, "Inner join result", "");
+        Table resTable(resultCols, "Inner join result", "");
+        outputFileWritter.writeTableToFile(resTable, "");
     }
     catch (const std::exception& e) {
         outputConsoleWriter.printLine(e.what());
@@ -300,6 +324,9 @@ Table CatalogCommandManager::innerJoin(const std::string& tableName1,
 
 void CatalogCommandManager::rename(const std::string& oldName, const std::string& newName)
 {
+    if (!loadedCatalogExists()) {
+        throw std::runtime_error("There is no file opened! ");
+    }
     try {
         Table table = loadedCatalog->returnTableByName(oldName);
         table.setName(newName);
@@ -309,8 +336,11 @@ void CatalogCommandManager::rename(const std::string& oldName, const std::string
     }
 }
 
-int CatalogCommandManager::count(const std::string& tableName, int searchColumn, std::string searchValue)
+void CatalogCommandManager::count(const std::string& tableName, int searchColumn, std::string searchValue)
 {
+    if (!loadedCatalogExists()) {
+        throw std::runtime_error("There is no file opened! ");
+    }
     try {
         Table table = loadedCatalog->returnTableByName(tableName);
 
@@ -321,19 +351,24 @@ int CatalogCommandManager::count(const std::string& tableName, int searchColumn,
                 counter++;
             }
         }
-        return counter;
+        outputConsoleWriter.printLine("Column number " + std::to_string(searchColumn)
+            + " of table " + tableName + " contains " + searchValue + std::to_string(counter) 
+            + " amount of times. ");
     }
     catch (const std::exception& e) {
         outputConsoleWriter.printLine(e.what());
     }
 }
 
-double CatalogCommandManager::agregate(const std::string& tableName,
+void CatalogCommandManager::agregate(const std::string& tableName,
     int searchColumn,
     std::string seacrhValue,
     int targetColumn,
     std::string operation)
 {
+    if (!loadedCatalogExists()) {
+        throw std::runtime_error("There is no file opened! ");
+    }
     try {
         Table table = loadedCatalog->returnTableByName(tableName);
         if (searchColumn > table.getColumnAtGivenIndex(0)->getSize() && searchColumn < 0) {
@@ -367,16 +402,25 @@ double CatalogCommandManager::agregate(const std::string& tableName,
 
         }
         if (operation == "sum") {
-            return Operations::sum(cells);
+            double val = Operations::sum(cells);
+
+            outputConsoleWriter.printLine(std::to_string(val));
         }
         else if (operation == "product") {
-            return Operations::product(cells);
+            double val = Operations::product(cells);
+
+            outputConsoleWriter.printLine(std::to_string(val));
         }
         else if (operation == "maximum") {
-            return Operations::max(cells);
+         
+            double val = Operations::max(cells);
+
+            outputConsoleWriter.printLine(std::to_string(val));
         }
         else if (operation == "minimum") {
-            return Operations::min(cells);
+            double val = Operations::min(cells);
+
+            outputConsoleWriter.printLine(std::to_string(val));
         }
         else {
             throw std::invalid_argument("Unknown aggregate operation: " + operation);

@@ -46,7 +46,7 @@ Table Catalog::returnTableByName(std::string name) const{
 			return table;
 		}
 	}
-	throw std::invalid_argument("No table with this name found! ");
+	throw std::runtime_error("No table with this name found! ");
 }
 
 std::string Catalog::getPath() const {

@@ -143,7 +143,7 @@ void CommandLineManager::help() {
 	outputConsoleWriter.printLine("exit			exists the program");
 }
 
-void CommandLineManager::close() {
+void CommandLineManager::exit() {
 	outputConsoleWriter.printLine("Exiting the program…");
-}
 
+}

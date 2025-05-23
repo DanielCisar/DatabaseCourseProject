@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-InputConsoleReader::InputConsoleReader(CommandParser parser) {
+InputConsoleReader::InputConsoleReader() {
 
 }
 InputConsoleReader::~InputConsoleReader() {

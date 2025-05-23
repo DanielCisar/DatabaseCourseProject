@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include "FileUtils.hpp"
 
 Table::Table(const std::vector<TableColumn*> columns, const std::string name, const std::string filename)
 	: columns(columns), name(name), filename(filename) {
@@ -15,7 +16,9 @@ Table::~Table() {
 }
 
 void Table::deleteGivenRow(int index) {
-	
+	if (index < 0 || index >= columns.size()) {
+		throw std::runtime_error("Invalid index. ");
+	}
 	for (TableColumn* column : columns) {
 		column->deleteCell(index);
 	}
@@ -31,13 +34,16 @@ std::string Table::getFilename() const {
 
 std::string Table::getColumnNameAtGivenIndex(int index) const {
 	if (index < 0 || index >= columns.size()) {
-		throw std::invalid_argument("Invalid index. ");
+		throw std::runtime_error("Invalid index. ");
 	}
 
 	return columns[index]->getName();
 }
 
 std::string Table::getRowAsString(int index) const {
+	if (index < 0 || index >= columns.size()) {
+		throw std::runtime_error("Invalid index. ");
+	}
 	std::string result = "";
 	
 	const TableColumn* column = columns[index];
@@ -64,10 +70,14 @@ Table& Table::operator=(const Table& other) {
 }
 
 void Table::setTablePath(std::string filename) {
+	
 	this->filename = filename;
 }
 
 TableColumn* Table::getColumnAtGivenIndex(int index) const {
+	if (index < 0 || index >= columns.size()) {
+		throw std::runtime_error("Invalid index. ");
+	}
 	return columns[index];
 }
 

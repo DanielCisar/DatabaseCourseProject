@@ -78,7 +78,7 @@
     <ClInclude Include="ColumnFactory.hpp">
       <Filter>Header Files\FactoriesHeader</Filter>
     </ClInclude>
-    <ClInclude Include="CatalogCommandsManager.hpp">
+    <ClInclude Include="CatalogCommandManager.hpp">
       <Filter>Header Files\CoreHeaders</Filter>
     </ClInclude>
     <ClInclude Include="CommandLineManager.hpp">
@@ -105,8 +105,8 @@
     <ClInclude Include="IOUtils.hpp">
       <Filter>Header Files\UtilitiesHeader</Filter>
     </ClInclude>
-    <ClInclude Include="ColumnUtils.hpp">
-      <Filter>Header Files\UtilitiesHeader</Filter>
+    <ClInclude Include="Engine.hpp">
+      <Filter>Header Files\CoreHeaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +157,12 @@
     </ClCompile>
     <ClCompile Include="OperationsImpl.cpp">
       <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineImpl.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

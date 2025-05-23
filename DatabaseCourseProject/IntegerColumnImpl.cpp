@@ -22,10 +22,10 @@ std::vector<int> IntegerColumn::getContent() const {
 
 int IntegerColumn::getValueAtGivenIndex(int index) const {
 	if (index < 0 || index >= content.size()) {
-		throw std::invalid_argument("Invalid index. ");
+		throw std::runtime_error("Invalid index. ");
 	}
 	if (isNull[index] == true) {
-		throw std::invalid_argument("Value at given index is NULL. ");
+		throw std::runtime_error("Value at given index is NULL. ");
 	}
 
 	return content[index];
@@ -34,7 +34,7 @@ int IntegerColumn::getValueAtGivenIndex(int index) const {
 
 void IntegerColumn::changeValueAtIndex(int index, std::string val) {
 	if (index < 0 || index >= content.size()) {
-		throw std::invalid_argument("Invalid index. ");
+		throw std::runtime_error("Invalid index. ");
 	}
 
 	if (val == "NULL") {
@@ -42,9 +42,14 @@ void IntegerColumn::changeValueAtIndex(int index, std::string val) {
 		isNull[index] = true;
 		return;
 	}
-	int value = std::stoi(val);
+	try {
+		int value = std::stoi(val);
 
-	content[index] = value;
+		content[index] = value;
+	}
+	catch (...) {
+		throw std::runtime_error("Tried adding value that does not match to column type. ");
+	}
 }
 
 void IntegerColumn::addCell(std::string cell) {
@@ -58,7 +63,7 @@ void IntegerColumn::addCell(std::string cell) {
 		content.push_back(intVal);
 	}
 	catch (...) {
-		throw std::invalid_argument("Type does not match. ");
+		throw std::runtime_error("Type does not match. ");
 	}
 }
 
@@ -82,6 +87,10 @@ std::string IntegerColumn::getTypeAsString() const {
 }
 
 bool IntegerColumn::matchesValues(int rowIndex, const std::string& value) const {
+	if (rowIndex < 0 || rowIndex >= content.size()) {
+		throw std::runtime_error("Invalid index. ");
+	}
+
 	if (isNull[rowIndex] && value == "NULL") {
 		return true;
 	}
