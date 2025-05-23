@@ -32,7 +32,7 @@ public:
 
 	std::string getColumnNameAtGivenIndex(int index) const;
 
-	std::string printRow(int index) const;
+	std::string getRowAsString(int index) const;
 
 	void deleteGivenRow(int index);
 
@@ -44,4 +44,7 @@ public:
 
 	TableColumn* getColumnAtGivenIndex(int index) const;
 
+	void setName(const std::string& name);
+
+	std::string toString() const;
 };

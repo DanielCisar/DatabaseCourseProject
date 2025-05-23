@@ -12,13 +12,11 @@
 #include <stdexcept>
 #include "ColumnType.hpp"
 
-InputFileReader::InputFileReader(ColumnFactory cf, CommandParser parser) :
-  factory(cf)
+InputFileReader::InputFileReader()
 {
-    
 }
 InputFileReader::~InputFileReader() {
-	
+
 }
 
 Table InputFileReader::readTableFromFile(const std::string& filepath) {
@@ -44,13 +42,13 @@ Table InputFileReader::readTableFromFile(const std::string& filepath) {
 
     for (int i = 0; i < types.size(); ++i) {
         if (types[i] == "String") {
-            columns.push_back(factory.makeStringColumn(columnNames[i]));
+            columns.push_back(ColumnFactory::makeStringColumn(columnNames[i]));
         }
         else if (types[i] == "Integer") {
-            columns.push_back(factory.makeIntegerColumn(columnNames[i]));
+            columns.push_back(ColumnFactory::makeIntegerColumn(columnNames[i]));
         }
         else if (types[i] == "Double") {
-            columns.push_back(factory.makeDoubleColumn(columnNames[i]));
+            columns.push_back(ColumnFactory::makeDoubleColumn(columnNames[i]));
         }
         else {
             throw std::invalid_argument("Unsupported type. ");

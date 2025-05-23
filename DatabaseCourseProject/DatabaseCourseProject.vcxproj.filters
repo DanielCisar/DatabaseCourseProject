@@ -43,11 +43,11 @@
     <Filter Include="Source Files\Core">
       <UniqueIdentifier>{30465b4f-9140-4a59-b446-7af096a1d0fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Utilities">
-      <UniqueIdentifier>{6faa4c16-d0d8-40cf-a68b-8ac60af7c8de}</UniqueIdentifier>
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{0bf193ff-0d1c-4780-bd19-632a58d49cf3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\RepositoryHeader">
-      <UniqueIdentifier>{ca8289bd-6a7c-4feb-9992-a339ab1a57bb}</UniqueIdentifier>
+    <Filter Include="Header Files\UtilitiesHeader">
+      <UniqueIdentifier>{6faa4c16-d0d8-40cf-a68b-8ac60af7c8de}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -88,7 +88,7 @@
       <Filter>Header Files\IOHeaders</Filter>
     </ClInclude>
     <ClInclude Include="CommandParser.hpp">
-      <Filter>Header Files\Utilities</Filter>
+      <Filter>Header Files\UtilitiesHeader</Filter>
     </ClInclude>
     <ClInclude Include="OutputConsoleWriter.hpp">
       <Filter>Header Files\IOHeaders</Filter>
@@ -97,10 +97,16 @@
       <Filter>Header Files\IOHeaders</Filter>
     </ClInclude>
     <ClInclude Include="FileUtils.hpp">
-      <Filter>Header Files\Utilities</Filter>
+      <Filter>Header Files\UtilitiesHeader</Filter>
     </ClInclude>
     <ClInclude Include="Operations.hpp">
-      <Filter>Header Files\Utilities</Filter>
+      <Filter>Header Files\UtilitiesHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="IOUtils.hpp">
+      <Filter>Header Files\UtilitiesHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="ColumnUtils.hpp">
+      <Filter>Header Files\UtilitiesHeader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +145,18 @@
     </ClCompile>
     <ClCompile Include="CatalogCommandsManagerImpl.cpp">
       <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandParserImpl.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="FileUtilsImpl.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="IOUtilsImpl.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="OperationsImpl.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

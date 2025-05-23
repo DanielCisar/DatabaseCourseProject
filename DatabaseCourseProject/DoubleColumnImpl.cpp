@@ -40,8 +40,13 @@ void DoubleColumn::addCell(std::string cell) {
 		isNull.push_back(true);
 		return;
 	}
-
-	content.push_back(std::stod(cell));
+	try {
+		double doubleVal = std::stod(cell);
+		content.push_back(doubleVal);
+	}
+	catch (...) {
+		throw std::invalid_argument("Type does not match. ");
+	}
 }
 
 void DoubleColumn::deleteCell(int index) {
@@ -64,6 +69,10 @@ std::string DoubleColumn::getTypeAsString() const {
 }
 
 bool DoubleColumn::matchesValues(int rowIndex, const std::string& value) const {
+	if (isNull[rowIndex] && value == "NULL") {
+		return true;
+	}
+
 	try {
 		double doubleVal = std::stod(value);
 		return getValueAtGivenIndex(rowIndex) == doubleVal;
@@ -72,4 +81,18 @@ bool DoubleColumn::matchesValues(int rowIndex, const std::string& value) const {
 		return false;
 	}
 
+}
+
+void DoubleColumn::fillColumnWithNULL() {
+	this->content = { 0.0 };
+	this->isNull = { true };
+
+}
+
+TableColumn* DoubleColumn::clone() const {
+	auto* copy = new DoubleColumn(name);
+	for (const double& val : content) {
+		copy->addCell(std::to_string(val));
+	}
+	return copy;
 }

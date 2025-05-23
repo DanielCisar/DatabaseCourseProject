@@ -53,7 +53,13 @@ void IntegerColumn::addCell(std::string cell) {
 		isNull.push_back(true);
 		return;
 	}
-	content.push_back(std::stoi(cell));
+	try {
+		int intVal = std::stoi(cell);
+		content.push_back(intVal);
+	}
+	catch (...) {
+		throw std::invalid_argument("Type does not match. ");
+	}
 }
 
 void IntegerColumn::deleteCell(int index) {
@@ -76,6 +82,9 @@ std::string IntegerColumn::getTypeAsString() const {
 }
 
 bool IntegerColumn::matchesValues(int rowIndex, const std::string& value) const {
+	if (isNull[rowIndex] && value == "NULL") {
+		return true;
+	}
 	try {
 		int intVal = std::stoi(value);
 		return getValueAtGivenIndex(rowIndex) == intVal;
@@ -83,4 +92,18 @@ bool IntegerColumn::matchesValues(int rowIndex, const std::string& value) const 
 	catch (...) {
 		return false;
 	}
+}
+
+void IntegerColumn::fillColumnWithNULL() {
+	this->content = { 0 };
+	this->isNull = { true };
+
+}
+
+TableColumn* IntegerColumn::clone() const {
+	auto* copy = new IntegerColumn(name);
+	for (const int& val : content) {
+		copy->addCell(std::to_string(val));
+	}
+	return copy;
 }

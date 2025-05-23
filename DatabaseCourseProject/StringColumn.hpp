@@ -8,7 +8,6 @@ private:
 	std::vector<std::string> content;
 	std::vector<bool> isNull;
 	std::string name;
-	std::string type;
 
 public:
 	StringColumn(std::string name);
@@ -34,4 +33,9 @@ public:
 	std::string getTypeAsString() const override;
 
 	bool matchesValues(int rowIndex, const std::string& value) const override;
+
+	void fillColumnWithNULL() override;
+
+	TableColumn* clone() const override;
+
 };

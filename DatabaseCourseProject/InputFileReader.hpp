@@ -10,10 +10,8 @@
 #include "Catalog.hpp"
 
 class InputFileReader {
-private:
-	ColumnFactory factory;
 public:
-	InputFileReader(ColumnFactory cf, CommandParser parser);
+	InputFileReader();
 	~InputFileReader();
 
 	Table readTableFromFile(const std::string& filepath);

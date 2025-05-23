@@ -7,10 +7,7 @@
 
 class ColumnFactory {
 public:
-	ColumnFactory();
-	~ColumnFactory();
-
-	StringColumn* makeStringColumn(std::string name);
-	IntegerColumn* makeIntegerColumn(std::string name);
-	DoubleColumn* makeDoubleColumn(std::string name);
+	static StringColumn* makeStringColumn(const std::string& name);
+	static IntegerColumn* makeIntegerColumn(const std::string& name);
+	static DoubleColumn* makeDoubleColumn(const std::string& name);
 };

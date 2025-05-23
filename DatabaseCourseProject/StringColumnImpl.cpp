@@ -83,5 +83,23 @@ std::string StringColumn::getTypeAsString() const {
 }
 
 bool StringColumn::matchesValues(int rowIndex, const std::string& value) const {
+	if (isNull[rowIndex] && value == "NULL") {
+		return true;
+	}
+
 	return getValueAtGivenIndex(rowIndex) == value;
+}
+
+void StringColumn::fillColumnWithNULL() {
+	this->content = { "" };
+	this->isNull = { true };
+
+}
+
+TableColumn* StringColumn::clone() const {
+	auto* copy = new StringColumn(name);
+	for (const std::string& val : content) {
+		copy->addCell(val);
+	}
+	return copy;
 }

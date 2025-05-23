@@ -16,4 +16,7 @@ public:
 	virtual void addCell(std::string cell) = 0;
 	virtual std::string getTypeAsString() const = 0;
 	virtual bool matchesValues(int rowIndex, const std::string& value) const = 0;
+	virtual void fillColumnWithNULL() = 0;
+	virtual TableColumn* clone() const = 0;
+
 };

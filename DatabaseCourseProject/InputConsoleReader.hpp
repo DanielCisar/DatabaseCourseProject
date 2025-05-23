@@ -9,5 +9,5 @@ public:
 	InputConsoleReader(CommandParser parser);
 	~InputConsoleReader();
 
-	std::vector<std::string> readLine();
+	std::vector<std::string> readLine() const;
 };

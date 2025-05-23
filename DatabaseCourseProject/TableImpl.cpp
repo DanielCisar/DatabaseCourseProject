@@ -37,7 +37,7 @@ std::string Table::getColumnNameAtGivenIndex(int index) const {
 	return columns[index]->getName();
 }
 
-std::string Table::printRow(int index) const {
+std::string Table::getRowAsString(int index) const {
 	std::string result = "";
 	
 	const TableColumn* column = columns[index];
@@ -71,3 +71,21 @@ TableColumn* Table::getColumnAtGivenIndex(int index) const {
 	return columns[index];
 }
 
+void Table::setName(const std::string& name) {
+	this->name = name;
+}
+
+std::string Table::toString() const {
+
+	std::string result = "";
+
+	int size = columns[0]->getSize();
+
+	for (int i = 0; i < size; i++) {
+		for (const TableColumn* column : columns) {
+			result += column->returnValueAtGivenIndexAsString(i) + " ";
+		}
+		result += '\n';
+	}
+	return result;
+}

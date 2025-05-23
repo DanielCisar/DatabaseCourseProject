@@ -37,7 +37,7 @@ public:
 	void print(const std::string& name);
 	void export(const std::string& name, const std::string& filepath);
 	void select(int numberOfColumn, std::string value, const std::string& name);
-	void addColumn(const std::string& tableName, const std::string& columnName, std::string columnType);
+	void addColumn(const std::string& tableName, const std::string& columnName, ColumnType columnType);
 	void update(const std::string& tableName,
 		int searchColumn,
 		std::string searchValue,
@@ -45,10 +45,10 @@ public:
 		std::string targetValue);
 	void deleteRows(const std::string& tableName, int searchColumn, std::string searchValue);
 	void insert(const std::string& tableName, std::vector<std::string> values);
-	void innerJoin(const std::string& tableName1, int column1, const std::string& tableName2, int column2);
+	Table innerJoin(const std::string& tableName1, int column1, const std::string& tableName2, int column2);
 	void rename(const std::string& oldName, const std::string& newName);
 	int count(const std::string& tableName, int searchColumn, std::string searchValue);
-	void agregate(const std::string& tableName,
+	double agregate(const std::string& tableName,
 		int searchColumn,
 		std::string seacrhValue,
 		int targetColumn,
