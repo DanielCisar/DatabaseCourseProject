@@ -6,6 +6,7 @@ void Engine::dispatchCommand(std::vector<std::string> commandParams) {
 	if (command == "open") {
 		try {
 			commandLineManager.open(commandParams[1]);
+			catalogCommandManager.setLoadedCatalog(commandLineManager.getCurrentLoadedFile());
 		}
 		catch (const std::exception& e) {
 			outputConsoleWriter.printLine(e.what());
@@ -14,6 +15,7 @@ void Engine::dispatchCommand(std::vector<std::string> commandParams) {
 	else if (command == "close") {
 		try {
 			commandLineManager.close();
+			catalogCommandManager.closeLoadedCatalog();
 		}
 		catch (const std::exception& e) {
 			outputConsoleWriter.printLine(e.what());

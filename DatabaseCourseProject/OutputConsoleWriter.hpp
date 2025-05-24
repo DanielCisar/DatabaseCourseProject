@@ -8,4 +8,5 @@ public:
 	~OutputConsoleWritter();
 
 	void printLine(const std::string& messsage) const;
+	void print(const std::string& message) const;
 };

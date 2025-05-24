@@ -8,36 +8,29 @@ CatalogCommandManager::CatalogCommandManager(
     OutputConsoleWritter outputConsoleWriter,
     OutputFileWritter outputFileWritter,
     InputConsoleReader inputConsoleReader) :
-    loadedCatalog(nullptr),
     fileReader(fileReader),
     outputConsoleWriter(outputConsoleWriter),
     outputFileWritter(outputFileWritter),
-    inputConsoleReader(inputConsoleReader)
+    inputConsoleReader(inputConsoleReader),
+    loadedCatalogExists(false)
 {
+	this->loadedCatalog = Catalog();
 }
 
 CatalogCommandManager::~CatalogCommandManager()
 {
-    delete this->loadedCatalog;
-}
-
-bool CatalogCommandManager::loadedCatalogExists() {
-    if (loadedCatalog == nullptr) {
-        return false;
-    }
-    return true;
 }
 
 void CatalogCommandManager::import(const std::string& filepath)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
     try {
         Table table = fileReader.readTableFromFile(filepath);
 
-        loadedCatalog->addTable(table);
+        loadedCatalog.addTable(table);
 
         outputConsoleWriter.printLine("Succesfuly imported table - " + table.getName() + ". ");
     }
@@ -48,29 +41,29 @@ void CatalogCommandManager::import(const std::string& filepath)
 
 void CatalogCommandManager::showTables()
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
     outputConsoleWriter.printLine("List of tables: ");
 
-    for (auto& table : *loadedCatalog) {
+    for (auto& table : loadedCatalog) {
         outputConsoleWriter.printLine(table.getName());
     }
 }
 
 void CatalogCommandManager::exportTable(const std::string& name, const std::string& filepath) {
-    outputFileWritter.writeTableToFile(loadedCatalog->returnTableByName(name), filepath);
+    outputFileWritter.writeTableToFile(loadedCatalog.returnTableByName(name), filepath);
 }
 
 void CatalogCommandManager::describe(const std::string& name)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
     try {
-        Table table = loadedCatalog->returnTableByName(name);
+        Table table = loadedCatalog.returnTableByName(name);
         
         int index = 0;
 
@@ -78,6 +71,7 @@ void CatalogCommandManager::describe(const std::string& name)
             outputConsoleWriter.printLine(
                 "Type of column " + std::to_string(index) + ": " + col->getTypeAsString()
             );
+            index++;
         }
     }
     catch (const std::exception& e) {
@@ -87,28 +81,29 @@ void CatalogCommandManager::describe(const std::string& name)
 
 void CatalogCommandManager::print(const std::string& name)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
     try {
-        Table table = loadedCatalog->returnTableByName(name);
-        const int pageSize = 10;
-        int currentPage = 0;
-
-        int totalRows = table.getNumberOfColumns();
-        int totalPages = (totalRows + pageSize - 1) / pageSize;
+        Table table = loadedCatalog.returnTableByName(name);
 
         std::string command;
 
         outputConsoleWriter.printLine("Table: " + name);
 
+        for (auto& col : table) {
+            outputConsoleWriter.print(col->getName() + " ");
+        }
+		outputConsoleWriter.printLine("");
+		for (auto& col : table) {
+			outputConsoleWriter.print(col->getTypeAsString() + " ");
+		}
+		outputConsoleWriter.printLine("");
         std::vector<std::string> rows;
 
         for (int i = 0; i < table.getNumberOfColumns(); i++) {
-            for (auto& col : table) {
-                rows.push_back(col->returnValueAtGivenIndexAsString(i));
-            }
+            rows.push_back(table.getRowAsString(i));
 
         }
 
@@ -123,11 +118,11 @@ void CatalogCommandManager::print(const std::string& name)
 
 void CatalogCommandManager::select(int numberOfColumn, std::string value, const std::string& name)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
     try {
-        Table table = loadedCatalog->returnTableByName(name);
+        Table table = loadedCatalog.returnTableByName(name);
 
         TableColumn* columnToSearch = table.getColumnAtGivenIndex(numberOfColumn);
 
@@ -142,6 +137,7 @@ void CatalogCommandManager::select(int numberOfColumn, std::string value, const 
         for (int i = 0; i < size; i++) {
             if (columnToSearch->matchesValues(i, value)) {
                 rows.push_back(table.getRowAsString(i));
+       
             }
         }
         
@@ -157,11 +153,11 @@ void CatalogCommandManager::addColumn(const std::string& tableName,
     const std::string& columnName,
     ColumnType columnType)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
     try {
-        Table table = loadedCatalog->returnTableByName(tableName);
+        Table table = loadedCatalog.returnTableByName(tableName);
 
         int colSize = table.getColumnAtGivenIndex(0)->getSize();
 
@@ -186,11 +182,11 @@ void CatalogCommandManager::update(const std::string& tableName,
     int targetColumn,
     std::string targetValue)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
     try {
-        Table table = loadedCatalog->returnTableByName(tableName);
+        Table table = loadedCatalog.returnTableByName(tableName);
 
         int size = table.getColumnAtGivenIndex(0)->getSize();
 
@@ -211,11 +207,11 @@ void CatalogCommandManager::deleteRows(const std::string& tableName,
     int searchColumn,
     std::string searchValue)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
     try {
-        Table table = loadedCatalog->returnTableByName(tableName);
+        Table table = loadedCatalog.returnTableByName(tableName);
 
         int size = table.getColumnAtGivenIndex(0)->getSize();
 
@@ -234,11 +230,11 @@ void CatalogCommandManager::deleteRows(const std::string& tableName,
 
 void CatalogCommandManager::insert(const std::string& tableName, std::vector<std::string> values)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
     try {
-        Table table = loadedCatalog->returnTableByName(tableName);
+        Table table = loadedCatalog.returnTableByName(tableName);
 
         if (values.size() != table.getNumberOfColumns()) {
             throw std::invalid_argument("Number of value is not equal to number of column. ");
@@ -259,12 +255,12 @@ void CatalogCommandManager::innerJoin(const std::string& tableName1,
     const std::string& tableName2,
     int column2)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
     try {
-        Table table1 = loadedCatalog->returnTableByName(tableName1);
-        Table table2 = loadedCatalog->returnTableByName(tableName2);
+        Table table1 = loadedCatalog.returnTableByName(tableName1);
+        Table table2 = loadedCatalog.returnTableByName(tableName2);
 
         if (column1 >= table1.getColumnAtGivenIndex(0)->getSize() ||
             column2 >= table1.getColumnAtGivenIndex(0)->getSize()) {
@@ -324,11 +320,11 @@ void CatalogCommandManager::innerJoin(const std::string& tableName1,
 
 void CatalogCommandManager::rename(const std::string& oldName, const std::string& newName)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
     try {
-        Table table = loadedCatalog->returnTableByName(oldName);
+        Table table = loadedCatalog.returnTableByName(oldName);
         table.setName(newName);
     }
     catch (const std::exception& e) {
@@ -338,11 +334,11 @@ void CatalogCommandManager::rename(const std::string& oldName, const std::string
 
 void CatalogCommandManager::count(const std::string& tableName, int searchColumn, std::string searchValue)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
     try {
-        Table table = loadedCatalog->returnTableByName(tableName);
+        Table table = loadedCatalog.returnTableByName(tableName);
 
         int counter = 0;
 
@@ -366,11 +362,11 @@ void CatalogCommandManager::agregate(const std::string& tableName,
     int targetColumn,
     std::string operation)
 {
-    if (!loadedCatalogExists()) {
+    if (!loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
     try {
-        Table table = loadedCatalog->returnTableByName(tableName);
+        Table table = loadedCatalog.returnTableByName(tableName);
         if (searchColumn > table.getColumnAtGivenIndex(0)->getSize() && searchColumn < 0) {
             throw std::out_of_range("Invalid search column index. ");
         }
@@ -431,4 +427,13 @@ void CatalogCommandManager::agregate(const std::string& tableName,
         outputConsoleWriter.printLine(e.what());
     }
 
+}
+
+void CatalogCommandManager::setLoadedCatalog(Catalog catalog) {
+	this->loadedCatalog = catalog;
+	this->loadedCatalogExists = true;
+}
+
+void CatalogCommandManager::closeLoadedCatalog() {
+    this->loadedCatalogExists = false;
 }

@@ -10,4 +10,5 @@ public:
 	~InputConsoleReader();
 
 	std::vector<std::string> readLine() const;
+	std::string readLineAsString() const;
 };

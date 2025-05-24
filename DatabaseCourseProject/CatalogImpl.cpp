@@ -2,11 +2,20 @@
 #include <vector>
 #include <stdexcept>
 
+Catalog::Catalog() {
+
+}
+
 Catalog::Catalog(const std::string catalogPath) : catalogPath(catalogPath){
 
 }
 
 Catalog::~Catalog() {
+
+}
+Catalog::Catalog(const Catalog& other) : 
+	tableCollection(other.tableCollection), 
+catalogPath(other.catalogPath) {
 
 }
 

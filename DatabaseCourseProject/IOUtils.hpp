@@ -9,7 +9,7 @@ public:
     static void printInPageFormat(
         std::vector<std::string> rows,
         const OutputConsoleWritter& ocw,
-        const InputConsoleReader icr);
+        const InputConsoleReader& icr);
 
 		
 };

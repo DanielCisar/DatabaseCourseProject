@@ -11,7 +11,11 @@ private:
 
 public:
 	IntegerColumn(std::string name);
+	IntegerColumn(const IntegerColumn& other);
+
 	~IntegerColumn();
+
+	IntegerColumn& operator=(const IntegerColumn& other);
 
 	std::string getName() const override;
 	ColumnType getType() const override;

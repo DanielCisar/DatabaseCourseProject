@@ -6,6 +6,23 @@
 DoubleColumn::DoubleColumn(std::string name) : name(name) {
 
 }
+DoubleColumn::DoubleColumn(const DoubleColumn& other)
+	:content(other.content), 
+	isNull(other.isNull),   
+	name(other.name)        
+{
+}
+
+DoubleColumn& DoubleColumn::operator=(const DoubleColumn& other) {
+	if (this != &other) { 
+		content = other.content;       
+		isNull = other.isNull;
+		name = other.name;             
+	}
+	return *this;
+}
+
+
 DoubleColumn::~DoubleColumn() {
 
 }
@@ -61,6 +78,7 @@ void DoubleColumn::addCell(std::string cell) {
 	try {
 		double doubleVal = std::stod(cell);
 		content.push_back(doubleVal);
+		isNull.push_back(false);
 	}
 	catch (...) {
 		throw std::runtime_error("Type does not match. ");

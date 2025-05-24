@@ -9,8 +9,10 @@ private:
 	std::string catalogPath;
 
 public:
+	Catalog();
 	Catalog(const std::string catalogPath);
 	~Catalog();
+	Catalog(const Catalog& other);
 	Catalog& operator=(const Catalog& other);
 	void addTable(Table table);
 	void removeTable(int index);

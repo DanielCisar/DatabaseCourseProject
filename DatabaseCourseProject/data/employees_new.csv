@@ -1,0 +1,8 @@
+Employees
+Integer,String,String,Double
+ID,FirstName,LastName,Salary
+101,John,Doe,55000.00
+102,Jane,Smith,62000.50
+103,Peter,Jones,48000.00
+104,Sarah,Lee,71000.75
+105,Michael,Chen,59500.00

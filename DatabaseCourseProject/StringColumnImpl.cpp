@@ -6,8 +6,23 @@
 StringColumn::StringColumn(std::string name) : name(name){
 
 }
+StringColumn::StringColumn(const StringColumn& other)
+	: content(other.content),
+	isNull(other.isNull),
+	name(other.name)
+{
+}
+
 StringColumn::~StringColumn() {
 
+}
+StringColumn& StringColumn::operator=(const StringColumn& other) {
+	if (this != &other) {
+		content = other.content;
+		isNull = other.isNull;
+		name = other.name;
+	}
+	return *this;
 }
 
 std::string StringColumn::getName() const {
@@ -53,6 +68,8 @@ void StringColumn::addCell(std::string cell) {
 		return;
 	}
 	content.push_back(cell);
+	isNull.push_back(false);
+
 }
 
 void StringColumn::deleteCell(int index) {

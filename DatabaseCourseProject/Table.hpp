@@ -13,6 +13,8 @@ public:
 
 	Table(const std::vector<TableColumn*> columns, const std::string name, const std::string filename);
 
+	Table(const Table& other);
+
 	~Table();
 
 	Table& operator=(const Table& other);

@@ -6,8 +6,22 @@
 IntegerColumn::IntegerColumn(std::string name) : name(name) {
 
 }
+IntegerColumn::IntegerColumn(const IntegerColumn& other)
+	: content(other.content),
+	isNull(other.isNull),
+	name(other.name)
+{
+}
 IntegerColumn::~IntegerColumn() {
 
+}
+IntegerColumn& IntegerColumn::operator=(const IntegerColumn& other) {
+	if (this != &other) {
+		content = other.content;
+		isNull = other.isNull;
+		name = other.name;
+	}
+	return *this;
 }
 
 std::string IntegerColumn::getName() const {
@@ -61,6 +75,7 @@ void IntegerColumn::addCell(std::string cell) {
 	try {
 		int intVal = std::stoi(cell);
 		content.push_back(intVal);
+		isNull.push_back(false);
 	}
 	catch (...) {
 		throw std::runtime_error("Type does not match. ");

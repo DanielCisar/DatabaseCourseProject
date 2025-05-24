@@ -11,7 +11,11 @@ private:
 
 public:
 	DoubleColumn(std::string name);
+	DoubleColumn(const DoubleColumn& other);
+
 	~DoubleColumn();
+
+	DoubleColumn& operator=(const DoubleColumn& other);
 
 	std::string getName() const override;
 	ColumnType getType() const override;

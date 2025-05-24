@@ -11,7 +11,11 @@ private:
 
 public:
 	StringColumn(std::string name);
+	StringColumn(const StringColumn& other);
+
 	~StringColumn();
+
+	StringColumn& operator=(const StringColumn& other);
 
 	std::string getName() const override;
 	ColumnType getType() const override;

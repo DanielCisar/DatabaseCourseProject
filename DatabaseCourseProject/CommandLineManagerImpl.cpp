@@ -21,16 +21,15 @@ CommandLineManager::CommandLineManager(InputFileReader fileReader,
 	OutputFileWritter outputFileWritter
 ) :
 loadedFileExists(false), 
-currentLoadedFile(nullptr),  
 fileReader(fileReader), 
 outputConsoleWriter(outputConsoleWriter), 
 outputFileWritter(outputFileWritter)
 {
-	
+	this->currentLoadedFile = Catalog();
 }
 
 CommandLineManager::~CommandLineManager() {
-	delete currentLoadedFile;
+
 }
 
 void CommandLineManager::open(const std::string& filepath) {
@@ -43,56 +42,39 @@ void CommandLineManager::open(const std::string& filepath) {
 		outputConsoleWriter.printLine("Created new empty file: " + filepath);
 
 	}
+	try {
+		Catalog catalog = fileReader.readCatalogFromFile(filepath);
+		outputConsoleWriter.printLine("Successfully opened: " + filepath);
 
-	Catalog catalog = fileReader.readCatalogFromFile(filepath);
+		this->currentLoadedFile = catalog;
+		this->loadedFileExists = true;
 
-	std::ifstream file(filepath);
-	if (!file.is_open()) {
-		throw std::runtime_error("Failed to open catalog file: " + filepath);
+	}
+	catch (const std::exception& e) {
+		outputConsoleWriter.printLine(e.what());
+		return;
 	}
 
-	std::string line;
-
-	while (std::getline(file, line)) {
-		if (line.empty()) {
-			continue;
-		}
-		std::vector<std::string> params = CommandParser::parseCommand(line, ',');
-		if (params.size() != 2) {
-			throw std::runtime_error("Wrong file format. ");
-		}
-
-		std::string path = params[1];
-
-		try{
-			Table table = fileReader.readTableFromFile(filepath);
-			catalog.addTable(table);
-		}
-		catch (std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	outputConsoleWriter.printLine("Successfully opened: " + filepath);
-
-	if (currentLoadedFile != nullptr) {
-		delete currentLoadedFile;
-		currentLoadedFile = nullptr;
-	}
-
-	currentLoadedFile = &catalog;
-	loadedFileExists = true;
-
-	file.close();
 }
 
 void CommandLineManager::close() {
-	delete currentLoadedFile;
-	currentLoadedFile = nullptr;
+	if (!loadedFileExists) {
+		throw std::runtime_error("No file is currently loaded. Please open a file first.");
+		return;
+	}
+
 	loadedFileExists = false;
+	outputConsoleWriter.printLine("Closed the currently opened file: " 
+		+ currentLoadedFile.getPath());
 }
 
 void CommandLineManager::save() {
-	for (auto& table : *currentLoadedFile) {
+	if (!loadedFileExists) {
+		throw std::runtime_error("No file is currently loaded. Please open a file first.");
+		return;
+	}
+
+	for (auto& table : currentLoadedFile) {
 		try {
 			outputFileWritter.writeTableToFile(table, table.getFilename());
 		}
@@ -101,7 +83,7 @@ void CommandLineManager::save() {
 		}
 	}
 	try {
-		outputFileWritter.writeCatalogToFile(*currentLoadedFile, currentLoadedFile->getPath());
+		outputFileWritter.writeCatalogToFile(currentLoadedFile, currentLoadedFile.getPath());
 	}
 	catch (const std::exception& e) {
 		outputConsoleWriter.printLine(e.what());
@@ -109,9 +91,14 @@ void CommandLineManager::save() {
 }
 
 void CommandLineManager::saveAs(std::string filepath) {
+	if (!loadedFileExists) {
+		throw std::runtime_error("No file is currently loaded. Please open a file first.");
+		return;
+	}
+
 	Catalog newCatalog(filepath);
 
-	for (auto& table : *currentLoadedFile) {
+	for (auto& table : currentLoadedFile) {
 		std::string newTablePath = "copy_" + table.getName() + ".csv";
 
 		try {
@@ -126,7 +113,7 @@ void CommandLineManager::saveAs(std::string filepath) {
 		newCatalog.addTable(table);
 	}
 	try {
-		outputFileWritter.writeCatalogToFile(*currentLoadedFile, filepath);
+		outputFileWritter.writeCatalogToFile(currentLoadedFile, filepath);
 	}
 	catch (const std::exception& e) {
 		outputConsoleWriter.printLine(e.what());
@@ -144,6 +131,10 @@ void CommandLineManager::help() {
 }
 
 void CommandLineManager::exit() {
-	outputConsoleWriter.printLine("Exiting the program…");
+	outputConsoleWriter.printLine("Exiting the program... ");
 
+}
+
+Catalog& CommandLineManager::getCurrentLoadedFile() {
+	return currentLoadedFile;
 }

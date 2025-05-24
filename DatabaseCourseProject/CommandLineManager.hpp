@@ -18,7 +18,7 @@
 class CommandLineManager {
 private:
 	bool loadedFileExists;
-	Catalog* currentLoadedFile;
+	Catalog currentLoadedFile;
 	InputFileReader fileReader;
 	OutputConsoleWritter outputConsoleWriter;
 	OutputFileWritter outputFileWritter;
@@ -29,6 +29,8 @@ public:
 	);
 
 	~CommandLineManager();
+
+	Catalog& getCurrentLoadedFile();
 
 	void open(const std::string& filepath);
 	void close();

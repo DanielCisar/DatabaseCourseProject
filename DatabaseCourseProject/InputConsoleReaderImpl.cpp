@@ -17,3 +17,9 @@ std::vector<std::string> InputConsoleReader::readLine() const{
 
     return CommandParser::parseCommand(input, ' ');
 }
+
+std::string InputConsoleReader::readLineAsString() const {
+	std::string input;
+	std::getline(std::cin, input);
+	return input;
+}

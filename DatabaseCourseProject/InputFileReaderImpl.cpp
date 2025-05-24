@@ -27,6 +27,7 @@ Table InputFileReader::readTableFromFile(const std::string& filepath) {
 
     std::string line;
 
+
     std::getline(file, line);
     std::string tableName = line;
 
@@ -56,6 +57,10 @@ Table InputFileReader::readTableFromFile(const std::string& filepath) {
     }
 
     while (std::getline(file, line)) {
+        if (line.empty()) {
+            continue;
+        }
+
         std::vector<std::string> values = CommandParser::parseCommand(line, ',');
         if (values.size() != columns.size()) {
             throw std::runtime_error("Row length does not match number of columns. ");
@@ -72,7 +77,9 @@ Table InputFileReader::readTableFromFile(const std::string& filepath) {
     }
     file.close();
 
-    return Table(columns, tableName, filepath);
+    Table resTable(columns, tableName, filepath);
+
+    return resTable;
 }
 
 Catalog InputFileReader::readCatalogFromFile(const std::string& filepath) {
@@ -91,7 +98,7 @@ Catalog InputFileReader::readCatalogFromFile(const std::string& filepath) {
         }
         std::vector<std::string> tokens = CommandParser::parseCommand(line, ',');
 
-        if (tokens.size() != 1) {
+        if (tokens.size() != 2) {
             throw std::runtime_error("Invalid line in catalog CSV file: " + line);
         }
         

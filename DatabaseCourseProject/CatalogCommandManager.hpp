@@ -17,19 +17,22 @@
 
 class CatalogCommandManager {
 private:
-	Catalog* loadedCatalog;
+	Catalog loadedCatalog;
 	InputFileReader fileReader;
 	OutputConsoleWritter outputConsoleWriter;
 	OutputFileWritter outputFileWritter;
 	InputConsoleReader inputConsoleReader;
+	bool loadedCatalogExists;
 
-	bool loadedCatalogExists();
 public:
 	CatalogCommandManager(InputFileReader fileReader,
 		OutputConsoleWritter outputConsoleWriter,
 		OutputFileWritter outputFileWritter,
 		InputConsoleReader inputConsoleReader);
 	~CatalogCommandManager();
+
+	void setLoadedCatalog(Catalog catalog);
+	void closeLoadedCatalog();
 
 	void import(const std::string& filepath);
 	void showTables();

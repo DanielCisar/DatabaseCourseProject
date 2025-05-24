@@ -9,6 +9,13 @@ Table::Table(const std::vector<TableColumn*> columns, const std::string name, co
 	: columns(columns), name(name), filename(filename) {
 }
 
+Table::Table(const Table& other)
+	: name(other.name), filename(other.filename) {
+	for (const auto& col : other.columns) {
+		this->columns.push_back(col->clone()); 
+	}
+}
+
 Table::~Table() {
 	for (TableColumn* column : columns) {
 		delete column;
@@ -16,7 +23,7 @@ Table::~Table() {
 }
 
 void Table::deleteGivenRow(int index) {
-	if (index < 0 || index >= columns.size()) {
+	if (columns[0]->getSize() < 0 || index >= columns[0]->getSize()) {
 		throw std::runtime_error("Invalid index. ");
 	}
 	for (TableColumn* column : columns) {
@@ -41,14 +48,14 @@ std::string Table::getColumnNameAtGivenIndex(int index) const {
 }
 
 std::string Table::getRowAsString(int index) const {
-	if (index < 0 || index >= columns.size()) {
+	if (columns[0]->getSize() < 0 || index >= columns[0]->getSize()) {
 		throw std::runtime_error("Invalid index. ");
 	}
 	std::string result = "";
 	
-	const TableColumn* column = columns[index];
-
-	result += column->returnValueAtGivenIndexAsString(index) + " ";
+	for (const TableColumn* column : columns) {
+		result += column->returnValueAtGivenIndexAsString(index) + " ";
+	}
 
 	return result;
 }
@@ -62,7 +69,16 @@ void Table::addColumn(TableColumn* col) {
 }
 Table& Table::operator=(const Table& other) {
 	if (this != &other) {
-		this->columns = other.columns;
+
+		for (auto& col : this->columns) {
+			delete col;
+		}
+		this->columns.clear();
+
+		for (const auto& col : other.columns) {
+			this->columns.push_back(col->clone());
+		}
+
 		this->filename = other.filename;
 		this->name = other.name;
 	}
@@ -86,6 +102,10 @@ void Table::setName(const std::string& name) {
 }
 
 std::string Table::toString() const {
+
+	if (columns.empty()) { 
+		return "";
+	}
 
 	std::string result = "";
 
