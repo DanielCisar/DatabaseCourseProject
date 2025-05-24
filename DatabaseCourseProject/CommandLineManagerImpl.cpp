@@ -21,7 +21,7 @@ CommandLineManager::CommandLineManager(InputFileReader fileReader,
 	OutputFileWritter outputFileWritter
 ) :
 loadedFileExists(false), 
-currentLoadedFile(nullptr), 
+currentLoadedFile(nullptr),  
 fileReader(fileReader), 
 outputConsoleWriter(outputConsoleWriter), 
 outputFileWritter(outputFileWritter)
