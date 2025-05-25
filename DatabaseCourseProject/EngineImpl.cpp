@@ -206,18 +206,19 @@ void Engine::dispatchCommand(std::vector<std::string> commandParams) {
 	}
 }
 
-Engine::Engine(OutputConsoleWritter& outputConsoleWriter,
-	InputConsoleReader& inputConsoleReader,
-	OutputFileWritter& outputFileReader,
-	InputConsoleReader& input) :
-outputConsoleWriter(outputConsoleWriter),
-inputConsoleReader(inputConsoleReader), 
-currentLoadedCatalog(),
-catalogCommandManager(catalogCommandManager), 
-commandLineManager(commandLineManager)
-{
+Engine::Engine(OutputConsoleWritter outputConsoleWriter,
+	InputConsoleReader inputConsoleReader,
+	CatalogCommandManager& catalogCommandManager,
+	CommandLineManager& commandLineManager) :
+	outputConsoleWriter(outputConsoleWriter),
+	inputConsoleReader(inputConsoleReader),
+	catalogCommandManager(catalogCommandManager),
+	commandLineManager(commandLineManager)
 
+{
 }
+
+
 
 Engine::~Engine() {
 

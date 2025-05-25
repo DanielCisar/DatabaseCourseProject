@@ -9,18 +9,18 @@ private:
 	OutputConsoleWritter outputConsoleWriter;
 	InputConsoleReader inputConsoleReader;
 
-	Catalog currentLoadedCatalog;
-
 	CatalogCommandManager& catalogCommandManager; 
 	CommandLineManager& commandLineManager;      
 
 	void dispatchCommand(std::vector<std::string> commandParams);
 
 public:
-	Engine(InputFileReader& inputFileReader,
-		OutputConsoleWritter& outputConsoleWritter,
-		OutputFileWritter& outputFileReader,
-		InputConsoleReader& inputConsoleReader);
+	Engine(
+	OutputConsoleWritter outputConsoleWriter,
+	InputConsoleReader inputConsoleReader,
+	CatalogCommandManager& catalogCommandManager,
+	CommandLineManager& commandLineManager
+	);
 
 	~Engine();
 
