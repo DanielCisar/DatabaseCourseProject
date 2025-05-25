@@ -121,7 +121,7 @@ void Engine::dispatchCommand(std::vector<std::string> commandParams) {
 		catch (const std::exception& e) {
 			outputConsoleWriter.printLine(e.what());
 		}
-		
+
 	}
 	else if (command == "update") {
 		try {
@@ -218,8 +218,6 @@ Engine::Engine(OutputConsoleWritter outputConsoleWriter,
 {
 }
 
-
-
 Engine::~Engine() {
 
 }
@@ -228,9 +226,9 @@ void Engine::run() {
 	std::vector<std::string> params = inputConsoleReader.readLine();
 
 	while (true) {
-		
+
 		this->dispatchCommand(params);
-		
+
 		if (params[0] == "exit") {
 			break;
 		}

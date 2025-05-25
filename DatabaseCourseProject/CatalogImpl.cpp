@@ -61,3 +61,7 @@ Table Catalog::returnTableByName(std::string name) const{
 std::string Catalog::getPath() const {
 	return this->catalogPath;
 }
+
+void Catalog::setPath(const std::string& catalogPath) {
+	this->catalogPath = catalogPath;
+}

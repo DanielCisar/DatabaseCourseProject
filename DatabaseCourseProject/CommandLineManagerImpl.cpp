@@ -16,14 +16,14 @@
 #include <ostream>
 #include <iostream>
 
-CommandLineManager::CommandLineManager(InputFileReader fileReader, 
-	OutputConsoleWritter outputConsoleWriter, 
+CommandLineManager::CommandLineManager(InputFileReader fileReader,
+	OutputConsoleWritter outputConsoleWriter,
 	OutputFileWritter outputFileWritter
 ) :
-loadedFileExists(false), 
-fileReader(fileReader), 
-outputConsoleWriter(outputConsoleWriter), 
-outputFileWritter(outputFileWritter)
+	loadedFileExists(false),
+	fileReader(fileReader),
+	outputConsoleWriter(outputConsoleWriter),
+	outputFileWritter(outputFileWritter)
 {
 	this->currentLoadedFile = Catalog();
 }
@@ -64,7 +64,7 @@ void CommandLineManager::close() {
 	}
 
 	loadedFileExists = false;
-	outputConsoleWriter.printLine("Closed the currently opened file: " 
+	outputConsoleWriter.printLine("Closed the currently opened file: "
 		+ currentLoadedFile.getPath());
 }
 

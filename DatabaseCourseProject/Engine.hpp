@@ -9,17 +9,17 @@ private:
 	OutputConsoleWritter outputConsoleWriter;
 	InputConsoleReader inputConsoleReader;
 
-	CatalogCommandManager& catalogCommandManager; 
-	CommandLineManager& commandLineManager;      
+	CatalogCommandManager& catalogCommandManager;
+	CommandLineManager& commandLineManager;
 
 	void dispatchCommand(std::vector<std::string> commandParams);
 
 public:
 	Engine(
-	OutputConsoleWritter outputConsoleWriter,
-	InputConsoleReader inputConsoleReader,
-	CatalogCommandManager& catalogCommandManager,
-	CommandLineManager& commandLineManager
+		OutputConsoleWritter outputConsoleWriter,
+		InputConsoleReader inputConsoleReader,
+		CatalogCommandManager& catalogCommandManager,
+		CommandLineManager& commandLineManager
 	);
 
 	~Engine();

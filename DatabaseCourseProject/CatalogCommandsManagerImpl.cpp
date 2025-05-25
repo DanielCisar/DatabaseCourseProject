@@ -14,7 +14,7 @@ CatalogCommandManager::CatalogCommandManager(
     inputConsoleReader(inputConsoleReader),
     loadedCatalogExists(false)
 {
-	this->loadedCatalog = Catalog();
+    this->loadedCatalog = Catalog();
 }
 
 CatalogCommandManager::~CatalogCommandManager()
@@ -66,7 +66,7 @@ void CatalogCommandManager::describe(const std::string& name)
 
     try {
         Table table = loadedCatalog.returnTableByName(name);
-        
+
         int index = 0;
 
         for (auto& col : table) {
@@ -97,11 +97,11 @@ void CatalogCommandManager::print(const std::string& name)
         for (auto& col : table) {
             outputConsoleWriter.print(col->getName() + " ");
         }
-		outputConsoleWriter.printLine("");
-		for (auto& col : table) {
-			outputConsoleWriter.print(col->getTypeAsString() + " ");
-		}
-		outputConsoleWriter.printLine("");
+        outputConsoleWriter.printLine("");
+        for (auto& col : table) {
+            outputConsoleWriter.print(col->getTypeAsString() + " ");
+        }
+        outputConsoleWriter.printLine("");
         std::vector<std::string> rows;
 
         for (int i = 0; i < table.getNumberOfColumns(); i++) {
@@ -139,10 +139,10 @@ void CatalogCommandManager::select(int numberOfColumn, std::string value, const 
         for (int i = 0; i < size; i++) {
             if (columnToSearch->matchesValues(i, value)) {
                 rows.push_back(table.getRowAsString(i));
-       
+
             }
         }
-        
+
         IOUtils::printInPageFormat(rows, outputConsoleWriter, inputConsoleReader);
     }
     catch (const std::exception& e) {
@@ -305,7 +305,7 @@ void CatalogCommandManager::innerJoin(const std::string& tableName1,
                         resultCols[table1.getNumberOfColumns() + k - 1]->
                             addCell(table2.getColumnAtGivenIndex(k)->
                                 returnValueAtGivenIndexAsString(j));
-                      
+
                     }
                 }
             }
@@ -350,7 +350,7 @@ void CatalogCommandManager::count(const std::string& tableName, int searchColumn
             }
         }
         outputConsoleWriter.printLine("Column number " + std::to_string(searchColumn)
-            + " of table " + tableName + " contains " + searchValue + std::to_string(counter) 
+            + " of table " + tableName + " contains " + searchValue + std::to_string(counter)
             + " amount of times. ");
     }
     catch (const std::exception& e) {
@@ -410,7 +410,7 @@ void CatalogCommandManager::agregate(const std::string& tableName,
             outputConsoleWriter.printLine(std::to_string(val));
         }
         else if (operation == "maximum") {
-         
+
             double val = Operations::max(cells);
 
             outputConsoleWriter.printLine(std::to_string(val));
@@ -432,8 +432,8 @@ void CatalogCommandManager::agregate(const std::string& tableName,
 }
 
 void CatalogCommandManager::setLoadedCatalog(Catalog& catalog) {
-	this->loadedCatalog = catalog;
-	this->loadedCatalogExists = true;
+    this->loadedCatalog = catalog;
+    this->loadedCatalogExists = true;
 }
 
 void CatalogCommandManager::closeLoadedCatalog() {

@@ -21,4 +21,6 @@ public:
 
 	std::vector<Table>::iterator begin();
 	std::vector <Table>::iterator end();
+
+	void setPath(const std::string& catalogPath);
 };
