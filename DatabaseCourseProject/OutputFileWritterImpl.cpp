@@ -10,7 +10,7 @@ OutputFileWritter::~OutputFileWritter() {
 
 }
 
-void OutputFileWritter::writeTableToFile(Table table, std::string filepath) {
+void OutputFileWritter::writeTableToFile(Table& table, std::string filepath) {
 	std::ofstream out(filepath);
 	if (!out.is_open()) {
 		throw std::runtime_error("Unable to open file: " + filepath);
@@ -22,12 +22,15 @@ void OutputFileWritter::writeTableToFile(Table table, std::string filepath) {
 		return;
 	}
 
-	out << table.getName();
-	out << "\n";
+	out << table.getName() << "\n";
 
-	for (auto& col : table) {
-		out << col->getTypeAsString();
+	for (int i = 0; i < numCols; ++i) {
+		out << table.getColumnAtGivenIndex(i)->getTypeAsString();
+		if (i < numCols - 1) {
+			out << ",";
+		}
 	}
+
 	out << "\n";
 	
 	for (int i = 0; i < numCols; ++i) {
@@ -36,15 +39,27 @@ void OutputFileWritter::writeTableToFile(Table table, std::string filepath) {
 			out << ",";
 		}
 	}
+	out << "\n"; 
 
-	out << table.toString();
-	out << "\n";
+	int numRows = 0;
+	if (numCols > 0) {
+		numRows = table.getColumnAtGivenIndex(0)->getSize();
+	}
 
+	for (int i = 0; i < numRows; ++i) { 
+		for (int j = 0; j < numCols; ++j) { 
+			out << table.getColumnAtGivenIndex(j)->returnValueAtGivenIndexAsString(i);
+			if (j < numCols - 1) {
+				out << ","; 
+			}
+		}
+		out << "\n"; 
+	}
 	out.close();
 
 }
 
-void OutputFileWritter::writeCatalogToFile(Catalog catalog, std::string filepath) {
+void OutputFileWritter::writeCatalogToFile(Catalog& catalog, std::string filepath) {
 	std::ofstream out(filepath);
 	if (!out.is_open()) {
 		throw std::runtime_error("Unable to open file: " + filepath);

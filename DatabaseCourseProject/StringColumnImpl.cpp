@@ -118,9 +118,5 @@ void StringColumn::fillColumnWithNULL() {
 }
 
 TableColumn* StringColumn::clone() const {
-	auto* copy = new StringColumn(name);
-	for (const std::string& val : content) {
-		copy->addCell(val);
-	}
-	return copy;
+	return new StringColumn(*this);
 }

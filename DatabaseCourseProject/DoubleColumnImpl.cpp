@@ -138,9 +138,5 @@ void DoubleColumn::fillColumnWithNULL() {
 }
 
 TableColumn* DoubleColumn::clone() const {
-	auto* copy = new DoubleColumn(name);
-	for (const double& val : content) {
-		copy->addCell(std::to_string(val));
-	}
-	return copy;
+	return new DoubleColumn(*this);
 }

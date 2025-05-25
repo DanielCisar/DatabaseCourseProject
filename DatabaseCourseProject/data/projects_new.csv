@@ -1,7 +1,7 @@
 Projects
 Integer,String,String,Double
-ProjectID,ProjectName,Status,Budget
-1,Alpha Launch,Active,150000.00
-2,Beta Testing,Pending,75000.25
-3,Gamma Rollout,Completed,210000.50
-4,Delta Upgrade,Active,90000.00
+ProjectID,Project Name,Status,Budget
+1,Alpha Launch,Active,150000.000000
+2,Beta Testing,Pending,75000.250000
+3,Gamma Rollout,Completed,210000.500000
+4,Delta Upgrade,Active,90000.000000

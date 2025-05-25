@@ -31,7 +31,9 @@ public:
 		InputConsoleReader inputConsoleReader);
 	~CatalogCommandManager();
 
-	void setLoadedCatalog(Catalog catalog);
+	void setLoadedCatalog(Catalog& catalog);
+	Catalog& getCurrentLoadedFile();
+
 	void closeLoadedCatalog();
 
 	void import(const std::string& filepath);

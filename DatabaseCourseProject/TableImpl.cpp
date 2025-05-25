@@ -70,17 +70,18 @@ void Table::addColumn(TableColumn* col) {
 Table& Table::operator=(const Table& other) {
 	if (this != &other) {
 
-		for (auto& col : this->columns) {
-			delete col;
+		for (auto& col_ptr : this->columns) {
+			delete col_ptr;
 		}
 		this->columns.clear();
 
-		for (const auto& col : other.columns) {
-			this->columns.push_back(col->clone());
+		for (const auto& col_ptr : other.columns) {
+			this->columns.push_back(col_ptr->clone());
 		}
 
-		this->filename = other.filename;
 		this->name = other.name;
+		this->filename = other.filename;
+
 	}
 	return *this;
 }

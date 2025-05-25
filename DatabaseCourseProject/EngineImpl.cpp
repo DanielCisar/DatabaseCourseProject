@@ -23,6 +23,8 @@ void Engine::dispatchCommand(std::vector<std::string> commandParams) {
 	}
 	else if (command == "save") {
 		try {
+			commandLineManager.setCurrentLoadedFile(catalogCommandManager.getCurrentLoadedFile());
+
 			commandLineManager.save();
 		}
 		catch (const std::exception& e) {
@@ -204,12 +206,13 @@ void Engine::dispatchCommand(std::vector<std::string> commandParams) {
 	}
 }
 
-Engine::Engine(OutputConsoleWritter outputConsoleWriter,
-	InputConsoleReader inputConsoleReader,
-	CatalogCommandManager catalogCommandManager,
-	CommandLineManager commandLineManager) :
+Engine::Engine(OutputConsoleWritter& outputConsoleWriter,
+	InputConsoleReader& inputConsoleReader,
+	OutputFileWritter& outputFileReader,
+	InputConsoleReader& input) :
 outputConsoleWriter(outputConsoleWriter),
 inputConsoleReader(inputConsoleReader), 
+currentLoadedCatalog(),
 catalogCommandManager(catalogCommandManager), 
 commandLineManager(commandLineManager)
 {

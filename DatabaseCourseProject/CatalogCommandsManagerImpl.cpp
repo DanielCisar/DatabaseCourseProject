@@ -53,7 +53,9 @@ void CatalogCommandManager::showTables()
 }
 
 void CatalogCommandManager::exportTable(const std::string& name, const std::string& filepath) {
-    outputFileWritter.writeTableToFile(loadedCatalog.returnTableByName(name), filepath);
+    Table table = loadedCatalog.returnTableByName(name);
+
+    outputFileWritter.writeTableToFile(table, filepath);
 }
 
 void CatalogCommandManager::describe(const std::string& name)
@@ -429,11 +431,15 @@ void CatalogCommandManager::agregate(const std::string& tableName,
 
 }
 
-void CatalogCommandManager::setLoadedCatalog(Catalog catalog) {
+void CatalogCommandManager::setLoadedCatalog(Catalog& catalog) {
 	this->loadedCatalog = catalog;
 	this->loadedCatalogExists = true;
 }
 
 void CatalogCommandManager::closeLoadedCatalog() {
     this->loadedCatalogExists = false;
+}
+
+Catalog& CatalogCommandManager::getCurrentLoadedFile() {
+    return this->loadedCatalog;
 }

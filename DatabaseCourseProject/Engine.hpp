@@ -8,16 +8,19 @@ class Engine {
 private:
 	OutputConsoleWritter outputConsoleWriter;
 	InputConsoleReader inputConsoleReader;
-	CatalogCommandManager catalogCommandManager;
-	CommandLineManager commandLineManager;
+
+	Catalog currentLoadedCatalog;
+
+	CatalogCommandManager& catalogCommandManager; 
+	CommandLineManager& commandLineManager;      
 
 	void dispatchCommand(std::vector<std::string> commandParams);
 
 public:
-	Engine(OutputConsoleWritter outputConsoleWriter,
-		InputConsoleReader inputConsoleReader, 
-		CatalogCommandManager catalogCommandManager, 
-		CommandLineManager commandLineManager);
+	Engine(InputFileReader& inputFileReader,
+		OutputConsoleWritter& outputConsoleWritter,
+		OutputFileWritter& outputFileReader,
+		InputConsoleReader& inputConsoleReader);
 
 	~Engine();
 

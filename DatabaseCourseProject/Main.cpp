@@ -19,7 +19,7 @@ int main() {
 		, outputConsoleWriter
 		, outputFileWritter);
 
-	Engine engine(outputConsoleWriter,
+	Engine engine(outputConsoleWriter, 
 		inputConsoleReader,
 		catalogCommandManager,
 		commandLineManager);

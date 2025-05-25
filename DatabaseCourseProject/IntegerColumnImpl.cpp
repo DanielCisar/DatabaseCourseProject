@@ -125,9 +125,5 @@ void IntegerColumn::fillColumnWithNULL() {
 }
 
 TableColumn* IntegerColumn::clone() const {
-	auto* copy = new IntegerColumn(name);
-	for (const int& val : content) {
-		copy->addCell(std::to_string(val));
-	}
-	return copy;
+	return new IntegerColumn(*this);
 }

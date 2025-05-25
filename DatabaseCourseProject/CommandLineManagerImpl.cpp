@@ -70,7 +70,7 @@ void CommandLineManager::close() {
 
 void CommandLineManager::save() {
 	if (!loadedFileExists) {
-		throw std::runtime_error("No file is currently loaded. Please open a file first.");
+		throw std::runtime_error("No file is currently loaded. Please open a file first. ");
 		return;
 	}
 
@@ -82,12 +82,15 @@ void CommandLineManager::save() {
 			outputConsoleWriter.printLine(e.what());
 		}
 	}
+
 	try {
 		outputFileWritter.writeCatalogToFile(currentLoadedFile, currentLoadedFile.getPath());
 	}
 	catch (const std::exception& e) {
 		outputConsoleWriter.printLine(e.what());
 	}
+
+	outputConsoleWriter.printLine("Saved changes to same files. ");
 }
 
 void CommandLineManager::saveAs(std::string filepath) {
@@ -137,4 +140,8 @@ void CommandLineManager::exit() {
 
 Catalog& CommandLineManager::getCurrentLoadedFile() {
 	return currentLoadedFile;
+}
+
+void CommandLineManager::setCurrentLoadedFile(Catalog& catalog) {
+	this->currentLoadedFile = catalog;
 }

@@ -1,3 +1,4 @@
-employees,data/employees_new.csv
-departments,data/departments_new.csv
-projects,data/projects_new.csv
+Employees,data/employees.csv
+Departments,data/departments_new.csv
+Projects,data/projects_new.csv
+Investments,data/investments.csv

@@ -31,6 +31,7 @@ public:
 	~CommandLineManager();
 
 	Catalog& getCurrentLoadedFile();
+	void setCurrentLoadedFile(Catalog& catalog);
 
 	void open(const std::string& filepath);
 	void close();

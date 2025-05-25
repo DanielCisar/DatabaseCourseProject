@@ -1,0 +1,6 @@
+Investments
+Integer,String,Double
+Priority Level,Investment Name,Price
+10,Better computers,20000.000000
+2,Better food,2000.000000
+7,Premium software,1500.000000

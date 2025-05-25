@@ -1,7 +1,7 @@
 Departments
 Integer,String,String
 DeptID,DeptName,Location
-10,Engineering,Building A
-20,Marketing,Building B
-30,Sales,Building C
-40,Support,Building A
+10,Engineering,Building A 
+20,Marketing,Building B 
+30,Sales,Building C 
+40,Support,Building A 
