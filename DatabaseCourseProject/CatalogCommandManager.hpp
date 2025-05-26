@@ -14,10 +14,11 @@
 #include "OutputConsoleWriter.hpp"
 #include "OutputFileWritter.hpp"
 #include "InputConsoleReader.hpp"
+#include <memory> 
 
 class CatalogCommandManager {
 private:
-	Catalog loadedCatalog;
+	std::shared_ptr<Catalog> loadedCatalog; 
 	InputFileReader fileReader;
 	OutputConsoleWritter outputConsoleWriter;
 	OutputFileWritter outputFileWritter;
@@ -31,8 +32,8 @@ public:
 		InputConsoleReader inputConsoleReader);
 	~CatalogCommandManager();
 
-	void setLoadedCatalog(Catalog& catalog);
-	Catalog& getCurrentLoadedFile();
+	void setLoadedCatalog(std::shared_ptr<Catalog> catalog);
+	std::shared_ptr<Catalog> getCurrentLoadedFile();
 
 	void closeLoadedCatalog();
 

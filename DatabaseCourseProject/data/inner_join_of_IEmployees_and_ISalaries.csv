@@ -1,0 +1,8 @@
+Inner_join_result
+Integer,String,String,Integer
+ID,Name,Departments,Salary
+1,Alice,HR,5000
+2,Bob,IT,6000
+3,Charlie,Sales,7000
+1,Alice,HR,5000
+2,Bob,IT,6000

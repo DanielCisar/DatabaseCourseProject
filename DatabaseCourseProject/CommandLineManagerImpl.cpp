@@ -25,7 +25,6 @@ CommandLineManager::CommandLineManager(InputFileReader fileReader,
 	outputConsoleWriter(outputConsoleWriter),
 	outputFileWritter(outputFileWritter)
 {
-	this->currentLoadedFile = Catalog();
 }
 
 CommandLineManager::~CommandLineManager() {
@@ -43,7 +42,8 @@ void CommandLineManager::open(const std::string& filepath) {
 
 	}
 	try {
-		Catalog catalog = fileReader.readCatalogFromFile(filepath);
+		std::shared_ptr<Catalog> catalog = std::make_shared<Catalog>(fileReader
+			.readCatalogFromFile(filepath));
 		outputConsoleWriter.printLine("Successfully opened: " + filepath);
 
 		this->currentLoadedFile = catalog;
@@ -63,9 +63,12 @@ void CommandLineManager::close() {
 		return;
 	}
 
-	loadedFileExists = false;
 	outputConsoleWriter.printLine("Closed the currently opened file: "
-		+ currentLoadedFile.getPath());
+		+ currentLoadedFile->getPath());
+
+	loadedFileExists = false;
+	currentLoadedFile.reset();
+
 }
 
 void CommandLineManager::save() {
@@ -74,7 +77,7 @@ void CommandLineManager::save() {
 		return;
 	}
 
-	for (auto& table : currentLoadedFile) {
+	for (auto& table : *currentLoadedFile) {
 		try {
 			outputFileWritter.writeTableToFile(table, table.getFilename());
 		}
@@ -84,7 +87,7 @@ void CommandLineManager::save() {
 	}
 
 	try {
-		outputFileWritter.writeCatalogToFile(currentLoadedFile, currentLoadedFile.getPath());
+		outputFileWritter.writeCatalogToFile(*currentLoadedFile, currentLoadedFile->getPath());
 	}
 	catch (const std::exception& e) {
 		outputConsoleWriter.printLine(e.what());
@@ -93,7 +96,7 @@ void CommandLineManager::save() {
 	outputConsoleWriter.printLine("Saved changes to same files. ");
 }
 
-void CommandLineManager::saveAs(std::string filepath) {
+void CommandLineManager::saveAs(const std::string& filepath) {
 	if (!loadedFileExists) {
 		throw std::runtime_error("No file is currently loaded. Please open a file first.");
 		return;
@@ -101,22 +104,25 @@ void CommandLineManager::saveAs(std::string filepath) {
 
 	Catalog newCatalog(filepath);
 
-	for (auto& table : currentLoadedFile) {
-		std::string newTablePath = "copy_" + table.getName() + ".csv";
+	std::string targetFolder = FileUtils::getDirectoryPath(filepath);
+
+	for (auto& table : *currentLoadedFile) {
+		std::string newName = "copy_" + table.getName();
+		std::string newTablePath = targetFolder + "/copy_" + newName + ".csv";
+
 
 		try {
-			outputFileWritter.writeTableToFile(table, newTablePath);
+			Table newTable = table.cloneWithNewNameAndPath(newName, newTablePath);
+			outputFileWritter.writeTableToFile(newTable, newTablePath);
+			newCatalog.addTable(newTable);
 		}
 		catch (const std::exception& e) {
 			outputConsoleWriter.printLine(e.what());
 		}
-		Table newTable = table;
-		newTable.setTablePath(newTablePath);
-
-		newCatalog.addTable(table);
 	}
 	try {
-		outputFileWritter.writeCatalogToFile(currentLoadedFile, filepath);
+		outputFileWritter.writeCatalogToFile(newCatalog, filepath);
+		outputConsoleWriter.printLine("Changes saved to: " + filepath);
 	}
 	catch (const std::exception& e) {
 		outputConsoleWriter.printLine(e.what());
@@ -138,10 +144,11 @@ void CommandLineManager::exit() {
 
 }
 
-Catalog& CommandLineManager::getCurrentLoadedFile() {
+std::shared_ptr<Catalog> CommandLineManager::getCurrentLoadedFile() {
 	return currentLoadedFile;
 }
 
-void CommandLineManager::setCurrentLoadedFile(Catalog& catalog) {
+void CommandLineManager::setCurrentLoadedFile(std::shared_ptr<Catalog> catalog) {
 	this->currentLoadedFile = catalog;
+	this->loadedFileExists = (catalog != nullptr);
 }

@@ -42,7 +42,7 @@ void DoubleColumn::changeValueAtIndex(int index, std::string val) {
 	if (index < 0 || index >= content.size()) {
 		throw std::runtime_error("Invalid index. ");
 	}
-	if (val == "NULL") {
+	if (val == "") {
 		content[index] = 0;
 		isNull[index] = true;
 		return;
@@ -70,7 +70,7 @@ double DoubleColumn::getValueAtGivenIndex(int index) const {
 }
 
 void DoubleColumn::addCell(std::string cell) {
-	if (cell == "NULL") {
+	if (cell == "") {
 		content.push_back(0.0);
 		isNull.push_back(true);
 		return;
@@ -103,7 +103,7 @@ std::string DoubleColumn::returnValueAtGivenIndexAsString(int index) const {
 	}
 
 	if (isNull[index] == true) {
-		return "NULL";
+		return "";
 	}
 	return std::to_string(content[index]);
 }
@@ -117,7 +117,7 @@ bool DoubleColumn::matchesValues(int rowIndex, const std::string& value) const {
 		throw std::runtime_error("Invalid index. ");
 	}
 
-	if (isNull[rowIndex] && value == "NULL") {
+	if (isNull[rowIndex] && value == "") {
 		return true;
 	}
 

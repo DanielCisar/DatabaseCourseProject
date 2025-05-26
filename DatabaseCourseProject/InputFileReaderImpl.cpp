@@ -107,7 +107,7 @@ Catalog InputFileReader::readCatalogFromFile(const std::string& filepath) {
         try {
             catalog.addTable(readTableFromFile(tableFilePath));
         }
-        catch(const std::runtime_error& e){
+        catch(const std::exception& e){
             continue;
         }
     }

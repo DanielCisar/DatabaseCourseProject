@@ -23,7 +23,7 @@ Table::~Table() {
 }
 
 void Table::deleteGivenRow(int index) {
-	if (columns[0]->getSize() < 0 || index >= columns[0]->getSize()) {
+	if (index < 0 || index >= columns[0]->getSize()) {
 		throw std::runtime_error("Invalid index. ");
 	}
 	for (TableColumn* column : columns) {
@@ -48,7 +48,7 @@ std::string Table::getColumnNameAtGivenIndex(int index) const {
 }
 
 std::string Table::getRowAsString(int index) const {
-	if (columns[0]->getSize() < 0 || index >= columns[0]->getSize()) {
+	if (index < 0 || index >= columns[0]->getSize()) {
 		throw std::runtime_error("Invalid index. ");
 	}
 	std::string result = "";
@@ -86,7 +86,7 @@ Table& Table::operator=(const Table& other) {
 	return *this;
 }
 
-void Table::setTablePath(std::string filename) {
+void Table::setTablePath(const std::string& filename) {
 	
 	this->filename = filename;
 }
@@ -119,4 +119,12 @@ std::string Table::toString() const {
 		result += '\n';
 	}
 	return result;
+}
+
+Table Table::cloneWithNewNameAndPath(const std::string& newName, const std::string& newPath) const {
+	std::vector<TableColumn*> clonedCols;
+	for (TableColumn* col : this->columns) {
+		clonedCols.push_back(col->clone());
+	}
+	return Table(clonedCols, newName, newPath);
 }

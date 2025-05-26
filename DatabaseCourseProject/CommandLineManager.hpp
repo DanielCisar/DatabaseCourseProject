@@ -14,11 +14,12 @@
 #include "InputFileReader.hpp"
 #include "OutputConsoleWriter.hpp"
 #include "OutputFileWritter.hpp"
+#include <memory> 
 
 class CommandLineManager {
 private:
 	bool loadedFileExists;
-	Catalog currentLoadedFile;
+	std::shared_ptr<Catalog> currentLoadedFile; 
 	InputFileReader fileReader;
 	OutputConsoleWritter outputConsoleWriter;
 	OutputFileWritter outputFileWritter;
@@ -30,13 +31,13 @@ public:
 
 	~CommandLineManager();
 
-	Catalog& getCurrentLoadedFile();
-	void setCurrentLoadedFile(Catalog& catalog);
+	std::shared_ptr<Catalog> getCurrentLoadedFile();
+	void setCurrentLoadedFile(std::shared_ptr<Catalog> catalog);
 
 	void open(const std::string& filepath);
 	void close();
 	void save();
-	void saveAs(std::string filepath);
+	void saveAs(const std::string& filepath);
 	void help();
 	void exit();
 };

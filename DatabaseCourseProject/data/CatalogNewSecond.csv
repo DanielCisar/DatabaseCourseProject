@@ -1,0 +1,5 @@
+copy_Employees,data/copy_copy_Employees.csv
+copy_Departments,data/copy_copy_Departments.csv
+copy_Projects,data/copy_copy_Projects.csv
+copy_Investments,data/copy_copy_Investments.csv
+copy_Products,data/copy_copy_Products.csv

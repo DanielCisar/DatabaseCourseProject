@@ -16,7 +16,7 @@ public:
 	Catalog& operator=(const Catalog& other);
 	void addTable(Table table);
 	void removeTable(int index);
-	Table returnTableByName(std::string name) const;
+	Table& returnTableByName(const std::string& name);
 	std::string getPath() const;
 
 	std::vector<Table>::iterator begin();

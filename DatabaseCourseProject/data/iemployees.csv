@@ -1,0 +1,6 @@
+IEmployees
+Integer,String,String
+ID,Name,Departments
+1,Alice,HR
+2,Bob,IT
+3,Charlie,Sales

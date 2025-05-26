@@ -23,8 +23,6 @@ void Engine::dispatchCommand(std::vector<std::string> commandParams) {
 	}
 	else if (command == "save") {
 		try {
-			commandLineManager.setCurrentLoadedFile(catalogCommandManager.getCurrentLoadedFile());
-
 			commandLineManager.save();
 		}
 		catch (const std::exception& e) {
@@ -149,8 +147,11 @@ void Engine::dispatchCommand(std::vector<std::string> commandParams) {
 		try {
 			std::vector<std::string> values;
 
+			int i = -1;
+
 			for (auto& p : commandParams) {
-				if (p == command) {
+				i++;
+				if (i == 0 || i == 1) {
 					continue;
 				}
 				values.push_back(p);
@@ -223,7 +224,8 @@ Engine::~Engine() {
 }
 
 void Engine::run() {
-	std::vector<std::string> params = inputConsoleReader.readLine();
+	std::string rawInput = inputConsoleReader.readLineAsString();
+	std::vector<std::string> params = CommandParser::parseRawCommand(rawInput);
 
 	while (true) {
 
@@ -232,6 +234,7 @@ void Engine::run() {
 		if (params[0] == "exit") {
 			break;
 		}
-		params = inputConsoleReader.readLine();
+		rawInput = inputConsoleReader.readLineAsString();
+		params = CommandParser::parseRawCommand(rawInput);
 	}
 }

@@ -40,7 +40,7 @@ std::string StringColumn::getValueAtGivenIndex(int index) const {
 		throw std::runtime_error("Invalid index. ");
 	}
 	if (isNull[index] == true) {
-		return "NULL";
+		return "";
 	}
 	return content[index];
 }
@@ -50,7 +50,7 @@ void StringColumn::changeValueAtIndex(int index, std::string val) {
 		throw std::runtime_error("Invalid index. ");
 	}
 	
-	if (val != "NULL") {
+	if (val != "") {
 		content[index] = val;
 		isNull[index] = false;
 		return;
@@ -62,7 +62,7 @@ void StringColumn::changeValueAtIndex(int index, std::string val) {
 }
 
 void StringColumn::addCell(std::string cell) {
-	if (cell == "NULL") {
+	if (cell == "") {
 		isNull.push_back(true);
 		content.push_back("");
 		return;
@@ -90,7 +90,7 @@ std::string StringColumn::returnValueAtGivenIndexAsString(int index) const {
 	}
 
 	if (isNull[index] == true) {
-		return "NULL";
+		return "";
 	}
 	return content[index];
 }
@@ -104,7 +104,7 @@ bool StringColumn::matchesValues(int rowIndex, const std::string& value) const {
 		throw std::runtime_error("Invalid index. ");
 	}
 
-	if (isNull[rowIndex] && value == "NULL") {
+	if (isNull[rowIndex] && value == "") {
 		return true;
 	}
 

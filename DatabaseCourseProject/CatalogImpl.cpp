@@ -49,8 +49,8 @@ std::vector <Table>::iterator Catalog::end() {
 	return tableCollection.end();
 }
 
-Table Catalog::returnTableByName(std::string name) const{
-	for (Table table : tableCollection) {
+Table& Catalog::returnTableByName(const std::string& name) {
+	for (auto& table : tableCollection) {
 		if (table.getName() == name) {
 			return table;
 		}

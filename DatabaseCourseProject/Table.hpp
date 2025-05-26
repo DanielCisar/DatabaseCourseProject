@@ -42,11 +42,13 @@ public:
 
 	int getNumberOfColumns() const;
 
-	void setTablePath(std::string filename);
+	void setTablePath(const std::string& filename);
 
 	TableColumn* getColumnAtGivenIndex(int index) const;
 
 	void setName(const std::string& name);
 
 	std::string toString() const;
+
+	Table cloneWithNewNameAndPath(const std::string& newName, const std::string& newPath) const;
 };

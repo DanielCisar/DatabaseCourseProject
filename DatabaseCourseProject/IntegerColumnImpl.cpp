@@ -51,7 +51,7 @@ void IntegerColumn::changeValueAtIndex(int index, std::string val) {
 		throw std::runtime_error("Invalid index. ");
 	}
 
-	if (val == "NULL") {
+	if (val == "") {
 		content[index] = 0;
 		isNull[index] = true;
 		return;
@@ -67,7 +67,7 @@ void IntegerColumn::changeValueAtIndex(int index, std::string val) {
 }
 
 void IntegerColumn::addCell(std::string cell) {
-	if (cell == "NULL") {
+	if (cell == "") {
 		content.push_back(0);
 		isNull.push_back(true);
 		return;
@@ -92,7 +92,7 @@ int IntegerColumn::getSize() {
 
 std::string IntegerColumn::returnValueAtGivenIndexAsString(int index) const {
 	if (isNull[index] == true) {
-		return "NULL";
+		return "";
 	}
 	return std::to_string(content[index]);
 }
@@ -106,7 +106,7 @@ bool IntegerColumn::matchesValues(int rowIndex, const std::string& value) const 
 		throw std::runtime_error("Invalid index. ");
 	}
 
-	if (isNull[rowIndex] && value == "NULL") {
+	if (isNull[rowIndex] && value == "") {
 		return true;
 	}
 	try {
