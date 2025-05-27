@@ -91,6 +91,7 @@ void DoubleColumn::deleteCell(int index) {
 	}
 
 	content.erase(content.begin() + index);
+	isNull.erase(isNull.begin() + index);
 }
 
 int DoubleColumn::getSize() {

@@ -83,7 +83,12 @@ void IntegerColumn::addCell(std::string cell) {
 }
 
 void IntegerColumn::deleteCell(int index) {
+	if (index < 0 || index >= content.size()) {
+		throw std::runtime_error("Invalid index. ");
+	}
+
 	content.erase(content.begin() + index);
+	isNull.erase(isNull.begin() + index);
 }
 
 int IntegerColumn::getSize() {
@@ -91,6 +96,10 @@ int IntegerColumn::getSize() {
 }
 
 std::string IntegerColumn::returnValueAtGivenIndexAsString(int index) const {
+	if (index < 0 || index >= content.size()) {
+		throw std::runtime_error("Invalid index. ");
+	}
+
 	if (isNull[index] == true) {
 		return "";
 	}

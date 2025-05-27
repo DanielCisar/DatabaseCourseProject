@@ -190,9 +190,9 @@ void Engine::dispatchCommand(std::vector<std::string> commandParams) {
 			outputConsoleWriter.printLine(e.what());
 		}
 	}
-	else if (command == "agregate") {
+	else if (command == "aggregate") {
 		try {
-			catalogCommandManager.agregate(commandParams[1],
+			catalogCommandManager.aggregate(commandParams[1],
 				std::stoi(commandParams[2]),
 				commandParams[3],
 				std::stoi(commandParams[4]),

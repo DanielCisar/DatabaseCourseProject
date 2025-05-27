@@ -78,6 +78,7 @@ void StringColumn::deleteCell(int index) {
 	}
 
 	content.erase(content.begin() + index);
+	isNull.erase(isNull.begin() + index);
 }
 
 int StringColumn::getSize() {

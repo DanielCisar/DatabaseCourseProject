@@ -226,14 +226,17 @@ void CatalogCommandManager::deleteRows(const std::string& tableName,
         TableColumn* searchCol = table.getColumnAtGivenIndex(searchColumnIndex);
 
         int size = searchCol->getSize();
+        int deletedCount = 0;
 
-        for (int i = 0; i < size; ++i) {
+        for (int i = size - 1; i >= 0; --i) {
             if (searchCol->matchesValues(i, searchValue)) {
                 table.deleteGivenRow(i);
+                deletedCount++;
             }
         }
 
-        outputConsoleWriter.printLine("Delete operation was successful. ");
+        outputConsoleWriter.printLine("Deleted " + std::to_string(deletedCount) + " row(s).");
+
     }
     catch (const std::exception& e) {
         outputConsoleWriter.printLine(e.what());
@@ -384,7 +387,7 @@ void CatalogCommandManager::count(const std::string& tableName, int searchColumn
     }
 }
 
-void CatalogCommandManager::agregate(const std::string& tableName,
+void CatalogCommandManager::aggregate(const std::string& tableName,
     int searchColumn,
     std::string seacrhValue,
     int targetColumn,
@@ -396,19 +399,18 @@ void CatalogCommandManager::agregate(const std::string& tableName,
 
     try {
         Table& table = loadedCatalog->returnTableByName(tableName);
-        if (searchColumn > table.getColumnAtGivenIndex(0)->getSize() && searchColumn < 0) {
+        if (searchColumn >= table.getNumberOfColumns() || searchColumn < 0) {
             throw std::out_of_range("Invalid search column index. ");
         }
 
-        if (targetColumn > table.getColumnAtGivenIndex(0)->getSize() && targetColumn < 0) {
+        if (targetColumn >= table.getNumberOfColumns() || targetColumn < 0) {
             throw std::out_of_range("Invalid target column index. ");
         }
 
         TableColumn* col1 = table.getColumnAtGivenIndex(searchColumn);
         TableColumn* col2 = table.getColumnAtGivenIndex(targetColumn);
 
-        if ((col1->getType() != ColumnType::INTEGER || col2->getType() != ColumnType::INTEGER) &&
-            (col1->getType() != ColumnType::DOUBLE || col2->getType() != ColumnType::DOUBLE)) {
+        if (col2->getType() != ColumnType::INTEGER && col2->getType() != ColumnType::DOUBLE) {
             throw std::runtime_error("Incompatible column types. ");
         }
 
@@ -416,9 +418,15 @@ void CatalogCommandManager::agregate(const std::string& tableName,
 
         for (int i = 0; i < table.getColumnAtGivenIndex(0)->getSize(); i++) {
             if (col1->matchesValues(i, seacrhValue)) {
-                std::string valStr = col1->returnValueAtGivenIndexAsString(i);
-                double val = std::stod(valStr);
-                cells.push_back(val);
+                std::string valStr = col2->returnValueAtGivenIndexAsString(i);
+                try {
+                    double val = std::stod(valStr);
+                    cells.push_back(val);
+                }
+                catch (...) {
+                    throw std::runtime_error("Non-numeric value found in aggregation target column.");
+                }
+
             }
         }
 

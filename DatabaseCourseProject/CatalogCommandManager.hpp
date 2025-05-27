@@ -54,7 +54,7 @@ public:
 	void innerJoin(const std::string& tableName1, int column1, const std::string& tableName2, int column2);
 	void rename(const std::string& oldName, const std::string& newName);
 	void count(const std::string& tableName, int searchColumn, std::string searchValue);
-	void agregate(const std::string& tableName,
+	void aggregate(const std::string& tableName,
 		int searchColumn,
 		std::string seacrhValue,
 		int targetColumn,
