@@ -22,7 +22,7 @@ CatalogUpdateCommand::CatalogUpdateCommand(CommandContext& context)
 
 void CatalogUpdateCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -33,7 +33,7 @@ void CatalogUpdateCommand::execute(const std::vector<std::string>& params) {
         int targetColumnIndex = std::stoi(params[4]);
         const std::string& targetValue = params[5];
 
-        Table& table = context.loadedCatalog->returnTableByName(tableName);
+        Table& table = context.loadedCatalog.returnTableByName(tableName);
 
         TableColumn* searchCol = table.getColumnAtGivenIndex(searchColumnIndex);
         TableColumn* targetCol = table.getColumnAtGivenIndex(targetColumnIndex);

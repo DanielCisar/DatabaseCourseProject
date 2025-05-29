@@ -21,13 +21,13 @@ CatalogExportTableCommand::CatalogExportTableCommand(CommandContext& context)
 }
 void CatalogExportTableCommand::execute(const std::vector<std::string>& params) {
 
-	if (!context.loadedCatalog) {
+	if (!context.loadedCatalogExists) {
 		throw std::runtime_error("There is no file opened! ");
 	}
 	const std::string& name = params[1];
 	const std::string& filepath = params[2];
 
-    Table table = context.loadedCatalog->returnTableByName(name);
+    Table& table = context.loadedCatalog.returnTableByName(name);
 
     context.outputFileWritter.writeTableToFile(table, filepath);
     context.outputConsoleWritter.printLine("Table exported to: " + filepath);

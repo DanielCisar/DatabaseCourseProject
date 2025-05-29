@@ -23,7 +23,7 @@ CatalogSelectCommand::CatalogSelectCommand(CommandContext& context)
 
 void CatalogSelectCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
     
@@ -32,7 +32,7 @@ void CatalogSelectCommand::execute(const std::vector<std::string>& params) {
         const std::string& value = params[2];
         const std::string& name = params[3];
 
-        Table table = context.loadedCatalog->returnTableByName(name);
+        Table& table = context.loadedCatalog.returnTableByName(name);
 
         TableColumn* columnToSearch = table.getColumnAtGivenIndex(numberOfColumn);
 

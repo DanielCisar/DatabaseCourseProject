@@ -22,7 +22,7 @@ CatalogCountCommand::CatalogCountCommand(CommandContext& context)
 
 void CatalogCountCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -31,7 +31,7 @@ void CatalogCountCommand::execute(const std::vector<std::string>& params) {
 		int searchColumnIndex = std::stoi(params[2]);
 		const std::string& searchValue = params[3];
 
-        Table& table = context.loadedCatalog->returnTableByName(tableName);
+        Table& table = context.loadedCatalog.returnTableByName(tableName);
 
         int counter = 0;
 

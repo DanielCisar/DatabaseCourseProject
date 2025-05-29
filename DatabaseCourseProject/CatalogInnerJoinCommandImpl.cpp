@@ -22,7 +22,7 @@ CatalogInnerJoinCommand::CatalogInnerJoinCommand(CommandContext& context)
 
 void CatalogInnerJoinCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -32,8 +32,8 @@ void CatalogInnerJoinCommand::execute(const std::vector<std::string>& params) {
 		const std::string& tableName2 = params[3];
 		int column2 = std::stoi(params[4]);
 
-        Table& table1 = context.loadedCatalog->returnTableByName(tableName1);
-        Table& table2 = context.loadedCatalog->returnTableByName(tableName2);
+        Table& table1 = context.loadedCatalog.returnTableByName(tableName1);
+        Table& table2 = context.loadedCatalog.returnTableByName(tableName2);
 
         if (column1 >= table1.getColumnAtGivenIndex(0)->getSize() ||
             column2 >= table1.getColumnAtGivenIndex(0)->getSize()) {

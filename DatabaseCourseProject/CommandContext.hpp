@@ -11,7 +11,8 @@
 
 struct CommandContext {
     std::vector<std::string> params;
-    std::shared_ptr<Catalog>& loadedCatalog;
+    Catalog& loadedCatalog;
+    bool loadedCatalogExists;
 
     OutputConsoleWritter& outputConsoleWritter;
     InputConsoleReader& inputConsoleReader;
@@ -19,13 +20,14 @@ struct CommandContext {
     InputFileReader& inputFileReader;
 
     CommandContext(
-        std::shared_ptr<Catalog>& loadedCatalogRef,
+        Catalog& loadedCatalogRef,
         OutputConsoleWritter& outputConsoleWritter,
         InputConsoleReader& inputConsoleReader,
         OutputFileWritter& outputFileWritter,
         InputFileReader& inputFileReader
     )
         : loadedCatalog(loadedCatalogRef),
+        loadedCatalogExists(false),
         outputConsoleWritter(outputConsoleWritter),
         inputConsoleReader(inputConsoleReader),
         outputFileWritter(outputFileWritter),

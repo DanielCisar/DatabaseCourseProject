@@ -22,12 +22,12 @@ FileSaveCommand::FileSaveCommand(CommandContext& context)
 
 void FileSaveCommand::execute(const std::vector<std::string>& params) {
 
-	if (!context.loadedCatalog) {
+	if (!context.loadedCatalogExists) {
 		throw std::runtime_error("No file is currently loaded. Please open a file first. ");
 		return;
 	}
 
-	for (auto& table : *context.loadedCatalog) {
+	for (auto& table : context.loadedCatalog) {
 		try {
 			context.outputFileWritter.writeTableToFile(table, table.getFilename());
 		}
@@ -37,8 +37,8 @@ void FileSaveCommand::execute(const std::vector<std::string>& params) {
 	}
 
 	try {
-		context.outputFileWritter.writeCatalogToFile(*context.loadedCatalog
-			, context.loadedCatalog->getPath());
+		context.outputFileWritter.writeCatalogToFile(context.loadedCatalog
+			, context.loadedCatalog.getPath());
 	}
 	catch (const std::exception& e) {
 		context.outputConsoleWritter.printLine(e.what());

@@ -22,14 +22,14 @@ CatalogDescribeCommand::CatalogDescribeCommand(CommandContext& context)
 
 void CatalogDescribeCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
 	const std::string& name = params[1];
 
     try {
-        Table table = context.loadedCatalog->returnTableByName(name);
+        Table& table = context.loadedCatalog.returnTableByName(name);
 
         int index = 1;
 

@@ -22,7 +22,7 @@ CatalogInsertCommand::CatalogInsertCommand(CommandContext& context)
 
 void CatalogInsertCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -30,7 +30,7 @@ void CatalogInsertCommand::execute(const std::vector<std::string>& params) {
 		const std::string& tableName = params[1];
 		std::vector<std::string> values(params.begin() + 2, params.end());
 
-        Table& table = context.loadedCatalog->returnTableByName(tableName);
+        Table& table = context.loadedCatalog.returnTableByName(tableName);
 
         if (values.size() != table.getNumberOfColumns()) {
             throw std::runtime_error("Number of values is not equal to number of column. ");

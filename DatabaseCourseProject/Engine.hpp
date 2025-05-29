@@ -25,7 +25,7 @@ public:
 private:
     void dispatchCommand(const std::vector<std::string>& params);
 
-    std::shared_ptr<Catalog> loadedCatalog; 
+    Catalog loadedCatalog; 
     CommandContext context;
     std::unordered_map<std::string, Command*> commands;
 };

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "OutputConsoleWriter.hpp"
+#include "OutputConsoleWritter.hpp"
 #include <string>
 
 OutputConsoleWritter::OutputConsoleWritter() {

@@ -22,13 +22,13 @@ FileCloseCommand::FileCloseCommand(CommandContext& context)
 
 void FileCloseCommand::execute(const std::vector<std::string>& params) {
 
-	if (!context.loadedCatalog) {
+	if (!context.loadedCatalogExists) {
 		throw std::runtime_error("No file is currently loaded. Please open a file first.");
 		return;
 	}
 
 	context.outputConsoleWritter.printLine("Closed the currently opened file: "
-		+ context.loadedCatalog->getPath());
+		+ context.loadedCatalog.getPath());
 
-	context.loadedCatalog.reset();
+	context.loadedCatalogExists = false;
 }

@@ -22,7 +22,7 @@ CatalogAddColumnCommand::CatalogAddColumnCommand(CommandContext& context)
 
 void CatalogAddColumnCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -34,20 +34,20 @@ void CatalogAddColumnCommand::execute(const std::vector<std::string>& params) {
 
         ColumnType columnType;
 
-        if (columnTypeStr == "string") {
+        if (columnTypeStr == "String") {
             columnType = ColumnType::STRING;
         }
-        else if (columnTypeStr == "integer") {
+        else if (columnTypeStr == "Integer") {
             columnType = ColumnType::INTEGER;
         }
-        else if (columnTypeStr == "double") {
+        else if (columnTypeStr == "Double") {
             columnType = ColumnType::DOUBLE;
         }
         else {
-            throw std::runtime_error("Invalid column type! Use 'string', 'integer' or 'double'. ");
+            throw std::runtime_error("Invalid column type! Use 'String', 'Integer' or 'Double'. ");
         }
 
-        Table table = context.loadedCatalog->returnTableByName(tableName);
+        Table& table = context.loadedCatalog.returnTableByName(tableName);
 
         int colSize = table.getColumnAtGivenIndex(0)->getSize();
 
@@ -71,7 +71,7 @@ void CatalogAddColumnCommand::execute(const std::vector<std::string>& params) {
             table.addColumn(doubleColumn);
         }
 
-        context.outputConsoleWritter.printLine("New empty column created. ");
+        context.outputConsoleWritter.printLine("New empty column created and added successfuly. ");
     }
     catch (const std::exception& e) {
         context.outputConsoleWritter.printLine(e.what());

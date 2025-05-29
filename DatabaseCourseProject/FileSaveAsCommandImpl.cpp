@@ -22,7 +22,7 @@ FileSaveAsCommand::FileSaveAsCommand(CommandContext& context)
 
 void FileSaveAsCommand::execute(const std::vector<std::string>& params) {
 
-	if (!context.loadedCatalog) {
+	if (!context.loadedCatalogExists) {
 		throw std::runtime_error("No file is currently loaded. Please open a file first.");
 		return;
 	}
@@ -32,7 +32,7 @@ void FileSaveAsCommand::execute(const std::vector<std::string>& params) {
 
 	std::string targetFolder = FileUtils::getDirectoryPath(filepath);
 
-	for (auto& table : *context.loadedCatalog) {
+	for (auto& table : context.loadedCatalog) {
 		std::string newName = "copy_" + table.getName();
 		std::string newTablePath = targetFolder + "/copy_" + newName + ".csv";
 

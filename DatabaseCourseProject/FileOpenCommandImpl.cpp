@@ -38,12 +38,12 @@ void FileOpenCommand::execute(const std::vector<std::string>& params) {
 
 	}
 	try {
-		std::shared_ptr<Catalog> catalog = std::make_shared<Catalog>(context.inputFileReader
+		Catalog catalog = Catalog(context.inputFileReader
 			.readCatalogFromFile(filepath));
 		context.outputConsoleWritter.printLine("Successfully opened: " + filepath);
 
 		context.loadedCatalog = catalog;
-
+		context.loadedCatalogExists = true;
 	}
 	catch (const std::exception& e) {
 		context.outputConsoleWritter.printLine(e.what());

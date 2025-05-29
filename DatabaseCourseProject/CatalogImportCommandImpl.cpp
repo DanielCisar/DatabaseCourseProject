@@ -22,7 +22,7 @@ CatalogImportCommand::CatalogImportCommand(CommandContext& context)
 
 void CatalogImportCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -31,7 +31,7 @@ void CatalogImportCommand::execute(const std::vector<std::string>& params) {
     try {
         Table table = context.inputFileReader.readTableFromFile(filepath);
 
-        context.loadedCatalog->addTable(table);
+        context.loadedCatalog.addTable(table);
 
         context.outputConsoleWritter.printLine("Succesfuly imported table - " + table.getName() + ". ");
     }

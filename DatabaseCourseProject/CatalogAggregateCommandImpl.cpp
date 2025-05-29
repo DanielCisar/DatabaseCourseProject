@@ -23,7 +23,7 @@ CatalogAggregateCommand::CatalogAggregateCommand(CommandContext& context)
 
 void CatalogAggregateCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -34,7 +34,7 @@ void CatalogAggregateCommand::execute(const std::vector<std::string>& params) {
         int targetColumn = std::stoi(params[4]);
 		const std::string& operation = params[5];
 
-        Table& table = context.loadedCatalog->returnTableByName(tableName);
+        Table& table = context.loadedCatalog.returnTableByName(tableName);
         if (searchColumn >= table.getNumberOfColumns() || searchColumn < 0) {
             throw std::out_of_range("Invalid search column index. ");
         }

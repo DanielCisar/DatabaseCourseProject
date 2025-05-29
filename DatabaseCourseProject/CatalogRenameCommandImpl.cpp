@@ -23,7 +23,7 @@ CatalogRenameCommand::CatalogRenameCommand(CommandContext& context)
 
 void CatalogRenameCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
@@ -31,7 +31,7 @@ void CatalogRenameCommand::execute(const std::vector<std::string>& params) {
 		const std::string& oldName = params[1];
 		const std::string& newName = params[2];
 
-        Table& table = context.loadedCatalog->returnTableByName(oldName);
+        Table& table = context.loadedCatalog.returnTableByName(oldName);
         table.setName(newName);
         context.outputConsoleWritter.printLine("Table " + oldName + " has been renamed to " + newName);
     }

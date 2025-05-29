@@ -8,7 +8,7 @@ Engine::Engine(OutputConsoleWritter& outputConsoleWritter,
     InputConsoleReader& inputConsoleReader,
     OutputFileWritter& outputFileWritter,
     InputFileReader& inputFileReader)
-    : loadedCatalog(nullptr),
+    : loadedCatalog(Catalog()),
     context(loadedCatalog, outputConsoleWritter, inputConsoleReader, outputFileWritter, inputFileReader)
 {
 
@@ -31,7 +31,16 @@ Engine::Engine(OutputConsoleWritter& outputConsoleWritter,
 }
 
 void Engine::run() {
+
+    context.outputConsoleWritter.printLine("===========================================");
+    context.outputConsoleWritter.printLine("  Welcome to SimpleDB Command Console!");
+    context.outputConsoleWritter.printLine("  Type 'help' to see a list of commands.");
+    context.outputConsoleWritter.printLine("  Type 'exit' to quit the program.");
+    context.outputConsoleWritter.printLine("===========================================\n");
+
     while (true) {
+        context.outputConsoleWritter.print(">> ");
+
         std::string rawInput = context.inputConsoleReader.readLineAsString();
         std::vector<std::string> args = CommandParser::parseRawCommand(rawInput);
 
@@ -42,7 +51,13 @@ void Engine::run() {
 
         dispatchCommand(args);
 
-        if (args[0] == "exit") { break; }
+        if (args[0] == "exit") { 
+            context.outputConsoleWritter.printLine("Goodbye!");
+            break; 
+        }
+
+        context.outputConsoleWritter.printLine(""); 
+
     }
 }
 

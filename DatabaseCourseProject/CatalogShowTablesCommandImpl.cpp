@@ -22,13 +22,13 @@ CatalogShowTablesCommand::CatalogShowTablesCommand(CommandContext& context)
 
 void CatalogShowTablesCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
     context.outputConsoleWritter.printLine("List of tables: ");
 
-    for (auto& table : *context.loadedCatalog) {
+    for (auto& table : context.loadedCatalog) {
         context.outputConsoleWritter.printLine(table.getName());
     }
 }

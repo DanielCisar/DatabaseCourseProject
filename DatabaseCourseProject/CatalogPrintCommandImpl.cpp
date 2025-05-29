@@ -23,14 +23,14 @@ CatalogPrintCommand::CatalogPrintCommand(CommandContext& context)
 
 void CatalogPrintCommand::execute(const std::vector<std::string>& params) {
 
-    if (!context.loadedCatalog) {
+    if (!context.loadedCatalogExists) {
         throw std::runtime_error("There is no file opened! ");
     }
 
 	const std::string& name = params[1];
 
     try {
-        Table table = context.loadedCatalog->returnTableByName(name);
+        Table& table = context.loadedCatalog.returnTableByName(name);
 
         std::string command;
 
