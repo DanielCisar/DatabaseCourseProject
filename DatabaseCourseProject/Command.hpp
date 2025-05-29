@@ -14,7 +14,6 @@
 #include "OutputConsoleWritter.hpp"
 #include "OutputFileWritter.hpp"
 #include "InputConsoleReader.hpp"
-#include <memory> 
 #include "CommandContext.hpp"
 
 class Command {

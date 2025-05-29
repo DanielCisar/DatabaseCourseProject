@@ -4,7 +4,6 @@
 #include "OutputConsoleWritter.hpp"
 #include "InputConsoleReader.hpp"
 #include <unordered_map>
-#include <memory>
 #include <vector>
 #include <string>
 

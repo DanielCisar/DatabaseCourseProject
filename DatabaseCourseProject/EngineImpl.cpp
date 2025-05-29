@@ -33,7 +33,7 @@ Engine::Engine(OutputConsoleWritter& outputConsoleWritter,
 void Engine::run() {
 
     context.outputConsoleWritter.printLine("===========================================");
-    context.outputConsoleWritter.printLine("  Welcome to SimpleDB Command Console!");
+    context.outputConsoleWritter.printLine("  Welcome to Database Course Project");
     context.outputConsoleWritter.printLine("  Type 'help' to see a list of commands.");
     context.outputConsoleWritter.printLine("  Type 'exit' to quit the program.");
     context.outputConsoleWritter.printLine("===========================================\n");
