@@ -16,10 +16,26 @@
 #include <ostream>
 #include <iostream>
 
+/**
+ * @brief Constructs an open command for file and catalog operations.
+ *
+ * @param context A reference to the shared command context.
+ */
 FileOpenCommand::FileOpenCommand(CommandContext& context)
 	: context(context) {
 }
 
+/**
+ * @brief Executes the open command which sets the loaded catalog.
+ *
+ * This function checks if a file exists. If it does, it reads its content
+ * andloads it into the memory. If no file is open, it creates
+ * a new empty one.
+ *
+ * @param params The only parameter is the file path of the catalog.
+ *
+ * @throws std::runtime_error if the parameters are not the exact value and if there is an issue opening a file.
+ */
 void FileOpenCommand::execute(const std::vector<std::string>& params) {
 
 	if (params.size() != 2) {
