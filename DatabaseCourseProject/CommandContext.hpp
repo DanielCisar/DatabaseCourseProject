@@ -1,6 +1,5 @@
 #pragma once
 
-#include <memory>
 #include "OutputConsoleWritter.hpp"
 #include "InputConsoleReader.hpp"
 #include "InputFileReader.hpp"
