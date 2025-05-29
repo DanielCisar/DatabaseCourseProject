@@ -38,7 +38,7 @@ public:
 
 	bool matchesValues(int rowIndex, const std::string& value) const override;
 
-	void fillColumnWithNULL() override;
+	void fillColumnWithNULL(int size) override;
 
 	TableColumn* clone() const override;
 

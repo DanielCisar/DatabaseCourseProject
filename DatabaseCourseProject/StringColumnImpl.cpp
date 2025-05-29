@@ -112,10 +112,12 @@ bool StringColumn::matchesValues(int rowIndex, const std::string& value) const {
 	return getValueAtGivenIndex(rowIndex) == value;
 }
 
-void StringColumn::fillColumnWithNULL() {
-	this->content = { "" };
-	this->isNull = { true };
+void StringColumn::fillColumnWithNULL(int size) {
 
+	for (int i = 0;i < size; i++) {
+		this->content.push_back("");
+		this->isNull.push_back(true);
+	}
 }
 
 TableColumn* StringColumn::clone() const {

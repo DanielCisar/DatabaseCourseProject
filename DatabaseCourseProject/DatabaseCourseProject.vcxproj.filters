@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -19,26 +15,8 @@
     <Filter Include="Source Files\IO">
       <UniqueIdentifier>{fd58ef6f-d71a-456a-a3cd-abb848fd8b77}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\EntityHeaders">
-      <UniqueIdentifier>{2ed0723b-3d44-4151-8ec6-179ab3266db1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\IOHeaders">
-      <UniqueIdentifier>{73121b0e-c2f8-48a2-9374-71ee88457945}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\AbstractHeaders">
-      <UniqueIdentifier>{f04050d2-856a-4c34-8adc-4c254564eca9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\EnumClasses">
-      <UniqueIdentifier>{3923f129-cf6b-4480-95dc-9e063b3196ca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\FactoriesHeader">
-      <UniqueIdentifier>{6185ea86-b1f0-4d5b-9750-ffd35def5276}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Factories">
       <UniqueIdentifier>{95af7232-a236-4a17-92ed-c8a8f86140a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\CoreHeaders">
-      <UniqueIdentifier>{4f930427-ee72-4cd7-8b47-1e12ed4f6074}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Core">
       <UniqueIdentifier>{30465b4f-9140-4a59-b446-7af096a1d0fa}</UniqueIdentifier>
@@ -46,67 +24,176 @@
     <Filter Include="Source Files\Utilities">
       <UniqueIdentifier>{0bf193ff-0d1c-4780-bd19-632a58d49cf3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\UtilitiesHeader">
+    <Filter Include="Source Files\FileCommand">
+      <UniqueIdentifier>{ba3d5243-c466-40db-acce-8435efbfe41a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CatalogCommands">
+      <UniqueIdentifier>{bb618f0c-5a9f-4cc6-8d8e-048d678b7662}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="HeaderFiles\EntityHeaders">
+      <UniqueIdentifier>{2ed0723b-3d44-4151-8ec6-179ab3266db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles\IOHeaders">
+      <UniqueIdentifier>{73121b0e-c2f8-48a2-9374-71ee88457945}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles\EnumClasses">
+      <UniqueIdentifier>{3923f129-cf6b-4480-95dc-9e063b3196ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles\FactoriesHeader">
+      <UniqueIdentifier>{6185ea86-b1f0-4d5b-9750-ffd35def5276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles\CoreHeaders">
+      <UniqueIdentifier>{4f930427-ee72-4cd7-8b47-1e12ed4f6074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles\UtilitiesHeader">
       <UniqueIdentifier>{6faa4c16-d0d8-40cf-a68b-8ac60af7c8de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles\AbstractEntityHeaders">
+      <UniqueIdentifier>{f04050d2-856a-4c34-8adc-4c254564eca9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles\AbstractCommandHeader">
+      <UniqueIdentifier>{b2393dd3-de0e-486d-b838-3e0d0488f4c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles\FileCommandsHeader">
+      <UniqueIdentifier>{800b53c4-09d4-4fb4-b8c4-4deb4450db8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles\CatalogCommandHeader">
+      <UniqueIdentifier>{554852fe-57fd-4708-8b06-7fa2643253b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HeaderFiles\HelperStructures">
+      <UniqueIdentifier>{db436e19-53d7-4f8a-9c62-fa3a9b44380c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Catalog.hpp">
-      <Filter>Header Files\EntityHeaders</Filter>
+      <Filter>HeaderFiles\EntityHeaders</Filter>
     </ClInclude>
     <ClInclude Include="Table.hpp">
-      <Filter>Header Files\EntityHeaders</Filter>
+      <Filter>HeaderFiles\EntityHeaders</Filter>
     </ClInclude>
     <ClInclude Include="InputFileReader.hpp">
-      <Filter>Header Files\IOHeaders</Filter>
+      <Filter>HeaderFiles\IOHeaders</Filter>
     </ClInclude>
     <ClInclude Include="DoubleColumn.hpp">
-      <Filter>Header Files\EntityHeaders</Filter>
+      <Filter>HeaderFiles\EntityHeaders</Filter>
     </ClInclude>
     <ClInclude Include="StringColumn.hpp">
-      <Filter>Header Files\EntityHeaders</Filter>
+      <Filter>HeaderFiles\EntityHeaders</Filter>
     </ClInclude>
     <ClInclude Include="IntegerColumn.hpp">
-      <Filter>Header Files\EntityHeaders</Filter>
+      <Filter>HeaderFiles\EntityHeaders</Filter>
     </ClInclude>
     <ClInclude Include="TableColumn.hpp">
-      <Filter>Header Files\AbstractHeaders</Filter>
+      <Filter>HeaderFiles\AbstractEntityHeaders</Filter>
     </ClInclude>
     <ClInclude Include="ColumnType.hpp">
-      <Filter>Header Files\EnumClasses</Filter>
+      <Filter>HeaderFiles\EnumClasses</Filter>
     </ClInclude>
     <ClInclude Include="ColumnFactory.hpp">
-      <Filter>Header Files\FactoriesHeader</Filter>
-    </ClInclude>
-    <ClInclude Include="CatalogCommandManager.hpp">
-      <Filter>Header Files\CoreHeaders</Filter>
-    </ClInclude>
-    <ClInclude Include="CommandLineManager.hpp">
-      <Filter>Header Files\CoreHeaders</Filter>
+      <Filter>HeaderFiles\FactoriesHeader</Filter>
     </ClInclude>
     <ClInclude Include="InputConsoleReader.hpp">
-      <Filter>Header Files\IOHeaders</Filter>
+      <Filter>HeaderFiles\IOHeaders</Filter>
     </ClInclude>
     <ClInclude Include="CommandParser.hpp">
-      <Filter>Header Files\UtilitiesHeader</Filter>
+      <Filter>HeaderFiles\UtilitiesHeader</Filter>
     </ClInclude>
-    <ClInclude Include="OutputConsoleWriter.hpp">
-      <Filter>Header Files\IOHeaders</Filter>
+    <ClInclude Include="OutputConsoleWritter.hpp">
+      <Filter>HeaderFiles\IOHeaders</Filter>
     </ClInclude>
     <ClInclude Include="OutputFileWritter.hpp">
-      <Filter>Header Files\IOHeaders</Filter>
+      <Filter>HeaderFiles\IOHeaders</Filter>
     </ClInclude>
     <ClInclude Include="FileUtils.hpp">
-      <Filter>Header Files\UtilitiesHeader</Filter>
+      <Filter>HeaderFiles\UtilitiesHeader</Filter>
     </ClInclude>
     <ClInclude Include="Operations.hpp">
-      <Filter>Header Files\UtilitiesHeader</Filter>
+      <Filter>HeaderFiles\UtilitiesHeader</Filter>
     </ClInclude>
     <ClInclude Include="IOUtils.hpp">
-      <Filter>Header Files\UtilitiesHeader</Filter>
+      <Filter>HeaderFiles\UtilitiesHeader</Filter>
     </ClInclude>
     <ClInclude Include="Engine.hpp">
-      <Filter>Header Files\CoreHeaders</Filter>
+      <Filter>HeaderFiles\CoreHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.hpp">
+      <Filter>HeaderFiles\AbstractCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="FileOpenCommand.hpp">
+      <Filter>HeaderFiles\FileCommandsHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="FileCloseCommand.hpp">
+      <Filter>HeaderFiles\FileCommandsHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSaveCommand.hpp">
+      <Filter>HeaderFiles\FileCommandsHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSaveAsCommand.hpp">
+      <Filter>HeaderFiles\FileCommandsHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="FileHelpCommand.hpp">
+      <Filter>HeaderFiles\FileCommandsHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="FileExitCommand.hpp">
+      <Filter>HeaderFiles\FileCommandsHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogImportCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogShowTablesCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogDescribeCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogPrintCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogExportTableCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogSelectCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogAddColumnCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogUpdateCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogDeleteRowsCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogInsertCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogInnerJoinCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogRenameCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogCountCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogAggregateCommand.hpp">
+      <Filter>HeaderFiles\CatalogCommandHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="FileCommandFactory.hpp">
+      <Filter>HeaderFiles\FactoriesHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CatalogCommandFactory.hpp">
+      <Filter>HeaderFiles\FactoriesHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandContext.hpp">
+      <Filter>HeaderFiles\HelperStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="SupportedCommands.hpp">
+      <Filter>HeaderFiles\UtilitiesHeader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -115,9 +202,6 @@
     </ClCompile>
     <ClCompile Include="TableImpl.cpp">
       <Filter>Source Files\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="InputFileReaderImpl.cpp">
-      <Filter>Source Files\IO</Filter>
     </ClCompile>
     <ClCompile Include="DoubleColumnImpl.cpp">
       <Filter>Source Files\Entities</Filter>
@@ -130,21 +214,6 @@
     </ClCompile>
     <ClCompile Include="ColumnFactoryImpl.cpp">
       <Filter>Source Files\Factories</Filter>
-    </ClCompile>
-    <ClCompile Include="InputConsoleReaderImpl.cpp">
-      <Filter>Source Files\IO</Filter>
-    </ClCompile>
-    <ClCompile Include="OutputConsoleWritterImpl.cpp">
-      <Filter>Source Files\IO</Filter>
-    </ClCompile>
-    <ClCompile Include="OutputFileWritterImpl.cpp">
-      <Filter>Source Files\IO</Filter>
-    </ClCompile>
-    <ClCompile Include="CommandLineManagerImpl.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="CatalogCommandsManagerImpl.cpp">
-      <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="CommandParserImpl.cpp">
       <Filter>Source Files\Utilities</Filter>
@@ -163,6 +232,87 @@
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputConsoleReaderImpl.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="InputFileReaderImpl.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputConsoleWritterImpl.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputFileWritterImpl.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="FileOpenCommandImpl.cpp">
+      <Filter>Source Files\FileCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="FileCloseCommandImpl.cpp">
+      <Filter>Source Files\FileCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSaveCommandImpl.cpp">
+      <Filter>Source Files\FileCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSaveAsCommandImpl.cpp">
+      <Filter>Source Files\FileCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="FileExitCommandImpl.cpp">
+      <Filter>Source Files\FileCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="FileHelpCommandImpl.cpp">
+      <Filter>Source Files\FileCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogImportCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogShowTablesCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogExportTableCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogDescribeCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogPrintCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogSelectCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogAddColumnCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogUpdateCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogDeleteRowsCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogInsertCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogInnerJoinCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogRenameCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogCountCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogAggregateCommandImpl.cpp">
+      <Filter>Source Files\CatalogCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="FileCommandFactoryImpl.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="CatalogCommandFactoryImpl.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="SupportedCommandsImpl.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

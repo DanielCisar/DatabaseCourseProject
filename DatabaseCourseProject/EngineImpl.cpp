@@ -1,240 +1,71 @@
 #include "Engine.hpp"
+#include "FileCommandFactory.hpp"
+#include "CatalogCommandFactory.hpp"
+#include "CommandParser.hpp"
+#include "SupportedCommands.hpp"
 
-void Engine::dispatchCommand(std::vector<std::string> commandParams) {
-	std::string command = commandParams[0];
-
-	if (command == "open") {
-		try {
-			commandLineManager.open(commandParams[1]);
-			catalogCommandManager.setLoadedCatalog(commandLineManager.getCurrentLoadedFile());
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "close") {
-		try {
-			commandLineManager.close();
-			catalogCommandManager.closeLoadedCatalog();
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "save") {
-		try {
-			commandLineManager.save();
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "saveas") {
-		try {
-			commandLineManager.saveAs(commandParams[1]);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "help") {
-		try {
-			commandLineManager.help();
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "exit") {
-		try {
-			commandLineManager.exit();
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "import") {
-		try {
-			catalogCommandManager.import(commandParams[1]);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "showtables") {
-		try {
-			catalogCommandManager.showTables();
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "describe") {
-		try {
-			catalogCommandManager.describe(commandParams[1]);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "print") {
-		try {
-			catalogCommandManager.print(commandParams[1]);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "export") {
-		try {
-			catalogCommandManager.exportTable(commandParams[1], commandParams[2]);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "select") {
-		try {
-			catalogCommandManager.select(std::stoi(commandParams[1]), commandParams[2], commandParams[3]);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "addcolumn") {
-		try {
-			if (commandParams[3] == "String") {
-				catalogCommandManager.addColumn(commandParams[1], commandParams[2], ColumnType::STRING);
-			}
-			else if (commandParams[3] == "Integer") {
-				catalogCommandManager.addColumn(commandParams[1], commandParams[2], ColumnType::INTEGER);
-			}
-			else if (commandParams[3] == "Double") {
-				catalogCommandManager.addColumn(commandParams[1], commandParams[2], ColumnType::DOUBLE);
-			}
-			else {
-				outputConsoleWriter.printLine("Unsupported type. ");
-			}
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-
-	}
-	else if (command == "update") {
-		try {
-			catalogCommandManager.update(commandParams[1],
-				std::stoi(commandParams[2]),
-				commandParams[3],
-				std::stoi(commandParams[4]),
-				commandParams[5]);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "delete") {
-		try {
-			catalogCommandManager.deleteRows(commandParams[1],
-				std::stoi(commandParams[2]),
-				commandParams[3]);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "insert") {
-		try {
-			std::vector<std::string> values;
-
-			int i = -1;
-
-			for (auto& p : commandParams) {
-				i++;
-				if (i == 0 || i == 1) {
-					continue;
-				}
-				values.push_back(p);
-			}
-
-			catalogCommandManager.insert(commandParams[1], values);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "innerjoin") {
-		try {
-			catalogCommandManager.innerJoin(commandParams[1],
-				std::stoi(commandParams[2]),
-				commandParams[3],
-				std::stoi(commandParams[4]));
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "rename") {
-		try {
-			catalogCommandManager.rename(commandParams[1], commandParams[2]);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "count") {
-		try {
-			catalogCommandManager.count(commandParams[1], std::stoi(commandParams[2]), commandParams[3]);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else if (command == "aggregate") {
-		try {
-			catalogCommandManager.aggregate(commandParams[1],
-				std::stoi(commandParams[2]),
-				commandParams[3],
-				std::stoi(commandParams[4]),
-				commandParams[5]);
-		}
-		catch (const std::exception& e) {
-			outputConsoleWriter.printLine(e.what());
-		}
-	}
-	else {
-		outputConsoleWriter.printLine("Unsupported command! Please enter another. ");
-	}
-}
-
-Engine::Engine(OutputConsoleWritter outputConsoleWriter,
-	InputConsoleReader inputConsoleReader,
-	CatalogCommandManager& catalogCommandManager,
-	CommandLineManager& commandLineManager) :
-	outputConsoleWriter(outputConsoleWriter),
-	inputConsoleReader(inputConsoleReader),
-	catalogCommandManager(catalogCommandManager),
-	commandLineManager(commandLineManager)
-
+Engine::Engine(OutputConsoleWritter& outputConsoleWritter,
+    InputConsoleReader& inputConsoleReader,
+    OutputFileWritter& outputFileWritter,
+    InputFileReader& inputFileReader)
+    : loadedCatalog(nullptr),
+    context(loadedCatalog, outputConsoleWritter, inputConsoleReader, outputFileWritter, inputFileReader)
 {
-}
 
-Engine::~Engine() {
-
+    for (const auto& name : SupportedCommands::returnSupportedFileCommands()) {
+        try {
+            commands[name] = FileCommandFactory::createCommand(name, context);
+        }
+        catch (const std::exception& e) {
+            context.outputConsoleWritter.printLine(e.what());
+        }
+    }
+    for (const auto& name : SupportedCommands::returnSupportedCatalogCommands()) {
+        try {
+            commands[name] = CatalogCommandFactory::createCommand(name, context);
+        }
+        catch (const std::exception& e) {
+            context.outputConsoleWritter.printLine(e.what());
+        }
+    }
 }
 
 void Engine::run() {
-	std::string rawInput = inputConsoleReader.readLineAsString();
-	std::vector<std::string> params = CommandParser::parseRawCommand(rawInput);
+    while (true) {
+        std::string rawInput = context.inputConsoleReader.readLineAsString();
+        std::vector<std::string> args = CommandParser::parseRawCommand(rawInput);
 
-	while (true) {
+        if (args.empty()) {
+            context.outputConsoleWritter.printLine("No command entered.");
+            continue;
+        }
 
-		this->dispatchCommand(params);
+        dispatchCommand(args);
 
-		if (params[0] == "exit") {
-			break;
-		}
-		rawInput = inputConsoleReader.readLineAsString();
-		params = CommandParser::parseRawCommand(rawInput);
-	}
+        if (args[0] == "exit") { break; }
+    }
+}
+
+void Engine::dispatchCommand(const std::vector<std::string>& args) {
+    const std::string& commandName = args[0];
+
+    auto it = commands.find(commandName);
+    if (it != commands.end()) {
+        try {
+            it->second->execute(args);
+        }
+        catch (const std::exception& e) {
+            context.outputConsoleWritter.printLine(e.what());
+        }
+    }
+    else {
+        context.outputConsoleWritter.printLine("Unknown command: " + commandName);
+    }
+}
+
+Engine::~Engine() {
+    for (auto& pair : commands) {
+        delete pair.second;
+    }
+    commands.clear();
 }

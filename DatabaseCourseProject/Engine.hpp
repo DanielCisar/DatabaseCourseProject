@@ -1,28 +1,31 @@
 #pragma once
-#include "Table.hpp"
-#include "Catalog.hpp"
-#include "CatalogCommandManager.hpp"
-#include "CommandLineManager.hpp"
+#include "CommandContext.hpp"
+#include "Command.hpp"
+#include "OutputConsoleWritter.hpp"
+#include "InputConsoleReader.hpp"
+#include <unordered_map>
+#include <memory>
+#include <vector>
+#include <string>
 
 class Engine {
-private:
-	OutputConsoleWritter outputConsoleWriter;
-	InputConsoleReader inputConsoleReader;
-
-	CatalogCommandManager& catalogCommandManager;
-	CommandLineManager& commandLineManager;
-
-	void dispatchCommand(std::vector<std::string> commandParams);
-
 public:
-	Engine(
-		OutputConsoleWritter outputConsoleWriter,
-		InputConsoleReader inputConsoleReader,
-		CatalogCommandManager& catalogCommandManager,
-		CommandLineManager& commandLineManager
-	);
+    Engine(
+        OutputConsoleWritter& outputConsoleWritter,
+        InputConsoleReader& inputConsoleReader,
+        OutputFileWritter& outputFileWritter,
+        InputFileReader& inputFileReader
+    );
 
 	~Engine();
 
-	void run();
+   
+    void run();
+
+private:
+    void dispatchCommand(const std::vector<std::string>& params);
+
+    std::shared_ptr<Catalog> loadedCatalog; 
+    CommandContext context;
+    std::unordered_map<std::string, Command*> commands;
 };

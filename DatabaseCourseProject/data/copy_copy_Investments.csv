@@ -2,5 +2,6 @@ copy_Investments
 Integer,String,Double
 Priority Level,Investment Name,Price
 10,Better computers,20000.000000
-2,Better food,2000.000000
-7,Premium software,1500.000000
+8,Kitchen,3000.000000
+7,Premium Software,200.000000
+1,Couches,400.000000

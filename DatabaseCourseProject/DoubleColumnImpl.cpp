@@ -132,10 +132,11 @@ bool DoubleColumn::matchesValues(int rowIndex, const std::string& value) const {
 
 }
 
-void DoubleColumn::fillColumnWithNULL() {
-	this->content = { 0.0 };
-	this->isNull = { true };
-
+void DoubleColumn::fillColumnWithNULL(int size) {
+	for (int i = 0; i < size; i++) {
+		this->content.push_back(0.0);
+		this->isNull.push_back(true);
+	}
 }
 
 TableColumn* DoubleColumn::clone() const {

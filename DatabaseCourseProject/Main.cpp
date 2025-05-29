@@ -10,19 +10,10 @@ int main() {
 
 	InputConsoleReader inputConsoleReader;
 
-	CatalogCommandManager catalogCommandManager(fileReader,
-		outputConsoleWriter,
-		outputFileWritter,
-		inputConsoleReader);
-
-	CommandLineManager commandLineManager(fileReader
-		, outputConsoleWriter
-		, outputFileWritter);
-
 	Engine engine(outputConsoleWriter,
 		inputConsoleReader,
-		catalogCommandManager,
-		commandLineManager);
+		outputFileWritter,
+		fileReader);
 
 	engine.run();
 

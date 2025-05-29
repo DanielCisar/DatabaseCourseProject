@@ -127,10 +127,11 @@ bool IntegerColumn::matchesValues(int rowIndex, const std::string& value) const 
 	}
 }
 
-void IntegerColumn::fillColumnWithNULL() {
-	this->content = { 0 };
-	this->isNull = { true };
-
+void IntegerColumn::fillColumnWithNULL(int size) {
+	for (int i = 0; i < size; ++i) {
+		content.push_back(0);
+		isNull.push_back(true);
+	}
 }
 
 TableColumn* IntegerColumn::clone() const {
