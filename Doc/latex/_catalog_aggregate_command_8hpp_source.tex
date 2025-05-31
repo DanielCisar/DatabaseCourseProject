@@ -1,0 +1,22 @@
+\doxysection{Catalog\+Aggregate\+Command.\+hpp}
+\hypertarget{_catalog_aggregate_command_8hpp_source}{}\label{_catalog_aggregate_command_8hpp_source}\index{DatabaseCourseProject/CatalogAggregateCommand.hpp@{DatabaseCourseProject/CatalogAggregateCommand.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}CommandContext.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catalog_aggregate_command_ae5995d71ef3eb02d6e4e669cc87986d0}{CatalogAggregateCommand}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_command}{Command}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_catalog_aggregate_command_ae5995d71ef3eb02d6e4e669cc87986d0}{CatalogAggregateCommand}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_aggregate_command_ac159554142c605c4f777766f6437b8d6}{execute}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ params)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_command}{Command}}*\ \mbox{\hyperlink{class_catalog_aggregate_command_a58f16f1337bbebd486471133bcc962bd}{clone}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ newContext)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \};}
+
+\end{DoxyCode}

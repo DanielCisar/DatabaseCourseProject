@@ -1,0 +1,22 @@
+\doxysection{File\+Help\+Command.\+hpp}
+\hypertarget{_file_help_command_8hpp_source}{}\label{_file_help_command_8hpp_source}\index{DatabaseCourseProject/FileHelpCommand.hpp@{DatabaseCourseProject/FileHelpCommand.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}CommandContext.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_file_help_command_acae22f1e472bcf2530f784ca71f05019}{FileHelpCommand}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_command}{Command}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_file_help_command_acae22f1e472bcf2530f784ca71f05019}{FileHelpCommand}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_help_command_a400d9bf65756bb3451b355c9862d7458}{execute}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ params)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_command}{Command}}*\ \mbox{\hyperlink{class_file_help_command_ad10df7ff831a2542d0d8675e62e2a096}{clone}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ newContext)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,74 @@
+\doxysection{Catalog\+Command\+Factory Class Reference}
+\hypertarget{class_catalog_command_factory}{}\label{class_catalog_command_factory}\index{CatalogCommandFactory@{CatalogCommandFactory}}
+
+
+A factory class responsible for creating instances of catalog-\/related commands.  
+
+
+
+
+{\ttfamily \#include $<$Catalog\+Command\+Factory.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_catalog_command_factory_a44cd0e4d9c4dd1200a926ce9f16ac96f}{create\+Command}} (const std\+::string \&name, \mbox{\hyperlink{struct_command_context}{Command\+Context}} \&context)
+\begin{DoxyCompactList}\small\item\em Creates and returns a new {\ttfamily \doxylink{class_command}{Command}} object based on the provided name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A factory class responsible for creating instances of catalog-\/related commands. 
+
+This static factory provides a centralized mechanism to instantiate concrete {\ttfamily \doxylink{class_command}{Command}} objects based on a given command name string. It decouples the command creation logic from the client code, enabling easy extension with new catalog commands. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_catalog_command_factory_a44cd0e4d9c4dd1200a926ce9f16ac96f}\index{CatalogCommandFactory@{CatalogCommandFactory}!createCommand@{createCommand}}
+\index{createCommand@{createCommand}!CatalogCommandFactory@{CatalogCommandFactory}}
+\doxysubsubsection{\texorpdfstring{createCommand()}{createCommand()}}
+{\footnotesize\ttfamily \label{class_catalog_command_factory_a44cd0e4d9c4dd1200a926ce9f16ac96f} 
+\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} Catalog\+Command\+Factory\+::create\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates and returns a new {\ttfamily \doxylink{class_command}{Command}} object based on the provided name. 
+
+This static method acts as a factory for all commands that operate on the database catalog. It maps a command name string to a specific {\ttfamily \doxylink{class_command}{Command}} implementation and constructs an instance of that command, passing it the shared {\ttfamily \doxylink{struct_command_context}{Command\+Context}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The string identifier of the command to create (e.\+g., "{}insert"{}, "{}select"{}, "{}describe"{}). \\
+\hline
+{\em context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} to be used by the created command. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_command}{Command}} object. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily name} does not correspond to a known catalog command.\\
+\hline
+\end{DoxyExceptions}
+This static method implements the factory logic. It checks the {\ttfamily name} against a list of recognized catalog command names and returns a dynamically allocated instance of the corresponding command class. The created command is initialized with the provided {\ttfamily context}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The string identifier of the command to create. \\
+\hline
+{\em context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} to be used by the created command. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_command}{Command}} object. The caller assumes ownership. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily name} does not match any of the supported catalog commands. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Catalog\+Command\+Factory.\+hpp\item 
+Database\+Course\+Project/Catalog\+Command\+Factory\+Impl.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,323 @@
+\doxysection{Catalog Class Reference}
+\hypertarget{class_catalog}{}\label{class_catalog}\index{Catalog@{Catalog}}
+
+
+Manages a collection of database tables and their associated catalog file path.  
+
+
+
+
+{\ttfamily \#include $<$Catalog.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}} ()
+\begin{DoxyCompactList}\small\item\em Constructs an empty \doxylink{class_catalog}{Catalog} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_catalog_a4df709382d495a481e4b5249c61d5e26}{Catalog}} (const std\+::string catalog\+Path)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_catalog}{Catalog} instance with a specified catalog file path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_catalog_afd61fcc5031564dfc8e74e7af239caea}{\texorpdfstring{$\sim$}{\string~}\+Catalog}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_catalog}{Catalog}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_catalog_a0398de9047cac67c3356f1b4641bc81e}{Catalog}} (const \mbox{\hyperlink{class_catalog}{Catalog}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor for \doxylink{class_catalog}{Catalog}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_catalog}{Catalog}} \& \mbox{\hyperlink{class_catalog_adaa312b55789105cc549399c9f8c9a1a}{operator=}} (const \mbox{\hyperlink{class_catalog}{Catalog}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for \doxylink{class_catalog}{Catalog}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalog_aeb1fe478c3ca9f36338c29b68d1d3770}{add\+Table}} (\mbox{\hyperlink{class_table}{Table}} table)
+\begin{DoxyCompactList}\small\item\em Adds a new table to the catalog. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalog_a89c3aa7781b0a731778d547605fb4950}{remove\+Table}} (int index)
+\begin{DoxyCompactList}\small\item\em Removes a table from the catalog by its index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_table}{Table}} \& \mbox{\hyperlink{class_catalog_a953d9daf6a01400f162ba79495406dab}{return\+Table\+By\+Name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Retrieves a reference to a table by its name. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_catalog_a544182247a8c208f3164d69d0beda0a6}{get\+Path}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the file path associated with this catalog. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_table}{Table}} $>$\+::iterator \mbox{\hyperlink{class_catalog_acb9c27fd0c2face7b1f7077fd1935796}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Provides a non-\/const iterator to the beginning of the internal table collection. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_table}{Table}} $>$\+::iterator \mbox{\hyperlink{class_catalog_a880adbb7f3d0a2bf221d7e16610e990f}{end}} ()
+\begin{DoxyCompactList}\small\item\em Provides a non-\/const iterator to the end of the internal table collection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalog_a2018f3ec44dca5ff8399f064f504ed50}{set\+Path}} (const std\+::string \&catalog\+Path)
+\begin{DoxyCompactList}\small\item\em Sets or updates the file path associated with this catalog. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages a collection of database tables and their associated catalog file path. 
+
+The {\ttfamily \doxylink{class_catalog}{Catalog}} class represents the in-\/memory database. It holds a collection of {\ttfamily \doxylink{class_table}{Table}} objects, providing functionalities to add, remove, and retrieve tables by name. It also tracks the file path on disk where the catalog\textquotesingle{}s metadata is or will be stored. The {\ttfamily \doxylink{class_catalog}{Catalog}} relies on the {\ttfamily \doxylink{class_table}{Table}} class\textquotesingle{}s copy semantics for proper deep copying of table data. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{Catalog()}{Catalog()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8} 
+Catalog\+::\+Catalog (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an empty \doxylink{class_catalog}{Catalog} instance. 
+
+Initializes the catalog with an empty table collection and no associated file path.
+
+Initializes {\ttfamily table\+Collection} as an empty vector and {\ttfamily catalog\+Path} as an empty string. \Hypertarget{class_catalog_a4df709382d495a481e4b5249c61d5e26}\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{Catalog()}{Catalog()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_catalog_a4df709382d495a481e4b5249c61d5e26} 
+Catalog\+::\+Catalog (\begin{DoxyParamCaption}\item[{const std\+::string}]{catalog\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_catalog}{Catalog} instance with a specified catalog file path. 
+
+Initializes the catalog with an empty table collection. The {\ttfamily catalog\+Path} can be used later for saving and loading the catalog\textquotesingle{}s metadata.
+
+
+\begin{DoxyParams}{Parameters}
+{\em catalog\+Path} & The file path where this catalog is or will be stored.\\
+\hline
+\end{DoxyParams}
+Initializes {\ttfamily table\+Collection} as an empty vector. The {\ttfamily catalog\+Path} is set to the provided value, which will be used for saving and loading the catalog.
+
+
+\begin{DoxyParams}{Parameters}
+{\em catalog\+Path} & The file path where this catalog is or will be stored. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_catalog_afd61fcc5031564dfc8e74e7af239caea}\index{Catalog@{Catalog}!````~Catalog@{\texorpdfstring{$\sim$}{\string~}Catalog}}
+\index{````~Catalog@{\texorpdfstring{$\sim$}{\string~}Catalog}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Catalog()}{\string~Catalog()}}
+{\footnotesize\ttfamily \label{class_catalog_afd61fcc5031564dfc8e74e7af239caea} 
+Catalog\+::\texorpdfstring{$\sim$}{\string~}\+Catalog (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor for \doxylink{class_catalog}{Catalog}. 
+
+The default destructor provided by the compiler is sufficient here, as {\ttfamily std\+::vector\texorpdfstring{$<$}{<}\doxylink{class_table}{Table}\texorpdfstring{$>$}{>}} automatically manages the destruction of {\ttfamily \doxylink{class_table}{Table}} objects, and {\ttfamily \doxylink{class_table}{Table}} objects in turn manage their {\ttfamily Table\+Column\texorpdfstring{$\ast$}{*}} pointers.
+
+The default destructor is sufficient because {\ttfamily std\+::vector\texorpdfstring{$<$}{<}\doxylink{class_table}{Table}\texorpdfstring{$>$}{>}} automatically handles the destruction of all {\ttfamily \doxylink{class_table}{Table}} objects it contains. Each {\ttfamily \doxylink{class_table}{Table}} object, in turn, correctly manages the memory of its {\ttfamily \doxylink{class_table_column}{Table\+Column}} pointers. \Hypertarget{class_catalog_a0398de9047cac67c3356f1b4641bc81e}\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{Catalog()}{Catalog()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_catalog_a0398de9047cac67c3356f1b4641bc81e} 
+Catalog\+::\+Catalog (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_catalog}{Catalog}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor for \doxylink{class_catalog}{Catalog}. 
+
+Performs a deep copy of the {\ttfamily table\+Collection} vector and the {\ttfamily catalog\+Path}. The deep copy of tables is handled automatically by {\ttfamily std\+::vector} and the {\ttfamily \doxylink{class_table}{Table}} class\textquotesingle{}s own copy constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_catalog}{Catalog} object to copy from.\\
+\hline
+\end{DoxyParams}
+Performs a member-\/wise copy of {\ttfamily table\+Collection} and {\ttfamily catalog\+Path}. Since {\ttfamily std\+::vector} performs element-\/wise copy and {\ttfamily \doxylink{class_table}{Table}} has a deep copy constructor, this results in a deep copy of all tables and their columns.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_catalog}{Catalog} object to copy from. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_catalog_aeb1fe478c3ca9f36338c29b68d1d3770}\index{Catalog@{Catalog}!addTable@{addTable}}
+\index{addTable@{addTable}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{addTable()}{addTable()}}
+{\footnotesize\ttfamily \label{class_catalog_aeb1fe478c3ca9f36338c29b68d1d3770} 
+void Catalog\+::add\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_table}{Table}}}]{table}{}\end{DoxyParamCaption})}
+
+
+
+Adds a new table to the catalog. 
+
+Before adding, this method checks if a table with the same name already exists in the catalog to enforce uniqueness. If the name is unique, the table is added as a copy into the internal collection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & The {\ttfamily \doxylink{class_table}{Table}} object to add. It is passed by value to ensure a copy. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If a table with the same name already exists in the catalog.\\
+\hline
+\end{DoxyExceptions}
+Before adding, this method iterates through the existing tables to ensure that no other table with the same name already exists. If a duplicate name is found, an exception is thrown. Otherwise, the provided {\ttfamily \doxylink{class_table}{Table}} object (which is a copy of the original passed by value) is moved into the {\ttfamily table\+Collection}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & The {\ttfamily \doxylink{class_table}{Table}} object to add to the catalog. Passed by value to ensure a copy. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If a table with the same name ({\ttfamily table.\+get\+Name()}) already exists in the {\ttfamily table\+Collection}. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_catalog_acb9c27fd0c2face7b1f7077fd1935796}\index{Catalog@{Catalog}!begin@{begin}}
+\index{begin@{begin}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_catalog_acb9c27fd0c2face7b1f7077fd1935796} 
+std\+::vector$<$ \mbox{\hyperlink{class_table}{Table}} $>$\+::iterator Catalog\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Provides a non-\/const iterator to the beginning of the internal table collection. 
+
+\begin{DoxyReturn}{Returns}
+An iterator pointing to the first {\ttfamily \doxylink{class_table}{Table}} object.
+
+An iterator pointing to the first {\ttfamily \doxylink{class_table}{Table}} object in the catalog. 
+\end{DoxyReturn}
+\Hypertarget{class_catalog_a880adbb7f3d0a2bf221d7e16610e990f}\index{Catalog@{Catalog}!end@{end}}
+\index{end@{end}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \label{class_catalog_a880adbb7f3d0a2bf221d7e16610e990f} 
+std\+::vector$<$ \mbox{\hyperlink{class_table}{Table}} $>$\+::iterator Catalog\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Provides a non-\/const iterator to the end of the internal table collection. 
+
+\begin{DoxyReturn}{Returns}
+An iterator pointing one past the last {\ttfamily \doxylink{class_table}{Table}} object.
+
+An iterator pointing one past the last {\ttfamily \doxylink{class_table}{Table}} object in the catalog. 
+\end{DoxyReturn}
+\Hypertarget{class_catalog_a544182247a8c208f3164d69d0beda0a6}\index{Catalog@{Catalog}!getPath@{getPath}}
+\index{getPath@{getPath}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{getPath()}{getPath()}}
+{\footnotesize\ttfamily \label{class_catalog_a544182247a8c208f3164d69d0beda0a6} 
+std\+::string Catalog\+::get\+Path (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the file path associated with this catalog. 
+
+\begin{DoxyReturn}{Returns}
+The catalog\textquotesingle{}s file path as a string.
+
+The catalog\textquotesingle{}s file path as a constant string reference. 
+\end{DoxyReturn}
+\Hypertarget{class_catalog_adaa312b55789105cc549399c9f8c9a1a}\index{Catalog@{Catalog}!operator=@{operator=}}
+\index{operator=@{operator=}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_catalog_adaa312b55789105cc549399c9f8c9a1a} 
+\mbox{\hyperlink{class_catalog}{Catalog}} \& Catalog\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_catalog}{Catalog}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy assignment operator for \doxylink{class_catalog}{Catalog}. 
+
+Performs a deep copy of the {\ttfamily table\+Collection} and {\ttfamily catalog\+Path} from another \doxylink{class_catalog}{Catalog} instance to this object. Handles self-\/assignment correctly. The deep copy of tables is managed by {\ttfamily std\+::vector} and {\ttfamily \doxylink{class_table_a4147a080a37863de7ceb6a210300dcdf}{Table\+::operator=}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_catalog}{Catalog} object to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \doxylink{class_catalog}{Catalog} object after assignment.
+\end{DoxyReturn}
+Ensures proper deep copying from {\ttfamily other} to this object. It prevents self-\/assignment to avoid accidental data corruption. The assignment operation for {\ttfamily std\+::vector\texorpdfstring{$<$}{<}\doxylink{class_table}{Table}\texorpdfstring{$>$}{>}} handles deleting old {\ttfamily \doxylink{class_table}{Table}} objects and copying new ones, utilizing {\ttfamily \doxylink{class_table_a4147a080a37863de7ceb6a210300dcdf}{Table\+::operator=}} for each element.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_catalog}{Catalog} object to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \doxylink{class_catalog}{Catalog} object, allowing for chaining assignments. 
+\end{DoxyReturn}
+\Hypertarget{class_catalog_a89c3aa7781b0a731778d547605fb4950}\index{Catalog@{Catalog}!removeTable@{removeTable}}
+\index{removeTable@{removeTable}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{removeTable()}{removeTable()}}
+{\footnotesize\ttfamily \label{class_catalog_a89c3aa7781b0a731778d547605fb4950} 
+void Catalog\+::remove\+Table (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+Removes a table from the catalog by its index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the table to remove. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the {\ttfamily index} is out of bounds for the table collection.\\
+\hline
+\end{DoxyExceptions}
+This function erases the {\ttfamily \doxylink{class_table}{Table}} object at the specified {\ttfamily index} from the {\ttfamily table\+Collection}. The {\ttfamily \doxylink{class_table}{Table}} object\textquotesingle{}s destructor will be called automatically, ensuring proper memory cleanup of its columns.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the table to remove. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the {\ttfamily index} is negative or greater than or equal to the number of tables in the collection. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_catalog_a953d9daf6a01400f162ba79495406dab}\index{Catalog@{Catalog}!returnTableByName@{returnTableByName}}
+\index{returnTableByName@{returnTableByName}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{returnTableByName()}{returnTableByName()}}
+{\footnotesize\ttfamily \label{class_catalog_a953d9daf6a01400f162ba79495406dab} 
+\mbox{\hyperlink{class_table}{Table}} \& Catalog\+::return\+Table\+By\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a reference to a table by its name. 
+
+Retrieves a non-\/constant reference to a table by its name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the table to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A non-\/constant reference to the {\ttfamily \doxylink{class_table}{Table}} object. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If no table with the specified name is found in the catalog.\\
+\hline
+\end{DoxyExceptions}
+This method searches the {\ttfamily table\+Collection} for a table whose name matches the provided {\ttfamily name}. If found, a reference to that {\ttfamily \doxylink{class_table}{Table}} object is returned, allowing for direct modification of the table\textquotesingle{}s contents.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the table to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A non-\/constant reference to the {\ttfamily \doxylink{class_table}{Table}} object with the matching name. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If no table with the specified {\ttfamily name} is found in the catalog. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_catalog_a2018f3ec44dca5ff8399f064f504ed50}\index{Catalog@{Catalog}!setPath@{setPath}}
+\index{setPath@{setPath}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{setPath()}{setPath()}}
+{\footnotesize\ttfamily \label{class_catalog_a2018f3ec44dca5ff8399f064f504ed50} 
+void Catalog\+::set\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{catalog\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Sets or updates the file path associated with this catalog. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em catalog\+Path} & The new file path for the catalog. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Catalog.\+hpp\item 
+Database\+Course\+Project/Catalog\+Impl.\+cpp\end{DoxyCompactItemize}

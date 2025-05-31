@@ -1,0 +1,22 @@
+\doxysection{File\+Save\+Command.\+hpp}
+\hypertarget{_file_save_command_8hpp_source}{}\label{_file_save_command_8hpp_source}\index{DatabaseCourseProject/FileSaveCommand.hpp@{DatabaseCourseProject/FileSaveCommand.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}CommandContext.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_file_save_command_a621f1f2e2e60d0424febaef715c52b83}{FileSaveCommand}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_command}{Command}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context;\ \ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_file_save_command_a621f1f2e2e60d0424febaef715c52b83}{FileSaveCommand}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_save_command_af75992a1c2394e9bde40cb029a460095}{execute}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ params)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_command}{Command}}*\ \mbox{\hyperlink{class_file_save_command_aec321b759df999efbdc9395884f9684b}{clone}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ newContext)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \};}
+
+\end{DoxyCode}

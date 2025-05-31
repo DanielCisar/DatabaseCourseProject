@@ -1,0 +1,27 @@
+\doxysection{Input\+File\+Reader.\+hpp}
+\hypertarget{_input_file_reader_8hpp_source}{}\label{_input_file_reader_8hpp_source}\index{DatabaseCourseProject/InputFileReader.hpp@{DatabaseCourseProject/InputFileReader.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}\ \ \ \ \ \ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <fstream>}\ \ \ \ \ \ \ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <sstream>}\ \ \ \ \ \ \ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Table.hpp"{}}\ \ \ \ \ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}ColumnFactory.hpp"{}}\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}CommandParser.hpp"{}}\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Catalog.hpp"{}}\ \ \ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_input_file_reader_ad16b6637de292a85f227f849f72dd62b}{InputFileReader}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_input_file_reader_ad16b6637de292a85f227f849f72dd62b}{InputFileReader}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_input_file_reader_a2291ea79a767417b903f0274c81c5535}{\string~InputFileReader}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_table}{Table}}\ \mbox{\hyperlink{class_input_file_reader_a876332636cc935a29dda58b03edf631b}{readTableFromFile}}(\textcolor{keyword}{const}\ std::string\&\ filepath);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_catalog}{Catalog}}\ \mbox{\hyperlink{class_input_file_reader_a5ba8931086dc6c1cc22366b118b1ffbd}{readCatalogFromFile}}(\textcolor{keyword}{const}\ std::string\&\ filepath);}
+\DoxyCodeLine{00069\ \};}
+
+\end{DoxyCode}

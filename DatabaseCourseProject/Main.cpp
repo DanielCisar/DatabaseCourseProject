@@ -13,8 +13,7 @@
  * initiating the application's runtime, after which control is handed over
  * to the `Engine::run()` method.
  *
- * @return 0 upon successful execution and program termination, or a non-zero
- * value if an unhandled error occurs during setup or execution.
+ * @return 0 upon successful execution and program termination.
  */
 int main() {
 	InputFileReader fileReader;

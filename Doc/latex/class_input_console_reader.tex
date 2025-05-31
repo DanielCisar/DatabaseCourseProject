@@ -1,0 +1,103 @@
+\doxysection{Input\+Console\+Reader Class Reference}
+\hypertarget{class_input_console_reader}{}\label{class_input_console_reader}\index{InputConsoleReader@{InputConsoleReader}}
+
+
+Handles reading input from the console.  
+
+
+
+
+{\ttfamily \#include $<$Input\+Console\+Reader.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_input_console_reader_adb0c2254921614d8dd51c51abd767724}{Input\+Console\+Reader}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a new {\ttfamily \doxylink{class_input_console_reader}{Input\+Console\+Reader}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_input_console_reader_a8b2ea9dfc341127fb206a700a1d3c397}{\texorpdfstring{$\sim$}{\string~}\+Input\+Console\+Reader}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the {\ttfamily \doxylink{class_input_console_reader}{Input\+Console\+Reader}} instance. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_input_console_reader_a72eba0ddf6c6b81d703ea183dae939c7}{read\+Line}} () const
+\begin{DoxyCompactList}\small\item\em Reads a line of input from the console and parses it into words. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_input_console_reader_a16ddee45ae0fbc4f0efd8b03a727a397}{read\+Line\+As\+String}} () const
+\begin{DoxyCompactList}\small\item\em Reads an entire line of input from the console as a single string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles reading input from the console. 
+
+This class provides utility methods to read lines of text from standard input ({\ttfamily std\+::cin}), either as a single string or parsed into a vector of strings based on whitespace or a specified delimiter. It\textquotesingle{}s designed to abstract the console input mechanism. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_input_console_reader_adb0c2254921614d8dd51c51abd767724}\index{InputConsoleReader@{InputConsoleReader}!InputConsoleReader@{InputConsoleReader}}
+\index{InputConsoleReader@{InputConsoleReader}!InputConsoleReader@{InputConsoleReader}}
+\doxysubsubsection{\texorpdfstring{InputConsoleReader()}{InputConsoleReader()}}
+{\footnotesize\ttfamily \label{class_input_console_reader_adb0c2254921614d8dd51c51abd767724} 
+Input\+Console\+Reader\+::\+Input\+Console\+Reader (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new {\ttfamily \doxylink{class_input_console_reader}{Input\+Console\+Reader}} instance. 
+
+Initializes the reader. No specific resources are managed by the constructor itself.
+
+This constructor performs no specific initialization beyond default-\/constructing member variables (of which there are none in this class). \Hypertarget{class_input_console_reader_a8b2ea9dfc341127fb206a700a1d3c397}\index{InputConsoleReader@{InputConsoleReader}!````~InputConsoleReader@{\texorpdfstring{$\sim$}{\string~}InputConsoleReader}}
+\index{````~InputConsoleReader@{\texorpdfstring{$\sim$}{\string~}InputConsoleReader}!InputConsoleReader@{InputConsoleReader}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}InputConsoleReader()}{\string~InputConsoleReader()}}
+{\footnotesize\ttfamily \label{class_input_console_reader_a8b2ea9dfc341127fb206a700a1d3c397} 
+Input\+Console\+Reader\+::\texorpdfstring{$\sim$}{\string~}\+Input\+Console\+Reader (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destroys the {\ttfamily \doxylink{class_input_console_reader}{Input\+Console\+Reader}} instance. 
+
+Cleans up any resources held by the reader. As this class currently doesn\textquotesingle{}t manage dynamic memory, the default destructor is sufficient.
+
+As {\ttfamily \doxylink{class_input_console_reader}{Input\+Console\+Reader}} does not own any dynamically allocated resources, the default destructor behavior is sufficient for proper cleanup. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_input_console_reader_a72eba0ddf6c6b81d703ea183dae939c7}\index{InputConsoleReader@{InputConsoleReader}!readLine@{readLine}}
+\index{readLine@{readLine}!InputConsoleReader@{InputConsoleReader}}
+\doxysubsubsection{\texorpdfstring{readLine()}{readLine()}}
+{\footnotesize\ttfamily \label{class_input_console_reader_a72eba0ddf6c6b81d703ea183dae939c7} 
+std\+::vector$<$ std\+::string $>$ Input\+Console\+Reader\+::read\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Reads a line of input from the console and parses it into words. 
+
+This method reads an entire line from {\ttfamily std\+::cin} until a newline character is encountered. The read line is then passed to {\ttfamily \doxylink{class_command_parser_a4e12e4611555c26a05f3b84d044fafe7}{Command\+Parser\+::parse\+Command}} to split it into a vector of strings, using space (\textquotesingle{} \textquotesingle{}) as the delimiter.
+
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::string\texorpdfstring{$>$}{>}} containing the words from the input line.
+\end{DoxyReturn}
+Utilizes {\ttfamily std\+::getline} to read the full line from {\ttfamily std\+::cin}, then delegates parsing to {\ttfamily \doxylink{class_command_parser_a4e12e4611555c26a05f3b84d044fafe7}{Command\+Parser\+::parse\+Command}} using a space as the delimiter.
+
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::string\texorpdfstring{$>$}{>}} containing the space-\/separated words from the input. 
+\end{DoxyReturn}
+\Hypertarget{class_input_console_reader_a16ddee45ae0fbc4f0efd8b03a727a397}\index{InputConsoleReader@{InputConsoleReader}!readLineAsString@{readLineAsString}}
+\index{readLineAsString@{readLineAsString}!InputConsoleReader@{InputConsoleReader}}
+\doxysubsubsection{\texorpdfstring{readLineAsString()}{readLineAsString()}}
+{\footnotesize\ttfamily \label{class_input_console_reader_a16ddee45ae0fbc4f0efd8b03a727a397} 
+std\+::string Input\+Console\+Reader\+::read\+Line\+As\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Reads an entire line of input from the console as a single string. 
+
+This method reads all characters from {\ttfamily std\+::cin} up to the next newline character and returns them as a single {\ttfamily std\+::string}, without any parsing or splitting.
+
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::string} containing the entire line of input.
+\end{DoxyReturn}
+Reads input from {\ttfamily std\+::cin} up to the newline character and returns it as is. No parsing or tokenization is performed.
+
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::string} containing the raw input line. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Input\+Console\+Reader.\+hpp\item 
+Database\+Course\+Project/Input\+Console\+Reader\+Impl.\+cpp\end{DoxyCompactItemize}

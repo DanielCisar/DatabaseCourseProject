@@ -1,0 +1,53 @@
+\doxysection{Double\+Column.\+hpp}
+\hypertarget{_double_column_8hpp_source}{}\label{_double_column_8hpp_source}\index{DatabaseCourseProject/DoubleColumn.hpp@{DatabaseCourseProject/DoubleColumn.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}TableColumn.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_double_column_aef71165c86fb7db5f9e33d45587f9cea}{DoubleColumn}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_table_column}{TableColumn}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ std::vector<double>\ content;\ \ }
+\DoxyCodeLine{00020\ \ \ \ \ std::vector<bool>\ isNull;\ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ name;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_double_column_aef71165c86fb7db5f9e33d45587f9cea}{DoubleColumn}}(std::string\ name);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_double_column_aef71165c86fb7db5f9e33d45587f9cea}{DoubleColumn}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_double_column_aef71165c86fb7db5f9e33d45587f9cea}{DoubleColumn}}\&\ other);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_double_column_ade421a4ace9ae269c665d686715eaa90}{\string~DoubleColumn}}()\ \textcolor{keyword}{override};\ \textcolor{comment}{//\ Mark\ as\ override}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_double_column_aef71165c86fb7db5f9e33d45587f9cea}{DoubleColumn}}\&\ \mbox{\hyperlink{class_double_column_a34286da773274fe3fdf160955d5b32d0}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_double_column_aef71165c86fb7db5f9e33d45587f9cea}{DoubleColumn}}\&\ other);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ std::string\ \mbox{\hyperlink{class_double_column_a8ec16b62925124919d711f2b0e6cd02d}{getName}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ ColumnType\ \mbox{\hyperlink{class_double_column_ab6b22a7b5e4967f062a183d7cb021b34}{getType}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ \mbox{\hyperlink{class_double_column_a9cc754ca4e69306752a622d0a718c14b}{getContent}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//\ Added\ const}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_double_column_a2f1bb52adaa19dd10e181a9476994fc1}{getValueAtGivenIndex}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};\ \textcolor{comment}{//\ Added\ const}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_double_column_aea5c8b7e6e61473cd884acbfbebf6b4b}{changeValueAtIndex}}(\textcolor{keywordtype}{int}\ index,\ std::string\ val)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_double_column_a46fe47923aba2a1c25f2da9466e1597c}{addCell}}(std::string\ cell)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_double_column_ae706f530e25d5e07f364d0ebe4670d75}{deleteCell}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_double_column_ab030adb429f565fd0573e8e374c02934}{getSize}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00148\ \ \ \ \ std::string\ \mbox{\hyperlink{class_double_column_a118e2b11369f316c3a44e48efba1cd42}{returnValueAtGivenIndexAsString}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ \ \ \ \ std::string\ \mbox{\hyperlink{class_double_column_a79859aefed69448e072ba47733db42d1}{getTypeAsString}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_double_column_a97a3a0954fb0c167a10ed913710b5f3c}{matchesValues}}(\textcolor{keywordtype}{int}\ rowIndex,\ \textcolor{keyword}{const}\ std::string\&\ value)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_double_column_a60bf0417ce9b50e2e1e4ae7172e3fcee}{fillColumnWithNULL}}(\textcolor{keywordtype}{int}\ size)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00193\ \ \ \ \ \mbox{\hyperlink{class_table_column}{TableColumn}}*\ \mbox{\hyperlink{class_double_column_af092f1568adb61ce8fcfa90721e7271e}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,92 @@
+\doxysection{File\+Utils Class Reference}
+\hypertarget{class_file_utils}{}\label{class_file_utils}\index{FileUtils@{FileUtils}}
+
+
+A static utility class for common file system operations.  
+
+
+
+
+{\ttfamily \#include $<$File\+Utils.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_file_utils_acde407d2e05f7d009d3e87ccc80f2973}{file\+Exists}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Checks if a file or directory exists at the specified path. \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{class_file_utils_a6792be0f8a6a13591ead31c5ffcb3ef5}{get\+Directory\+Path}} (const std\+::string \&filepath)
+\begin{DoxyCompactList}\small\item\em Extracts the directory path from a full file path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A static utility class for common file system operations. 
+
+{\ttfamily \doxylink{class_file_utils}{File\+Utils}} provides convenient methods to check for file existence and extract directory paths from full file paths. It\textquotesingle{}s designed to offer cross-\/platform basic file system utilities. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_file_utils_acde407d2e05f7d009d3e87ccc80f2973}\index{FileUtils@{FileUtils}!fileExists@{fileExists}}
+\index{fileExists@{fileExists}!FileUtils@{FileUtils}}
+\doxysubsubsection{\texorpdfstring{fileExists()}{fileExists()}}
+{\footnotesize\ttfamily \label{class_file_utils_acde407d2e05f7d009d3e87ccc80f2973} 
+bool File\+Utils\+::file\+Exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks if a file or directory exists at the specified path. 
+
+This method attempts to open the file at the given {\ttfamily path} to determine its existence and accessibility. It returns true if the file exists and is in a "{}good"{} state (e.\+g., can be opened), and false otherwise.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The file system path to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the file exists and is accessible; {\ttfamily false} otherwise.
+\end{DoxyReturn}
+This implementation uses {\ttfamily std\+::ifstream} to attempt opening the file. The {\ttfamily file.\+good()} method then checks if the stream is in a good state, which implies the file exists and can be accessed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The file system path to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the file exists and is accessible; {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_file_utils_a6792be0f8a6a13591ead31c5ffcb3ef5}\index{FileUtils@{FileUtils}!getDirectoryPath@{getDirectoryPath}}
+\index{getDirectoryPath@{getDirectoryPath}!FileUtils@{FileUtils}}
+\doxysubsubsection{\texorpdfstring{getDirectoryPath()}{getDirectoryPath()}}
+{\footnotesize\ttfamily \label{class_file_utils_a6792be0f8a6a13591ead31c5ffcb3ef5} 
+std\+::string File\+Utils\+::get\+Directory\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Extracts the directory path from a full file path. 
+
+This method finds the last occurrence of a path separator ({\ttfamily /} or {\ttfamily \textbackslash{}}) in the given {\ttfamily filepath} and returns the substring up to that point, effectively giving you the directory where the file resides. If no path separator is found, it assumes the file is in the current directory and returns "{}."{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & The full path to a file (e.\+g., "{}\+C\+:/data/documents/file.\+txt"{} or "{}data/file.\+txt"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::string} representing the directory path. Returns "{}."{} if no directory is specified.
+\end{DoxyReturn}
+This function finds the last occurrence of either a forward slash ({\ttfamily /}) or a backslash ({\ttfamily \textbackslash{}}) to determine the directory separator. If no separator is found, it assumes the file is in the current directory and returns "{}."{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & The full path to a file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::string} representing the directory path. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/File\+Utils.\+hpp\item 
+Database\+Course\+Project/File\+Utils\+Impl.\+cpp\end{DoxyCompactItemize}

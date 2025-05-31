@@ -1,0 +1,22 @@
+\doxysection{File\+Close\+Command.\+hpp}
+\hypertarget{_file_close_command_8hpp_source}{}\label{_file_close_command_8hpp_source}\index{DatabaseCourseProject/FileCloseCommand.hpp@{DatabaseCourseProject/FileCloseCommand.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}CommandContext.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_file_close_command_ac909464f999b521bffd52a0393a6824e}{FileCloseCommand}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_command}{Command}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_file_close_command_ac909464f999b521bffd52a0393a6824e}{FileCloseCommand}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_close_command_a6e0ae2d6a4085a25dfa0d807f5e94915}{execute}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ params)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_command}{Command}}*\ \mbox{\hyperlink{class_file_close_command_adbb042acb4bbf47e19987b0419633d42}{clone}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ newContext)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \};}
+
+\end{DoxyCode}

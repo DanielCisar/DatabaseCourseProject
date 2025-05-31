@@ -1,0 +1,21 @@
+\doxysection{Catalog\+Describe\+Command.\+hpp}
+\hypertarget{_catalog_describe_command_8hpp_source}{}\label{_catalog_describe_command_8hpp_source}\index{DatabaseCourseProject/CatalogDescribeCommand.hpp@{DatabaseCourseProject/CatalogDescribeCommand.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}CommandContext.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catalog_describe_command_ae253df375d682cefd76873a0cc09f812}{CatalogDescribeCommand}}\ :\ \textcolor{keyword}{public}\ \ \mbox{\hyperlink{class_command}{Command}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_catalog_describe_command_ae253df375d682cefd76873a0cc09f812}{CatalogDescribeCommand}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_describe_command_ae6fe223bbd77f3be70faacec075c3639}{execute}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ params)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_command}{Command}}*\ \mbox{\hyperlink{class_catalog_describe_command_abfef8b2f5338d053f2270e41f6760daa}{clone}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ newContext)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \};}
+
+\end{DoxyCode}

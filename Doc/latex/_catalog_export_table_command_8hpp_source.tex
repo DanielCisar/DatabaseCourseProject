@@ -1,0 +1,21 @@
+\doxysection{Catalog\+Export\+Table\+Command.\+hpp}
+\hypertarget{_catalog_export_table_command_8hpp_source}{}\label{_catalog_export_table_command_8hpp_source}\index{DatabaseCourseProject/CatalogExportTableCommand.hpp@{DatabaseCourseProject/CatalogExportTableCommand.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}CommandContext.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catalog_export_table_command_a1eb8af8f6ce3facc555a31d249e1182c}{CatalogExportTableCommand}}\ :\ \textcolor{keyword}{public}\ \ \mbox{\hyperlink{class_command}{Command}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_catalog_export_table_command_a1eb8af8f6ce3facc555a31d249e1182c}{CatalogExportTableCommand}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_export_table_command_a5a396c45e78dbdc804fabe6c435f77d2}{execute}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ params)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_command}{Command}}*\ \mbox{\hyperlink{class_catalog_export_table_command_a8776af6eb521c9d919f9f6a1c34f2f7e}{clone}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ newContext)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \};}
+
+\end{DoxyCode}

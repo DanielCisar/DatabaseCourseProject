@@ -1,0 +1,151 @@
+\doxysection{Output\+File\+Writter Class Reference}
+\hypertarget{class_output_file_writter}{}\label{class_output_file_writter}\index{OutputFileWritter@{OutputFileWritter}}
+
+
+Handles writing in-\/memory database structures (Tables and Catalogs) to files.  
+
+
+
+
+{\ttfamily \#include $<$Output\+File\+Writter.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_output_file_writter_a31ab8d3bc4459d1771a89592de9bf8cb}{Output\+File\+Writter}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a new {\ttfamily \doxylink{class_output_file_writter}{Output\+File\+Writter}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_output_file_writter_a42894d3becd07217ad92a4b4dc838948}{\texorpdfstring{$\sim$}{\string~}\+Output\+File\+Writter}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the {\ttfamily \doxylink{class_output_file_writter}{Output\+File\+Writter}} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_output_file_writter_aa89490919702d320b7d4bf9bd1e759be}{write\+Table\+To\+File}} (\mbox{\hyperlink{class_table}{Table}} \&table, std\+::string filepath)
+\begin{DoxyCompactList}\small\item\em Writes a {\ttfamily \doxylink{class_table}{Table}} object\textquotesingle{}s data to a specified file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_output_file_writter_aa7147ca421e66bb319cde2be58376fac}{write\+Catalog\+To\+File}} (\mbox{\hyperlink{class_catalog}{Catalog}} \&catalog, std\+::string filepath)
+\begin{DoxyCompactList}\small\item\em Writes a {\ttfamily \doxylink{class_catalog}{Catalog}} object\textquotesingle{}s metadata to a specified file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles writing in-\/memory database structures (Tables and Catalogs) to files. 
+
+This class provides functionalities to persist {\ttfamily \doxylink{class_table}{Table}} data into structured {\ttfamily .db} files and to save {\ttfamily \doxylink{class_catalog}{Catalog}} metadata into {\ttfamily .cat} files. It acts as an abstraction layer for file output operations, ensuring that database objects are written in a consistent and readable format. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_output_file_writter_a31ab8d3bc4459d1771a89592de9bf8cb}\index{OutputFileWritter@{OutputFileWritter}!OutputFileWritter@{OutputFileWritter}}
+\index{OutputFileWritter@{OutputFileWritter}!OutputFileWritter@{OutputFileWritter}}
+\doxysubsubsection{\texorpdfstring{OutputFileWritter()}{OutputFileWritter()}}
+{\footnotesize\ttfamily \label{class_output_file_writter_a31ab8d3bc4459d1771a89592de9bf8cb} 
+Output\+File\+Writter\+::\+Output\+File\+Writter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new {\ttfamily \doxylink{class_output_file_writter}{Output\+File\+Writter}} instance. 
+
+Initializes the file writer. No specific resources are managed by the constructor itself.
+
+This constructor performs no specific initialization. \Hypertarget{class_output_file_writter_a42894d3becd07217ad92a4b4dc838948}\index{OutputFileWritter@{OutputFileWritter}!````~OutputFileWritter@{\texorpdfstring{$\sim$}{\string~}OutputFileWritter}}
+\index{````~OutputFileWritter@{\texorpdfstring{$\sim$}{\string~}OutputFileWritter}!OutputFileWritter@{OutputFileWritter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}OutputFileWritter()}{\string~OutputFileWritter()}}
+{\footnotesize\ttfamily \label{class_output_file_writter_a42894d3becd07217ad92a4b4dc838948} 
+Output\+File\+Writter\+::\texorpdfstring{$\sim$}{\string~}\+Output\+File\+Writter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destroys the {\ttfamily \doxylink{class_output_file_writter}{Output\+File\+Writter}} instance. 
+
+Cleans up any resources held by the writer. As this class currently doesn\textquotesingle{}t manage dynamic memory, the default destructor is sufficient.
+
+As {\ttfamily \doxylink{class_output_file_writter}{Output\+File\+Writter}} does not manage any dynamically allocated resources, the default destructor is sufficient for proper cleanup. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_output_file_writter_aa7147ca421e66bb319cde2be58376fac}\index{OutputFileWritter@{OutputFileWritter}!writeCatalogToFile@{writeCatalogToFile}}
+\index{writeCatalogToFile@{writeCatalogToFile}!OutputFileWritter@{OutputFileWritter}}
+\doxysubsubsection{\texorpdfstring{writeCatalogToFile()}{writeCatalogToFile()}}
+{\footnotesize\ttfamily \label{class_output_file_writter_aa7147ca421e66bb319cde2be58376fac} 
+void Output\+File\+Writter\+::write\+Catalog\+To\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_catalog}{Catalog}} \&}]{catalog}{, }\item[{std\+::string}]{filepath}{}\end{DoxyParamCaption})}
+
+
+
+Writes a {\ttfamily \doxylink{class_catalog}{Catalog}} object\textquotesingle{}s metadata to a specified file. 
+
+The catalog metadata is written in a comma-\/separated format, with one table entry per line\+: "{}\+Table\+Name,\+Table\+File\+Path.\+db"{}. This file serves as an index for all tables managed by the catalog.
+
+
+\begin{DoxyParams}{Parameters}
+{\em catalog} & A reference to the {\ttfamily \doxylink{class_catalog}{Catalog}} object to write. \\
+\hline
+{\em filepath} & The full path to the file where the catalog metadata will be saved. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened for writing.\\
+\hline
+\end{DoxyExceptions}
+This function iterates through all tables in the provided catalog and writes their name and associated file path to the output file, separated by commas. Each table occupies one line in the catalog file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em catalog} & A reference to the {\ttfamily \doxylink{class_catalog}{Catalog}} object to be written. \\
+\hline
+{\em filepath} & The path to the output file. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened for writing. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_output_file_writter_aa89490919702d320b7d4bf9bd1e759be}\index{OutputFileWritter@{OutputFileWritter}!writeTableToFile@{writeTableToFile}}
+\index{writeTableToFile@{writeTableToFile}!OutputFileWritter@{OutputFileWritter}}
+\doxysubsubsection{\texorpdfstring{writeTableToFile()}{writeTableToFile()}}
+{\footnotesize\ttfamily \label{class_output_file_writter_aa89490919702d320b7d4bf9bd1e759be} 
+void Output\+File\+Writter\+::write\+Table\+To\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_table}{Table}} \&}]{table}{, }\item[{std\+::string}]{filepath}{}\end{DoxyParamCaption})}
+
+
+
+Writes a {\ttfamily \doxylink{class_table}{Table}} object\textquotesingle{}s data to a specified file. 
+
+The table data is written in a specific format suitable for later reading by {\ttfamily \doxylink{class_input_file_reader}{Input\+File\+Reader}}\+:
+\begin{DoxyEnumerate}
+\item First line\+: \doxylink{class_table}{Table} name.
+\item Second line\+: Comma-\/separated column types (e.\+g., "{}\+String,\+Integer,\+Double"{}).
+\item Third line\+: Comma-\/separated column names (e.\+g., "{}\+Name,\+Age,\+Height"{}).
+\item Subsequent lines\+: Comma-\/separated row values.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & A reference to the {\ttfamily \doxylink{class_table}{Table}} object to write. \\
+\hline
+{\em filepath} & The full path to the file where the table data will be saved. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened for writing. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+If the table has no columns, an empty file will be created containing only the table name. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+This method assumes all columns in the table have the same number of rows.
+\end{DoxyWarning}
+This function opens the specified file and writes the table\textquotesingle{}s structure (name, column types, column names) and all its data rows in a CSV-\/like format. Each piece of data (type, name, cell value) is separated by commas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & A reference to the {\ttfamily \doxylink{class_table}{Table}} object to be written. \\
+\hline
+{\em filepath} & The path to the output file. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened for writing. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Output\+File\+Writter.\+hpp\item 
+Database\+Course\+Project/Output\+File\+Writter\+Impl.\+cpp\end{DoxyCompactItemize}

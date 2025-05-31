@@ -1,0 +1,158 @@
+\doxysection{File\+Open\+Command Class Reference}
+\hypertarget{class_file_open_command}{}\label{class_file_open_command}\index{FileOpenCommand@{FileOpenCommand}}
+
+
+\doxylink{class_command}{Command} to open or create a database catalog file.  
+
+
+
+
+{\ttfamily \#include $<$File\+Open\+Command.\+hpp$>$}
+
+Inheritance diagram for File\+Open\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_file_open_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_file_open_command_a487822356ce40b84cdb5c547f164f8a8}{File\+Open\+Command}} (\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&context)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_file_open_command}{File\+Open\+Command} with the provided command context. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_open_command_ae0b0ce6277371743a35c330ec737eef8}{execute}} (const std\+::vector$<$ std\+::string $>$ \&params) override
+\begin{DoxyCompactList}\small\item\em Executes the "{}open"{} command. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_file_open_command_abb5a31c0b025e0bb3dd9d80480eee459}{clone}} (\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&new\+Context) const override
+\begin{DoxyCompactList}\small\item\em Creates a deep copy of the current object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_command}{Command}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Command} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for safe cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_command}{Command} to open or create a database catalog file. 
+
+This command handles loading a specified catalog file into the application\textquotesingle{}s memory. If the file does not exist, it creates a new empty catalog file. Upon successful loading (or creation), the application\textquotesingle{}s state is updated to reflect the newly opened catalog, making it accessible for subsequent commands. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_file_open_command_a487822356ce40b84cdb5c547f164f8a8}\index{FileOpenCommand@{FileOpenCommand}!FileOpenCommand@{FileOpenCommand}}
+\index{FileOpenCommand@{FileOpenCommand}!FileOpenCommand@{FileOpenCommand}}
+\doxysubsubsection{\texorpdfstring{FileOpenCommand()}{FileOpenCommand()}}
+{\footnotesize\ttfamily \label{class_file_open_command_a487822356ce40b84cdb5c547f164f8a8} 
+File\+Open\+Command\+::\+File\+Open\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_file_open_command}{File\+Open\+Command} with the provided command context. 
+
+Constructs a \doxylink{class_file_open_command}{File\+Open\+Command} object, initializing it with the shared command context.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & A reference to the command context containing shared components.\\
+\hline
+{\em context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} object. This context is vital for the command to interact with the application\textquotesingle{}s global state, including the shared database catalog and all necessary file and console I/O components. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_file_open_command_abb5a31c0b025e0bb3dd9d80480eee459}\index{FileOpenCommand@{FileOpenCommand}!clone@{clone}}
+\index{clone@{clone}!FileOpenCommand@{FileOpenCommand}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_file_open_command_abb5a31c0b025e0bb3dd9d80480eee459} 
+\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} File\+Open\+Command\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&}]{new\+Context}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a deep copy of the current object. 
+
+Creates a deep copy of the current {\ttfamily \doxylink{class_file_open_command}{File\+Open\+Command}} object.
+
+This override implements the polymorphic cloning behavior defined in {\ttfamily \doxylink{class_command}{Command}}. It constructs a new instance, associating it with the provided {\ttfamily new\+Context}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} that the new cloned command should use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated object, which is a deep copy of this instance.
+\end{DoxyReturn}
+This override constructs a new {\ttfamily \doxylink{class_file_open_command}{File\+Open\+Command}} instance, associating it with the provided {\ttfamily new\+Context}. Since {\ttfamily \doxylink{class_file_open_command}{File\+Open\+Command}} itself only holds a reference to {\ttfamily \doxylink{struct_command_context}{Command\+Context}} and no other dynamically allocated members, a simple construction with the new context is sufficient for cloning this command object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} that the new cloned command should use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_file_open_command}{File\+Open\+Command}} object. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The caller is responsible for deleteing the returned pointer. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{class_command_ad72ab674403f89ab62d9f31218c78551}{Command}}.
+
+\Hypertarget{class_file_open_command_ae0b0ce6277371743a35c330ec737eef8}\index{FileOpenCommand@{FileOpenCommand}!execute@{execute}}
+\index{execute@{execute}!FileOpenCommand@{FileOpenCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily \label{class_file_open_command_ae0b0ce6277371743a35c330ec737eef8} 
+void File\+Open\+Command\+::execute (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes the "{}open"{} command. 
+
+Executes the "{}open"{} command, managing the loading or creation of a database catalog.
+
+This method attempts to open a catalog file specified by the user. If the file does not exist, it will create an empty one at the given path. If the file exists, it reads the catalog data from it and loads it into the application\textquotesingle{}s shared {\ttfamily \doxylink{class_catalog}{Catalog}} object. The application\textquotesingle{}s state ({\ttfamily loaded\+Catalog\+Exists}) is updated accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & A constant reference to a vector of strings representing command-\/line parameters. Expected to contain exactly two elements\+: {\ttfamily params\mbox{[}0\mbox{]}} is the command name ("{}open"{}), and {\ttfamily params\mbox{[}1\mbox{]}} is the file path to the catalog to be opened or created.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the number of parameters is incorrect (not 2). \\
+\hline
+{\em std\+::runtime\+\_\+error} & If there\textquotesingle{}s an issue creating a new empty file (e.\+g., due to permissions or invalid path). \\
+\hline
+{\em std\+::exception} & (or more specific types) If {\ttfamily \doxylink{class_input_file_reader_a5ba8931086dc6c1cc22366b118b1ffbd}{Input\+File\+Reader\+::read\+Catalog\+From\+File}} encounters an error during file reading or parsing.\\
+\hline
+\end{DoxyExceptions}
+This function validates the command parameters, expecting exactly one argument which is the path to the catalog file.
+\begin{DoxyItemize}
+\item If the specified file does not exist, an empty file is created at the given path, and a success message is printed to the console.
+\item If the file exists, its content is read using {\ttfamily \doxylink{class_input_file_reader_a5ba8931086dc6c1cc22366b118b1ffbd}{Input\+File\+Reader\+::read\+Catalog\+From\+File}}, and the parsed {\ttfamily \doxylink{class_catalog}{Catalog}} data is deep-\/copied into the {\ttfamily context.\+loaded\+Catalog} object, which represents the application\textquotesingle{}s active catalog. The {\ttfamily context.\+loaded\+Catalog\+Exists} flag is set to {\ttfamily true} upon successful operation.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & A constant reference to a vector of strings containing the command name and its arguments. {\ttfamily params\mbox{[}0\mbox{]}} is "{}open"{}, and {\ttfamily params\mbox{[}1\mbox{]}} is the file path.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If {\ttfamily params.\+size()} is not equal to 2, indicating missing arguments. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If there\textquotesingle{}s a failure in creating a new file (e.\+g., permissions issue). \\
+\hline
+{\em std\+::exception} & Any exceptions propagated from {\ttfamily \doxylink{class_input_file_reader_a5ba8931086dc6c1cc22366b118b1ffbd}{Input\+File\+Reader\+::read\+Catalog\+From\+File}} during the process of reading and parsing the catalog file. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_command_ab0a152e96747ac9b24c624514fcc58a7}{Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/File\+Open\+Command.\+hpp\item 
+Database\+Course\+Project/File\+Open\+Command\+Impl.\+cpp\end{DoxyCompactItemize}

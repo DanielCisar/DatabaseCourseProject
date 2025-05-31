@@ -1,0 +1,102 @@
+\doxysection{Command\+Parser Class Reference}
+\hypertarget{class_command_parser}{}\label{class_command_parser}\index{CommandParser@{CommandParser}}
+
+
+A static utility class for parsing command strings into tokens.  
+
+
+
+
+{\ttfamily \#include $<$Command\+Parser.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_command_parser_a4e12e4611555c26a05f3b84d044fafe7}{parse\+Command}} (const std\+::string \&line, char delimiter)
+\begin{DoxyCompactList}\small\item\em Parses a string into a vector of tokens using a specified delimiter. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_command_parser_ac55ccf87ff1dac5137f96084cece631a}{parse\+Raw\+Command}} (const std\+::string \&line)
+\begin{DoxyCompactList}\small\item\em Parses a raw command string, specifically handling spaces and quoted arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A static utility class for parsing command strings into tokens. 
+
+{\ttfamily \doxylink{class_command_parser}{Command\+Parser}} provides methods to break down a single input string (representing a command and its arguments) into a collection of individual tokens (words or phrases). It supports parsing by a custom delimiter and a specialized parsing for raw commands that handles quoted strings. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_command_parser_a4e12e4611555c26a05f3b84d044fafe7}\index{CommandParser@{CommandParser}!parseCommand@{parseCommand}}
+\index{parseCommand@{parseCommand}!CommandParser@{CommandParser}}
+\doxysubsubsection{\texorpdfstring{parseCommand()}{parseCommand()}}
+{\footnotesize\ttfamily \label{class_command_parser_a4e12e4611555c26a05f3b84d044fafe7} 
+std\+::vector$<$ std\+::string $>$ Command\+Parser\+::parse\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{line}{, }\item[{char}]{delimiter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Parses a string into a vector of tokens using a specified delimiter. 
+
+This method iterates through the input {\ttfamily line} and splits it into substrings wherever the {\ttfamily delimiter} character is found. Each substring becomes a token in the returned vector. Consecutive delimiters will result in empty tokens.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The input string to parse. \\
+\hline
+{\em delimiter} & The character used to separate tokens (e.\+g., \textquotesingle{} \textquotesingle{}, \textquotesingle{},\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::string\texorpdfstring{$>$}{>}} containing the parsed tokens.
+\end{DoxyReturn}
+This implementation builds {\ttfamily current\+Token} character by character until the {\ttfamily delimiter} is encountered. Once the delimiter is hit, the {\ttfamily current\+Token} is pushed to {\ttfamily tokens}, and {\ttfamily current\+Token} is cleared. After the loop, the last {\ttfamily current\+Token} is also added.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The input string to parse. \\
+\hline
+{\em delimiter} & The character used to separate tokens. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::string\texorpdfstring{$>$}{>}} containing the parsed tokens. 
+\end{DoxyReturn}
+\Hypertarget{class_command_parser_ac55ccf87ff1dac5137f96084cece631a}\index{CommandParser@{CommandParser}!parseRawCommand@{parseRawCommand}}
+\index{parseRawCommand@{parseRawCommand}!CommandParser@{CommandParser}}
+\doxysubsubsection{\texorpdfstring{parseRawCommand()}{parseRawCommand()}}
+{\footnotesize\ttfamily \label{class_command_parser_ac55ccf87ff1dac5137f96084cece631a} 
+std\+::vector$<$ std\+::string $>$ Command\+Parser\+::parse\+Raw\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{line}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Parses a raw command string, specifically handling spaces and quoted arguments. 
+
+This method is designed to parse commands from user input where arguments might contain spaces and be enclosed in double quotes.
+\begin{DoxyItemize}
+\item Spaces outside of double quotes act as delimiters.
+\item Text inside double quotes is treated as a single token, including spaces.
+\item Double quotes themselves are not included in the resulting tokens.
+\item Multiple consecutive spaces outside quotes will generate empty tokens.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The raw command string to parse, potentially containing spaces and quotes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::string\texorpdfstring{$>$}{>}} containing the parsed tokens, with quotes removed.
+\end{DoxyReturn}
+This method iterates through the input string, identifying tokens based on spaces while respecting double quotes. Characters within quotes are part of a single token. Double quotes themselves are consumed and not included in the output tokens.
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The raw command string to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::string\texorpdfstring{$>$}{>}} containing the parsed tokens. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Command\+Parser.\+hpp\item 
+Database\+Course\+Project/Command\+Parser\+Impl.\+cpp\end{DoxyCompactItemize}

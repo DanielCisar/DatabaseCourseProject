@@ -1,0 +1,62 @@
+\doxysection{IOUtils Class Reference}
+\hypertarget{class_i_o_utils}{}\label{class_i_o_utils}\index{IOUtils@{IOUtils}}
+
+
+A static utility class for common input/output operations, particularly for paginated display.  
+
+
+
+
+{\ttfamily \#include $<$IOUtils.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_i_o_utils_ad6f428a52d903d0ff47010209200519f}{print\+In\+Page\+Format}} (std\+::vector$<$ std\+::string $>$ rows, const \mbox{\hyperlink{class_output_console_writter}{Output\+Console\+Writter}} \&ocw, const \mbox{\hyperlink{class_input_console_reader}{Input\+Console\+Reader}} \&icr)
+\begin{DoxyCompactList}\small\item\em Prints a vector of strings to the console in a paginated format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A static utility class for common input/output operations, particularly for paginated display. 
+
+{\ttfamily \doxylink{class_i_o_utils}{IOUtils}} encapsulates reusable functionality for interacting with the console, specifically providing a method to display a large set of data in a user-\/friendly, paginated format, allowing the user to navigate through pages. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_o_utils_ad6f428a52d903d0ff47010209200519f}\index{IOUtils@{IOUtils}!printInPageFormat@{printInPageFormat}}
+\index{printInPageFormat@{printInPageFormat}!IOUtils@{IOUtils}}
+\doxysubsubsection{\texorpdfstring{printInPageFormat()}{printInPageFormat()}}
+{\footnotesize\ttfamily \label{class_i_o_utils_ad6f428a52d903d0ff47010209200519f} 
+void IOUtils\+::print\+In\+Page\+Format (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{rows}{, }\item[{const \mbox{\hyperlink{class_output_console_writter}{Output\+Console\+Writter}} \&}]{ocw}{, }\item[{const \mbox{\hyperlink{class_input_console_reader}{Input\+Console\+Reader}} \&}]{icr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints a vector of strings to the console in a paginated format. 
+
+This method displays the provided {\ttfamily rows} data page by page. It pauses after each page, prompting the user to enter commands like "{}next"{}, "{}prev"{}, or "{}exit"{} to navigate through the pages. The page size is fixed at 10 rows.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & A {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::string\texorpdfstring{$>$}{>}} containing the data rows to be displayed. Each string in the vector is treated as a single line of output. \\
+\hline
+{\em ocw} & A constant reference to an {\ttfamily \doxylink{class_output_console_writter}{Output\+Console\+Writter}} object, used for printing messages. \\
+\hline
+{\em icr} & A constant reference to an {\ttfamily \doxylink{class_input_console_reader}{Input\+Console\+Reader}} object, used for reading user commands.\\
+\hline
+\end{DoxyParams}
+This function iterates through the {\ttfamily rows} data, displaying them in chunks defined by {\ttfamily page\+Size}. It then prompts the user for navigation commands ("{}next"{}, "{}prev"{}, "{}exit"{}) using the provided {\ttfamily \doxylink{class_input_console_reader}{Input\+Console\+Reader}} and prints output using the {\ttfamily \doxylink{class_output_console_writter}{Output\+Console\+Writter}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & The data rows to display. \\
+\hline
+{\em ocw} & An {\ttfamily \doxylink{class_output_console_writter}{Output\+Console\+Writter}} instance for output. \\
+\hline
+{\em icr} & An {\ttfamily \doxylink{class_input_console_reader}{Input\+Console\+Reader}} instance for input. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/IOUtils.\+hpp\item 
+Database\+Course\+Project/IOUtils\+Impl.\+cpp\end{DoxyCompactItemize}

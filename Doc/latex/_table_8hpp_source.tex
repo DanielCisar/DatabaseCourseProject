@@ -1,0 +1,68 @@
+\doxysection{Table.\+hpp}
+\hypertarget{_table_8hpp_source}{}\label{_table_8hpp_source}\index{DatabaseCourseProject/Table.hpp@{DatabaseCourseProject/Table.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}TableColumn.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ std::vector<TableColumn*>\ columns;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ std::string\ name;\ \ }
+\DoxyCodeLine{00029\ \ \ \ \ std::string\ filename;\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ clearColumnsMemory();}
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}}(\textcolor{keyword}{const}\ std::vector<TableColumn*>\ columns,\ \textcolor{keyword}{const}\ std::string\ name,\ \textcolor{keyword}{const}\ std::string\ filename);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}}\&\ other);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}}(\mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_table_a9a559f2e7beb37b511ee9f88873164f8}{\string~Table}}();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}}\&\ \mbox{\hyperlink{class_table_a4147a080a37863de7ceb6a210300dcdf}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}}\&\ other);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{using\ }iterator\ =\ std::vector<TableColumn*>::iterator;}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{using\ }const\_iterator\ =\ std::vector<TableColumn*>::const\_iterator;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}}\&\ \mbox{\hyperlink{class_table_a4147a080a37863de7ceb6a210300dcdf}{operator=}}(\mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00124\ \ \ \ \ iterator\ \mbox{\hyperlink{class_table_ac1e96a4a15cb5428af28ae4486b8b290}{begin}}();}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00130\ \ \ \ \ iterator\ \mbox{\hyperlink{class_table_ac23cae1bd06879c15254b1f32acfbdd7}{end}}();}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00136\ \ \ \ \ const\_iterator\ \mbox{\hyperlink{class_table_ac1e96a4a15cb5428af28ae4486b8b290}{begin}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00142\ \ \ \ \ const\_iterator\ \mbox{\hyperlink{class_table_ac23cae1bd06879c15254b1f32acfbdd7}{end}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00148\ \ \ \ \ std::string\ \mbox{\hyperlink{class_table_a9b78f709a02ba6c10aa5a9250f6209b5}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ \ \ \ \ std::string\ \mbox{\hyperlink{class_table_a2f458a7ce5b745b80887e1299cf09ce3}{getFilename}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00162\ \ \ \ \ std::string\ \mbox{\hyperlink{class_table_a8f83f86a31f01e28d0b73b5f3f8fef52}{getColumnNameAtGivenIndex}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00175\ \ \ \ \ std::string\ \mbox{\hyperlink{class_table_a0b37a1eb6f45effe7ca744485c38509c}{getRowAsString}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_table_a5ab9ce182abf853f2d397700ae67c922}{deleteGivenRow}}(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_table_a437b38e6618dca479aed194127804227}{addColumn}}(\mbox{\hyperlink{class_table_column}{TableColumn}}*\ col);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_table_af77bb4e8da275a1a472ee57b39558a88}{getNumberOfColumns}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_table_a9e7fa09c97abbf2f0ae3d74d29b5176f}{setTablePath}}(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00219\ \ \ \ \ \mbox{\hyperlink{class_table_column}{TableColumn}}*\ \mbox{\hyperlink{class_table_acb1065ca31909a942f253c5bbf8b2c63}{getColumnAtGivenIndex}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_table_a2c01a5b27a9421688d1224d9aa7cd060}{setName}}(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00240\ \ \ \ \ std::string\ \mbox{\hyperlink{class_table_aa59ef679d8c2989af7afd8525333f1fa}{toString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00255\ \ \ \ \ \mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}}\ \mbox{\hyperlink{class_table_af30550eade85349185dc6546ec2e0175}{cloneWithNewNameAndPath}}(\textcolor{keyword}{const}\ std::string\&\ newName,\ \textcolor{keyword}{const}\ std::string\&\ newPath)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00256\ \};}
+
+\end{DoxyCode}

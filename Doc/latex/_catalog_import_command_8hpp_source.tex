@@ -1,0 +1,21 @@
+\doxysection{Catalog\+Import\+Command.\+hpp}
+\hypertarget{_catalog_import_command_8hpp_source}{}\label{_catalog_import_command_8hpp_source}\index{DatabaseCourseProject/CatalogImportCommand.hpp@{DatabaseCourseProject/CatalogImportCommand.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}CommandContext.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catalog_import_command_adcc83d8f2f9b1963a860d42b7e34228c}{CatalogImportCommand}}\ :\ \textcolor{keyword}{public}\ \ \mbox{\hyperlink{class_command}{Command}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_catalog_import_command_adcc83d8f2f9b1963a860d42b7e34228c}{CatalogImportCommand}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_import_command_a17dc8b0682948271d033931076b95dcb}{execute}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ params)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_command}{Command}}*\ \mbox{\hyperlink{class_catalog_import_command_a8e0f3ac95d1416df8d0b4e1ea168134a}{clone}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ newContext)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \};}
+
+\end{DoxyCode}

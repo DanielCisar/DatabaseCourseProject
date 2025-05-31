@@ -1,0 +1,87 @@
+\doxysection{Output\+Console\+Writter Class Reference}
+\hypertarget{class_output_console_writter}{}\label{class_output_console_writter}\index{OutputConsoleWritter@{OutputConsoleWritter}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_output_console_writter_a0960f78045c0b118cae3a6e096e05766}{Output\+Console\+Writter}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a new {\ttfamily \doxylink{class_output_console_writter}{Output\+Console\+Writter}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_output_console_writter_a365765bde1dffbd1e8373db490ce7b84}{\texorpdfstring{$\sim$}{\string~}\+Output\+Console\+Writter}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the {\ttfamily \doxylink{class_output_console_writter}{Output\+Console\+Writter}} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_output_console_writter_a44b6a4aa09ad58dc1b062f419f0359da}{print\+Line}} (const std\+::string \&messsage) const
+\begin{DoxyCompactList}\small\item\em Prints a message to the console followed by a newline character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_output_console_writter_ac38363387d758674b9170b68ab80f185}{print}} (const std\+::string \&message) const
+\begin{DoxyCompactList}\small\item\em Prints a message to the console without a trailing newline character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_output_console_writter_a0960f78045c0b118cae3a6e096e05766}\index{OutputConsoleWritter@{OutputConsoleWritter}!OutputConsoleWritter@{OutputConsoleWritter}}
+\index{OutputConsoleWritter@{OutputConsoleWritter}!OutputConsoleWritter@{OutputConsoleWritter}}
+\doxysubsubsection{\texorpdfstring{OutputConsoleWritter()}{OutputConsoleWritter()}}
+{\footnotesize\ttfamily \label{class_output_console_writter_a0960f78045c0b118cae3a6e096e05766} 
+Output\+Console\+Writter\+::\+Output\+Console\+Writter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new {\ttfamily \doxylink{class_output_console_writter}{Output\+Console\+Writter}} instance. 
+
+Initializes the writer. No specific resources are managed by the constructor itself.
+
+This constructor performs no specific initialization beyond default-\/constructing member variables (of which there are none in this class). \Hypertarget{class_output_console_writter_a365765bde1dffbd1e8373db490ce7b84}\index{OutputConsoleWritter@{OutputConsoleWritter}!````~OutputConsoleWritter@{\texorpdfstring{$\sim$}{\string~}OutputConsoleWritter}}
+\index{````~OutputConsoleWritter@{\texorpdfstring{$\sim$}{\string~}OutputConsoleWritter}!OutputConsoleWritter@{OutputConsoleWritter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}OutputConsoleWritter()}{\string~OutputConsoleWritter()}}
+{\footnotesize\ttfamily \label{class_output_console_writter_a365765bde1dffbd1e8373db490ce7b84} 
+Output\+Console\+Writter\+::\texorpdfstring{$\sim$}{\string~}\+Output\+Console\+Writter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destroys the {\ttfamily \doxylink{class_output_console_writter}{Output\+Console\+Writter}} instance. 
+
+Cleans up any resources held by the writer. As this class currently doesn\textquotesingle{}t manage dynamic memory, the default destructor is sufficient.
+
+As {\ttfamily \doxylink{class_output_console_writter}{Output\+Console\+Writter}} does not manage any dynamically allocated resources, the default destructor is sufficient for proper cleanup. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_output_console_writter_ac38363387d758674b9170b68ab80f185}\index{OutputConsoleWritter@{OutputConsoleWritter}!print@{print}}
+\index{print@{print}!OutputConsoleWritter@{OutputConsoleWritter}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{class_output_console_writter_ac38363387d758674b9170b68ab80f185} 
+void Output\+Console\+Writter\+::print (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{}\end{DoxyParamCaption}) const}
+
+
+
+Prints a message to the console without a trailing newline character. 
+
+This method sends the given string {\ttfamily message} to {\ttfamily std\+::cout} without adding a newline. This allows subsequent output to continue on the same line.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The string to be printed.\\
+\hline
+{\em message} & The string to be printed. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_output_console_writter_a44b6a4aa09ad58dc1b062f419f0359da}\index{OutputConsoleWritter@{OutputConsoleWritter}!printLine@{printLine}}
+\index{printLine@{printLine}!OutputConsoleWritter@{OutputConsoleWritter}}
+\doxysubsubsection{\texorpdfstring{printLine()}{printLine()}}
+{\footnotesize\ttfamily \label{class_output_console_writter_a44b6a4aa09ad58dc1b062f419f0359da} 
+void Output\+Console\+Writter\+::print\+Line (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{messsage}{}\end{DoxyParamCaption}) const}
+
+
+
+Prints a message to the console followed by a newline character. 
+
+This method sends the given string {\ttfamily message} to {\ttfamily std\+::cout} and then flushes the output stream, ensuring the message appears immediately on the console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em messsage} & The string to be printed.\\
+\hline
+{\em messsage} & The string to be printed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Output\+Console\+Writter.\+hpp\item 
+Database\+Course\+Project/Output\+Console\+Writter\+Impl.\+cpp\end{DoxyCompactItemize}

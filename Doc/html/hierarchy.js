@@ -1,0 +1,47 @@
+var hierarchy =
+[
+    [ "Catalog", "class_catalog.html", null ],
+    [ "CatalogCommandFactory", "class_catalog_command_factory.html", null ],
+    [ "CatalogRepository", "class_catalog_repository.html", null ],
+    [ "ColumnFactory", "class_column_factory.html", null ],
+    [ "Command", "class_command.html", [
+      [ "CatalogAddColumnCommand", "class_catalog_add_column_command.html", null ],
+      [ "CatalogAggregateCommand", "class_catalog_aggregate_command.html", null ],
+      [ "CatalogCountCommand", "class_catalog_count_command.html", null ],
+      [ "CatalogDeleteRowsCommand", "class_catalog_delete_rows_command.html", null ],
+      [ "CatalogDescribeCommand", "class_catalog_describe_command.html", null ],
+      [ "CatalogExportTableCommand", "class_catalog_export_table_command.html", null ],
+      [ "CatalogImportCommand", "class_catalog_import_command.html", null ],
+      [ "CatalogInnerJoinCommand", "class_catalog_inner_join_command.html", null ],
+      [ "CatalogInsertCommand", "class_catalog_insert_command.html", null ],
+      [ "CatalogPrintCommand", "class_catalog_print_command.html", null ],
+      [ "CatalogRenameCommand", "class_catalog_rename_command.html", null ],
+      [ "CatalogSelectCommand", "class_catalog_select_command.html", null ],
+      [ "CatalogShowTablesCommand", "class_catalog_show_tables_command.html", null ],
+      [ "CatalogUpdateCommand", "class_catalog_update_command.html", null ],
+      [ "FileCloseCommand", "class_file_close_command.html", null ],
+      [ "FileExitCommand", "class_file_exit_command.html", null ],
+      [ "FileHelpCommand", "class_file_help_command.html", null ],
+      [ "FileOpenCommand", "class_file_open_command.html", null ],
+      [ "FileSaveAsCommand", "class_file_save_as_command.html", null ],
+      [ "FileSaveCommand", "class_file_save_command.html", null ]
+    ] ],
+    [ "CommandContext", "struct_command_context.html", null ],
+    [ "CommandParser", "class_command_parser.html", null ],
+    [ "Engine", "class_engine.html", null ],
+    [ "FileCommandFactory", "class_file_command_factory.html", null ],
+    [ "FileUtils", "class_file_utils.html", null ],
+    [ "InputConsoleReader", "class_input_console_reader.html", null ],
+    [ "InputFileReader", "class_input_file_reader.html", null ],
+    [ "IOUtils", "class_i_o_utils.html", null ],
+    [ "Operations", "class_operations.html", null ],
+    [ "OutputConsoleWritter", "class_output_console_writter.html", null ],
+    [ "OutputFileWritter", "class_output_file_writter.html", null ],
+    [ "SupportedCommands", "class_supported_commands.html", null ],
+    [ "Table", "class_table.html", null ],
+    [ "TableColumn", "class_table_column.html", [
+      [ "DoubleColumn", "class_double_column.html", null ],
+      [ "IntegerColumn", "class_integer_column.html", null ],
+      [ "StringColumn", "class_string_column.html", null ]
+    ] ]
+];

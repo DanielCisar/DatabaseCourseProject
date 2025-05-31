@@ -1,0 +1,29 @@
+\doxysection{Catalog\+Command\+Factory.\+hpp}
+\hypertarget{_catalog_command_factory_8hpp_source}{}\label{_catalog_command_factory_8hpp_source}\index{DatabaseCourseProject/CatalogCommandFactory.hpp@{DatabaseCourseProject/CatalogCommandFactory.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}CatalogInsertCommand.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}CatalogSelectCommand.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CatalogPrintCommand.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}CatalogDescribeCommand.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}CatalogCountCommand.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}CatalogAddColumnCommand.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}CatalogAggregateCommand.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}CatalogDeleteRowsCommand.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}CatalogRenameCommand.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}CatalogInnerJoinCommand.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}CatalogImportCommand.hpp"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}CatalogExportTableCommand.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}CatalogUpdateCommand.hpp"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}CatalogShowTablesCommand.hpp"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catalog_command_factory}{CatalogCommandFactory}}\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_command}{Command}}*\ \mbox{\hyperlink{class_catalog_command_factory_a44cd0e4d9c4dd1200a926ce9f16ac96f}{createCommand}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context);}
+\DoxyCodeLine{00045\ \};}
+
+\end{DoxyCode}

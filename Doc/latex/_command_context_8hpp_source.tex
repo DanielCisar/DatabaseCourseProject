@@ -1,0 +1,47 @@
+\doxysection{Command\+Context.\+hpp}
+\hypertarget{_command_context_8hpp_source}{}\label{_command_context_8hpp_source}\index{DatabaseCourseProject/CommandContext.hpp@{DatabaseCourseProject/CommandContext.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}OutputConsoleWritter.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}InputConsoleReader.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}InputFileReader.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}OutputFileWritter.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Catalog.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_command_context_ac4affa8b9abf67876178c41f8b110cd9}{CommandContext}}\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{struct_command_context_ace1dba016f2462b0ac66babd4b04765e}{params}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_catalog}{Catalog}}\&\ \mbox{\hyperlink{struct_command_context_a8bb9bf676a2019d063e07b06902d14f0}{loadedCatalog}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_command_context_a3391c3129db4f10d5973d10467196bd7}{loadedCatalogExists}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_output_console_writter}{OutputConsoleWritter}}\&\ \mbox{\hyperlink{struct_command_context_a9f56674867abf2cf5080eccf07d13d32}{outputConsoleWritter}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_input_console_reader}{InputConsoleReader}}\&\ \mbox{\hyperlink{struct_command_context_ab660024ca637da6a4a05a8edf66836ab}{inputConsoleReader}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_output_file_writter}{OutputFileWritter}}\&\ \mbox{\hyperlink{struct_command_context_ae7f37593d26dd02f9f51b423858065dc}{outputFileWritter}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_input_file_reader}{InputFileReader}}\&\ \mbox{\hyperlink{struct_command_context_aba982d54123d55ec8d99e2d9a19f87fc}{inputFileReader}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{struct_command_context_ac4affa8b9abf67876178c41f8b110cd9}{CommandContext}}(}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_catalog}{Catalog}}\&\ loadedCatalogRef,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_output_console_writter}{OutputConsoleWritter}}\&\ \mbox{\hyperlink{struct_command_context_a9f56674867abf2cf5080eccf07d13d32}{outputConsoleWritter}},}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_input_console_reader}{InputConsoleReader}}\&\ \mbox{\hyperlink{struct_command_context_ab660024ca637da6a4a05a8edf66836ab}{inputConsoleReader}},}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_output_file_writter}{OutputFileWritter}}\&\ \mbox{\hyperlink{struct_command_context_ae7f37593d26dd02f9f51b423858065dc}{outputFileWritter}},}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_input_file_reader}{InputFileReader}}\&\ \mbox{\hyperlink{struct_command_context_aba982d54123d55ec8d99e2d9a19f87fc}{inputFileReader}}}
+\DoxyCodeLine{00069\ \ \ \ \ )}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_command_context_a8bb9bf676a2019d063e07b06902d14f0}{loadedCatalog}}(loadedCatalogRef),}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_command_context_a3391c3129db4f10d5973d10467196bd7}{loadedCatalogExists}}(false),}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_command_context_a9f56674867abf2cf5080eccf07d13d32}{outputConsoleWritter}}(\mbox{\hyperlink{struct_command_context_a9f56674867abf2cf5080eccf07d13d32}{outputConsoleWritter}}),}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_command_context_ab660024ca637da6a4a05a8edf66836ab}{inputConsoleReader}}(\mbox{\hyperlink{struct_command_context_ab660024ca637da6a4a05a8edf66836ab}{inputConsoleReader}}),}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_command_context_ae7f37593d26dd02f9f51b423858065dc}{outputFileWritter}}(\mbox{\hyperlink{struct_command_context_ae7f37593d26dd02f9f51b423858065dc}{outputFileWritter}}),}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_command_context_aba982d54123d55ec8d99e2d9a19f87fc}{inputFileReader}}(\mbox{\hyperlink{struct_command_context_aba982d54123d55ec8d99e2d9a19f87fc}{inputFileReader}})}
+\DoxyCodeLine{00076\ \ \ \ \ \{\}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \};}
+
+\end{DoxyCode}

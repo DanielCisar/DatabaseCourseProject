@@ -1,0 +1,157 @@
+\doxysection{Input\+File\+Reader Class Reference}
+\hypertarget{class_input_file_reader}{}\label{class_input_file_reader}\index{InputFileReader@{InputFileReader}}
+
+
+Handles reading and parsing data from various file formats into in-\/memory database structures.  
+
+
+
+
+{\ttfamily \#include $<$Input\+File\+Reader.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_input_file_reader_ad16b6637de292a85f227f849f72dd62b}{Input\+File\+Reader}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a new {\ttfamily \doxylink{class_input_file_reader}{Input\+File\+Reader}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_input_file_reader_a2291ea79a767417b903f0274c81c5535}{\texorpdfstring{$\sim$}{\string~}\+Input\+File\+Reader}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the {\ttfamily \doxylink{class_input_file_reader}{Input\+File\+Reader}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_table}{Table}} \mbox{\hyperlink{class_input_file_reader_a876332636cc935a29dda58b03edf631b}{read\+Table\+From\+File}} (const std\+::string \&filepath)
+\begin{DoxyCompactList}\small\item\em Reads table data from a specified file and constructs a {\ttfamily \doxylink{class_table}{Table}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_catalog}{Catalog}} \mbox{\hyperlink{class_input_file_reader_a5ba8931086dc6c1cc22366b118b1ffbd}{read\+Catalog\+From\+File}} (const std\+::string \&filepath)
+\begin{DoxyCompactList}\small\item\em Reads catalog metadata from a specified file and constructs a {\ttfamily \doxylink{class_catalog}{Catalog}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles reading and parsing data from various file formats into in-\/memory database structures. 
+
+This class provides functionalities to load {\ttfamily \doxylink{class_table}{Table}} data from {\ttfamily .db} (or similar structured) files and to load {\ttfamily \doxylink{class_catalog}{Catalog}} metadata from {\ttfamily .cat} files. It acts as an abstraction layer for file I/O, interpreting file content to construct database objects. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_input_file_reader_ad16b6637de292a85f227f849f72dd62b}\index{InputFileReader@{InputFileReader}!InputFileReader@{InputFileReader}}
+\index{InputFileReader@{InputFileReader}!InputFileReader@{InputFileReader}}
+\doxysubsubsection{\texorpdfstring{InputFileReader()}{InputFileReader()}}
+{\footnotesize\ttfamily \label{class_input_file_reader_ad16b6637de292a85f227f849f72dd62b} 
+Input\+File\+Reader\+::\+Input\+File\+Reader (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new {\ttfamily \doxylink{class_input_file_reader}{Input\+File\+Reader}} instance. 
+
+Initializes the file reader. No specific resources are managed by the constructor itself.
+
+This constructor performs no specific initialization beyond default-\/constructing member variables (of which there are none in this class). \Hypertarget{class_input_file_reader_a2291ea79a767417b903f0274c81c5535}\index{InputFileReader@{InputFileReader}!````~InputFileReader@{\texorpdfstring{$\sim$}{\string~}InputFileReader}}
+\index{````~InputFileReader@{\texorpdfstring{$\sim$}{\string~}InputFileReader}!InputFileReader@{InputFileReader}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}InputFileReader()}{\string~InputFileReader()}}
+{\footnotesize\ttfamily \label{class_input_file_reader_a2291ea79a767417b903f0274c81c5535} 
+Input\+File\+Reader\+::\texorpdfstring{$\sim$}{\string~}\+Input\+File\+Reader (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destroys the {\ttfamily \doxylink{class_input_file_reader}{Input\+File\+Reader}} instance. 
+
+Cleans up any resources held by the reader. As this class currently doesn\textquotesingle{}t manage dynamic memory, the default destructor is sufficient.
+
+As {\ttfamily \doxylink{class_input_file_reader}{Input\+File\+Reader}} does not own any dynamically allocated resources, the default destructor behavior is sufficient for proper cleanup. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_input_file_reader_a5ba8931086dc6c1cc22366b118b1ffbd}\index{InputFileReader@{InputFileReader}!readCatalogFromFile@{readCatalogFromFile}}
+\index{readCatalogFromFile@{readCatalogFromFile}!InputFileReader@{InputFileReader}}
+\doxysubsubsection{\texorpdfstring{readCatalogFromFile()}{readCatalogFromFile()}}
+{\footnotesize\ttfamily \label{class_input_file_reader_a5ba8931086dc6c1cc22366b118b1ffbd} 
+\mbox{\hyperlink{class_catalog}{Catalog}} Input\+File\+Reader\+::read\+Catalog\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath}{}\end{DoxyParamCaption})}
+
+
+
+Reads catalog metadata from a specified file and constructs a {\ttfamily \doxylink{class_catalog}{Catalog}} object. 
+
+The catalog file is expected to list table names and their corresponding file paths, one table per line, in a comma-\/separated format\+: "{}\+Table\+Name,\+Table\+File\+Path.\+db"{}. This method recursively calls {\ttfamily read\+Table\+From\+File} for each table listed in the catalog.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & The full path to the {\ttfamily .cat} file containing the catalog metadata. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{class_catalog}{Catalog}} object populated with tables referenced in the file. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the catalog file cannot be opened, or if a line in the catalog file has an invalid format.\\
+\hline
+\end{DoxyExceptions}
+This function parses a {\ttfamily .cat} file, which is expected to contain a list of table names and their corresponding file paths. For each table entry, it attempts to read the actual table data using {\ttfamily read\+Table\+From\+File} and adds the resulting {\ttfamily \doxylink{class_table}{Table}} object to the {\ttfamily \doxylink{class_catalog}{Catalog}}. Invalid or unreadable table files will cause a {\ttfamily continue} (skipping that table), indicating a resilient loading process for the catalog.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & The full path to the catalog metadata file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{class_catalog}{Catalog}} object populated with tables referenced in the file. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the catalog file cannot be opened. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If a line in the catalog file has an invalid format (not 2 tokens). \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_input_file_reader_a876332636cc935a29dda58b03edf631b}\index{InputFileReader@{InputFileReader}!readTableFromFile@{readTableFromFile}}
+\index{readTableFromFile@{readTableFromFile}!InputFileReader@{InputFileReader}}
+\doxysubsubsection{\texorpdfstring{readTableFromFile()}{readTableFromFile()}}
+{\footnotesize\ttfamily \label{class_input_file_reader_a876332636cc935a29dda58b03edf631b} 
+\mbox{\hyperlink{class_table}{Table}} Input\+File\+Reader\+::read\+Table\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath}{}\end{DoxyParamCaption})}
+
+
+
+Reads table data from a specified file and constructs a {\ttfamily \doxylink{class_table}{Table}} object. 
+
+The file is expected to be in a specific format\+:
+\begin{DoxyEnumerate}
+\item First line\+: \doxylink{class_table}{Table} name.
+\item Second line\+: Comma-\/separated column types (e.\+g., "{}\+String,\+Integer,\+Double"{}).
+\item Third line\+: Comma-\/separated column names (e.\+g., "{}\+Name,\+Age,\+Height"{}).
+\item Subsequent lines\+: Comma-\/separated row values (e.\+g., "{}\+John Doe,30,1.\+85"{}). Empty strings for cell values are interpreted as NULL.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & The full path to the {\ttfamily .db} file containing the table data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{class_table}{Table}} object populated with data from the file. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened, or if a row\textquotesingle{}s length does not match the number of columns. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If an unsupported column type is encountered in the file header.\\
+\hline
+\end{DoxyExceptions}
+This function parses a {\ttfamily .db} file line by line to reconstruct a {\ttfamily \doxylink{class_table}{Table}}. It reads the table name, column types, column names, and then iterates through subsequent lines to add rows of data to the respective columns. It uses {\ttfamily \doxylink{class_column_factory}{Column\+Factory}} to create column instances and {\ttfamily \doxylink{class_command_parser}{Command\+Parser}} to tokenize lines.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & The full path to the table data file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{class_table}{Table}} object populated with data from the file. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If a row\textquotesingle{}s length does not match the number of columns. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If an unsupported column type string (e.\+g., "{}unknown"{}) is found in the file\textquotesingle{}s header. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Input\+File\+Reader.\+hpp\item 
+Database\+Course\+Project/Input\+File\+Reader\+Impl.\+cpp\end{DoxyCompactItemize}

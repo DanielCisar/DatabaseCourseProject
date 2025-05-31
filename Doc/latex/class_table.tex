@@ -1,0 +1,610 @@
+\doxysection{Table Class Reference}
+\hypertarget{class_table}{}\label{class_table}\index{Table@{Table}}
+
+
+Represents a single table within the database catalog, holding a collection of columns.  
+
+
+
+
+{\ttfamily \#include $<$Table.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_table_ae20c59d3b674ddea12f68e639fe9a231}\label{class_table_ae20c59d3b674ddea12f68e639fe9a231} 
+using {\bfseries iterator} = std\+::vector$<$\mbox{\hyperlink{class_table_column}{Table\+Column}}\texorpdfstring{$\ast$}{*}$>$\+::iterator
+\item 
+\Hypertarget{class_table_a8d6b7995be69199e95a8a9313e81d100}\label{class_table_a8d6b7995be69199e95a8a9313e81d100} 
+using {\bfseries const\+\_\+iterator} = std\+::vector$<$\mbox{\hyperlink{class_table_column}{Table\+Column}}\texorpdfstring{$\ast$}{*}$>$\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_table_a43075d7c151b095726a83ec217908198}{Table}} (const std\+::vector$<$ \mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*} $>$ columns, const std\+::string name, const std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{class_table}{Table} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_table_ab7053d5834f03b959e345cd20be190a7}{Table}} (const \mbox{\hyperlink{class_table}{Table}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor for \doxylink{class_table}{Table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_table_ab801c122533c4d1465f53c58bbb9933b}{Table}} (\mbox{\hyperlink{class_table}{Table}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_table}{Table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_table_a9a559f2e7beb37b511ee9f88873164f8}{\texorpdfstring{$\sim$}{\string~}\+Table}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_table}{Table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_table}{Table}} \& \mbox{\hyperlink{class_table_a4147a080a37863de7ceb6a210300dcdf}{operator=}} (const \mbox{\hyperlink{class_table}{Table}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for \doxylink{class_table}{Table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_table}{Table}} \& \mbox{\hyperlink{class_table_a1ee24bb345e0a2cfa27c606a6569fe70}{operator=}} (\mbox{\hyperlink{class_table}{Table}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move assignment operator for \doxylink{class_table}{Table}. \end{DoxyCompactList}\item 
+iterator \mbox{\hyperlink{class_table_ac1e96a4a15cb5428af28ae4486b8b290}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Provides a non-\/const iterator to the beginning of the {\ttfamily columns} vector. \end{DoxyCompactList}\item 
+iterator \mbox{\hyperlink{class_table_ac23cae1bd06879c15254b1f32acfbdd7}{end}} ()
+\begin{DoxyCompactList}\small\item\em Provides a non-\/const iterator to the end of the {\ttfamily columns} vector. \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{class_table_ad3f45b8b771c5593696128897b9d5e84}{begin}} () const
+\begin{DoxyCompactList}\small\item\em Provides a const iterator to the beginning of the {\ttfamily columns} vector. \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{class_table_ad0d404965b71308450a12273074fa175}{end}} () const
+\begin{DoxyCompactList}\small\item\em Provides a const iterator to the end of the {\ttfamily columns} vector. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_table_a9b78f709a02ba6c10aa5a9250f6209b5}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the logical name of the table. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_table_a2f458a7ce5b745b80887e1299cf09ce3}{get\+Filename}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the file path on disk associated with this table. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_table_a8f83f86a31f01e28d0b73b5f3f8fef52}{get\+Column\+Name\+At\+Given\+Index}} (int index) const
+\begin{DoxyCompactList}\small\item\em Retrieves the name of the column at a given index. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_table_a0b37a1eb6f45effe7ca744485c38509c}{get\+Row\+As\+String}} (int index) const
+\begin{DoxyCompactList}\small\item\em Retrieves a specific row of data as a formatted string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_table_a5ab9ce182abf853f2d397700ae67c922}{delete\+Given\+Row}} (int index)
+\begin{DoxyCompactList}\small\item\em Deletes a row at a specified index from all columns in the table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_table_a437b38e6618dca479aed194127804227}{add\+Column}} (\mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*}col)
+\begin{DoxyCompactList}\small\item\em Adds a new column to the table. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_table_af77bb4e8da275a1a472ee57b39558a88}{get\+Number\+Of\+Columns}} () const
+\begin{DoxyCompactList}\small\item\em Returns the total number of columns in the table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_table_a9e7fa09c97abbf2f0ae3d74d29b5176f}{set\+Table\+Path}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Sets or updates the file path associated with this table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_table_acb1065ca31909a942f253c5bbf8b2c63}{get\+Column\+At\+Given\+Index}} (int index) const
+\begin{DoxyCompactList}\small\item\em Retrieves a pointer to the {\ttfamily \doxylink{class_table_column}{Table\+Column}} object at a given index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_table_a2c01a5b27a9421688d1224d9aa7cd060}{set\+Name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Sets or updates the logical name of the table. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_table_aa59ef679d8c2989af7afd8525333f1fa}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Generates a string representation of the entire table\textquotesingle{}s data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_table}{Table}} \mbox{\hyperlink{class_table_af30550eade85349185dc6546ec2e0175}{clone\+With\+New\+Name\+And\+Path}} (const std\+::string \&new\+Name, const std\+::string \&new\+Path) const
+\begin{DoxyCompactList}\small\item\em Creates a deep copy of the current \doxylink{class_table}{Table} object with a new name and path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a single table within the database catalog, holding a collection of columns. 
+
+The {\ttfamily \doxylink{class_table}{Table}} class manages the structure and data of a database table. It internally holds a collection of polymorphic {\ttfamily \doxylink{class_table_column}{Table\+Column}} pointers, effectively owning the column objects and being responsible for their memory management (deep copying on copy/assignment, deletion on destruction). It provides functionalities for accessing column and row data, modifying the table structure, and iterating over its columns. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_table_a43075d7c151b095726a83ec217908198}\index{Table@{Table}!Table@{Table}}
+\index{Table@{Table}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{Table()}{Table()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_table_a43075d7c151b095726a83ec217908198} 
+Table\+::\+Table (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*} $>$}]{columns}{, }\item[{const std\+::string}]{name}{, }\item[{const std\+::string}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new \doxylink{class_table}{Table} instance. 
+
+This constructor takes a vector of {\ttfamily Table\+Column\texorpdfstring{$\ast$}{*}} and takes ownership of them. It is expected that these column pointers are newly allocated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em columns} & A vector of pointers to {\ttfamily \doxylink{class_table_column}{Table\+Column}} objects that will form this table\textquotesingle{}s structure. The {\ttfamily \doxylink{class_table}{Table}} assumes ownership of these pointers. \\
+\hline
+{\em name} & The logical name of the table. \\
+\hline
+{\em filename} & The file path on disk associated with this table.\\
+\hline
+\end{DoxyParams}
+Initializes the table with the provided column pointers, name, and filename. The {\ttfamily \doxylink{class_table}{Table}} takes ownership of the {\ttfamily Table\+Column\texorpdfstring{$\ast$}{*}} pointers passed in the {\ttfamily columns} vector; it is assumed these are newly allocated and will be managed by this {\ttfamily \doxylink{class_table}{Table}} instance\textquotesingle{}s destructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em columns} & A vector of pointers to {\ttfamily \doxylink{class_table_column}{Table\+Column}} objects. Ownership is transferred. \\
+\hline
+{\em name} & The logical name of the table. \\
+\hline
+{\em filename} & The file path associated with this table. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_table_ab7053d5834f03b959e345cd20be190a7}\index{Table@{Table}!Table@{Table}}
+\index{Table@{Table}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{Table()}{Table()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_table_ab7053d5834f03b959e345cd20be190a7} 
+Table\+::\+Table (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_table}{Table}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor for \doxylink{class_table}{Table}. 
+
+Performs a deep copy of all {\ttfamily \doxylink{class_table_column}{Table\+Column}} objects contained in the {\ttfamily other} table\textquotesingle{}s {\ttfamily columns} vector by calling {\ttfamily \doxylink{class_table_column_aa5eb5d1796a1e8ce410bfe61f1bac38e}{Table\+Column\+::clone()}} for each, ensuring independent copies.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_table}{Table} object to copy from.\\
+\hline
+\end{DoxyParams}
+Performs a deep copy of all {\ttfamily \doxylink{class_table_column}{Table\+Column}} objects from the {\ttfamily other} table. For each column in {\ttfamily other.\+columns}, {\ttfamily \doxylink{class_table_column_aa5eb5d1796a1e8ce410bfe61f1bac38e}{Table\+Column\+::clone()}} is called to create a new, independent copy of the column, which is then added to {\ttfamily this-\/\texorpdfstring{$>$}{>}columns}. This ensures that changes to the copied table do not affect the original.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_table}{Table} object to copy from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_table_ab801c122533c4d1465f53c58bbb9933b}\index{Table@{Table}!Table@{Table}}
+\index{Table@{Table}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{Table()}{Table()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_table_ab801c122533c4d1465f53c58bbb9933b} 
+Table\+::\+Table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_table}{Table}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Destructor for \doxylink{class_table}{Table}. 
+
+Move constructor for \doxylink{class_table}{Table}.
+
+Iterates through the {\ttfamily columns} vector and {\ttfamily delete}s each {\ttfamily \doxylink{class_table_column}{Table\+Column}} pointer to prevent memory leaks, as the {\ttfamily \doxylink{class_table}{Table}} class owns these dynamically allocated objects.
+
+Move constructor for \doxylink{class_table}{Table}.
+
+Constructs a new \doxylink{class_table}{Table} object by efficiently transferring ownership of {\ttfamily \doxylink{class_table_column}{Table\+Column}} pointers and {\ttfamily name}/{\ttfamily filename} data from a temporary or expiring {\ttfamily other} \doxylink{class_table}{Table} object. This avoids expensive deep copies. The {\ttfamily other} object is left in a valid, but unspecified (typically empty), state suitable for destruction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_table}{Table} object to be moved from (an rvalue reference).\\
+\hline
+\end{DoxyParams}
+Constructs a new \doxylink{class_table}{Table} object by efficiently transferring ownership of {\ttfamily \doxylink{class_table_column}{Table\+Column}} pointers and {\ttfamily name}/{\ttfamily filename} data from a temporary or expiring {\ttfamily other} \doxylink{class_table}{Table} object. This avoids expensive deep copies. The {\ttfamily other} object is left in a valid, but unspecified (typically empty), state suitable for destruction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_table}{Table} object to be moved from (an rvalue reference). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_table_a9a559f2e7beb37b511ee9f88873164f8}\index{Table@{Table}!````~Table@{\texorpdfstring{$\sim$}{\string~}Table}}
+\index{````~Table@{\texorpdfstring{$\sim$}{\string~}Table}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Table()}{\string~Table()}}
+{\footnotesize\ttfamily \label{class_table_a9a559f2e7beb37b511ee9f88873164f8} 
+Table\+::\texorpdfstring{$\sim$}{\string~}\+Table (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor for \doxylink{class_table}{Table}. 
+
+Calls {\ttfamily clear\+Columns\+Memory()} to iterate through the {\ttfamily columns} vector and {\ttfamily delete}s each {\ttfamily \doxylink{class_table_column}{Table\+Column}} pointer to prevent memory leaks, as the {\ttfamily \doxylink{class_table}{Table}} class owns these dynamically allocated objects.
+
+Iterates through the {\ttfamily columns} vector and {\ttfamily delete}s each {\ttfamily \doxylink{class_table_column}{Table\+Column}} pointer. This is crucial for preventing memory leaks, as the {\ttfamily \doxylink{class_table}{Table}} class owns these dynamically allocated column objects. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_table_a437b38e6618dca479aed194127804227}\index{Table@{Table}!addColumn@{addColumn}}
+\index{addColumn@{addColumn}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{addColumn()}{addColumn()}}
+{\footnotesize\ttfamily \label{class_table_a437b38e6618dca479aed194127804227} 
+void Table\+::add\+Column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*}}]{col}{}\end{DoxyParamCaption})}
+
+
+
+Adds a new column to the table. 
+
+The {\ttfamily \doxylink{class_table}{Table}} takes ownership of the provided {\ttfamily Table\+Column\texorpdfstring{$\ast$}{*}}. It is expected that the new column\textquotesingle{}s size matches the existing number of rows in the table, or that {\ttfamily fill\+Column\+With\+NULL} has been appropriately called on it prior to addition.
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & A pointer to the {\ttfamily \doxylink{class_table_column}{Table\+Column}} object to add. The {\ttfamily \doxylink{class_table}{Table}} assumes ownership.\\
+\hline
+\end{DoxyParams}
+The {\ttfamily \doxylink{class_table}{Table}} takes ownership of the provided {\ttfamily Table\+Column\texorpdfstring{$\ast$}{*}}. It is expected that the new column\textquotesingle{}s size matches the existing number of rows in the table (i.\+e., {\ttfamily col-\/\texorpdfstring{$>$}{>}get\+Size()} should be equal to {\ttfamily this-\/\texorpdfstring{$>$}{>}columns\mbox{[}0\mbox{]}-\/\texorpdfstring{$>$}{>}get\+Size()} if the table is not empty), or that {\ttfamily fill\+Column\+With\+NULL} has been appropriately called on it prior to addition to match the row count.
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & A pointer to the {\ttfamily \doxylink{class_table_column}{Table\+Column}} object to add. The {\ttfamily \doxylink{class_table}{Table}} assumes ownership. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+It is the caller\textquotesingle{}s responsibility to ensure that the new column\textquotesingle{}s size is consistent with the existing columns if the table is not empty. 
+\end{DoxyNote}
+\Hypertarget{class_table_ac1e96a4a15cb5428af28ae4486b8b290}\index{Table@{Table}!begin@{begin}}
+\index{begin@{begin}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_table_ac1e96a4a15cb5428af28ae4486b8b290} 
+Table\+::iterator Table\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Provides a non-\/const iterator to the beginning of the {\ttfamily columns} vector. 
+
+\begin{DoxyReturn}{Returns}
+An iterator pointing to the first {\ttfamily Table\+Column\texorpdfstring{$\ast$}{*}}. 
+\end{DoxyReturn}
+\Hypertarget{class_table_ad3f45b8b771c5593696128897b9d5e84}\index{Table@{Table}!begin@{begin}}
+\index{begin@{begin}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_table_ad3f45b8b771c5593696128897b9d5e84} 
+Table\+::const\+\_\+iterator Table\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Provides a const iterator to the beginning of the {\ttfamily columns} vector. 
+
+\begin{DoxyReturn}{Returns}
+A const iterator pointing to the first {\ttfamily Table\+Column\texorpdfstring{$\ast$}{*}}. 
+\end{DoxyReturn}
+\Hypertarget{class_table_af30550eade85349185dc6546ec2e0175}\index{Table@{Table}!cloneWithNewNameAndPath@{cloneWithNewNameAndPath}}
+\index{cloneWithNewNameAndPath@{cloneWithNewNameAndPath}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{cloneWithNewNameAndPath()}{cloneWithNewNameAndPath()}}
+{\footnotesize\ttfamily \label{class_table_af30550eade85349185dc6546ec2e0175} 
+\mbox{\hyperlink{class_table}{Table}} Table\+::clone\+With\+New\+Name\+And\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{new\+Name}{, }\item[{const std\+::string \&}]{new\+Path}{}\end{DoxyParamCaption}) const}
+
+
+
+Creates a deep copy of the current \doxylink{class_table}{Table} object with a new name and path. 
+
+This method is essential for operations like "{}saveas"{} where the table structure and data need to be duplicated to a new location without affecting the original table in memory. It performs a deep copy of all {\ttfamily \doxylink{class_table_column}{Table\+Column}} objects by calling {\ttfamily \doxylink{class_table_column_aa5eb5d1796a1e8ce410bfe61f1bac38e}{Table\+Column\+::clone()}} for each.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Name} & The name to assign to the cloned table. \\
+\hline
+{\em new\+Path} & The file path to associate with the cloned table. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new {\ttfamily \doxylink{class_table}{Table}} object that is a deep copy of the current instance, but with the specified new name and file path.
+\end{DoxyReturn}
+This method is essential for operations like "{}saveas"{} where the table structure and data need to be duplicated to a new location without affecting the original table in memory. It performs a deep copy of all {\ttfamily \doxylink{class_table_column}{Table\+Column}} objects by calling {\ttfamily \doxylink{class_table_column_aa5eb5d1796a1e8ce410bfe61f1bac38e}{Table\+Column\+::clone()}} for each, ensuring that the new table has independent copies of all data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Name} & The name to assign to the cloned table. \\
+\hline
+{\em new\+Path} & The file path to associate with the cloned table. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new {\ttfamily \doxylink{class_table}{Table}} object that is a deep copy of the current instance, but with the specified new name and file path. 
+\end{DoxyReturn}
+\Hypertarget{class_table_a5ab9ce182abf853f2d397700ae67c922}\index{Table@{Table}!deleteGivenRow@{deleteGivenRow}}
+\index{deleteGivenRow@{deleteGivenRow}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{deleteGivenRow()}{deleteGivenRow()}}
+{\footnotesize\ttfamily \label{class_table_a5ab9ce182abf853f2d397700ae67c922} 
+void Table\+::delete\+Given\+Row (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+Deletes a row at a specified index from all columns in the table. 
+
+This operation iterates through all {\ttfamily \doxylink{class_table_column}{Table\+Column}} objects and calls {\ttfamily \doxylink{class_table_column_a51c588dbe3616d8a3e1211503e622232}{Table\+Column\+::delete\+Cell()}} on each at the given {\ttfamily index}, effectively removing a full row from the table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the row to delete. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is out of bounds for the table\textquotesingle{}s rows. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the table has no columns.\\
+\hline
+\end{DoxyExceptions}
+This operation iterates through all {\ttfamily \doxylink{class_table_column}{Table\+Column}} objects and calls {\ttfamily \doxylink{class_table_column_a51c588dbe3616d8a3e1211503e622232}{Table\+Column\+::delete\+Cell()}} on each at the given {\ttfamily index}, effectively removing a full row from the table. It assumes all columns have the same number of rows.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the row to delete. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the table has no columns. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is negative or greater than or equal to the number of rows in the table. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_table_ac23cae1bd06879c15254b1f32acfbdd7}\index{Table@{Table}!end@{end}}
+\index{end@{end}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_table_ac23cae1bd06879c15254b1f32acfbdd7} 
+Table\+::iterator Table\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Provides a non-\/const iterator to the end of the {\ttfamily columns} vector. 
+
+\begin{DoxyReturn}{Returns}
+An iterator pointing one past the last {\ttfamily Table\+Column\texorpdfstring{$\ast$}{*}}. 
+\end{DoxyReturn}
+\Hypertarget{class_table_ad0d404965b71308450a12273074fa175}\index{Table@{Table}!end@{end}}
+\index{end@{end}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_table_ad0d404965b71308450a12273074fa175} 
+Table\+::const\+\_\+iterator Table\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Provides a const iterator to the end of the {\ttfamily columns} vector. 
+
+\begin{DoxyReturn}{Returns}
+A const iterator pointing one past the last {\ttfamily Table\+Column\texorpdfstring{$\ast$}{*}}. 
+\end{DoxyReturn}
+\Hypertarget{class_table_acb1065ca31909a942f253c5bbf8b2c63}\index{Table@{Table}!getColumnAtGivenIndex@{getColumnAtGivenIndex}}
+\index{getColumnAtGivenIndex@{getColumnAtGivenIndex}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{getColumnAtGivenIndex()}{getColumnAtGivenIndex()}}
+{\footnotesize\ttfamily \label{class_table_acb1065ca31909a942f253c5bbf8b2c63} 
+\mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*} Table\+::get\+Column\+At\+Given\+Index (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves a pointer to the {\ttfamily \doxylink{class_table_column}{Table\+Column}} object at a given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the column to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the {\ttfamily \doxylink{class_table_column}{Table\+Column}} object. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is out of bounds for the {\ttfamily columns} vector.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the column to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the {\ttfamily \doxylink{class_table_column}{Table\+Column}} object. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is negative or greater than or equal to the number of columns. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_table_a8f83f86a31f01e28d0b73b5f3f8fef52}\index{Table@{Table}!getColumnNameAtGivenIndex@{getColumnNameAtGivenIndex}}
+\index{getColumnNameAtGivenIndex@{getColumnNameAtGivenIndex}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{getColumnNameAtGivenIndex()}{getColumnNameAtGivenIndex()}}
+{\footnotesize\ttfamily \label{class_table_a8f83f86a31f01e28d0b73b5f3f8fef52} 
+std\+::string Table\+::get\+Column\+Name\+At\+Given\+Index (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the name of the column at a given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The name of the column. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is out of bounds for the {\ttfamily columns} vector.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The name of the column. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is negative or greater than or equal to the number of columns. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_table_a2f458a7ce5b745b80887e1299cf09ce3}\index{Table@{Table}!getFilename@{getFilename}}
+\index{getFilename@{getFilename}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{getFilename()}{getFilename()}}
+{\footnotesize\ttfamily \label{class_table_a2f458a7ce5b745b80887e1299cf09ce3} 
+std\+::string Table\+::get\+Filename (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the file path on disk associated with this table. 
+
+\begin{DoxyReturn}{Returns}
+The table\textquotesingle{}s filename as a string. 
+\end{DoxyReturn}
+\Hypertarget{class_table_a9b78f709a02ba6c10aa5a9250f6209b5}\index{Table@{Table}!getName@{getName}}
+\index{getName@{getName}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_table_a9b78f709a02ba6c10aa5a9250f6209b5} 
+std\+::string Table\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the logical name of the table. 
+
+\begin{DoxyReturn}{Returns}
+The table\textquotesingle{}s name as a string. 
+\end{DoxyReturn}
+\Hypertarget{class_table_af77bb4e8da275a1a472ee57b39558a88}\index{Table@{Table}!getNumberOfColumns@{getNumberOfColumns}}
+\index{getNumberOfColumns@{getNumberOfColumns}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{getNumberOfColumns()}{getNumberOfColumns()}}
+{\footnotesize\ttfamily \label{class_table_af77bb4e8da275a1a472ee57b39558a88} 
+int Table\+::get\+Number\+Of\+Columns (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the total number of columns in the table. 
+
+\begin{DoxyReturn}{Returns}
+An integer representing the count of columns. 
+\end{DoxyReturn}
+\Hypertarget{class_table_a0b37a1eb6f45effe7ca744485c38509c}\index{Table@{Table}!getRowAsString@{getRowAsString}}
+\index{getRowAsString@{getRowAsString}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{getRowAsString()}{getRowAsString()}}
+{\footnotesize\ttfamily \label{class_table_a0b37a1eb6f45effe7ca744485c38509c} 
+std\+::string Table\+::get\+Row\+As\+String (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves a specific row of data as a formatted string. 
+
+This method concatenates the string representations of all cells in the specified row, typically separated by spaces.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the row to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string representing the entire row. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is out of bounds for the table\textquotesingle{}s rows (based on column size). \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the table has no columns when attempting to determine row size.\\
+\hline
+\end{DoxyExceptions}
+This method concatenates the string representations of all cells in the specified row, typically separated by spaces. It assumes all columns have the same number of rows.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the row to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string representing the entire row. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the table has no columns. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is negative or greater than or equal to the number of rows in the table. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_table_a4147a080a37863de7ceb6a210300dcdf}\index{Table@{Table}!operator=@{operator=}}
+\index{operator=@{operator=}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_table_a4147a080a37863de7ceb6a210300dcdf} 
+\mbox{\hyperlink{class_table}{Table}} \& Table\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_table}{Table}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy assignment operator for \doxylink{class_table}{Table}. 
+
+Handles deep copying of the {\ttfamily columns} vector and updates the {\ttfamily name} and {\ttfamily filename}. It correctly manages existing column memory (deletes old columns before copying new ones) and protects against self-\/assignment.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_table}{Table} object to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \doxylink{class_table}{Table} object after assignment.
+\end{DoxyReturn}
+Provides strong exception safety using the copy-\/and-\/swap idiom (implicitly, as it uses the copy constructor). It first clears existing columns and then performs a deep copy of the columns from {\ttfamily other}. It also handles self-\/assignment correctly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_table}{Table} object to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \doxylink{class_table}{Table} object after assignment. 
+\end{DoxyReturn}
+\Hypertarget{class_table_a1ee24bb345e0a2cfa27c606a6569fe70}\index{Table@{Table}!operator=@{operator=}}
+\index{operator=@{operator=}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_table_a1ee24bb345e0a2cfa27c606a6569fe70} 
+\mbox{\hyperlink{class_table}{Table}} \& Table\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_table}{Table}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Move assignment operator for \doxylink{class_table}{Table}. 
+
+Efficiently transfers ownership of {\ttfamily \doxylink{class_table_column}{Table\+Column}} pointers and {\ttfamily name}/{\ttfamily filename} data from a temporary or expiring {\ttfamily other} \doxylink{class_table}{Table} object to the current \doxylink{class_table}{Table} object. This operation frees any resources currently held by {\ttfamily \texorpdfstring{$\ast$}{*}this}, then moves resources from {\ttfamily other}. Self-\/assignment is handled. The {\ttfamily other} object is left in a valid, but unspecified (typically empty), state suitable for destruction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_table}{Table} object to be moved from (an rvalue reference). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the current \doxylink{class_table}{Table} object ({\ttfamily \texorpdfstring{$\ast$}{*}this}) after the move. 
+\end{DoxyReturn}
+\Hypertarget{class_table_a2c01a5b27a9421688d1224d9aa7cd060}\index{Table@{Table}!setName@{setName}}
+\index{setName@{setName}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily \label{class_table_a2c01a5b27a9421688d1224d9aa7cd060} 
+void Table\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Sets or updates the logical name of the table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The new name for the table. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This directly changes the {\ttfamily \doxylink{class_table}{Table}} object\textquotesingle{}s name. If the {\ttfamily \doxylink{class_catalog}{Catalog}} class relies on unique table names as keys in an internal map, an external mechanism in {\ttfamily \doxylink{class_catalog}{Catalog}} might be required to update its internal mapping for full consistency (e.\+g., a {\ttfamily Catalog\+::rename\+Table} method).
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The new name for the table. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This directly changes the {\ttfamily \doxylink{class_table}{Table}} object\textquotesingle{}s name. If the {\ttfamily \doxylink{class_catalog}{Catalog}} class relies on unique table names as keys in an internal map, the {\ttfamily \doxylink{class_catalog}{Catalog}}\textquotesingle{}s internal mapping may need to be updated separately. 
+\end{DoxyNote}
+\Hypertarget{class_table_a9e7fa09c97abbf2f0ae3d74d29b5176f}\index{Table@{Table}!setTablePath@{setTablePath}}
+\index{setTablePath@{setTablePath}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{setTablePath()}{setTablePath()}}
+{\footnotesize\ttfamily \label{class_table_a9e7fa09c97abbf2f0ae3d74d29b5176f} 
+void Table\+::set\+Table\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Sets or updates the file path associated with this table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The new file path for the table. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_table_aa59ef679d8c2989af7afd8525333f1fa}\index{Table@{Table}!toString@{toString}}
+\index{toString@{toString}!Table@{Table}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{class_table_aa59ef679d8c2989af7afd8525333f1fa} 
+std\+::string Table\+::to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Generates a string representation of the entire table\textquotesingle{}s data. 
+
+This method constructs a multi-\/line string where each line represents a row. Cell values within a row are separated by spaces.
+
+\begin{DoxyReturn}{Returns}
+A string containing all rows of the table, or an empty string if the table has no columns or no rows. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+It assumes all columns have the same number of rows.
+\end{DoxyNote}
+This method constructs a multi-\/line string where each line represents a row. It first prints a header (column names and types -\/ this part is actually handled by \doxylink{class_catalog_print_command}{Catalog\+Print\+Command} but the to\+String just returns raw data). Cell values within a row are separated by spaces.
+
+\begin{DoxyReturn}{Returns}
+A string containing all rows of the table, or an empty string if the table has no columns or no rows. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the table has columns but they have inconsistent sizes (though {\ttfamily get\+Size()} assumes column 0). \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+This method assumes all columns have the same number of rows. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Table.\+hpp\item 
+Database\+Course\+Project/Table\+Impl.\+cpp\end{DoxyCompactItemize}

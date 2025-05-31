@@ -1,0 +1,66 @@
+\doxysection{Supported\+Commands Class Reference}
+\hypertarget{class_supported_commands}{}\label{class_supported_commands}\index{SupportedCommands@{SupportedCommands}}
+
+
+A static utility class that provides lists of recognized commands.  
+
+
+
+
+{\ttfamily \#include $<$Supported\+Commands.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_supported_commands_a8a8928303f24f3ae89f0bdbd1ab0c91f}{return\+Supported\+File\+Commands}} ()
+\begin{DoxyCompactList}\small\item\em Returns a list of supported file-\/related commands. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_supported_commands_a0d1ade880539a99314ca21a740562378}{return\+Supported\+Catalog\+Commands}} ()
+\begin{DoxyCompactList}\small\item\em Returns a list of supported catalog-\/related commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A static utility class that provides lists of recognized commands. 
+
+This class serves as a central repository for defining and retrieving the names of commands supported by the application, categorized by their functional area (e.\+g., file operations, catalog operations). It\textquotesingle{}s useful for displaying help menus and for validating user input. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_supported_commands_a0d1ade880539a99314ca21a740562378}\index{SupportedCommands@{SupportedCommands}!returnSupportedCatalogCommands@{returnSupportedCatalogCommands}}
+\index{returnSupportedCatalogCommands@{returnSupportedCatalogCommands}!SupportedCommands@{SupportedCommands}}
+\doxysubsubsection{\texorpdfstring{returnSupportedCatalogCommands()}{returnSupportedCatalogCommands()}}
+{\footnotesize\ttfamily \label{class_supported_commands_a0d1ade880539a99314ca21a740562378} 
+std\+::vector$<$ std\+::string $>$ Supported\+Commands\+::return\+Supported\+Catalog\+Commands (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns a list of supported catalog-\/related commands. 
+
+These commands primarily interact with the in-\/memory database catalog and its tables, allowing operations such as inserting data, selecting rows, describing tables, and performing aggregates.
+
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::string\texorpdfstring{$>$}{>}} containing the names of catalog commands.
+
+A {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::string\texorpdfstring{$>$}{>}} containing\+: "{}addcolumn"{}, "{}aggregate"{}, "{}count"{}, "{}delete"{}, "{}decribe"{}, "{}export"{}, "{}import"{}, "{}innerjoin"{}, "{}insert"{}, "{}print"{}, "{}rename"{}, "{}select"{}, "{}showtables"{}, "{}update"{}. 
+\end{DoxyReturn}
+\Hypertarget{class_supported_commands_a8a8928303f24f3ae89f0bdbd1ab0c91f}\index{SupportedCommands@{SupportedCommands}!returnSupportedFileCommands@{returnSupportedFileCommands}}
+\index{returnSupportedFileCommands@{returnSupportedFileCommands}!SupportedCommands@{SupportedCommands}}
+\doxysubsubsection{\texorpdfstring{returnSupportedFileCommands()}{returnSupportedFileCommands()}}
+{\footnotesize\ttfamily \label{class_supported_commands_a8a8928303f24f3ae89f0bdbd1ab0c91f} 
+std\+::vector$<$ std\+::string $>$ Supported\+Commands\+::return\+Supported\+File\+Commands (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns a list of supported file-\/related commands. 
+
+These commands typically deal with file system operations like opening, saving, and closing database files or the application itself.
+
+\begin{DoxyReturn}{Returns}
+A {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::string\texorpdfstring{$>$}{>}} containing the names of file commands.
+
+A {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::string\texorpdfstring{$>$}{>}} containing\+: "{}open"{}, "{}close"{}, "{}save"{}, "{}saveas"{}, "{}help"{}, "{}exit"{}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Supported\+Commands.\+hpp\item 
+Database\+Course\+Project/Supported\+Commands\+Impl.\+cpp\end{DoxyCompactItemize}

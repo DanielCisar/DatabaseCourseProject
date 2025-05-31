@@ -1,0 +1,48 @@
+\doxysection{Engine.\+hpp}
+\hypertarget{_engine_8hpp_source}{}\label{_engine_8hpp_source}\index{DatabaseCourseProject/Engine.hpp@{DatabaseCourseProject/Engine.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}CommandContext.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}OutputConsoleWritter.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}InputConsoleReader.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_engine_a08ec4f3721aaa36708ff168a47466a10}{Engine}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_engine_a08ec4f3721aaa36708ff168a47466a10}{Engine}}(}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_output_console_writter}{OutputConsoleWritter}}\&\ outputConsoleWritter,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_input_console_reader}{InputConsoleReader}}\&\ inputConsoleReader,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_output_file_writter}{OutputFileWritter}}\&\ outputFileWritter,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_input_file_reader}{InputFileReader}}\&\ inputFileReader}
+\DoxyCodeLine{00040\ \ \ \ \ );}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_engine_a08ec4f3721aaa36708ff168a47466a10}{Engine}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_engine_a08ec4f3721aaa36708ff168a47466a10}{Engine}}\&\ other);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_engine_a08ec4f3721aaa36708ff168a47466a10}{Engine}}\&\ \mbox{\hyperlink{class_engine_ad9471d8faf6604a0220f5e298a383134}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_engine_a08ec4f3721aaa36708ff168a47466a10}{Engine}}\&\ other);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{class_engine_a8ef7030a089ecb30bbfcb9e43094717a}{\string~Engine}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_engine_a08ec4f3721aaa36708ff168a47466a10}{Engine}}(\mbox{\hyperlink{class_engine_a08ec4f3721aaa36708ff168a47466a10}{Engine}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{class_engine_a08ec4f3721aaa36708ff168a47466a10}{Engine}}\&\ \mbox{\hyperlink{class_engine_ad9471d8faf6604a0220f5e298a383134}{operator=}}(\mbox{\hyperlink{class_engine_a08ec4f3721aaa36708ff168a47466a10}{Engine}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_a1a210cf30d6bd330b3649439ecd6d6cc}{run}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ clearMemory();}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ dispatchCommand(\textcolor{keyword}{const}\ std::vector<std::string>\&\ params);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{class_catalog}{Catalog}}\ loadedCatalog;\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{struct_command_context}{CommandContext}}\ context;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00149\ \ \ \ \ std::unordered\_map<std::string,\ Command*>\ commands;}
+\DoxyCodeLine{00150\ \};}
+
+\end{DoxyCode}

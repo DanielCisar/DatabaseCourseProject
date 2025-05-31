@@ -1,0 +1,585 @@
+\doxysection{Integer\+Column Class Reference}
+\hypertarget{class_integer_column}{}\label{class_integer_column}\index{IntegerColumn@{IntegerColumn}}
+
+
+Concrete implementation of {\ttfamily \doxylink{class_table_column}{Table\+Column}} for storing integer data.  
+
+
+
+
+{\ttfamily \#include $<$Integer\+Column.\+hpp$>$}
+
+Inheritance diagram for Integer\+Column\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_integer_column}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_integer_column_a12c79e8c3f5ba21b5a2944aa869138f3}{Integer\+Column}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{class_integer_column}{Integer\+Column} with a specified name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_integer_column_a7a410d7c10fee10c4c9d58b955d61115}{Integer\+Column}} (const \mbox{\hyperlink{class_integer_column}{Integer\+Column}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor for \doxylink{class_integer_column}{Integer\+Column}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_integer_column_a9e10cf45e3044939c17bf5680041ee9b}{\texorpdfstring{$\sim$}{\string~}\+Integer\+Column}} () override
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_integer_column}{Integer\+Column}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_integer_column}{Integer\+Column}} \& \mbox{\hyperlink{class_integer_column_aa77cb797819591c4ad0134fb9b9f12f4}{operator=}} (const \mbox{\hyperlink{class_integer_column}{Integer\+Column}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for \doxylink{class_integer_column}{Integer\+Column}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_integer_column_a42eee8d822101bfd4951b73ad837cfed}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieves the name of the column. \end{DoxyCompactList}\item 
+Column\+Type \mbox{\hyperlink{class_integer_column_ad6f93b104fb9817a823ed0d2f857530f}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieves the data type of the column. \end{DoxyCompactList}\item 
+const std\+::vector$<$ int $>$ \& \mbox{\hyperlink{class_integer_column_a29d7cccf45b00e3bb9f94c9237d9f172}{get\+Content}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves a constant reference to the underlying vector of integer content. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_integer_column_a194090fc4433c3689ad037abc4b19a0b}{get\+Value\+At\+Given\+Index}} (int index) const
+\begin{DoxyCompactList}\small\item\em Retrieves the integer value of a cell at a specific index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_integer_column_a02f1ab185ff0769492e1a803a5911a04}{change\+Value\+At\+Index}} (int index, std\+::string val) override
+\begin{DoxyCompactList}\small\item\em Changes the value of a cell at a specific index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_integer_column_ae860303c9ae8d9d6334fe21812cb5f3b}{add\+Cell}} (std\+::string cell) override
+\begin{DoxyCompactList}\small\item\em Adds a new cell (row entry) to the end of the column. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_integer_column_af0194e904a203fff8a9775df828652e8}{delete\+Cell}} (int index) override
+\begin{DoxyCompactList}\small\item\em Deletes a cell (row entry) at a specified index from the column. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_integer_column_aab7672dca004ae2969e5978978e811c7}{get\+Size}} () override
+\begin{DoxyCompactList}\small\item\em Returns the number of cells (rows) currently in the column. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_integer_column_a854e3595b2b41f6e04077dd4f1f9f484}{return\+Value\+At\+Given\+Index\+As\+String}} (int index) const override
+\begin{DoxyCompactList}\small\item\em Retrieves the value of a cell at a specific index, formatted as a string. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_integer_column_aa4a517712335b18095673d99c3b2268f}{get\+Type\+As\+String}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieves the name of the column\textquotesingle{}s data type as a human-\/readable string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_integer_column_a75511334aa66ecb9ff87a88bd786b1ab}{matches\+Values}} (int row\+Index, const std\+::string \&value) const override
+\begin{DoxyCompactList}\small\item\em Checks if the value of a cell at a given row index matches a specified string value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_integer_column_a399beed65ed65a55feef7737a996ae07}{fill\+Column\+With\+NULL}} (int size) override
+\begin{DoxyCompactList}\small\item\em Fills the column with a specified number of NULL (default integer 0) values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_integer_column_adeeec534dc8c5d42266d92a48b091350}{clone}} () const override
+\begin{DoxyCompactList}\small\item\em Creates a deep copy of the current {\ttfamily \doxylink{class_integer_column}{Integer\+Column}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_table_column}{Table\+Column}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_table_column_ad96f8adf75baf6f9858d596c241b5ab0}{\texorpdfstring{$\sim$}{\string~}\+Table\+Column}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete implementation of {\ttfamily \doxylink{class_table_column}{Table\+Column}} for storing integer data. 
+
+This class manages a column of integer values, including support for NULL values. It provides methods for accessing, modifying, adding, and deleting integer cells, performing necessary string-\/to-\/integer conversions. It strictly adheres to the polymorphic interface defined by the {\ttfamily \doxylink{class_table_column}{Table\+Column}} base class. NULL values are typically represented internally by a default value (e.\+g., 0) in {\ttfamily content} and a corresponding {\ttfamily true} in the {\ttfamily is\+Null} boolean vector. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_integer_column_a12c79e8c3f5ba21b5a2944aa869138f3}\index{IntegerColumn@{IntegerColumn}!IntegerColumn@{IntegerColumn}}
+\index{IntegerColumn@{IntegerColumn}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{IntegerColumn()}{IntegerColumn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_integer_column_a12c79e8c3f5ba21b5a2944aa869138f3} 
+Integer\+Column\+::\+Integer\+Column (\begin{DoxyParamCaption}\item[{std\+::string}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new \doxylink{class_integer_column}{Integer\+Column} with a specified name. 
+
+The column is initialized as empty (containing no rows).
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name to assign to this column.\\
+\hline
+\end{DoxyParams}
+Initializes the column with an empty content vector and an empty {\ttfamily is\+Null} vector, indicating that it contains no rows initially.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name to assign to this column. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_integer_column_a7a410d7c10fee10c4c9d58b955d61115}\index{IntegerColumn@{IntegerColumn}!IntegerColumn@{IntegerColumn}}
+\index{IntegerColumn@{IntegerColumn}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{IntegerColumn()}{IntegerColumn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_integer_column_a7a410d7c10fee10c4c9d58b955d61115} 
+Integer\+Column\+::\+Integer\+Column (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_integer_column}{Integer\+Column}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor for \doxylink{class_integer_column}{Integer\+Column}. 
+
+Performs a deep copy of the {\ttfamily content}, {\ttfamily is\+Null}, and {\ttfamily name} from another \doxylink{class_integer_column}{Integer\+Column} instance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_integer_column}{Integer\+Column} object to copy from.\\
+\hline
+\end{DoxyParams}
+Performs a member-\/wise copy of the {\ttfamily content}, {\ttfamily is\+Null} vectors, and the {\ttfamily name} string. This results in a deep copy because {\ttfamily std\+::vector} and {\ttfamily std\+::string} handle their memory dynamically and have their own deep copy semantics.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_integer_column}{Integer\+Column} object to copy from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_integer_column_a9e10cf45e3044939c17bf5680041ee9b}\index{IntegerColumn@{IntegerColumn}!````~IntegerColumn@{\texorpdfstring{$\sim$}{\string~}IntegerColumn}}
+\index{````~IntegerColumn@{\texorpdfstring{$\sim$}{\string~}IntegerColumn}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IntegerColumn()}{\string~IntegerColumn()}}
+{\footnotesize\ttfamily \label{class_integer_column_a9e10cf45e3044939c17bf5680041ee9b} 
+Integer\+Column\+::\texorpdfstring{$\sim$}{\string~}\+Integer\+Column (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructor for \doxylink{class_integer_column}{Integer\+Column}. 
+
+Manages the deallocation of resources (vectors) used by the column. (Default implementation is sufficient for {\ttfamily std\+::vector}).
+
+The default destructor provided by the compiler is sufficient here, as {\ttfamily std\+::vector} and {\ttfamily std\+::string} automatically manage their own memory. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_integer_column_ae860303c9ae8d9d6334fe21812cb5f3b}\index{IntegerColumn@{IntegerColumn}!addCell@{addCell}}
+\index{addCell@{addCell}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{addCell()}{addCell()}}
+{\footnotesize\ttfamily \label{class_integer_column_ae860303c9ae8d9d6334fe21812cb5f3b} 
+void Integer\+Column\+::add\+Cell (\begin{DoxyParamCaption}\item[{std\+::string}]{cell}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds a new cell (row entry) to the end of the column. 
+
+Adds a new cell to the end of the column.
+
+The provided string {\ttfamily cell} is converted to an integer. If {\ttfamily cell} is an empty string {\ttfamily "{}"{}}, the new cell is added as NULL (internally stored as 0). Otherwise, the converted integer value is added. This operation increases the column\textquotesingle{}s size by one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The value for the new cell, provided as a string. An empty string {\ttfamily "{}"{}} implies NULL. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the {\ttfamily cell} string cannot be converted to a valid integer. \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & If the converted integer value is out of the range of {\ttfamily int}.\\
+\hline
+\end{DoxyExceptions}
+The provided string {\ttfamily cell} is converted to an integer using {\ttfamily std\+::stoi}. If {\ttfamily cell} is an empty string {\ttfamily "{}"{}}, the new cell is added as NULL (its integer content is set to 0). Otherwise, the converted integer value is added, and the cell is marked as not NULL. This operation increases the column\textquotesingle{}s size by one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The value for the new cell, provided as a string. An empty string {\ttfamily "{}"{}} implies NULL. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the {\ttfamily cell} string cannot be converted to a valid integer. \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & If the converted integer value is out of the range of {\ttfamily int}. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_table_column_a796841e024aa380f3c53d85c74fa6236}{Table\+Column}}.
+
+\Hypertarget{class_integer_column_a02f1ab185ff0769492e1a803a5911a04}\index{IntegerColumn@{IntegerColumn}!changeValueAtIndex@{changeValueAtIndex}}
+\index{changeValueAtIndex@{changeValueAtIndex}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{changeValueAtIndex()}{changeValueAtIndex()}}
+{\footnotesize\ttfamily \label{class_integer_column_a02f1ab185ff0769492e1a803a5911a04} 
+void Integer\+Column\+::change\+Value\+At\+Index (\begin{DoxyParamCaption}\item[{int}]{index}{, }\item[{std\+::string}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Changes the value of a cell at a specific index. 
+
+The provided string {\ttfamily val} is converted to an integer. If {\ttfamily val} is an empty string {\ttfamily "{}"{}}, the cell is marked as NULL (internally stored as 0). Otherwise, the converted integer value is stored.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell whose value is to be changed. \\
+\hline
+{\em val} & The new value for the cell, provided as a string. An empty string {\ttfamily "{}"{}} implies NULL. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the {\ttfamily val} string cannot be converted to a valid integer. \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & If the converted integer value is out of the range of {\ttfamily int}.\\
+\hline
+\end{DoxyExceptions}
+The provided string {\ttfamily val} is converted to an integer using {\ttfamily std\+::stoi}. If {\ttfamily val} is an empty string {\ttfamily "{}"{}}, the cell is marked as NULL (its integer content is set to 0). Otherwise, the converted integer value is stored, and the cell is marked as not NULL.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell to modify. \\
+\hline
+{\em val} & The new value for the cell, provided as a string. An empty string {\ttfamily "{}"{}} implies NULL. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the {\ttfamily val} string cannot be converted to a valid integer (e.\+g., "{}abc"{}). \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & If the converted integer value is too large or too small to fit in an {\ttfamily int}. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_table_column_a0197eaf50969a9afe0d2b6825b241cec}{Table\+Column}}.
+
+\Hypertarget{class_integer_column_adeeec534dc8c5d42266d92a48b091350}\index{IntegerColumn@{IntegerColumn}!clone@{clone}}
+\index{clone@{clone}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_integer_column_adeeec534dc8c5d42266d92a48b091350} 
+\mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*} Integer\+Column\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a deep copy of the current {\ttfamily \doxylink{class_integer_column}{Integer\+Column}} object. 
+
+Creates a deep copy of the current \doxylink{class_integer_column}{Integer\+Column} object.
+
+This method ensures that a new, independent {\ttfamily \doxylink{class_integer_column}{Integer\+Column}} instance, containing a full copy of its content and null flags, is created.
+
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_integer_column}{Integer\+Column}} object, which is a deep copy of this instance. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The caller is responsible for {\ttfamily delete}ing the returned pointer to prevent memory leaks. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{class_table_column_aa5eb5d1796a1e8ce410bfe61f1bac38e}{Table\+Column}}.
+
+\Hypertarget{class_integer_column_af0194e904a203fff8a9775df828652e8}\index{IntegerColumn@{IntegerColumn}!deleteCell@{deleteCell}}
+\index{deleteCell@{deleteCell}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{deleteCell()}{deleteCell()}}
+{\footnotesize\ttfamily \label{class_integer_column_af0194e904a203fff8a9775df828652e8} 
+void Integer\+Column\+::delete\+Cell (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Deletes a cell (row entry) at a specified index from the column. 
+
+Deletes a cell at the specified index.
+
+This operation removes the integer content and its corresponding NULL flag at the given {\ttfamily index}, effectively shortening the column\textquotesingle{}s content.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell to delete. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds.\\
+\hline
+\end{DoxyExceptions}
+This function removes the element at {\ttfamily index} from both the {\ttfamily content} vector and the {\ttfamily is\+Null} vector, effectively removing a row entry from this column.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell to delete. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is negative or greater than or equal to the column\textquotesingle{}s size. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_table_column_a51c588dbe3616d8a3e1211503e622232}{Table\+Column}}.
+
+\Hypertarget{class_integer_column_a399beed65ed65a55feef7737a996ae07}\index{IntegerColumn@{IntegerColumn}!fillColumnWithNULL@{fillColumnWithNULL}}
+\index{fillColumnWithNULL@{fillColumnWithNULL}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{fillColumnWithNULL()}{fillColumnWithNULL()}}
+{\footnotesize\ttfamily \label{class_integer_column_a399beed65ed65a55feef7737a996ae07} 
+void Integer\+Column\+::fill\+Column\+With\+NULL (\begin{DoxyParamCaption}\item[{int}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Fills the column with a specified number of NULL (default integer 0) values. 
+
+This method appends {\ttfamily size} number of new cells to the column. Each new cell will have a default integer value (0) as its content and its {\ttfamily is\+Null} flag set to {\ttfamily true}. This is useful for initializing new columns in existing tables.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The number of NULL values to add to the column. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_table_column_a06938e5ead9f5217e5fca205e1d88be9}{Table\+Column}}.
+
+\Hypertarget{class_integer_column_a29d7cccf45b00e3bb9f94c9237d9f172}\index{IntegerColumn@{IntegerColumn}!getContent@{getContent}}
+\index{getContent@{getContent}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{getContent()}{getContent()}}
+{\footnotesize\ttfamily \label{class_integer_column_a29d7cccf45b00e3bb9f94c9237d9f172} 
+const std\+::vector$<$ int $>$ \& Integer\+Column\+::get\+Content (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves a constant reference to the underlying vector of integer content. 
+
+Retrieves a constant reference to the internal content vector.
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the {\ttfamily std\+::vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}} containing the column\textquotesingle{}s data. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This method is specific to {\ttfamily \doxylink{class_integer_column}{Integer\+Column}} and not part of the {\ttfamily \doxylink{class_table_column}{Table\+Column}} interface.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+A constant reference to the {\ttfamily std\+::vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}} that stores the column\textquotesingle{}s data. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This method exposes the internal data structure and is not part of the {\ttfamily \doxylink{class_table_column}{Table\+Column}} interface. 
+\end{DoxyNote}
+\Hypertarget{class_integer_column_a42eee8d822101bfd4951b73ad837cfed}\index{IntegerColumn@{IntegerColumn}!getName@{getName}}
+\index{getName@{getName}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_integer_column_a42eee8d822101bfd4951b73ad837cfed} 
+std\+::string Integer\+Column\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the name of the column. 
+
+\begin{DoxyReturn}{Returns}
+The name of the column.
+
+The name of the column as a string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_table_column_aec5151a1b2eaef6ca18d8fe8766b0fe5}{Table\+Column}}.
+
+\Hypertarget{class_integer_column_aab7672dca004ae2969e5978978e811c7}\index{IntegerColumn@{IntegerColumn}!getSize@{getSize}}
+\index{getSize@{getSize}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily \label{class_integer_column_aab7672dca004ae2969e5978978e811c7} 
+int Integer\+Column\+::get\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the number of cells (rows) currently in the column. 
+
+Returns the current number of elements (rows) in the column.
+
+\begin{DoxyReturn}{Returns}
+An integer representing the current size of the column.
+
+The size of the column. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_table_column_a60d90eac16666c7bafb43664a4613197}{Table\+Column}}.
+
+\Hypertarget{class_integer_column_ad6f93b104fb9817a823ed0d2f857530f}\index{IntegerColumn@{IntegerColumn}!getType@{getType}}
+\index{getType@{getType}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \label{class_integer_column_ad6f93b104fb9817a823ed0d2f857530f} 
+Column\+Type Integer\+Column\+::get\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the data type of the column. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily Column\+Type\+::\+INTEGER}, indicating this is an integer column.
+
+{\ttfamily Column\+Type\+::\+INTEGER}, indicating this column holds integer values. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_table_column_a7cf2b5320e93be77508226c068f506b1}{Table\+Column}}.
+
+\Hypertarget{class_integer_column_aa4a517712335b18095673d99c3b2268f}\index{IntegerColumn@{IntegerColumn}!getTypeAsString@{getTypeAsString}}
+\index{getTypeAsString@{getTypeAsString}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{getTypeAsString()}{getTypeAsString()}}
+{\footnotesize\ttfamily \label{class_integer_column_aa4a517712335b18095673d99c3b2268f} 
+std\+::string Integer\+Column\+::get\+Type\+As\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the name of the column\textquotesingle{}s data type as a human-\/readable string. 
+
+Retrieves the string representation of the column\textquotesingle{}s type.
+
+\begin{DoxyReturn}{Returns}
+The string "{}\+Integer"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_table_column_a86c7cbdb45bf5e1d8fba66f85b9b7790}{Table\+Column}}.
+
+\Hypertarget{class_integer_column_a194090fc4433c3689ad037abc4b19a0b}\index{IntegerColumn@{IntegerColumn}!getValueAtGivenIndex@{getValueAtGivenIndex}}
+\index{getValueAtGivenIndex@{getValueAtGivenIndex}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{getValueAtGivenIndex()}{getValueAtGivenIndex()}}
+{\footnotesize\ttfamily \label{class_integer_column_a194090fc4433c3689ad037abc4b19a0b} 
+int Integer\+Column\+::get\+Value\+At\+Given\+Index (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the integer value of a cell at a specific index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell whose value is to be retrieved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The integer value of the cell. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the value at the given {\ttfamily index} is NULL. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+This method is specific to {\ttfamily \doxylink{class_integer_column}{Integer\+Column}} and not part of the {\ttfamily \doxylink{class_table_column}{Table\+Column}} interface.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The integer value of the cell. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is negative or greater than or equal to the column\textquotesingle{}s size. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the value at the given {\ttfamily index} is NULL. This method does not return a default value for NULLs. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+This method is not part of the {\ttfamily \doxylink{class_table_column}{Table\+Column}} interface, and is a concrete implementation detail. 
+\end{DoxyNote}
+\Hypertarget{class_integer_column_a75511334aa66ecb9ff87a88bd786b1ab}\index{IntegerColumn@{IntegerColumn}!matchesValues@{matchesValues}}
+\index{matchesValues@{matchesValues}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{matchesValues()}{matchesValues()}}
+{\footnotesize\ttfamily \label{class_integer_column_a75511334aa66ecb9ff87a88bd786b1ab} 
+bool Integer\+Column\+::matches\+Values (\begin{DoxyParamCaption}\item[{int}]{row\+Index}{, }\item[{const std\+::string \&}]{value}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if the value of a cell at a given row index matches a specified string value. 
+
+This method correctly handles NULL values\+: a NULL cell matches an empty string {\ttfamily "{}"{}} value. If the value is not NULL, the provided {\ttfamily value} string is converted to an integer for comparison.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row\+Index} & The 0-\/indexed position of the cell to compare. \\
+\hline
+{\em value} & The string value to match against the cell\textquotesingle{}s content. An empty string {\ttfamily "{}"{}} matches NULL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the cell\textquotesingle{}s value matches (including NULL-\/to-\/empty-\/string match) or conversion/comparison succeeds; {\ttfamily false} otherwise (e.\+g., on conversion failure). 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily row\+Index} is out of the column\textquotesingle{}s bounds.\\
+\hline
+\end{DoxyExceptions}
+This method handles NULL values\+: a NULL cell in the column is considered a match if the provided {\ttfamily value} is also an empty string {\ttfamily "{}"{}}. For non-\/\+NULL cells, the provided {\ttfamily value} string is attempted to be converted to an integer. If conversion is successful, a numeric comparison is performed. If conversion fails, it is considered a non-\/match.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row\+Index} & The 0-\/indexed position of the cell to compare. \\
+\hline
+{\em value} & The string value to match against. An empty string {\ttfamily "{}"{}} matches NULL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the cell\textquotesingle{}s value matches (including NULL-\/to-\/empty-\/string match) or if the numeric conversion and comparison succeed; {\ttfamily false} otherwise (e.\+g., on conversion failure). 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily row\+Index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_table_column_a102ad108b45c37212a3ccea9a0256dd5}{Table\+Column}}.
+
+\Hypertarget{class_integer_column_aa77cb797819591c4ad0134fb9b9f12f4}\index{IntegerColumn@{IntegerColumn}!operator=@{operator=}}
+\index{operator=@{operator=}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_integer_column_aa77cb797819591c4ad0134fb9b9f12f4} 
+\mbox{\hyperlink{class_integer_column}{Integer\+Column}} \& Integer\+Column\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_integer_column}{Integer\+Column}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy assignment operator for \doxylink{class_integer_column}{Integer\+Column}. 
+
+Performs a deep copy of the {\ttfamily content}, {\ttfamily is\+Null}, and {\ttfamily name} from another \doxylink{class_integer_column}{Integer\+Column} instance to this object. Handles self-\/assignment correctly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_integer_column}{Integer\+Column} object to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \doxylink{class_integer_column}{Integer\+Column} object after assignment.
+\end{DoxyReturn}
+Ensures proper deep copying from {\ttfamily other} to this object. It prevents self-\/assignment to avoid accidental data corruption.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_integer_column}{Integer\+Column} object to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \doxylink{class_integer_column}{Integer\+Column} object, allowing for chaining assignments. 
+\end{DoxyReturn}
+\Hypertarget{class_integer_column_a854e3595b2b41f6e04077dd4f1f9f484}\index{IntegerColumn@{IntegerColumn}!returnValueAtGivenIndexAsString@{returnValueAtGivenIndexAsString}}
+\index{returnValueAtGivenIndexAsString@{returnValueAtGivenIndexAsString}!IntegerColumn@{IntegerColumn}}
+\doxysubsubsection{\texorpdfstring{returnValueAtGivenIndexAsString()}{returnValueAtGivenIndexAsString()}}
+{\footnotesize\ttfamily \label{class_integer_column_a854e3595b2b41f6e04077dd4f1f9f484} 
+std\+::string Integer\+Column\+::return\+Value\+At\+Given\+Index\+As\+String (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the value of a cell at a specific index, formatted as a string. 
+
+If the cell at the given {\ttfamily index} is NULL, an empty string {\ttfamily "{}"{}} is returned. Otherwise, the integer value is converted to its string representation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell whose value is to be retrieved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string representation of the cell\textquotesingle{}s value. Returns {\ttfamily "{}"{}} if the value is NULL. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds.\\
+\hline
+\end{DoxyExceptions}
+This method fulfills the {\ttfamily \doxylink{class_table_column}{Table\+Column}} interface contract. If the cell at the given {\ttfamily index} is NULL, an empty string {\ttfamily "{}"{}} is returned. Otherwise, the integer value is converted to its string representation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell whose value is to be retrieved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string representation of the cell\textquotesingle{}s value. Returns {\ttfamily "{}"{}} if the value is NULL. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_table_column_a2ae47d404331d5042a362735e3060a4a}{Table\+Column}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Integer\+Column.\+hpp\item 
+Database\+Course\+Project/Integer\+Column\+Impl.\+cpp\end{DoxyCompactItemize}

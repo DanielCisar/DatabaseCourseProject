@@ -18,7 +18,6 @@ FileHelpCommand::FileHelpCommand(CommandContext& context)
 void FileHelpCommand::execute(const std::vector<std::string>& params) {
 	context.outputConsoleWritter.printLine("The following commands are supported:\n");
 
-	// File command section
 	context.outputConsoleWritter.printLine("File commands:");
 	context.outputConsoleWritter.printLine("  open <file>         - Opens <file>");
 	context.outputConsoleWritter.printLine("  close               - Closes currently opened file");
@@ -28,7 +27,6 @@ void FileHelpCommand::execute(const std::vector<std::string>& params) {
 	context.outputConsoleWritter.printLine("  exit                - Exits the program");
 	context.outputConsoleWritter.printLine("");
 
-	// Catalog command section
 	context.outputConsoleWritter.printLine("Catalog commands:");
 	context.outputConsoleWritter.printLine("  import <file name> - Adds a new table from file (fails if name exists)");
 	context.outputConsoleWritter.printLine("  showtables - Lists all loaded tables");

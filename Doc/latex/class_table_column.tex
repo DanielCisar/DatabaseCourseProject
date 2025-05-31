@@ -1,0 +1,323 @@
+\doxysection{Table\+Column Class Reference}
+\hypertarget{class_table_column}{}\label{class_table_column}\index{TableColumn@{TableColumn}}
+
+
+Abstract base class for all column types in a database table.  
+
+
+
+
+{\ttfamily \#include $<$Table\+Column.\+hpp$>$}
+
+Inheritance diagram for Table\+Column\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_table_column}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_table_column_ad96f8adf75baf6f9858d596c241b5ab0}{\texorpdfstring{$\sim$}{\string~}\+Table\+Column}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_table_column_aec5151a1b2eaef6ca18d8fe8766b0fe5}{get\+Name}} () const =0
+\begin{DoxyCompactList}\small\item\em Retrieves the name of the column. \end{DoxyCompactList}\item 
+virtual Column\+Type \mbox{\hyperlink{class_table_column_a7cf2b5320e93be77508226c068f506b1}{get\+Type}} () const =0
+\begin{DoxyCompactList}\small\item\em Retrieves the data type of the column. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_table_column_a51c588dbe3616d8a3e1211503e622232}{delete\+Cell}} (int index)=0
+\begin{DoxyCompactList}\small\item\em Deletes a cell (row entry) at a specified index from the column. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_table_column_a60d90eac16666c7bafb43664a4613197}{get\+Size}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns the number of cells (rows) currently in the column. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_table_column_a2ae47d404331d5042a362735e3060a4a}{return\+Value\+At\+Given\+Index\+As\+String}} (int index) const =0
+\begin{DoxyCompactList}\small\item\em Retrieves the value of a cell at a specific index, formatted as a string. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_table_column_a0197eaf50969a9afe0d2b6825b241cec}{change\+Value\+At\+Index}} (int index, std\+::string val)=0
+\begin{DoxyCompactList}\small\item\em Changes the value of a cell at a specific index. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_table_column_a796841e024aa380f3c53d85c74fa6236}{add\+Cell}} (std\+::string cell)=0
+\begin{DoxyCompactList}\small\item\em Adds a new cell (row entry) to the end of the column. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_table_column_a86c7cbdb45bf5e1d8fba66f85b9b7790}{get\+Type\+As\+String}} () const =0
+\begin{DoxyCompactList}\small\item\em Retrieves the name of the column\textquotesingle{}s data type as a human-\/readable string. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_table_column_a102ad108b45c37212a3ccea9a0256dd5}{matches\+Values}} (int row\+Index, const std\+::string \&value) const =0
+\begin{DoxyCompactList}\small\item\em Checks if the value of a cell at a given row index matches a specified string value. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_table_column_a06938e5ead9f5217e5fca205e1d88be9}{fill\+Column\+With\+NULL}} (int size)=0
+\begin{DoxyCompactList}\small\item\em Fills the column with a specified number of NULL (empty) values. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_table_column_aa5eb5d1796a1e8ce410bfe61f1bac38e}{clone}} () const =0
+\begin{DoxyCompactList}\small\item\em Creates a deep copy of the current {\ttfamily \doxylink{class_table_column}{Table\+Column}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for all column types in a database table. 
+
+This abstract class defines the common interface and fundamental operations that all concrete column implementations (e.\+g., {\ttfamily \doxylink{class_integer_column}{Integer\+Column}}, {\ttfamily \doxylink{class_double_column}{Double\+Column}}, {\ttfamily \doxylink{class_string_column}{String\+Column}}) must provide. It ensures polymorphic behavior, allowing tables to manage columns of various data types uniformly. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_table_column_ad96f8adf75baf6f9858d596c241b5ab0}\index{TableColumn@{TableColumn}!````~TableColumn@{\texorpdfstring{$\sim$}{\string~}TableColumn}}
+\index{````~TableColumn@{\texorpdfstring{$\sim$}{\string~}TableColumn}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TableColumn()}{\string~TableColumn()}}
+{\footnotesize\ttfamily \label{class_table_column_ad96f8adf75baf6f9858d596c241b5ab0} 
+virtual Table\+Column\+::\texorpdfstring{$\sim$}{\string~}\+Table\+Column (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Virtual destructor. 
+
+Ensures that memory allocated for derived {\ttfamily \doxylink{class_table_column}{Table\+Column}} objects is properly deallocated when deleted via a {\ttfamily \doxylink{class_table_column}{Table\+Column}} pointer, preventing memory leaks. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_table_column_a796841e024aa380f3c53d85c74fa6236}\index{TableColumn@{TableColumn}!addCell@{addCell}}
+\index{addCell@{addCell}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{addCell()}{addCell()}}
+{\footnotesize\ttfamily \label{class_table_column_a796841e024aa380f3c53d85c74fa6236} 
+virtual void Table\+Column\+::add\+Cell (\begin{DoxyParamCaption}\item[{std\+::string}]{cell}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Adds a new cell (row entry) to the end of the column. 
+
+The provided string {\ttfamily cell} will be converted to the column\textquotesingle{}s native data type before being stored. This operation increases the column\textquotesingle{}s size by one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The value for the new cell, provided as a string. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the {\ttfamily cell} string cannot be converted to the column\textquotesingle{}s native data type. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{class_double_column_a46fe47923aba2a1c25f2da9466e1597c}{Double\+Column}}, \mbox{\hyperlink{class_integer_column_ae860303c9ae8d9d6334fe21812cb5f3b}{Integer\+Column}}, and \mbox{\hyperlink{class_string_column_ad18e9f92543d425d760cf9da049b1f7d}{String\+Column}}.
+
+\Hypertarget{class_table_column_a0197eaf50969a9afe0d2b6825b241cec}\index{TableColumn@{TableColumn}!changeValueAtIndex@{changeValueAtIndex}}
+\index{changeValueAtIndex@{changeValueAtIndex}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{changeValueAtIndex()}{changeValueAtIndex()}}
+{\footnotesize\ttfamily \label{class_table_column_a0197eaf50969a9afe0d2b6825b241cec} 
+virtual void Table\+Column\+::change\+Value\+At\+Index (\begin{DoxyParamCaption}\item[{int}]{index}{, }\item[{std\+::string}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Changes the value of a cell at a specific index. 
+
+The provided string {\ttfamily val} will be converted to the column\textquotesingle{}s native data type before being stored.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell whose value is to be changed. \\
+\hline
+{\em val} & The new value for the cell, provided as a string. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the {\ttfamily val} string cannot be converted to the column\textquotesingle{}s native data type. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{class_double_column_aea5c8b7e6e61473cd884acbfbebf6b4b}{Double\+Column}}, \mbox{\hyperlink{class_integer_column_a02f1ab185ff0769492e1a803a5911a04}{Integer\+Column}}, and \mbox{\hyperlink{class_string_column_ae7d8229e845d97db533c341f881f9dd6}{String\+Column}}.
+
+\Hypertarget{class_table_column_aa5eb5d1796a1e8ce410bfe61f1bac38e}\index{TableColumn@{TableColumn}!clone@{clone}}
+\index{clone@{clone}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_table_column_aa5eb5d1796a1e8ce410bfe61f1bac38e} 
+virtual \mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*} Table\+Column\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a deep copy of the current {\ttfamily \doxylink{class_table_column}{Table\+Column}} object. 
+
+This method ensures that a new, independent instance of the concrete column type (and all its internal data) is created, allowing for safe copying of tables without shallow copy issues. The caller is responsible for managing the memory of the returned pointer.
+
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_table_column}{Table\+Column}} object which is a deep copy of the current instance. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The caller is responsible for {\ttfamily delete}ing the returned pointer to prevent memory leaks. 
+\end{DoxyWarning}
+
+
+Implemented in \mbox{\hyperlink{class_double_column_af092f1568adb61ce8fcfa90721e7271e}{Double\+Column}}, \mbox{\hyperlink{class_integer_column_adeeec534dc8c5d42266d92a48b091350}{Integer\+Column}}, and \mbox{\hyperlink{class_string_column_a19c45123f2929dc5f7c20ba6f8ba4405}{String\+Column}}.
+
+\Hypertarget{class_table_column_a51c588dbe3616d8a3e1211503e622232}\index{TableColumn@{TableColumn}!deleteCell@{deleteCell}}
+\index{deleteCell@{deleteCell}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{deleteCell()}{deleteCell()}}
+{\footnotesize\ttfamily \label{class_table_column_a51c588dbe3616d8a3e1211503e622232} 
+virtual void Table\+Column\+::delete\+Cell (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Deletes a cell (row entry) at a specified index from the column. 
+
+This operation removes the data point at the given {\ttfamily index}, effectively shortening the column\textquotesingle{}s content.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell to delete. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{class_double_column_ae706f530e25d5e07f364d0ebe4670d75}{Double\+Column}}, \mbox{\hyperlink{class_integer_column_af0194e904a203fff8a9775df828652e8}{Integer\+Column}}, and \mbox{\hyperlink{class_string_column_a924fba6a8c22dfd30abace0b661a0dd8}{String\+Column}}.
+
+\Hypertarget{class_table_column_a06938e5ead9f5217e5fca205e1d88be9}\index{TableColumn@{TableColumn}!fillColumnWithNULL@{fillColumnWithNULL}}
+\index{fillColumnWithNULL@{fillColumnWithNULL}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{fillColumnWithNULL()}{fillColumnWithNULL()}}
+{\footnotesize\ttfamily \label{class_table_column_a06938e5ead9f5217e5fca205e1d88be9} 
+virtual void Table\+Column\+::fill\+Column\+With\+NULL (\begin{DoxyParamCaption}\item[{int}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Fills the column with a specified number of NULL (empty) values. 
+
+This is typically used when adding a new column to an existing table, ensuring that all existing rows have an entry in the new column.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The number of NULL values to add to the column. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_double_column_a60bf0417ce9b50e2e1e4ae7172e3fcee}{Double\+Column}}, \mbox{\hyperlink{class_integer_column_a399beed65ed65a55feef7737a996ae07}{Integer\+Column}}, and \mbox{\hyperlink{class_string_column_a51bf234be1357ed0aec4644f54af1cd0}{String\+Column}}.
+
+\Hypertarget{class_table_column_aec5151a1b2eaef6ca18d8fe8766b0fe5}\index{TableColumn@{TableColumn}!getName@{getName}}
+\index{getName@{getName}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_table_column_aec5151a1b2eaef6ca18d8fe8766b0fe5} 
+virtual std\+::string Table\+Column\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retrieves the name of the column. 
+
+\begin{DoxyReturn}{Returns}
+A constant string reference representing the column\textquotesingle{}s name. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_double_column_a8ec16b62925124919d711f2b0e6cd02d}{Double\+Column}}, \mbox{\hyperlink{class_integer_column_a42eee8d822101bfd4951b73ad837cfed}{Integer\+Column}}, and \mbox{\hyperlink{class_string_column_a946326a45e80600c11ecbeec43e80561}{String\+Column}}.
+
+\Hypertarget{class_table_column_a60d90eac16666c7bafb43664a4613197}\index{TableColumn@{TableColumn}!getSize@{getSize}}
+\index{getSize@{getSize}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily \label{class_table_column_a60d90eac16666c7bafb43664a4613197} 
+virtual int Table\+Column\+::get\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the number of cells (rows) currently in the column. 
+
+\begin{DoxyReturn}{Returns}
+An integer representing the current size of the column. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_double_column_ab030adb429f565fd0573e8e374c02934}{Double\+Column}}, \mbox{\hyperlink{class_integer_column_aab7672dca004ae2969e5978978e811c7}{Integer\+Column}}, and \mbox{\hyperlink{class_string_column_a0c348450e298b5e4feff0da27118405e}{String\+Column}}.
+
+\Hypertarget{class_table_column_a7cf2b5320e93be77508226c068f506b1}\index{TableColumn@{TableColumn}!getType@{getType}}
+\index{getType@{getType}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \label{class_table_column_a7cf2b5320e93be77508226c068f506b1} 
+virtual Column\+Type Table\+Column\+::get\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retrieves the data type of the column. 
+
+\begin{DoxyReturn}{Returns}
+A {\ttfamily Column\+Type} enum value indicating the column\textquotesingle{}s data type (e.\+g., INTEGER, DOUBLE, STRING). 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_double_column_ab6b22a7b5e4967f062a183d7cb021b34}{Double\+Column}}, \mbox{\hyperlink{class_integer_column_ad6f93b104fb9817a823ed0d2f857530f}{Integer\+Column}}, and \mbox{\hyperlink{class_string_column_abede054e8d465aa377bc975128e64033}{String\+Column}}.
+
+\Hypertarget{class_table_column_a86c7cbdb45bf5e1d8fba66f85b9b7790}\index{TableColumn@{TableColumn}!getTypeAsString@{getTypeAsString}}
+\index{getTypeAsString@{getTypeAsString}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{getTypeAsString()}{getTypeAsString()}}
+{\footnotesize\ttfamily \label{class_table_column_a86c7cbdb45bf5e1d8fba66f85b9b7790} 
+virtual std\+::string Table\+Column\+::get\+Type\+As\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retrieves the name of the column\textquotesingle{}s data type as a human-\/readable string. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the column\textquotesingle{}s type (e.\+g., "{}\+String"{}, "{}\+Integer"{}, "{}\+Double"{}). 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_double_column_a79859aefed69448e072ba47733db42d1}{Double\+Column}}, \mbox{\hyperlink{class_integer_column_aa4a517712335b18095673d99c3b2268f}{Integer\+Column}}, and \mbox{\hyperlink{class_string_column_ab22ab07c8849ddf8d9dc4f99d38b2abe}{String\+Column}}.
+
+\Hypertarget{class_table_column_a102ad108b45c37212a3ccea9a0256dd5}\index{TableColumn@{TableColumn}!matchesValues@{matchesValues}}
+\index{matchesValues@{matchesValues}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{matchesValues()}{matchesValues()}}
+{\footnotesize\ttfamily \label{class_table_column_a102ad108b45c37212a3ccea9a0256dd5} 
+virtual bool Table\+Column\+::matches\+Values (\begin{DoxyParamCaption}\item[{int}]{row\+Index}{, }\item[{const std\+::string \&}]{value}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Checks if the value of a cell at a given row index matches a specified string value. 
+
+This method performs a comparison, typically after converting the cell\textquotesingle{}s native value to a string, to determine if it matches the provided {\ttfamily value}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row\+Index} & The 0-\/indexed position of the cell to compare. \\
+\hline
+{\em value} & The string value to match against the cell\textquotesingle{}s content. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the cell\textquotesingle{}s value matches the provided string; {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the provided {\ttfamily row\+Index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{class_double_column_a97a3a0954fb0c167a10ed913710b5f3c}{Double\+Column}}, \mbox{\hyperlink{class_integer_column_a75511334aa66ecb9ff87a88bd786b1ab}{Integer\+Column}}, and \mbox{\hyperlink{class_string_column_a840a484cdf0ceb6928aea6f4310e2c5c}{String\+Column}}.
+
+\Hypertarget{class_table_column_a2ae47d404331d5042a362735e3060a4a}\index{TableColumn@{TableColumn}!returnValueAtGivenIndexAsString@{returnValueAtGivenIndexAsString}}
+\index{returnValueAtGivenIndexAsString@{returnValueAtGivenIndexAsString}!TableColumn@{TableColumn}}
+\doxysubsubsection{\texorpdfstring{returnValueAtGivenIndexAsString()}{returnValueAtGivenIndexAsString()}}
+{\footnotesize\ttfamily \label{class_table_column_a2ae47d404331d5042a362735e3060a4a} 
+virtual std\+::string Table\+Column\+::return\+Value\+At\+Given\+Index\+As\+String (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retrieves the value of a cell at a specific index, formatted as a string. 
+
+This method provides a universal way to access column data, regardless of its native type, by converting it to its string representation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell whose value is to be retrieved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string representation of the cell\textquotesingle{}s value. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{class_double_column_a118e2b11369f316c3a44e48efba1cd42}{Double\+Column}}, \mbox{\hyperlink{class_integer_column_a854e3595b2b41f6e04077dd4f1f9f484}{Integer\+Column}}, and \mbox{\hyperlink{class_string_column_a67931e0265fcdcb365eeaa76a82a2afa}{String\+Column}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Table\+Column.\+hpp\end{DoxyCompactItemize}

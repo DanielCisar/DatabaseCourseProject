@@ -1,0 +1,127 @@
+\doxysection{Column\+Factory Class Reference}
+\hypertarget{class_column_factory}{}\label{class_column_factory}\index{ColumnFactory@{ColumnFactory}}
+
+
+A static factory class responsible for creating concrete {\ttfamily \doxylink{class_table_column}{Table\+Column}} instances.  
+
+
+
+
+{\ttfamily \#include $<$Column\+Factory.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_string_column}{String\+Column}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_column_factory_afaa5bf3744b29039de622a064fa168b5}{make\+String\+Column}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Creates a new {\ttfamily \doxylink{class_string_column}{String\+Column}} with the specified name. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_integer_column}{Integer\+Column}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_column_factory_a29764eebeb0857209463eef0b1334e06}{make\+Integer\+Column}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Creates a new {\ttfamily \doxylink{class_integer_column}{Integer\+Column}} with the specified name. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_double_column}{Double\+Column}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_column_factory_ac377bd001c8d09b29c45642a5b8f853e}{make\+Double\+Column}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Creates a new {\ttfamily \doxylink{class_double_column}{Double\+Column}} with the specified name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A static factory class responsible for creating concrete {\ttfamily \doxylink{class_table_column}{Table\+Column}} instances. 
+
+The {\ttfamily \doxylink{class_column_factory}{Column\+Factory}} provides a centralized and type-\/safe way to instantiate different types of columns (String, Integer, Double) without exposing their specific constructors directly to client code. This promotes decoupling and simplifies the creation process for {\ttfamily \doxylink{class_table_column}{Table\+Column}} objects. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_column_factory_ac377bd001c8d09b29c45642a5b8f853e}\index{ColumnFactory@{ColumnFactory}!makeDoubleColumn@{makeDoubleColumn}}
+\index{makeDoubleColumn@{makeDoubleColumn}!ColumnFactory@{ColumnFactory}}
+\doxysubsubsection{\texorpdfstring{makeDoubleColumn()}{makeDoubleColumn()}}
+{\footnotesize\ttfamily \label{class_column_factory_ac377bd001c8d09b29c45642a5b8f853e} 
+\mbox{\hyperlink{class_double_column}{Double\+Column}} \texorpdfstring{$\ast$}{*} Column\+Factory\+::make\+Double\+Column (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a new {\ttfamily \doxylink{class_double_column}{Double\+Column}} with the specified name. 
+
+Creates a new {\ttfamily \doxylink{class_double_column}{Double\+Column}} instance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name for the new double column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_double_column}{Double\+Column}} object. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The caller is responsible for {\ttfamily delete}ing the returned pointer to prevent memory leaks, as it is dynamically allocated using {\ttfamily new}. Consider using smart pointers (e.\+g., {\ttfamily std\+::unique\+\_\+ptr\texorpdfstring{$<$}{<}\doxylink{class_double_column}{Double\+Column}\texorpdfstring{$>$}{>}}) for automatic memory management.
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name for the new double column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dynamically allocated {\ttfamily \doxylink{class_double_column}{Double\+Column}} pointer. Caller takes ownership. 
+\end{DoxyReturn}
+\Hypertarget{class_column_factory_a29764eebeb0857209463eef0b1334e06}\index{ColumnFactory@{ColumnFactory}!makeIntegerColumn@{makeIntegerColumn}}
+\index{makeIntegerColumn@{makeIntegerColumn}!ColumnFactory@{ColumnFactory}}
+\doxysubsubsection{\texorpdfstring{makeIntegerColumn()}{makeIntegerColumn()}}
+{\footnotesize\ttfamily \label{class_column_factory_a29764eebeb0857209463eef0b1334e06} 
+\mbox{\hyperlink{class_integer_column}{Integer\+Column}} \texorpdfstring{$\ast$}{*} Column\+Factory\+::make\+Integer\+Column (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a new {\ttfamily \doxylink{class_integer_column}{Integer\+Column}} with the specified name. 
+
+Creates a new {\ttfamily \doxylink{class_integer_column}{Integer\+Column}} instance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name for the new integer column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_integer_column}{Integer\+Column}} object. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The caller is responsible for {\ttfamily delete}ing the returned pointer to prevent memory leaks, as it is dynamically allocated using {\ttfamily new}. Consider using smart pointers (e.\+g., {\ttfamily std\+::unique\+\_\+ptr\texorpdfstring{$<$}{<}\doxylink{class_integer_column}{Integer\+Column}\texorpdfstring{$>$}{>}}) for automatic memory management.
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name for the new integer column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dynamically allocated {\ttfamily \doxylink{class_integer_column}{Integer\+Column}} pointer. Caller takes ownership. 
+\end{DoxyReturn}
+\Hypertarget{class_column_factory_afaa5bf3744b29039de622a064fa168b5}\index{ColumnFactory@{ColumnFactory}!makeStringColumn@{makeStringColumn}}
+\index{makeStringColumn@{makeStringColumn}!ColumnFactory@{ColumnFactory}}
+\doxysubsubsection{\texorpdfstring{makeStringColumn()}{makeStringColumn()}}
+{\footnotesize\ttfamily \label{class_column_factory_afaa5bf3744b29039de622a064fa168b5} 
+\mbox{\hyperlink{class_string_column}{String\+Column}} \texorpdfstring{$\ast$}{*} Column\+Factory\+::make\+String\+Column (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a new {\ttfamily \doxylink{class_string_column}{String\+Column}} with the specified name. 
+
+Creates a new {\ttfamily \doxylink{class_string_column}{String\+Column}} instance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name for the new string column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_string_column}{String\+Column}} object. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The caller is responsible for {\ttfamily delete}ing the returned pointer to prevent memory leaks, as it is dynamically allocated using {\ttfamily new}. Consider using smart pointers (e.\+g., {\ttfamily std\+::unique\+\_\+ptr\texorpdfstring{$<$}{<}\doxylink{class_string_column}{String\+Column}\texorpdfstring{$>$}{>}}) for automatic memory management.
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name for the new string column. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dynamically allocated {\ttfamily \doxylink{class_string_column}{String\+Column}} pointer. Caller takes ownership. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Column\+Factory.\+hpp\item 
+Database\+Course\+Project/Column\+Factory\+Impl.\+cpp\end{DoxyCompactItemize}

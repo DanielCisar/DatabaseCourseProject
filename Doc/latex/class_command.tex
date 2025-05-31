@@ -1,0 +1,86 @@
+\doxysection{Command Class Reference}
+\hypertarget{class_command}{}\label{class_command}\index{Command@{Command}}
+
+
+Abstract base class for all command operations.  
+
+
+
+
+{\ttfamily \#include $<$Command.\+hpp$>$}
+
+Inheritance diagram for Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_command_ab0a152e96747ac9b24c624514fcc58a7}{execute}} (const std\+::vector$<$ std\+::string $>$ \&params)=0
+\begin{DoxyCompactList}\small\item\em Executes the command with the given parameters. \end{DoxyCompactList}\item 
+\Hypertarget{class_command_aa545a53d35818f9efb936daf3fa16c61}\label{class_command_aa545a53d35818f9efb936daf3fa16c61} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Command} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for safe cleanup. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_command_ad72ab674403f89ab62d9f31218c78551}{clone}} (\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&new\+Context) const =0
+\begin{DoxyCompactList}\small\item\em Creates a deep copy of the current \doxylink{class_command}{Command} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for all command operations. 
+
+This class defines a uniform interface for executing operations such as {\ttfamily open}, {\ttfamily insert}, {\ttfamily save}, etc. All concrete command classes should inherit from this interface and implement the {\ttfamily execute} method. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_command_ad72ab674403f89ab62d9f31218c78551}\index{Command@{Command}!clone@{clone}}
+\index{clone@{clone}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_command_ad72ab674403f89ab62d9f31218c78551} 
+virtual \mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} Command\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&}]{new\+Context}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a deep copy of the current \doxylink{class_command}{Command} object. 
+
+This pure virtual method enables polymorphic cloning. Each derived class must implement this to return a new, dynamically allocated copy of itself. The {\ttfamily new\+Context} parameter is provided to allow the cloned command to be associated with a potentially different (or the same) {\ttfamily \doxylink{struct_command_context}{Command\+Context}} if the cloning operation is part of copying the entire application state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} that the new cloned command should use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_command}{Command}} object, which is a deep copy of the current instance. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The caller is responsible for {\ttfamily delete}ing the returned pointer to prevent memory leaks. 
+\end{DoxyWarning}
+
+
+Implemented in \mbox{\hyperlink{class_catalog_add_column_command_a007fb754372b0e6a805078bb2a440b23}{Catalog\+Add\+Column\+Command}}, \mbox{\hyperlink{class_catalog_aggregate_command_a58f16f1337bbebd486471133bcc962bd}{Catalog\+Aggregate\+Command}}, \mbox{\hyperlink{class_catalog_count_command_a159ce690bd7108934fa75a5d0bde1f18}{Catalog\+Count\+Command}}, \mbox{\hyperlink{class_catalog_delete_rows_command_a2ad3998f42e23f7262703f19e2dc4b07}{Catalog\+Delete\+Rows\+Command}}, \mbox{\hyperlink{class_catalog_describe_command_abfef8b2f5338d053f2270e41f6760daa}{Catalog\+Describe\+Command}}, \mbox{\hyperlink{class_catalog_export_table_command_a8776af6eb521c9d919f9f6a1c34f2f7e}{Catalog\+Export\+Table\+Command}}, \mbox{\hyperlink{class_catalog_import_command_a8e0f3ac95d1416df8d0b4e1ea168134a}{Catalog\+Import\+Command}}, \mbox{\hyperlink{class_catalog_inner_join_command_a3044a8eb2b9f071cfdc27c7fac2bc6e9}{Catalog\+Inner\+Join\+Command}}, \mbox{\hyperlink{class_catalog_insert_command_ac4045a0aa56099e389dd6af9c4a3af6a}{Catalog\+Insert\+Command}}, \mbox{\hyperlink{class_catalog_print_command_a8612a5fb73d6158c4a1544075dff4435}{Catalog\+Print\+Command}}, \mbox{\hyperlink{class_catalog_rename_command_ab7403733a7d21fada44727d6d74f089d}{Catalog\+Rename\+Command}}, \mbox{\hyperlink{class_catalog_select_command_ad1536dab78688c2b0f087bd56f5d2f0b}{Catalog\+Select\+Command}}, \mbox{\hyperlink{class_catalog_show_tables_command_a59b59c9e859423b2326695b0a6bd6143}{Catalog\+Show\+Tables\+Command}}, \mbox{\hyperlink{class_catalog_update_command_a402d8c77925a281b50c399c821efe10f}{Catalog\+Update\+Command}}, \mbox{\hyperlink{class_file_close_command_adbb042acb4bbf47e19987b0419633d42}{File\+Close\+Command}}, \mbox{\hyperlink{class_file_exit_command_aca77e9ec3031cb524b13e3bf0d818789}{File\+Exit\+Command}}, \mbox{\hyperlink{class_file_help_command_ad10df7ff831a2542d0d8675e62e2a096}{File\+Help\+Command}}, \mbox{\hyperlink{class_file_open_command_abb5a31c0b025e0bb3dd9d80480eee459}{File\+Open\+Command}}, \mbox{\hyperlink{class_file_save_as_command_a1c79d8e54da478a106884603a5fbf0e6}{File\+Save\+As\+Command}}, and \mbox{\hyperlink{class_file_save_command_aec321b759df999efbdc9395884f9684b}{File\+Save\+Command}}.
+
+\Hypertarget{class_command_ab0a152e96747ac9b24c624514fcc58a7}\index{Command@{Command}!execute@{execute}}
+\index{execute@{execute}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily \label{class_command_ab0a152e96747ac9b24c624514fcc58a7} 
+virtual void Command\+::execute (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Executes the command with the given parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & A list of strings representing the arguments passed to the command. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_catalog_add_column_command_ad67660b50154b1916ba3218b8631874e}{Catalog\+Add\+Column\+Command}}, \mbox{\hyperlink{class_catalog_aggregate_command_ac159554142c605c4f777766f6437b8d6}{Catalog\+Aggregate\+Command}}, \mbox{\hyperlink{class_catalog_count_command_ae99e6ad6277e9ac561828e5f62dc0f2c}{Catalog\+Count\+Command}}, \mbox{\hyperlink{class_catalog_delete_rows_command_a22b2f717b69805fc12bdf6dc5a7cb493}{Catalog\+Delete\+Rows\+Command}}, \mbox{\hyperlink{class_catalog_describe_command_ae6fe223bbd77f3be70faacec075c3639}{Catalog\+Describe\+Command}}, \mbox{\hyperlink{class_catalog_export_table_command_a5a396c45e78dbdc804fabe6c435f77d2}{Catalog\+Export\+Table\+Command}}, \mbox{\hyperlink{class_catalog_import_command_a17dc8b0682948271d033931076b95dcb}{Catalog\+Import\+Command}}, \mbox{\hyperlink{class_catalog_inner_join_command_aaed957650f7c9b8ab2c90893a4645b2b}{Catalog\+Inner\+Join\+Command}}, \mbox{\hyperlink{class_catalog_insert_command_ad6050f5f5ecfd7221c19f05eae17e1da}{Catalog\+Insert\+Command}}, \mbox{\hyperlink{class_catalog_print_command_ae276f104b182651fc7c4035da3c50dbe}{Catalog\+Print\+Command}}, \mbox{\hyperlink{class_catalog_rename_command_a4ab3490ac819c58ea3c2d7f3396adfc0}{Catalog\+Rename\+Command}}, \mbox{\hyperlink{class_catalog_select_command_ad71da46f8a06bb2893b0fb9458f668b7}{Catalog\+Select\+Command}}, \mbox{\hyperlink{class_catalog_show_tables_command_a382853c34b6cc8345ce04c0766b993a6}{Catalog\+Show\+Tables\+Command}}, \mbox{\hyperlink{class_catalog_update_command_aefaf4415c6568c436dd52cd3cfba6472}{Catalog\+Update\+Command}}, \mbox{\hyperlink{class_file_close_command_a6e0ae2d6a4085a25dfa0d807f5e94915}{File\+Close\+Command}}, \mbox{\hyperlink{class_file_exit_command_aaa0a423b2b4e1a97b198a19d37be141e}{File\+Exit\+Command}}, \mbox{\hyperlink{class_file_help_command_a400d9bf65756bb3451b355c9862d7458}{File\+Help\+Command}}, \mbox{\hyperlink{class_file_open_command_ae0b0ce6277371743a35c330ec737eef8}{File\+Open\+Command}}, \mbox{\hyperlink{class_file_save_as_command_ad1541784d4534dfa94fb53332179a649}{File\+Save\+As\+Command}}, and \mbox{\hyperlink{class_file_save_command_af75992a1c2394e9bde40cb029a460095}{File\+Save\+Command}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Command.\+hpp\end{DoxyCompactItemize}

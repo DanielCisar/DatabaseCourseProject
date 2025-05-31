@@ -1,0 +1,21 @@
+\doxysection{Catalog\+Delete\+Rows\+Command.\+hpp}
+\hypertarget{_catalog_delete_rows_command_8hpp_source}{}\label{_catalog_delete_rows_command_8hpp_source}\index{DatabaseCourseProject/CatalogDeleteRowsCommand.hpp@{DatabaseCourseProject/CatalogDeleteRowsCommand.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}CommandContext.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catalog_delete_rows_command_a324f664ffdb6df02c0c993ca562e3651}{CatalogDeleteRowsCommand}}\ :\ \textcolor{keyword}{public}\ \ \mbox{\hyperlink{class_command}{Command}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_catalog_delete_rows_command_a324f664ffdb6df02c0c993ca562e3651}{CatalogDeleteRowsCommand}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_delete_rows_command_a22b2f717b69805fc12bdf6dc5a7cb493}{execute}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ params)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_command}{Command}}*\ \mbox{\hyperlink{class_catalog_delete_rows_command_a2ad3998f42e23f7262703f19e2dc4b07}{clone}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ newContext)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \};}
+
+\end{DoxyCode}

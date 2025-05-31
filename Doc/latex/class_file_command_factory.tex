@@ -1,0 +1,74 @@
+\doxysection{File\+Command\+Factory Class Reference}
+\hypertarget{class_file_command_factory}{}\label{class_file_command_factory}\index{FileCommandFactory@{FileCommandFactory}}
+
+
+A factory class responsible for creating instances of file-\/related commands.  
+
+
+
+
+{\ttfamily \#include $<$File\+Command\+Factory.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_file_command_factory_a1d26ef77224ab6e8bbb43305a86d3b7d}{create\+Command}} (const std\+::string \&name, \mbox{\hyperlink{struct_command_context}{Command\+Context}} \&context)
+\begin{DoxyCompactList}\small\item\em Creates and returns a new {\ttfamily \doxylink{class_command}{Command}} object based on the provided name for file operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A factory class responsible for creating instances of file-\/related commands. 
+
+This static factory provides a centralized mechanism to instantiate concrete {\ttfamily \doxylink{class_command}{Command}} objects that handle file system operations (like opening, saving, and closing files). It decouples the command creation logic from the client code, enabling easy extension with new file management commands. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_file_command_factory_a1d26ef77224ab6e8bbb43305a86d3b7d}\index{FileCommandFactory@{FileCommandFactory}!createCommand@{createCommand}}
+\index{createCommand@{createCommand}!FileCommandFactory@{FileCommandFactory}}
+\doxysubsubsection{\texorpdfstring{createCommand()}{createCommand()}}
+{\footnotesize\ttfamily \label{class_file_command_factory_a1d26ef77224ab6e8bbb43305a86d3b7d} 
+\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} File\+Command\+Factory\+::create\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates and returns a new {\ttfamily \doxylink{class_command}{Command}} object based on the provided name for file operations. 
+
+This static method acts as a factory for commands that interact with files. It maps a command name string to a specific {\ttfamily \doxylink{class_command}{Command}} implementation and constructs an instance of that command, passing it the shared {\ttfamily \doxylink{struct_command_context}{Command\+Context}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The string identifier of the file command to create (e.\+g., "{}open"{}, "{}save"{}, "{}exit"{}). \\
+\hline
+{\em context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} to be used by the created command. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_command}{Command}} object. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily name} does not correspond to a known file command.\\
+\hline
+\end{DoxyExceptions}
+This static method implements the factory logic for file-\/related commands. It checks the {\ttfamily name} against a list of recognized commands and returns a dynamically allocated instance of the corresponding command class, initialized with the provided {\ttfamily context}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The string identifier of the command to create. \\
+\hline
+{\em context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} to be used by the created command. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_command}{Command}} object. The caller assumes ownership. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily name} does not match any of the supported file commands. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/File\+Command\+Factory.\+hpp\item 
+Database\+Course\+Project/File\+Command\+Factory\+Impl.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,181 @@
+\doxysection{Catalog\+Add\+Column\+Command Class Reference}
+\hypertarget{class_catalog_add_column_command}{}\label{class_catalog_add_column_command}\index{CatalogAddColumnCommand@{CatalogAddColumnCommand}}
+
+
+\doxylink{class_command}{Command} to add a new column to an existing table in the loaded catalog.  
+
+
+
+
+{\ttfamily \#include $<$Catalog\+Add\+Column\+Command.\+hpp$>$}
+
+Inheritance diagram for Catalog\+Add\+Column\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_catalog_add_column_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_catalog_add_column_command_aba00651d082b5d15b6ddb1312e5d760f}{Catalog\+Add\+Column\+Command}} (\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&context)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_catalog_add_column_command}{Catalog\+Add\+Column\+Command} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalog_add_column_command_ad67660b50154b1916ba3218b8631874e}{execute}} (const std\+::vector$<$ std\+::string $>$ \&params) override
+\begin{DoxyCompactList}\small\item\em Executes the add column command, modifying the specified table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_catalog_add_column_command_a007fb754372b0e6a805078bb2a440b23}{clone}} (\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&new\+Context) const override
+\begin{DoxyCompactList}\small\item\em Creates a deep copy of the current object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_command}{Command}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Command} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for safe cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_command}{Command} to add a new column to an existing table in the loaded catalog. 
+
+This command facilitates schema modification by allowing users to extend an existing table with a new column. It requires the target table\textquotesingle{}s name, the desired name for the new column, and its data type. The newly added column will be initialized with NULL (empty) values for all existing rows. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_catalog_add_column_command_aba00651d082b5d15b6ddb1312e5d760f}\index{CatalogAddColumnCommand@{CatalogAddColumnCommand}!CatalogAddColumnCommand@{CatalogAddColumnCommand}}
+\index{CatalogAddColumnCommand@{CatalogAddColumnCommand}!CatalogAddColumnCommand@{CatalogAddColumnCommand}}
+\doxysubsubsection{\texorpdfstring{CatalogAddColumnCommand()}{CatalogAddColumnCommand()}}
+{\footnotesize\ttfamily \label{class_catalog_add_column_command_aba00651d082b5d15b6ddb1312e5d760f} 
+Catalog\+Add\+Column\+Command\+::\+Catalog\+Add\+Column\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_catalog_add_column_command}{Catalog\+Add\+Column\+Command} instance. 
+
+Constructs a \doxylink{class_catalog_add_column_command}{Catalog\+Add\+Column\+Command} object, initializing it with the shared command context.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} object, which encapsulates the application\textquotesingle{}s shared database catalog and I/O utility handlers.\\
+\hline
+{\em context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} object. This context provides access to the application\textquotesingle{}s shared database catalog and console output utilities, which are necessary for performing the add column operation and reporting status. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_catalog_add_column_command_a007fb754372b0e6a805078bb2a440b23}\index{CatalogAddColumnCommand@{CatalogAddColumnCommand}!clone@{clone}}
+\index{clone@{clone}!CatalogAddColumnCommand@{CatalogAddColumnCommand}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_catalog_add_column_command_a007fb754372b0e6a805078bb2a440b23} 
+\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} Catalog\+Add\+Column\+Command\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_command_context}{Command\+Context}} \&}]{new\+Context}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a deep copy of the current object. 
+
+Creates a deep copy of the current {\ttfamily \doxylink{class_catalog_add_column_command}{Catalog\+Add\+Column\+Command}} object.
+
+This override implements the polymorphic cloning behavior defined in {\ttfamily \doxylink{class_command}{Command}}. It constructs a new instance, associating it with the provided {\ttfamily new\+Context}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} that the new cloned command should use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated object, which is a deep copy of this instance.
+\end{DoxyReturn}
+This override constructs a new {\ttfamily \doxylink{class_catalog_add_column_command}{Catalog\+Add\+Column\+Command}} instance, associating it with the provided {\ttfamily new\+Context}. Since {\ttfamily \doxylink{class_catalog_add_column_command}{Catalog\+Add\+Column\+Command}} itself only holds a reference to {\ttfamily \doxylink{struct_command_context}{Command\+Context}} and no other dynamically allocated members, a simple construction with the new context is sufficient for cloning this command object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Context} & A reference to the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} that the new cloned command should use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_catalog_add_column_command}{Catalog\+Add\+Column\+Command}} object. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The caller is responsible for {\ttfamily delete}ing the returned pointer. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{class_command_ad72ab674403f89ab62d9f31218c78551}{Command}}.
+
+\Hypertarget{class_catalog_add_column_command_ad67660b50154b1916ba3218b8631874e}\index{CatalogAddColumnCommand@{CatalogAddColumnCommand}!execute@{execute}}
+\index{execute@{execute}!CatalogAddColumnCommand@{CatalogAddColumnCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily \label{class_catalog_add_column_command_ad67660b50154b1916ba3218b8631874e} 
+void Catalog\+Add\+Column\+Command\+::execute (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes the add column command, modifying the specified table. 
+
+Executes the \textquotesingle{}addcolumn\textquotesingle{} command, adding a new column to a specified table.
+
+This method adds a new column to the table identified by {\ttfamily params\mbox{[}1\mbox{]}}. The new column will have the name specified in {\ttfamily params\mbox{[}2\mbox{]}} and the type (String, Integer, or Double) specified in {\ttfamily params\mbox{[}3\mbox{]}}. For all existing rows in the table, the new column will be populated with NULL values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & A constant reference to a vector of strings representing command-\/line parameters. Expected format\+:
+\begin{DoxyItemize}
+\item {\ttfamily params\mbox{[}0\mbox{]}}\+: "{}addcolumn"{} (command name)
+\item {\ttfamily params\mbox{[}1\mbox{]}}\+: The name of the target table to which the column will be added.
+\item {\ttfamily params\mbox{[}2\mbox{]}}\+: The name for the new column.
+\item {\ttfamily params\mbox{[}3\mbox{]}}\+: The data type of the new column ("{}\+String"{}, "{}\+Integer"{}, or "{}\+Double"{}).
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If no catalog is currently loaded. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the number of parameters is incorrect (not 4). \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the specified table does not exist in the catalog. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the provided column type string is invalid. \\
+\hline
+{\em std\+::exception} & Any other exceptions propagated from underlying table/column operations (e.\+g., memory allocation issues).\\
+\hline
+\end{DoxyExceptions}
+This function processes the command-\/line arguments to identify the target table, the name for the new column, and its data type. It performs validation checks\+:
+\begin{DoxyEnumerate}
+\item Ensures a catalog is currently loaded.
+\item Verifies the correct number of parameters (4) is provided.
+\item Validates that the specified column type string is one of "{}\+String"{}, "{}\+Integer"{}, or "{}\+Double"{}.
+\end{DoxyEnumerate}
+
+Upon successful validation, a new {\ttfamily \doxylink{class_table_column}{Table\+Column}} of the specified type and name is created using {\ttfamily \doxylink{class_column_factory}{Column\+Factory}}. This new column is then pre-\/filled with NULL values for all existing rows in the table. Finally, the new column is added to the table. Status messages are printed to the console upon success or error.
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & A constant reference to a vector of strings containing the command-\/line arguments. Expected elements\+:
+\begin{DoxyItemize}
+\item {\ttfamily params\mbox{[}0\mbox{]}}\+: "{}addcolumn"{}
+\item {\ttfamily params\mbox{[}1\mbox{]}}\+: Name of the table to modify.
+\item {\ttfamily params\mbox{[}2\mbox{]}}\+: Name for the new column.
+\item {\ttfamily params\mbox{[}3\mbox{]}}\+: Type of the new column ("{}\+String"{}, "{}\+Integer"{}, or "{}\+Double"{}).
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If {\ttfamily context.\+loaded\+Catalog\+Exists} is {\ttfamily false} (no catalog loaded). \\
+\hline
+{\em std\+::runtime\+\_\+error} & If {\ttfamily params.\+size()} is not 4 (incorrect number of arguments). \\
+\hline
+{\em std\+::runtime\+\_\+error} & If {\ttfamily context.\+loaded\+Catalog.\+return\+Table\+By\+Name()} fails to find the specified table. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If {\ttfamily params\mbox{[}3\mbox{]}} (column type string) is not a recognized type. \\
+\hline
+{\em std\+::exception} & Any other exceptions that may arise during table modification, such as memory allocation failures when creating new columns. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_command_ab0a152e96747ac9b24c624514fcc58a7}{Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Catalog\+Add\+Column\+Command.\+hpp\item 
+Database\+Course\+Project/Catalog\+Add\+Column\+Command\+Impl.\+cpp\end{DoxyCompactItemize}

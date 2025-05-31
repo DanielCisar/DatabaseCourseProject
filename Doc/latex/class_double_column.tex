@@ -1,0 +1,553 @@
+\doxysection{Double\+Column Class Reference}
+\hypertarget{class_double_column}{}\label{class_double_column}\index{DoubleColumn@{DoubleColumn}}
+
+
+Concrete implementation of {\ttfamily \doxylink{class_table_column}{Table\+Column}} for storing double-\/precision floating-\/point data.  
+
+
+
+
+{\ttfamily \#include $<$Double\+Column.\+hpp$>$}
+
+Inheritance diagram for Double\+Column\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_double_column}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_double_column_aef71165c86fb7db5f9e33d45587f9cea}{Double\+Column}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{class_double_column}{Double\+Column} with a specified name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_double_column_ad9636e824d5965463d46df9cbd7e8abf}{Double\+Column}} (const \mbox{\hyperlink{class_double_column}{Double\+Column}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor for \doxylink{class_double_column}{Double\+Column}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_double_column_ade421a4ace9ae269c665d686715eaa90}{\texorpdfstring{$\sim$}{\string~}\+Double\+Column}} () override
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_double_column}{Double\+Column}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_double_column}{Double\+Column}} \& \mbox{\hyperlink{class_double_column_a34286da773274fe3fdf160955d5b32d0}{operator=}} (const \mbox{\hyperlink{class_double_column}{Double\+Column}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for \doxylink{class_double_column}{Double\+Column}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_double_column_a8ec16b62925124919d711f2b0e6cd02d}{get\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieves the name of the column. \end{DoxyCompactList}\item 
+Column\+Type \mbox{\hyperlink{class_double_column_ab6b22a7b5e4967f062a183d7cb021b34}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieves the data type of the column. \end{DoxyCompactList}\item 
+const std\+::vector$<$ double $>$ \& \mbox{\hyperlink{class_double_column_a9cc754ca4e69306752a622d0a718c14b}{get\+Content}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves a constant reference to the underlying vector of double content. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_double_column_a2f1bb52adaa19dd10e181a9476994fc1}{get\+Value\+At\+Given\+Index}} (int index) const
+\begin{DoxyCompactList}\small\item\em Retrieves the double value of a cell at a specific index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_double_column_aea5c8b7e6e61473cd884acbfbebf6b4b}{change\+Value\+At\+Index}} (int index, std\+::string val) override
+\begin{DoxyCompactList}\small\item\em Changes the value of a cell at a specific index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_double_column_a46fe47923aba2a1c25f2da9466e1597c}{add\+Cell}} (std\+::string cell) override
+\begin{DoxyCompactList}\small\item\em Adds a new cell (row entry) to the end of the column. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_double_column_ae706f530e25d5e07f364d0ebe4670d75}{delete\+Cell}} (int index) override
+\begin{DoxyCompactList}\small\item\em Deletes a cell (row entry) at a specified index from the column. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_double_column_ab030adb429f565fd0573e8e374c02934}{get\+Size}} () override
+\begin{DoxyCompactList}\small\item\em Returns the number of cells (rows) currently in the column. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_double_column_a118e2b11369f316c3a44e48efba1cd42}{return\+Value\+At\+Given\+Index\+As\+String}} (int index) const override
+\begin{DoxyCompactList}\small\item\em Retrieves the value of a cell at a specific index, formatted as a string. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_double_column_a79859aefed69448e072ba47733db42d1}{get\+Type\+As\+String}} () const override
+\begin{DoxyCompactList}\small\item\em Retrieves the name of the column\textquotesingle{}s data type as a human-\/readable string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_double_column_a97a3a0954fb0c167a10ed913710b5f3c}{matches\+Values}} (int row\+Index, const std\+::string \&value) const override
+\begin{DoxyCompactList}\small\item\em Checks if the value of a cell at a given row index matches a specified string value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_double_column_a60bf0417ce9b50e2e1e4ae7172e3fcee}{fill\+Column\+With\+NULL}} (int size) override
+\begin{DoxyCompactList}\small\item\em Fills the column with a specified number of NULL (default double 0.\+0) values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_double_column_af092f1568adb61ce8fcfa90721e7271e}{clone}} () const override
+\begin{DoxyCompactList}\small\item\em Creates a deep copy of the current {\ttfamily \doxylink{class_double_column}{Double\+Column}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_table_column}{Table\+Column}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_table_column_ad96f8adf75baf6f9858d596c241b5ab0}{\texorpdfstring{$\sim$}{\string~}\+Table\+Column}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete implementation of {\ttfamily \doxylink{class_table_column}{Table\+Column}} for storing double-\/precision floating-\/point data. 
+
+This class manages a column of {\ttfamily double} values, including support for NULL values. It provides methods for accessing, modifying, adding, and deleting cells, performing necessary string-\/to-\/double conversions. It strictly adheres to the polymorphic interface defined by the {\ttfamily \doxylink{class_table_column}{Table\+Column}} base class. NULL values are typically represented internally by a default value (e.\+g., 0.\+0) in {\ttfamily content} and a corresponding {\ttfamily true} in the {\ttfamily is\+Null} boolean vector. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_double_column_aef71165c86fb7db5f9e33d45587f9cea}\index{DoubleColumn@{DoubleColumn}!DoubleColumn@{DoubleColumn}}
+\index{DoubleColumn@{DoubleColumn}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{DoubleColumn()}{DoubleColumn()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_double_column_aef71165c86fb7db5f9e33d45587f9cea} 
+Double\+Column\+::\+Double\+Column (\begin{DoxyParamCaption}\item[{std\+::string}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new \doxylink{class_double_column}{Double\+Column} with a specified name. 
+
+The column is initialized as empty (containing no rows).
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name to assign to this column.\\
+\hline
+\end{DoxyParams}
+Initializes the column with an empty content vector and an empty {\ttfamily is\+Null} vector, indicating that it contains no rows initially.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name to assign to this column. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_double_column_ad9636e824d5965463d46df9cbd7e8abf}\index{DoubleColumn@{DoubleColumn}!DoubleColumn@{DoubleColumn}}
+\index{DoubleColumn@{DoubleColumn}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{DoubleColumn()}{DoubleColumn()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_double_column_ad9636e824d5965463d46df9cbd7e8abf} 
+Double\+Column\+::\+Double\+Column (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_double_column}{Double\+Column}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor for \doxylink{class_double_column}{Double\+Column}. 
+
+Performs a deep copy of the {\ttfamily content}, {\ttfamily is\+Null}, and {\ttfamily name} from another \doxylink{class_double_column}{Double\+Column} instance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_double_column}{Double\+Column} object to copy from.\\
+\hline
+\end{DoxyParams}
+Performs a member-\/wise copy of the {\ttfamily content}, {\ttfamily is\+Null} vectors, and the {\ttfamily name} string. This results in a deep copy because {\ttfamily std\+::vector} and {\ttfamily std\+::string} handle their memory dynamically and have their own deep copy semantics.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_double_column}{Double\+Column} object to copy from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_double_column_ade421a4ace9ae269c665d686715eaa90}\index{DoubleColumn@{DoubleColumn}!````~DoubleColumn@{\texorpdfstring{$\sim$}{\string~}DoubleColumn}}
+\index{````~DoubleColumn@{\texorpdfstring{$\sim$}{\string~}DoubleColumn}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DoubleColumn()}{\string~DoubleColumn()}}
+{\footnotesize\ttfamily \label{class_double_column_ade421a4ace9ae269c665d686715eaa90} 
+Double\+Column\+::\texorpdfstring{$\sim$}{\string~}\+Double\+Column (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructor for \doxylink{class_double_column}{Double\+Column}. 
+
+Manages the deallocation of resources (vectors) used by the column. (Default implementation is sufficient for {\ttfamily std\+::vector}).
+
+The default destructor provided by the compiler is sufficient here, as {\ttfamily std\+::vector} and {\ttfamily std\+::string} automatically manage their own memory. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_double_column_a46fe47923aba2a1c25f2da9466e1597c}\index{DoubleColumn@{DoubleColumn}!addCell@{addCell}}
+\index{addCell@{addCell}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{addCell()}{addCell()}}
+{\footnotesize\ttfamily \label{class_double_column_a46fe47923aba2a1c25f2da9466e1597c} 
+void Double\+Column\+::add\+Cell (\begin{DoxyParamCaption}\item[{std\+::string}]{cell}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds a new cell (row entry) to the end of the column. 
+
+Adds a new cell to the end of the column.
+
+The provided string {\ttfamily cell} is converted to a {\ttfamily double} using {\ttfamily std\+::stod}. If {\ttfamily cell} is an empty string {\ttfamily "{}"{}}, the new cell is added as NULL (internally stored as 0.\+0). Otherwise, the converted double value is added. This operation increases the column\textquotesingle{}s size by one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The value for the new cell, provided as a string. An empty string {\ttfamily "{}"{}} implies NULL. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the {\ttfamily cell} string cannot be converted to a valid double. \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & If the converted double value is out of the range of {\ttfamily double}.\\
+\hline
+\end{DoxyExceptions}
+The provided string {\ttfamily cell} is converted to a {\ttfamily double} using {\ttfamily std\+::stod}. If {\ttfamily cell} is an empty string {\ttfamily "{}"{}}, the new cell is added as NULL (its double content is set to 0.\+0). Otherwise, the converted double value is added, and the cell is marked as not NULL. This operation increases the column\textquotesingle{}s size by one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The value for the new cell, provided as a string. An empty string {\ttfamily "{}"{}} implies NULL. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the {\ttfamily cell} string cannot be converted to a valid double. \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & If the converted double value is out of the range of {\ttfamily double}. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_table_column_a796841e024aa380f3c53d85c74fa6236}{Table\+Column}}.
+
+\Hypertarget{class_double_column_aea5c8b7e6e61473cd884acbfbebf6b4b}\index{DoubleColumn@{DoubleColumn}!changeValueAtIndex@{changeValueAtIndex}}
+\index{changeValueAtIndex@{changeValueAtIndex}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{changeValueAtIndex()}{changeValueAtIndex()}}
+{\footnotesize\ttfamily \label{class_double_column_aea5c8b7e6e61473cd884acbfbebf6b4b} 
+void Double\+Column\+::change\+Value\+At\+Index (\begin{DoxyParamCaption}\item[{int}]{index}{, }\item[{std\+::string}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Changes the value of a cell at a specific index. 
+
+The provided string {\ttfamily val} is converted to a {\ttfamily double} using {\ttfamily std\+::stod}. If {\ttfamily val} is an empty string {\ttfamily "{}"{}}, the cell is marked as NULL (internally stored as 0.\+0). Otherwise, the converted double value is stored.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell whose value is to be changed. \\
+\hline
+{\em val} & The new value for the cell, provided as a string. An empty string {\ttfamily "{}"{}} implies NULL. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the {\ttfamily val} string cannot be converted to a valid double. \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & If the converted double value is out of the range of {\ttfamily double}.\\
+\hline
+\end{DoxyExceptions}
+The provided string {\ttfamily val} is converted to a {\ttfamily double} using {\ttfamily std\+::stod}. If {\ttfamily val} is an empty string {\ttfamily "{}"{}}, the cell is marked as NULL (its double content is set to 0.\+0). Otherwise, the converted double value is stored, and the cell is marked as not NULL.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell to modify. \\
+\hline
+{\em val} & The new value for the cell, provided as a string. An empty string {\ttfamily "{}"{}} implies NULL. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the {\ttfamily val} string cannot be converted to a valid double (e.\+g., "{}abc"{}). \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & If the converted double value is too large or too small to fit in a {\ttfamily double}. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_table_column_a0197eaf50969a9afe0d2b6825b241cec}{Table\+Column}}.
+
+\Hypertarget{class_double_column_af092f1568adb61ce8fcfa90721e7271e}\index{DoubleColumn@{DoubleColumn}!clone@{clone}}
+\index{clone@{clone}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_double_column_af092f1568adb61ce8fcfa90721e7271e} 
+\mbox{\hyperlink{class_table_column}{Table\+Column}} \texorpdfstring{$\ast$}{*} Double\+Column\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a deep copy of the current {\ttfamily \doxylink{class_double_column}{Double\+Column}} object. 
+
+Creates a deep copy of the current \doxylink{class_double_column}{Double\+Column} object.
+
+This method ensures that a new, independent {\ttfamily \doxylink{class_double_column}{Double\+Column}} instance, containing a full copy of its content and null flags, is created.
+
+\begin{DoxyReturn}{Returns}
+A pointer to a newly allocated {\ttfamily \doxylink{class_double_column}{Double\+Column}} object, which is a deep copy of this instance. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The caller is responsible for {\ttfamily delete}ing the returned pointer to prevent memory leaks. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{class_table_column_aa5eb5d1796a1e8ce410bfe61f1bac38e}{Table\+Column}}.
+
+\Hypertarget{class_double_column_ae706f530e25d5e07f364d0ebe4670d75}\index{DoubleColumn@{DoubleColumn}!deleteCell@{deleteCell}}
+\index{deleteCell@{deleteCell}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{deleteCell()}{deleteCell()}}
+{\footnotesize\ttfamily \label{class_double_column_ae706f530e25d5e07f364d0ebe4670d75} 
+void Double\+Column\+::delete\+Cell (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Deletes a cell (row entry) at a specified index from the column. 
+
+Deletes a cell at the specified index.
+
+This operation removes the double content and its corresponding NULL flag at the given {\ttfamily index}, effectively shortening the column\textquotesingle{}s content.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell to delete. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds.\\
+\hline
+\end{DoxyExceptions}
+This function removes the element at {\ttfamily index} from both the {\ttfamily content} vector and the {\ttfamily is\+Null} vector, effectively removing a row entry from this column.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell to delete. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is negative or greater than or equal to the column\textquotesingle{}s size. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_table_column_a51c588dbe3616d8a3e1211503e622232}{Table\+Column}}.
+
+\Hypertarget{class_double_column_a60bf0417ce9b50e2e1e4ae7172e3fcee}\index{DoubleColumn@{DoubleColumn}!fillColumnWithNULL@{fillColumnWithNULL}}
+\index{fillColumnWithNULL@{fillColumnWithNULL}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{fillColumnWithNULL()}{fillColumnWithNULL()}}
+{\footnotesize\ttfamily \label{class_double_column_a60bf0417ce9b50e2e1e4ae7172e3fcee} 
+void Double\+Column\+::fill\+Column\+With\+NULL (\begin{DoxyParamCaption}\item[{int}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Fills the column with a specified number of NULL (default double 0.\+0) values. 
+
+This method appends {\ttfamily size} number of new cells to the column. Each new cell will have a default double value (0.\+0) as its content and its {\ttfamily is\+Null} flag set to {\ttfamily true}. This is useful for initializing new columns in existing tables.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The number of NULL values to add to the column. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_table_column_a06938e5ead9f5217e5fca205e1d88be9}{Table\+Column}}.
+
+\Hypertarget{class_double_column_a9cc754ca4e69306752a622d0a718c14b}\index{DoubleColumn@{DoubleColumn}!getContent@{getContent}}
+\index{getContent@{getContent}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{getContent()}{getContent()}}
+{\footnotesize\ttfamily \label{class_double_column_a9cc754ca4e69306752a622d0a718c14b} 
+const std\+::vector$<$ double $>$ \& Double\+Column\+::get\+Content (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves a constant reference to the underlying vector of double content. 
+
+Retrieves a constant reference to the internal content vector.
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the {\ttfamily std\+::vector\texorpdfstring{$<$}{<}double\texorpdfstring{$>$}{>}} containing the column\textquotesingle{}s data. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This method is specific to {\ttfamily \doxylink{class_double_column}{Double\+Column}} and not part of the {\ttfamily \doxylink{class_table_column}{Table\+Column}} interface.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+A constant reference to the {\ttfamily std\+::vector\texorpdfstring{$<$}{<}double\texorpdfstring{$>$}{>}} that stores the column\textquotesingle{}s data. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This method exposes the internal data structure and is not part of the {\ttfamily \doxylink{class_table_column}{Table\+Column}} interface. 
+\end{DoxyNote}
+\Hypertarget{class_double_column_a8ec16b62925124919d711f2b0e6cd02d}\index{DoubleColumn@{DoubleColumn}!getName@{getName}}
+\index{getName@{getName}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_double_column_a8ec16b62925124919d711f2b0e6cd02d} 
+std\+::string Double\+Column\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the name of the column. 
+
+\begin{DoxyReturn}{Returns}
+The name of the column.
+
+The name of the column as a string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_table_column_aec5151a1b2eaef6ca18d8fe8766b0fe5}{Table\+Column}}.
+
+\Hypertarget{class_double_column_ab030adb429f565fd0573e8e374c02934}\index{DoubleColumn@{DoubleColumn}!getSize@{getSize}}
+\index{getSize@{getSize}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily \label{class_double_column_ab030adb429f565fd0573e8e374c02934} 
+int Double\+Column\+::get\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the number of cells (rows) currently in the column. 
+
+Returns the current number of elements (rows) in the column.
+
+\begin{DoxyReturn}{Returns}
+An integer representing the current size of the column.
+
+The size of the column. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_table_column_a60d90eac16666c7bafb43664a4613197}{Table\+Column}}.
+
+\Hypertarget{class_double_column_ab6b22a7b5e4967f062a183d7cb021b34}\index{DoubleColumn@{DoubleColumn}!getType@{getType}}
+\index{getType@{getType}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \label{class_double_column_ab6b22a7b5e4967f062a183d7cb021b34} 
+Column\+Type Double\+Column\+::get\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the data type of the column. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily Column\+Type\+::\+DOUBLE}, indicating this is a double-\/precision floating-\/point column.
+
+{\ttfamily Column\+Type\+::\+DOUBLE}, indicating this column holds double values. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_table_column_a7cf2b5320e93be77508226c068f506b1}{Table\+Column}}.
+
+\Hypertarget{class_double_column_a79859aefed69448e072ba47733db42d1}\index{DoubleColumn@{DoubleColumn}!getTypeAsString@{getTypeAsString}}
+\index{getTypeAsString@{getTypeAsString}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{getTypeAsString()}{getTypeAsString()}}
+{\footnotesize\ttfamily \label{class_double_column_a79859aefed69448e072ba47733db42d1} 
+std\+::string Double\+Column\+::get\+Type\+As\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the name of the column\textquotesingle{}s data type as a human-\/readable string. 
+
+Retrieves the string representation of the column\textquotesingle{}s type.
+
+\begin{DoxyReturn}{Returns}
+The string "{}\+Double"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_table_column_a86c7cbdb45bf5e1d8fba66f85b9b7790}{Table\+Column}}.
+
+\Hypertarget{class_double_column_a2f1bb52adaa19dd10e181a9476994fc1}\index{DoubleColumn@{DoubleColumn}!getValueAtGivenIndex@{getValueAtGivenIndex}}
+\index{getValueAtGivenIndex@{getValueAtGivenIndex}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{getValueAtGivenIndex()}{getValueAtGivenIndex()}}
+{\footnotesize\ttfamily \label{class_double_column_a2f1bb52adaa19dd10e181a9476994fc1} 
+double Double\+Column\+::get\+Value\+At\+Given\+Index (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the double value of a cell at a specific index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell whose value is to be retrieved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The double value of the cell. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the value at the given {\ttfamily index} is NULL. This method does not return a default value for NULLs. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+This method is specific to {\ttfamily \doxylink{class_double_column}{Double\+Column}} and not part of the {\ttfamily \doxylink{class_table_column}{Table\+Column}} interface.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The double value of the cell. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the {\ttfamily index} is negative or greater than or equal to the column\textquotesingle{}s size. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the value at the given {\ttfamily index} is NULL. This method does not return a default value for NULLs. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+This method is not part of the {\ttfamily \doxylink{class_table_column}{Table\+Column}} interface, and is a concrete implementation detail. 
+\end{DoxyNote}
+\Hypertarget{class_double_column_a97a3a0954fb0c167a10ed913710b5f3c}\index{DoubleColumn@{DoubleColumn}!matchesValues@{matchesValues}}
+\index{matchesValues@{matchesValues}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{matchesValues()}{matchesValues()}}
+{\footnotesize\ttfamily \label{class_double_column_a97a3a0954fb0c167a10ed913710b5f3c} 
+bool Double\+Column\+::matches\+Values (\begin{DoxyParamCaption}\item[{int}]{row\+Index}{, }\item[{const std\+::string \&}]{value}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if the value of a cell at a given row index matches a specified string value. 
+
+This method handles NULL values\+: a NULL cell in the column is considered a match if the provided {\ttfamily value} is also an empty string {\ttfamily "{}"{}}. For non-\/\+NULL cells, the provided {\ttfamily value} string is attempted to be converted to a {\ttfamily double}. If conversion is successful, a numeric comparison is performed. If conversion fails, it is considered a non-\/match.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row\+Index} & The 0-\/indexed position of the cell to compare. \\
+\hline
+{\em value} & The string value to match against. An empty string {\ttfamily "{}"{}} matches NULL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the cell\textquotesingle{}s value matches (including NULL-\/to-\/empty-\/string match) or if the numeric conversion and comparison succeed; {\ttfamily false} otherwise (e.\+g., on conversion failure). 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily row\+Index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_table_column_a102ad108b45c37212a3ccea9a0256dd5}{Table\+Column}}.
+
+\Hypertarget{class_double_column_a34286da773274fe3fdf160955d5b32d0}\index{DoubleColumn@{DoubleColumn}!operator=@{operator=}}
+\index{operator=@{operator=}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_double_column_a34286da773274fe3fdf160955d5b32d0} 
+\mbox{\hyperlink{class_double_column}{Double\+Column}} \& Double\+Column\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_double_column}{Double\+Column}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy assignment operator for \doxylink{class_double_column}{Double\+Column}. 
+
+Performs a deep copy of the {\ttfamily content}, {\ttfamily is\+Null}, and {\ttfamily name} from another \doxylink{class_double_column}{Double\+Column} instance to this object. Handles self-\/assignment correctly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_double_column}{Double\+Column} object to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \doxylink{class_double_column}{Double\+Column} object after assignment.
+\end{DoxyReturn}
+Ensures proper deep copying from {\ttfamily other} to this object. It prevents self-\/assignment to avoid accidental data corruption.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \doxylink{class_double_column}{Double\+Column} object to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this \doxylink{class_double_column}{Double\+Column} object, allowing for chaining assignments. 
+\end{DoxyReturn}
+\Hypertarget{class_double_column_a118e2b11369f316c3a44e48efba1cd42}\index{DoubleColumn@{DoubleColumn}!returnValueAtGivenIndexAsString@{returnValueAtGivenIndexAsString}}
+\index{returnValueAtGivenIndexAsString@{returnValueAtGivenIndexAsString}!DoubleColumn@{DoubleColumn}}
+\doxysubsubsection{\texorpdfstring{returnValueAtGivenIndexAsString()}{returnValueAtGivenIndexAsString()}}
+{\footnotesize\ttfamily \label{class_double_column_a118e2b11369f316c3a44e48efba1cd42} 
+std\+::string Double\+Column\+::return\+Value\+At\+Given\+Index\+As\+String (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Retrieves the value of a cell at a specific index, formatted as a string. 
+
+This method fulfills the {\ttfamily \doxylink{class_table_column}{Table\+Column}} interface contract. If the cell at the given {\ttfamily index} is NULL, an empty string {\ttfamily "{}"{}} is returned. Otherwise, the double value is converted to its string representation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The 0-\/indexed position of the cell whose value is to be retrieved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string representation of the cell\textquotesingle{}s value. Returns {\ttfamily "{}"{}} if the value is NULL. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the provided {\ttfamily index} is out of the column\textquotesingle{}s bounds. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_table_column_a2ae47d404331d5042a362735e3060a4a}{Table\+Column}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Double\+Column.\+hpp\item 
+Database\+Course\+Project/Double\+Column\+Impl.\+cpp\end{DoxyCompactItemize}

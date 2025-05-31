@@ -1,0 +1,37 @@
+\doxysection{Table\+Column.\+hpp}
+\hypertarget{_table_column_8hpp_source}{}\label{_table_column_8hpp_source}\index{DatabaseCourseProject/TableColumn.hpp@{DatabaseCourseProject/TableColumn.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}ColumnType.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_table_column}{TableColumn}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_table_column_ad96f8adf75baf6f9858d596c241b5ab0}{\string~TableColumn}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{class_table_column_aec5151a1b2eaef6ca18d8fe8766b0fe5}{getName}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ ColumnType\ \mbox{\hyperlink{class_table_column_a7cf2b5320e93be77508226c068f506b1}{getType}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_table_column_a51c588dbe3616d8a3e1211503e622232}{deleteCell}}(\textcolor{keywordtype}{int}\ index)\ =\ 0;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_table_column_a60d90eac16666c7bafb43664a4613197}{getSize}}()\ =\ 0;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{class_table_column_a2ae47d404331d5042a362735e3060a4a}{returnValueAtGivenIndexAsString}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_table_column_a0197eaf50969a9afe0d2b6825b241cec}{changeValueAtIndex}}(\textcolor{keywordtype}{int}\ index,\ std::string\ val)\ =\ 0;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_table_column_a796841e024aa380f3c53d85c74fa6236}{addCell}}(std::string\ cell)\ =\ 0;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{class_table_column_a86c7cbdb45bf5e1d8fba66f85b9b7790}{getTypeAsString}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_table_column_a102ad108b45c37212a3ccea9a0256dd5}{matchesValues}}(\textcolor{keywordtype}{int}\ rowIndex,\ \textcolor{keyword}{const}\ std::string\&\ value)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_table_column_a06938e5ead9f5217e5fca205e1d88be9}{fillColumnWithNULL}}(\textcolor{keywordtype}{int}\ size)\ =\ 0;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_table_column}{TableColumn}}*\ \mbox{\hyperlink{class_table_column_aa5eb5d1796a1e8ce410bfe61f1bac38e}{clone}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00132\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,21 @@
+\doxysection{Catalog\+Print\+Command.\+hpp}
+\hypertarget{_catalog_print_command_8hpp_source}{}\label{_catalog_print_command_8hpp_source}\index{DatabaseCourseProject/CatalogPrintCommand.hpp@{DatabaseCourseProject/CatalogPrintCommand.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}CommandContext.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catalog_print_command_a598cbb31a1fc403bd10f69a409d45333}{CatalogPrintCommand}}\ :\ \textcolor{keyword}{public}\ \ \mbox{\hyperlink{class_command}{Command}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_catalog_print_command_a598cbb31a1fc403bd10f69a409d45333}{CatalogPrintCommand}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_print_command_ae276f104b182651fc7c4035da3c50dbe}{execute}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ params)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_command}{Command}}*\ \mbox{\hyperlink{class_catalog_print_command_a8612a5fb73d6158c4a1544075dff4435}{clone}}(\mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ newContext)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \};}
+
+\end{DoxyCode}

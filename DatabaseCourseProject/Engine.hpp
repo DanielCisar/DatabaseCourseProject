@@ -79,10 +79,9 @@ public:
     *
     * Constructs a new Engine object by efficiently transferring resources
     * (the `loadedCatalog` and ownership of `Command` objects) from a temporary
-    * or expiring `other` Engine object. This avoids expensive deep copies.
-    * The `other` object is left in a valid, but unspecified, state suitable for destruction.
+    * or expiring `other` Engine object. This avoids unnecessary deep copies.
     *
-    * @param other The Engine object to be moved from (an rvalue reference).
+    * @param other The Engine object to be moved from.
     */
     Engine(Engine&& other) noexcept;
 

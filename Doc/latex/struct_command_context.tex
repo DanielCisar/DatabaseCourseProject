@@ -1,0 +1,76 @@
+\doxysection{Command\+Context Struct Reference}
+\hypertarget{struct_command_context}{}\label{struct_command_context}\index{CommandContext@{CommandContext}}
+
+
+Shared execution context passed to all command classes.  
+
+
+
+
+{\ttfamily \#include $<$Command\+Context.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_command_context_ac4affa8b9abf67876178c41f8b110cd9}{Command\+Context}} (\mbox{\hyperlink{class_catalog}{Catalog}} \&loaded\+Catalog\+Ref, \mbox{\hyperlink{class_output_console_writter}{Output\+Console\+Writter}} \&\mbox{\hyperlink{struct_command_context_a9f56674867abf2cf5080eccf07d13d32}{output\+Console\+Writter}}, \mbox{\hyperlink{class_input_console_reader}{Input\+Console\+Reader}} \&\mbox{\hyperlink{struct_command_context_ab660024ca637da6a4a05a8edf66836ab}{input\+Console\+Reader}}, \mbox{\hyperlink{class_output_file_writter}{Output\+File\+Writter}} \&\mbox{\hyperlink{struct_command_context_ae7f37593d26dd02f9f51b423858065dc}{output\+File\+Writter}}, \mbox{\hyperlink{class_input_file_reader}{Input\+File\+Reader}} \&\mbox{\hyperlink{struct_command_context_aba982d54123d55ec8d99e2d9a19f87fc}{input\+File\+Reader}})
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{struct_command_context}{Command\+Context}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_command_context_ace1dba016f2462b0ac66babd4b04765e}\label{struct_command_context_ace1dba016f2462b0ac66babd4b04765e} 
+std\+::vector$<$ std\+::string $>$ {\bfseries params}
+\begin{DoxyCompactList}\small\item\em Command-\/line parameters passed to the current command. \end{DoxyCompactList}\item 
+\Hypertarget{struct_command_context_a8bb9bf676a2019d063e07b06902d14f0}\label{struct_command_context_a8bb9bf676a2019d063e07b06902d14f0} 
+\mbox{\hyperlink{class_catalog}{Catalog}} \& {\bfseries loaded\+Catalog}
+\begin{DoxyCompactList}\small\item\em Reference to the currently loaded catalog (database). \end{DoxyCompactList}\item 
+\Hypertarget{struct_command_context_a3391c3129db4f10d5973d10467196bd7}\label{struct_command_context_a3391c3129db4f10d5973d10467196bd7} 
+bool {\bfseries loaded\+Catalog\+Exists}
+\begin{DoxyCompactList}\small\item\em Indicates whether a catalog is currently loaded. \end{DoxyCompactList}\item 
+\Hypertarget{struct_command_context_a9f56674867abf2cf5080eccf07d13d32}\label{struct_command_context_a9f56674867abf2cf5080eccf07d13d32} 
+\mbox{\hyperlink{class_output_console_writter}{Output\+Console\+Writter}} \& {\bfseries output\+Console\+Writter}
+\begin{DoxyCompactList}\small\item\em Console writer for output. \end{DoxyCompactList}\item 
+\Hypertarget{struct_command_context_ab660024ca637da6a4a05a8edf66836ab}\label{struct_command_context_ab660024ca637da6a4a05a8edf66836ab} 
+\mbox{\hyperlink{class_input_console_reader}{Input\+Console\+Reader}} \& {\bfseries input\+Console\+Reader}
+\begin{DoxyCompactList}\small\item\em Console reader for input. \end{DoxyCompactList}\item 
+\Hypertarget{struct_command_context_ae7f37593d26dd02f9f51b423858065dc}\label{struct_command_context_ae7f37593d26dd02f9f51b423858065dc} 
+\mbox{\hyperlink{class_output_file_writter}{Output\+File\+Writter}} \& {\bfseries output\+File\+Writter}
+\begin{DoxyCompactList}\small\item\em File writer used to save data to disk. \end{DoxyCompactList}\item 
+\Hypertarget{struct_command_context_aba982d54123d55ec8d99e2d9a19f87fc}\label{struct_command_context_aba982d54123d55ec8d99e2d9a19f87fc} 
+\mbox{\hyperlink{class_input_file_reader}{Input\+File\+Reader}} \& {\bfseries input\+File\+Reader}
+\begin{DoxyCompactList}\small\item\em File reader used to load data from disk. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Shared execution context passed to all command classes. 
+
+Holds references to I/O utilities and the currently loaded catalog, allowing command objects to operate in a consistent environment. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_command_context_ac4affa8b9abf67876178c41f8b110cd9}\index{CommandContext@{CommandContext}!CommandContext@{CommandContext}}
+\index{CommandContext@{CommandContext}!CommandContext@{CommandContext}}
+\doxysubsubsection{\texorpdfstring{CommandContext()}{CommandContext()}}
+{\footnotesize\ttfamily \label{struct_command_context_ac4affa8b9abf67876178c41f8b110cd9} 
+Command\+Context\+::\+Command\+Context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_catalog}{Catalog}} \&}]{loaded\+Catalog\+Ref}{, }\item[{\mbox{\hyperlink{class_output_console_writter}{Output\+Console\+Writter}} \&}]{output\+Console\+Writter}{, }\item[{\mbox{\hyperlink{class_input_console_reader}{Input\+Console\+Reader}} \&}]{input\+Console\+Reader}{, }\item[{\mbox{\hyperlink{class_output_file_writter}{Output\+File\+Writter}} \&}]{output\+File\+Writter}{, }\item[{\mbox{\hyperlink{class_input_file_reader}{Input\+File\+Reader}} \&}]{input\+File\+Reader}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a new \doxylink{struct_command_context}{Command\+Context}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em loaded\+Catalog\+Ref} & Reference to the current catalog. \\
+\hline
+{\em output\+Console\+Writter} & Reference to console writer. \\
+\hline
+{\em input\+Console\+Reader} & Reference to console reader. \\
+\hline
+{\em output\+File\+Writter} & Reference to file writer. \\
+\hline
+{\em input\+File\+Reader} & Reference to file reader. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Command\+Context.\+hpp\end{DoxyCompactItemize}

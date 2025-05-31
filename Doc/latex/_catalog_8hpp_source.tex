@@ -1,0 +1,42 @@
+\doxysection{Catalog.\+hpp}
+\hypertarget{_catalog_8hpp_source}{}\label{_catalog_8hpp_source}\index{DatabaseCourseProject/Catalog.hpp@{DatabaseCourseProject/Catalog.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Table.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ std::vector<Table>\ tableCollection;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ std::string\ catalogPath;\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}}(\textcolor{keyword}{const}\ std::string\ catalogPath);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_catalog_afd61fcc5031564dfc8e74e7af239caea}{\string~Catalog}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}}\&\ other);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}}\&\ \mbox{\hyperlink{class_catalog_adaa312b55789105cc549399c9f8c9a1a}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}}\&\ other);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_aeb1fe478c3ca9f36338c29b68d1d3770}{addTable}}(\mbox{\hyperlink{class_table}{Table}}\ table);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_a89c3aa7781b0a731778d547605fb4950}{removeTable}}(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{class_table}{Table}}\&\ \mbox{\hyperlink{class_catalog_a953d9daf6a01400f162ba79495406dab}{returnTableByName}}(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \ \ \ \ std::string\ \mbox{\hyperlink{class_catalog_a544182247a8c208f3164d69d0beda0a6}{getPath}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00119\ \ \ \ \ std::vector<Table>::iterator\ \mbox{\hyperlink{class_catalog_acb9c27fd0c2face7b1f7077fd1935796}{begin}}();}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00125\ \ \ \ \ std::vector<Table>::iterator\ \mbox{\hyperlink{class_catalog_a880adbb7f3d0a2bf221d7e16610e990f}{end}}();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_a2018f3ec44dca5ff8399f064f504ed50}{setPath}}(\textcolor{keyword}{const}\ std::string\&\ catalogPath);}
+\DoxyCodeLine{00132\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,20 @@
+\doxysection{File\+Command\+Factory.\+hpp}
+\hypertarget{_file_command_factory_8hpp_source}{}\label{_file_command_factory_8hpp_source}\index{DatabaseCourseProject/FileCommandFactory.hpp@{DatabaseCourseProject/FileCommandFactory.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Command.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}FileOpenCommand.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}FileCloseCommand.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}FileSaveCommand.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}FileSaveAsCommand.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}FileHelpCommand.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}FileExitCommand.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_file_command_factory}{FileCommandFactory}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_command}{Command}}*\ \mbox{\hyperlink{class_file_command_factory_a1d26ef77224ab6e8bbb43305a86d3b7d}{createCommand}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \mbox{\hyperlink{struct_command_context}{CommandContext}}\&\ context);}
+\DoxyCodeLine{00035\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,160 @@
+\doxysection{Operations Class Reference}
+\hypertarget{class_operations}{}\label{class_operations}\index{Operations@{Operations}}
+
+
+A static utility class providing common mathematical operations on collections of numbers.  
+
+
+
+
+{\ttfamily \#include $<$Operations.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{class_operations_a5c2d218bff8f5ef781e76474245676b5}{sum}} (const std\+::vector$<$ double $>$ \&cells)
+\begin{DoxyCompactList}\small\item\em Calculates the sum of all elements in a vector of doubles. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{class_operations_a1d18405d78f6be52e20e6cb05151c322}{product}} (const std\+::vector$<$ double $>$ \&cells)
+\begin{DoxyCompactList}\small\item\em Calculates the product of all elements in a vector of doubles. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{class_operations_a198844a5adc398510c5b7cce8b54ecb5}{max}} (const std\+::vector$<$ double $>$ \&cells)
+\begin{DoxyCompactList}\small\item\em Finds the maximum value in a vector of doubles. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{class_operations_a645fbfc0bb1dd9de427bab0774476804}{min}} (const std\+::vector$<$ double $>$ \&cells)
+\begin{DoxyCompactList}\small\item\em Finds the minimum value in a vector of doubles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A static utility class providing common mathematical operations on collections of numbers. 
+
+This class offers basic aggregate functions such as sum, product, maximum, and minimum for vectors of double-\/precision floating-\/point numbers. It\textquotesingle{}s designed to be a stateless helper for performing calculations on numerical data, typically from table columns. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_operations_a198844a5adc398510c5b7cce8b54ecb5}\index{Operations@{Operations}!max@{max}}
+\index{max@{max}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily \label{class_operations_a198844a5adc398510c5b7cce8b54ecb5} 
+double Operations\+::max (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{cells}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Finds the maximum value in a vector of doubles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cells} & A constant reference to a {\ttfamily std\+::vector\texorpdfstring{$<$}{<}double\texorpdfstring{$>$}{>}} containing the numbers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The largest value in the vector. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the input vector {\ttfamily cells} is empty.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em cells} & The vector of numbers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The largest value. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the input vector is empty. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_operations_a645fbfc0bb1dd9de427bab0774476804}\index{Operations@{Operations}!min@{min}}
+\index{min@{min}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily \label{class_operations_a645fbfc0bb1dd9de427bab0774476804} 
+double Operations\+::min (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{cells}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Finds the minimum value in a vector of doubles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cells} & A constant reference to a {\ttfamily std\+::vector\texorpdfstring{$<$}{<}double\texorpdfstring{$>$}{>}} containing the numbers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The smallest value in the vector. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the input vector {\ttfamily cells} is empty.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em cells} & The vector of numbers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The smallest value. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If the input vector is empty. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_operations_a1d18405d78f6be52e20e6cb05151c322}\index{Operations@{Operations}!product@{product}}
+\index{product@{product}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{product()}{product()}}
+{\footnotesize\ttfamily \label{class_operations_a1d18405d78f6be52e20e6cb05151c322} 
+double Operations\+::product (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{cells}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates the product of all elements in a vector of doubles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cells} & A constant reference to a {\ttfamily std\+::vector\texorpdfstring{$<$}{<}double\texorpdfstring{$>$}{>}} containing the numbers to multiply. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The product of all elements. Returns 1 if the vector is empty.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cells} & The vector of numbers to multiply. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The product of the elements. 
+\end{DoxyReturn}
+\Hypertarget{class_operations_a5c2d218bff8f5ef781e76474245676b5}\index{Operations@{Operations}!sum@{sum}}
+\index{sum@{sum}!Operations@{Operations}}
+\doxysubsubsection{\texorpdfstring{sum()}{sum()}}
+{\footnotesize\ttfamily \label{class_operations_a5c2d218bff8f5ef781e76474245676b5} 
+double Operations\+::sum (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{cells}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates the sum of all elements in a vector of doubles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cells} & A constant reference to a {\ttfamily std\+::vector\texorpdfstring{$<$}{<}double\texorpdfstring{$>$}{>}} containing the numbers to sum. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sum of all elements. Returns 0 if the vector is empty.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cells} & The vector of numbers to sum. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sum of the elements. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+Course\+Project/Operations.\+hpp\item 
+Database\+Course\+Project/Operations\+Impl.\+cpp\end{DoxyCompactItemize}
