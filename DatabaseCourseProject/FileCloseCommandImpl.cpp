@@ -1,19 +1,5 @@
 #include "FileCloseCommand.hpp"
-#include "Table.hpp"
-#include "TableColumn.hpp"
-#include "DoubleColumn.hpp"
-#include "IntegerColumn.hpp"
-#include "StringColumn.hpp"
-#include "ColumnType.hpp"
-#include "ColumnFactory.hpp"
-#include <vector>
-#include <string>
-#include "Catalog.hpp"
-#include <stdexcept>
-#include <fstream>
-#include "FileUtils.hpp"
-#include <ostream>
-#include <iostream>
+#include "CommandContext.hpp"
 
 /**
  * @brief Constructs the FileCloseCommand with a reference to the command context.
@@ -25,15 +11,20 @@ FileCloseCommand::FileCloseCommand(CommandContext& context)
 }
 
 /**
- * @brief Executes the close command which resets the loaded catalog.
+ * @brief Executes the close command, resetting the loaded catalog state.
  *
- * This function checks if a file is currently loaded. If so, it marks the catalog
- * as closed and informs the user via the console. If no file is open, it throws
- * an exception.
+ * This function performs the necessary actions to "close" the currently loaded database catalog.
+ * It first verifies that a catalog is indeed open by checking the `context.loadedCatalogExists` flag.
+ * If a catalog is open, it prints a confirmation message to the console, then proceeds to
+ * clear the contents of the `context.loadedCatalog` (by assigning an empty `Catalog` object)
+ * and updates the `context.loadedCatalogExists` flag to `false`.
  *
- * @param params Command-line parameters (not used for this command).
+ * @param params A constant reference to a vector of strings containing command-line arguments.
+ * For the `close` command, these parameters are not used, but the signature
+ * is required by the `Command::execute` interface.
  *
- * @throws std::runtime_error if no catalog is currently loaded.
+ * @throws std::runtime_error if no catalog is currently loaded (`context.loadedCatalogExists` is false).
+ * The exception message will guide the user to open a file first.
  */
 void FileCloseCommand::execute(const std::vector<std::string>& params) {
     if (!context.loadedCatalogExists) {
@@ -44,4 +35,21 @@ void FileCloseCommand::execute(const std::vector<std::string>& params) {
         + context.loadedCatalog.getPath());
 
     context.loadedCatalogExists = false;
+}
+
+/**
+ * @brief Creates a deep copy of the current `FileCloseCommand` object.
+ *
+ * This override constructs a new `FileCloseCommand` instance,
+ * associating it with the provided `newContext`. Since `FileCloseCommand`
+ * itself only holds a reference to `CommandContext` and no other dynamically
+ * allocated members, a simple construction with the new context is sufficient
+ * for cloning this command object.
+ *
+ * @param newContext A reference to the `CommandContext` that the new cloned command should use.
+ * @return A pointer to a newly allocated `FileCloseCommand` object.
+ * @warning The caller is responsible for deleteing the returned pointer.
+ */
+Command* FileCloseCommand::clone(CommandContext& newContext) const {
+    return new FileCloseCommand(newContext);
 }

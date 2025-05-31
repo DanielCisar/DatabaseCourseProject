@@ -1,5 +1,16 @@
 #include "CommandParser.hpp"
 
+/**
+ * @brief Parses a string into a vector of tokens using a specified delimiter.
+ *
+ * This implementation builds `currentToken` character by character until the `delimiter`
+ * is encountered. Once the delimiter is hit, the `currentToken` is pushed to `tokens`,
+ * and `currentToken` is cleared. After the loop, the last `currentToken` is also added.
+ *
+ * @param line The input string to parse.
+ * @param delimiter The character used to separate tokens.
+ * @return A `std::vector<std::string>` containing the parsed tokens.
+ */
 std::vector<std::string> CommandParser::parseCommand(const std::string& line, char delimiter) {
     std::vector<std::string> tokens;
     std::string currentToken;
@@ -19,6 +30,16 @@ std::vector<std::string> CommandParser::parseCommand(const std::string& line, ch
 
 }
 
+/**
+ * @brief Parses a raw command string, specifically handling spaces and quoted arguments.
+ *
+ * This method iterates through the input string, identifying tokens based on spaces
+ * while respecting double quotes. Characters within quotes are part of a single token.
+ * Double quotes themselves are consumed and not included in the output tokens.
+ *
+ * @param line The raw command string to parse.
+ * @return A `std::vector<std::string>` containing the parsed tokens.
+ */
 std::vector<std::string> CommandParser::parseRawCommand(const std::string& line) {
     std::vector<std::string> tokens;
     std::string token;

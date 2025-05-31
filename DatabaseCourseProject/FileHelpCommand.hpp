@@ -1,5 +1,6 @@
 #pragma once
 #include "Command.hpp"
+#include "CommandContext.hpp"
 
 /**
  * @class FileHelpCommand
@@ -29,4 +30,17 @@ public:
      * @param params Unused parameter vector for this command.
      */
     void execute(const std::vector<std::string>& params) override;
+
+    /**
+    * @brief Creates a deep copy of the current object.
+    *
+    * This override implements the polymorphic cloning behavior defined in `Command`.
+    * It constructs a new instance, associating it
+    * with the provided `newContext`.
+    *
+    * @param newContext A reference to the `CommandContext` that the new cloned command should use.
+    * @return A pointer to a newly allocated object, which is a deep copy of this instance.
+    */
+    Command* clone(CommandContext& newContext) const override;
+
 };

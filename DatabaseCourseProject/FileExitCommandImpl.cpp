@@ -1,20 +1,5 @@
 #include "FileExitCommand.hpp"
-#include "Table.hpp"
-#include "TableColumn.hpp"
-#include "DoubleColumn.hpp"
-#include "IntegerColumn.hpp"
-#include "StringColumn.hpp"
-#include "ColumnType.hpp"
-#include "ColumnFactory.hpp"
-#include <vector>
-#include <string>
-#include "Catalog.hpp"
-#include <filesystem>
-#include <stdexcept>
-#include <fstream>
-#include "FileUtils.hpp"
-#include <ostream>
-#include <iostream>
+#include "CommandContext.hpp"
 
 /**
  * @brief Constructs a FileExitCommand with the provided command context.
@@ -36,4 +21,21 @@ FileExitCommand::FileExitCommand(CommandContext& context)
  */
 void FileExitCommand::execute(const std::vector<std::string>& params) {
     context.outputConsoleWritter.printLine("Exiting the program... ");
+}
+
+/**
+ * @brief Creates a deep copy of the current `FileExitCommand` object.
+ *
+ * This override constructs a new `FileExitCommand` instance,
+ * associating it with the provided `newContext`. Since `FileExitCommand`
+ * itself only holds a reference to `CommandContext` and no other dynamically
+ * allocated members, a simple construction with the new context is sufficient
+ * for cloning this command object.
+ *
+ * @param newContext A reference to the `CommandContext` that the new cloned command should use.
+ * @return A pointer to a newly allocated `FileExitCommand` object.
+ * @warning The caller is responsible for deleteing the returned pointer.
+ */
+Command* FileExitCommand::clone(CommandContext& newContext) const {
+    return new FileExitCommand(newContext);
 }

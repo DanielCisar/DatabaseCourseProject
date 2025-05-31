@@ -1,19 +1,5 @@
 #include "FileHelpCommand.hpp"
-#include "Table.hpp"
-#include "TableColumn.hpp"
-#include "DoubleColumn.hpp"
-#include "IntegerColumn.hpp"
-#include "StringColumn.hpp"
-#include "ColumnType.hpp"
-#include "ColumnFactory.hpp"
-#include <vector>
-#include <string>
-#include "Catalog.hpp"
-#include <stdexcept>
-#include <fstream>
-#include "FileUtils.hpp"
-#include <ostream>
-#include <iostream>
+#include "CommandContext.hpp" 
 
 /**
  * @brief Constructs a help command for file and catalog operations.
@@ -60,4 +46,21 @@ void FileHelpCommand::execute(const std::vector<std::string>& params) {
 	context.outputConsoleWritter.printLine("  aggregate <table> <search-col> <val> <target-col> <op> - Applies sum/product/max/min");
 
 	context.outputConsoleWritter.printLine("");
+}
+
+/**
+ * @brief Creates a deep copy of the current `FileHelpCommand` object.
+ *
+ * This override constructs a new `FileHelpCommand` instance,
+ * associating it with the provided `newContext`. Since `FileHelpCommand`
+ * itself only holds a reference to `CommandContext` and no other dynamically
+ * allocated members, a simple construction with the new context is sufficient
+ * for cloning this command object.
+ *
+ * @param newContext A reference to the `CommandContext` that the new cloned command should use.
+ * @return A pointer to a newly allocated `FileHelpCommand` object.
+ * @warning The caller is responsible for deleteing the returned pointer.
+ */
+Command* FileHelpCommand::clone(CommandContext& newContext) const {
+	return new FileHelpCommand(newContext);
 }

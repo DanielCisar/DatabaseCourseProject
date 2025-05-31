@@ -9,21 +9,29 @@
 
 /**
  * @class Engine
- * @brief Core controller of the application. Manages command dispatching and input/output flow.
+ * @brief Orchestrates the command-line database application's execution flow.
  *
- * The Engine initializes all supported commands using factories and maintains the main
- * event loop that reads user input and executes commands accordingly.
+ * The `Engine` class is the central controller responsible for initializing the
+ * application's environment, managing user input and output, and dispatching
+ * commands. It sets up the shared `CommandContext` which provides access to
+ * the application's core data (`Catalog`) and I/O handlers for all commands.
+ * Commands are registered during initialization and executed based on user input.
  */
 class Engine {
 public:
     /**
- * @brief Constructs the Engine and initializes available commands.
- *
- * @param outputConsoleWritter Handles console output.
- * @param inputConsoleReader Handles console input.
- * @param outputFileWritter Handles file output.
- * @param inputFileReader Handles file input.
- */
+     * @brief Constructs the Engine, initializes shared resources, and registers supported commands.
+     *
+     * This constructor sets up the `CommandContext` which encapsulates the `Catalog`
+     * and all necessary I/O handlers. It then uses `FileCommandFactory` and
+     * `CatalogCommandFactory` to create and register all recognized commands,
+     * making them available for execution during the `run` loop.
+     *
+     * @param outputConsoleWritter A reference to the console output handler.
+     * @param inputConsoleReader A reference to the console input handler.
+     * @param outputFileWritter A reference to the file output handler for saving data.
+     * @param inputFileReader A reference to the file input handler for loading data.
+     */
     Engine(
         OutputConsoleWritter& outputConsoleWritter,
         InputConsoleReader& inputConsoleReader,
@@ -32,23 +40,75 @@ public:
     );
 
     /**
-     * @brief Destructor. Frees memory allocated for commands.
+     * @brief Copy constructor for the Engine class.
+     *
+     * Performs a deep copy of the `other` Engine object. This includes copying
+     * the `loadedCatalog` and creating new, independent instances of all `Command`
+     * objects using their `clone()` method. The new commands are associated with
+     * the `CommandContext` of the newly constructed Engine.
+     *
+     * @param other The Engine object to be copied.
      */
-
-	~Engine();
+    Engine(const Engine& other);
 
     /**
-      * @brief Starts the main loop of the engine.
-      *
-      * Reads commands from the console and dispatches them until 'exit' is entered.
-      */
+    * @brief Copy assignment operator for the Engine class.
+    *
+    * Enables deep copying of one Engine object's state to another. It first
+    * cleans up any dynamically allocated `Command` objects currently held by
+    * the left-hand side object, then performs a deep copy of the `loadedCatalog`
+    * and all `Command` objects from the `other` (right-hand side) Engine.
+    * Self-assignment is handled to prevent self-destruction.
+    *
+    * @param other The Engine object from which to copy.
+    * @return A reference to the current Engine object (`*this`) after the copy.
+    */
+    Engine& operator=(const Engine& other);
+
+    /**
+     * @brief Destructor.
+     *
+     * Calls `clearMemory()` to clean up dynamically allocated `Command` objects
+     * stored in the `commands` map, preventing memory leaks when an Engine object
+     * is destroyed.
+     */
+    ~Engine();
+
+    /**
+    * @brief Starts the main application loop, continuously processing user commands.
+    *
+    * This method displays a welcome message and then enters a loop to:
+    * 1. Prompt the user for input.
+    * 2. Parse the raw input into command arguments.
+    * 3. Dispatch the command to the appropriate handler.
+    * 4. Continues until the "exit" command is entered, at which point the loop terminates.
+    */
     void run();
 
 private:
     /**
-     * @brief Dispatches a command based on user input.
+     * @brief Frees all dynamically allocated `Command` objects and clears the map.
      *
-     * @param params Parsed command-line parameters.
+     * This private helper method iterates through the `commands` map, `delete`s
+     * each `Command` object pointed to by the raw pointers, and then clears the map.
+     * It is used by the destructor and the copy assignment operator to ensure
+     * proper memory cleanup.
+     */
+    void clearMemory();
+
+    /**
+     * @brief Dispatches a command based on the provided arguments.
+     *
+     * This private helper method looks up the command name (the first argument)
+     * in the `commands` map. If found, it attempts to execute the corresponding
+     * `Command` object with the given arguments. If the command is not found,
+     * an "Unknown command" message is printed to the console.
+     * All exceptions thrown during command execution are caught and their
+     * messages are displayed to the user.
+     *
+     * @param args A constant reference to a vector of strings representing
+     * the parsed command name and its parameters. The first element
+     * (`args[0]`) is expected to be the command name.
      */
     void dispatchCommand(const std::vector<std::string>& params);
 

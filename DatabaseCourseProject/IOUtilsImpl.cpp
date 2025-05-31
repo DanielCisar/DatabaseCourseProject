@@ -1,5 +1,17 @@
 #include "IOUtils.hpp"
 
+/**
+ * @brief Prints a vector of strings to the console in a paginated format.
+ *
+ * This function iterates through the `rows` data, displaying them in chunks
+ * defined by `pageSize`. It then prompts the user for navigation commands
+ * ("next", "prev", "exit") using the provided `InputConsoleReader` and
+ * prints output using the `OutputConsoleWritter`.
+ *
+ * @param rows The data rows to display.
+ * @param ocw An `OutputConsoleWritter` instance for output.
+ * @param icr An `InputConsoleReader` instance for input.
+ */
 void IOUtils::printInPageFormat(
     std::vector<std::string> rows,
     const OutputConsoleWritter& ocw,
