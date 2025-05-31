@@ -28,6 +28,11 @@ private:
 	std::string name;  ///< The logical name of the table within the catalog.
 	std::string filename; ///< The file path on disk where this table's data is or will be stored (e.g., "my_table.csv").
 
+    /**
+    * @brief Helper function to clean up dynamically allocated column pointers.
+    * Iterates through `columns` and `delete`s each `TableColumn*`, then clears the vector.
+    */
+    void clearColumnsMemory();
 public:
 	/**
 	* @brief Constructs a new Table instance.
@@ -59,6 +64,27 @@ public:
 	* Iterates through the `columns` vector and `delete`s each `TableColumn` pointer
 	* to prevent memory leaks, as the `Table` class owns these dynamically allocated objects.
 	*/
+
+    /**
+    * @brief Move constructor for Table.
+    *
+    * Constructs a new Table object by efficiently transferring ownership of
+    * `TableColumn` pointers and `name`/`filename` data from a temporary
+    * or expiring `other` Table object. This avoids expensive deep copies.
+    * The `other` object is left in a valid, but unspecified (typically empty),
+    * state suitable for destruction.
+    *
+    * @param other The Table object to be moved from (an rvalue reference).
+    */
+    Table(Table&& other) noexcept;
+
+    /**
+    * @brief Destructor for Table.
+    *
+    * Calls `clearColumnsMemory()` to iterate through the `columns` vector and
+    * `delete`s each `TableColumn` pointer to prevent memory leaks, as the `Table`
+    * class owns these dynamically allocated objects.
+    */
 	~Table();
 
 	/**
@@ -75,6 +101,21 @@ public:
 
 	using iterator = std::vector<TableColumn*>::iterator;
 	using const_iterator = std::vector<TableColumn*>::const_iterator;
+
+    /**
+     * @brief Move assignment operator for Table.
+     *
+     * Efficiently transfers ownership of `TableColumn` pointers and `name`/`filename`
+     * data from a temporary or expiring `other` Table object to the current
+     * Table object. This operation frees any resources currently held by `*this`,
+     * then moves resources from `other`. Self-assignment is handled.
+     * The `other` object is left in a valid, but unspecified (typically empty),
+     * state suitable for destruction.
+     *
+     * @param other The Table object to be moved from (an rvalue reference).
+     * @return A reference to the current Table object (`*this`) after the move.
+     */
+    Table& operator=(Table&& other) noexcept;
 
 	/**
 	 * @brief Provides a non-const iterator to the beginning of the `columns` vector.

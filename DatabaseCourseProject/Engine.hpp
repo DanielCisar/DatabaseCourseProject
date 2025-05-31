@@ -75,6 +75,33 @@ public:
     ~Engine();
 
     /**
+    * @brief Move constructor for the Engine class.
+    *
+    * Constructs a new Engine object by efficiently transferring resources
+    * (the `loadedCatalog` and ownership of `Command` objects) from a temporary
+    * or expiring `other` Engine object. This avoids expensive deep copies.
+    * The `other` object is left in a valid, but unspecified, state suitable for destruction.
+    *
+    * @param other The Engine object to be moved from (an rvalue reference).
+    */
+    Engine(Engine&& other) noexcept;
+
+    /**
+     * @brief Move assignment operator for the Engine class.
+     *
+     * Transfers resources from a temporary or expiring `other` Engine object
+     * to the current Engine object. This operation frees any resources
+     * currently held by `*this`, then efficiently moves the `loadedCatalog`
+     * and ownership of `Command` objects from `other`. Self-assignment is handled.
+     * The `other` object is left in a valid, but unspecified, state suitable for destruction.
+     *
+     * @param other The Engine object to be moved from (an rvalue reference).
+     * @return A reference to the current Engine object (`*this`) after the move.
+     */
+    Engine& operator=(Engine&& other) noexcept;
+
+
+    /**
     * @brief Starts the main application loop, continuously processing user commands.
     *
     * This method displays a welcome message and then enters a loop to:

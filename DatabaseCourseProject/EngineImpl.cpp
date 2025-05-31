@@ -240,3 +240,66 @@ void Engine::clearMemory() {
     }
     commands.clear();
 }
+
+/**
+ * @brief Move constructor for the Engine class.
+ *
+ * Constructs a new Engine object by efficiently transferring resources
+ * (the `loadedCatalog` and ownership of `Command` objects) from a temporary
+ * or expiring `other` Engine object. This avoids expensive deep copies.
+ * The `other` object is left in a valid, but unspecified, state suitable for destruction.
+ *
+ * 1.  The `loadedCatalog` is moved from `other.loadedCatalog`.
+ * 2.  The `context` is initialized, binding to the *newly moved* `loadedCatalog`
+ * of *this* Engine object. The references to external I/O utilities remain the same.
+ * 3.  Ownership of the `Command` objects (their raw pointers) is transferred
+ * from `other.commands` to `this->commands` using `std::move` on the map.
+ * This leaves `other.commands` empty.
+ *
+ * @param other The Engine object to be moved from (an an rvalue reference).
+ */
+Engine::Engine(Engine&& other) noexcept
+    : loadedCatalog(std::move(other.loadedCatalog)), 
+    context(loadedCatalog,
+        other.context.outputConsoleWritter,
+        other.context.inputConsoleReader,
+        other.context.outputFileWritter,
+        other.context.inputFileReader),
+    commands(std::move(other.commands)) 
+{
+
+}
+
+/**
+ * @brief Move assignment operator for the Engine class.
+ *
+ * Transfers resources from a temporary or expiring `other` Engine object
+ * to the current Engine object. This operation frees any resources
+ * currently held by `*this`, then efficiently moves the `loadedCatalog`
+ * and ownership of `Command` objects from `other`. Self-assignment is handled.
+ * The `other` object is left in a valid, but unspecified, state suitable for destruction.
+ *
+ * 1.  **Self-Assignment Check:** Prevents erroneous operations if `this` and `other` are the same object.
+ * 2.  **Clean Up:** Calls `clearMemory()` to release existing `Command` objects owned by `*this`.
+ * 3.  **Move Resources:** `loadedCatalog` is moved from `other.loadedCatalog`.
+ * Ownership of `Command` objects (their raw pointers) is moved from `other.commands` to `this->commands`.
+ * 4.  **Context Re-binding:** The `context` member is a value holding references.
+ * After `loadedCatalog = std::move(other.loadedCatalog)`, the `context` of `*this`
+ * implicitly operates on its now-updated `loadedCatalog`. The references to
+ * external I/O objects remain unchanged.
+ *
+ * @param other The Engine object to be moved from (an rvalue reference).
+ * @return A reference to the current Engine object (`*this`) after the move.
+ */
+Engine& Engine::operator=(Engine&& other) noexcept {
+    if (this == &other) { 
+        return *this;
+    }
+
+    this->clearMemory(); 
+
+    loadedCatalog = std::move(other.loadedCatalog); 
+    commands = std::move(other.commands);       
+
+    return *this;
+}
