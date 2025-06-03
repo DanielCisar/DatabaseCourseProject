@@ -19,7 +19,7 @@ static \mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} \mbo
 \doxysubsection{Detailed Description}
 A factory class responsible for creating instances of catalog-\/related commands. 
 
-This static factory provides a centralized mechanism to instantiate concrete {\ttfamily \doxylink{class_command}{Command}} objects based on a given command name string. It decouples the command creation logic from the client code, enabling easy extension with new catalog commands. 
+This static factory provides a centralized mechanism to instantiate concrete {\ttfamily \doxylink{class_command}{Command}} objects based on a given command name string. It decouples the command creation logic from the client code. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_catalog_command_factory_a44cd0e4d9c4dd1200a926ce9f16ac96f}\index{CatalogCommandFactory@{CatalogCommandFactory}!createCommand@{createCommand}}
@@ -32,7 +32,7 @@ This static factory provides a centralized mechanism to instantiate concrete {\t
 
 Creates and returns a new {\ttfamily \doxylink{class_command}{Command}} object based on the provided name. 
 
-This static method acts as a factory for all commands that operate on the database catalog. It maps a command name string to a specific {\ttfamily \doxylink{class_command}{Command}} implementation and constructs an instance of that command, passing it the shared {\ttfamily \doxylink{struct_command_context}{Command\+Context}}.
+This static method acts as a factory for all commands that operate on the database catalog. It maps a command name string to a specific {\ttfamily \doxylink{class_command}{Command}} implementation and constructs an instance of that command.
 
 
 \begin{DoxyParams}{Parameters}

@@ -19,7 +19,7 @@ static \mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} \mbo
 \doxysubsection{Detailed Description}
 A factory class responsible for creating instances of file-\/related commands. 
 
-This static factory provides a centralized mechanism to instantiate concrete {\ttfamily \doxylink{class_command}{Command}} objects that handle file system operations (like opening, saving, and closing files). It decouples the command creation logic from the client code, enabling easy extension with new file management commands. 
+This static factory provides a centralized mechanism to instantiate concrete {\ttfamily \doxylink{class_command}{Command}} objects that handle file system operations (like opening, saving, and closing files). It decouples the command creation logic from the client code. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_file_command_factory_a1d26ef77224ab6e8bbb43305a86d3b7d}\index{FileCommandFactory@{FileCommandFactory}!createCommand@{createCommand}}
@@ -49,7 +49,7 @@ A pointer to a newly allocated {\ttfamily \doxylink{class_command}{Command}} obj
 {\em std\+::runtime\+\_\+error} & If the provided {\ttfamily name} does not correspond to a known file command.\\
 \hline
 \end{DoxyExceptions}
-This static method implements the factory logic for file-\/related commands. It checks the {\ttfamily name} against a list of recognized commands and returns a dynamically allocated instance of the corresponding command class, initialized with the provided {\ttfamily context}.
+This static method implements the factory logic for file-\/related commands. It checks the {\ttfamily name} against a list of recognized commands and returns a dynamically allocated instance of the corresponding command class.
 
 
 \begin{DoxyParams}{Parameters}

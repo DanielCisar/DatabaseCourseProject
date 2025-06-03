@@ -2,7 +2,7 @@
 \hypertarget{class_engine}{}\label{class_engine}\index{Engine@{Engine}}
 
 
-Orchestrates the command-\/line database application\textquotesingle{}s execution flow.  
+Orchestrates the command-\/line database execution.  
 
 
 
@@ -29,9 +29,9 @@ void \mbox{\hyperlink{class_engine_a1a210cf30d6bd330b3649439ecd6d6cc}{run}} ()
 
 
 \doxysubsection{Detailed Description}
-Orchestrates the command-\/line database application\textquotesingle{}s execution flow. 
+Orchestrates the command-\/line database execution. 
 
-The {\ttfamily \doxylink{class_engine}{Engine}} class is the central controller responsible for initializing the application\textquotesingle{}s environment, managing user input and output, and dispatching commands. It sets up the shared {\ttfamily \doxylink{struct_command_context}{Command\+Context}} which provides access to the application\textquotesingle{}s core data ({\ttfamily \doxylink{class_catalog}{Catalog}}) and I/O handlers for all commands. Commands are registered during initialization and executed based on user input. 
+The {\ttfamily \doxylink{class_engine}{Engine}} class is the central controller responsible for managing user input and output, and dispatching commands It sets up the shared {\ttfamily \doxylink{struct_command_context}{Command\+Context}} which provides access to the most important applicaton data and I/O handlers for all commands. Commands are registered during initialization and executed based on user input. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_engine_a08ec4f3721aaa36708ff168a47466a10}\index{Engine@{Engine}!Engine@{Engine}}
@@ -46,7 +46,7 @@ Constructs the \doxylink{class_engine}{Engine}, initializes shared resources, an
 
 Constructs the {\ttfamily \doxylink{class_engine}{Engine}} and initializes its core components.
 
-This constructor sets up the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} which encapsulates the {\ttfamily \doxylink{class_catalog}{Catalog}} and all necessary I/O handlers. It then uses {\ttfamily \doxylink{class_file_command_factory}{File\+Command\+Factory}} and {\ttfamily \doxylink{class_catalog_command_factory}{Catalog\+Command\+Factory}} to create and register all recognized commands, making them available for execution during the {\ttfamily run} loop.
+This constructor sets up the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} which contains the {\ttfamily \doxylink{class_catalog}{Catalog}} and all necessary I/O handlers. It then uses {\ttfamily \doxylink{class_file_command_factory}{File\+Command\+Factory}} and {\ttfamily \doxylink{class_catalog_command_factory}{Catalog\+Command\+Factory}} to create and register all recognized commands.
 
 
 \begin{DoxyParams}{Parameters}
@@ -59,7 +59,7 @@ This constructor sets up the {\ttfamily \doxylink{struct_command_context}{Comman
 {\em input\+File\+Reader} & A reference to the file input handler for loading data.\\
 \hline
 \end{DoxyParams}
-This constructor takes references to necessary I/O and file handling utilities, along with the {\ttfamily \doxylink{class_catalog}{Catalog}} itself, to construct the {\ttfamily \doxylink{struct_command_context}{Command\+Context}}. It then populates the {\ttfamily commands} map by leveraging {\ttfamily \doxylink{class_file_command_factory}{File\+Command\+Factory}} and {\ttfamily \doxylink{class_catalog_command_factory}{Catalog\+Command\+Factory}} to create all supported {\ttfamily \doxylink{class_command}{Command}} objects. This process ensures that the {\ttfamily \doxylink{class_engine}{Engine}} is ready to handle all recognized commands from the moment it\textquotesingle{}s instantiated. Any errors during command creation (e.\+g., if a factory fails to produce a command) are caught and printed to the console, but the engine initialization will still attempt to complete for other commands.
+This constructor takes references to necessary I/O and file handling utilities, along with the {\ttfamily \doxylink{class_catalog}{Catalog}} itself, to construct the {\ttfamily \doxylink{struct_command_context}{Command\+Context}}. It then populates the {\ttfamily commands} map using {\ttfamily \doxylink{class_file_command_factory}{File\+Command\+Factory}} and {\ttfamily \doxylink{class_catalog_command_factory}{Catalog\+Command\+Factory}} to create all supported {\ttfamily \doxylink{class_command}{Command}} objects. Any errors during command creation (e.\+g., if a factory fails to produce a command) are caught and printed to the console, but the engine initialization will still attempt to complete for other commands.
 
 
 \begin{DoxyParams}{Parameters}
@@ -82,7 +82,7 @@ Engine\+::\+Engine (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_
 
 Copy constructor for the \doxylink{class_engine}{Engine} class. 
 
-Performs a deep copy of the {\ttfamily other} \doxylink{class_engine}{Engine} object. This includes copying the {\ttfamily loaded\+Catalog} and creating new, independent instances of all {\ttfamily \doxylink{class_command}{Command}} objects using their {\ttfamily clone()} method. The new commands are associated with the {\ttfamily \doxylink{struct_command_context}{Command\+Context}} of the newly constructed \doxylink{class_engine}{Engine}.
+Performs a deep copy of the {\ttfamily other} \doxylink{class_engine}{Engine} object.
 
 
 \begin{DoxyParams}{Parameters}
@@ -94,8 +94,8 @@ Performs a deep copy of the {\ttfamily other} \doxylink{class_engine}{Engine} ob
 
 \begin{DoxyEnumerate}
 \item It first copies the {\ttfamily loaded\+Catalog} from {\ttfamily other.\+loaded\+Catalog}.
-\item Then, it initializes the {\ttfamily context} of the new \doxylink{class_engine}{Engine} instance. Critically, the new {\ttfamily context} is bound to {\itshape this} object\textquotesingle{}s newly copied {\ttfamily loaded\+Catalog}, while maintaining references to the same external I/O utilities (console, file readers/writers) as the source {\ttfamily other} \doxylink{class_engine}{Engine}.
-\item Finally, it iterates through {\ttfamily other.\+commands} and performs a deep copy of each {\ttfamily \doxylink{class_command}{Command}} object using its {\ttfamily clone()} method. Each cloned command is then associated with the {\ttfamily context} of the {\itshape newly constructed} \doxylink{class_engine}{Engine}. This ensures that the two \doxylink{class_engine}{Engine} objects manage independent sets of commands, preventing double-\/free issues during destruction.
+\item Then, it initializes the {\ttfamily context} of the new \doxylink{class_engine}{Engine} instance. The new {\ttfamily context} is bound to {\itshape this} object\textquotesingle{}s newly copied {\ttfamily loaded\+Catalog}, while maintaining references to the same external I/O utilities (console, file readers/writers) as the source {\ttfamily other} \doxylink{class_engine}{Engine}.
+\item Finally, it iterates through {\ttfamily other.\+commands} and performs a deep copy of each {\ttfamily \doxylink{class_command}{Command}} object using its {\ttfamily clone()} method. Each cloned command is then associated with the {\ttfamily context} of the {\itshape newly constructed} \doxylink{class_engine}{Engine}.
 \end{DoxyEnumerate}
 
 
@@ -117,7 +117,7 @@ Destroys the {\ttfamily \doxylink{class_engine}{Engine}} instance.
 
 Calls {\ttfamily clear\+Memory()} to clean up dynamically allocated {\ttfamily \doxylink{class_command}{Command}} objects stored in the {\ttfamily commands} map, preventing memory leaks when an \doxylink{class_engine}{Engine} object is destroyed.
 
-This destructor calls the {\ttfamily clear\+Memory()} helper method to release all dynamically allocated {\ttfamily \doxylink{class_command}{Command}} objects managed by this \doxylink{class_engine}{Engine} instance, thereby preventing memory leaks. \Hypertarget{class_engine_a3b08e64acacd073a4e433d7e4daf1c50}\index{Engine@{Engine}!Engine@{Engine}}
+This destructor calls the {\ttfamily clear\+Memory()} helper method to release all dynamically allocated {\ttfamily \doxylink{class_command}{Command}} objects managed by this \doxylink{class_engine}{Engine} instance, preventing memory leaks. \Hypertarget{class_engine_a3b08e64acacd073a4e433d7e4daf1c50}\index{Engine@{Engine}!Engine@{Engine}}
 \index{Engine@{Engine}!Engine@{Engine}}
 \doxysubsubsection{\texorpdfstring{Engine()}{Engine()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily \label{class_engine_a3b08e64acacd073a4e433d7e4daf1c50} 
@@ -127,20 +127,20 @@ Engine\+::\+Engine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_engine
 
 Move constructor for the \doxylink{class_engine}{Engine} class. 
 
-Constructs a new \doxylink{class_engine}{Engine} object by efficiently transferring resources (the {\ttfamily loaded\+Catalog} and ownership of {\ttfamily \doxylink{class_command}{Command}} objects) from a temporary or expiring {\ttfamily other} \doxylink{class_engine}{Engine} object. This avoids expensive deep copies. The {\ttfamily other} object is left in a valid, but unspecified, state suitable for destruction.
+Constructs a new \doxylink{class_engine}{Engine} object by efficiently transferring resources from a temporary or expiring {\ttfamily other} \doxylink{class_engine}{Engine} object.
 
 
 \begin{DoxyParams}{Parameters}
-{\em other} & The \doxylink{class_engine}{Engine} object to be moved from (an rvalue reference).\\
+{\em other} & The \doxylink{class_engine}{Engine} object to be moved from.\\
 \hline
 \end{DoxyParams}
-Constructs a new \doxylink{class_engine}{Engine} object by efficiently transferring resources (the {\ttfamily loaded\+Catalog} and ownership of {\ttfamily \doxylink{class_command}{Command}} objects) from a temporary or expiring {\ttfamily other} \doxylink{class_engine}{Engine} object. This avoids expensive deep copies. The {\ttfamily other} object is left in a valid, but unspecified, state suitable for destruction.
+Constructs a new \doxylink{class_engine}{Engine} object by efficiently transferring resources (the {\ttfamily loaded\+Catalog} and ownership of {\ttfamily \doxylink{class_command}{Command}} objects) from a temporary or expiring {\ttfamily other} \doxylink{class_engine}{Engine} object. This avoids expensive deep copies.
 
 
 \begin{DoxyEnumerate}
 \item The {\ttfamily loaded\+Catalog} is moved from {\ttfamily other.\+loaded\+Catalog}.
 \item The {\ttfamily context} is initialized, binding to the {\itshape newly moved} {\ttfamily loaded\+Catalog} of {\itshape this} \doxylink{class_engine}{Engine} object. The references to external I/O utilities remain the same.
-\item Ownership of the {\ttfamily \doxylink{class_command}{Command}} objects (their raw pointers) is transferred from {\ttfamily other.\+commands} to {\ttfamily this-\/\texorpdfstring{$>$}{>}commands} using {\ttfamily std\+::move} on the map. This leaves {\ttfamily other.\+commands} empty.
+\item Ownership of the {\ttfamily \doxylink{class_command}{Command}} objects is transferred from {\ttfamily other.\+commands} to {\ttfamily this-\/\texorpdfstring{$>$}{>}commands} using {\ttfamily std\+::move} on the map. This leaves {\ttfamily other.\+commands} empty.
 \end{DoxyEnumerate}
 
 
@@ -171,15 +171,15 @@ Enables deep copying of one \doxylink{class_engine}{Engine} object\textquotesing
 \begin{DoxyReturn}{Returns}
 A reference to the current \doxylink{class_engine}{Engine} object ({\ttfamily \texorpdfstring{$\ast$}{*}this}) after the copy.
 \end{DoxyReturn}
-Enables deep copying of one \doxylink{class_engine}{Engine} object\textquotesingle{}s state to another. It follows the copy-\/and-\/swap idiom conceptually, though implemented directly for clarity here.
+Enables deep copying of one \doxylink{class_engine}{Engine} object\textquotesingle{}s state to another.
 
 
 \begin{DoxyEnumerate}
-\item {\bfseries{Self-\/\+Assignment Check\+:}} It first checks for self-\/assignment ({\ttfamily this == \&other}) to prevent unnecessary operations and potential self-\/destruction.
-\item {\bfseries{Clean Up\+:}} All dynamically allocated {\ttfamily \doxylink{class_command}{Command}} objects currently owned by the left-\/hand side object ({\ttfamily \texorpdfstring{$\ast$}{*}this}) are {\ttfamily delete}d, and the {\ttfamily commands} map is cleared.
-\item {\bfseries{Copy Data\+:}} The {\ttfamily loaded\+Catalog} is copied from the {\ttfamily other} \doxylink{class_engine}{Engine}.
-\item {\bfseries{Re-\/bind Context\+:}} The {\ttfamily \doxylink{struct_command_context}{Command\+Context}} needs to be effectively "{}re-\/bound"{} or re-\/initialized to point to the newly copied {\ttfamily loaded\+Catalog} of {\ttfamily \texorpdfstring{$\ast$}{*}this} object, while retaining its references to the external I/O utilities. Note that direct re-\/assignment of a reference member is not possible. The current implementation implicitly assumes {\ttfamily context} can handle the {\ttfamily loaded\+Catalog} changing. If {\ttfamily context} were not a reference to {\ttfamily loaded\+Catalog} and the I/O objects, but rather composed of them, this step would involve re-\/assigning or reconstructing {\ttfamily context}. For this specific design, since {\ttfamily context} is initialized in the constructor\textquotesingle{}s initializer list with {\ttfamily loaded\+Catalog}, when {\ttfamily loaded\+Catalog} is assigned to, the {\ttfamily context} {\itshape conceptually} operates on the updated {\ttfamily loaded\+Catalog} of {\ttfamily \texorpdfstring{$\ast$}{*}this}. However, if {\ttfamily context} itself needed to be fully re-\/initialized based on the new state, a different approach (like using a pointer to context, or a move assignment) might be needed for more complex {\ttfamily \doxylink{struct_command_context}{Command\+Context}} designs.
-\item {\bfseries{Deep Copy Commands\+:}} New, independent {\ttfamily \doxylink{class_command}{Command}} objects are created by calling {\ttfamily clone()} on each command from the {\ttfamily other} \doxylink{class_engine}{Engine}. These new commands are associated with the {\ttfamily context} of the current {\ttfamily \texorpdfstring{$\ast$}{*}this} \doxylink{class_engine}{Engine}.
+\item It first checks for self-\/assignment ({\ttfamily this == \&other}) to prevent unnecessary operations and potential self-\/destruction.
+\item All dynamically allocated {\ttfamily \doxylink{class_command}{Command}} objects currently owned by the left-\/hand side object ({\ttfamily \texorpdfstring{$\ast$}{*}this}) are {\ttfamily delete}d, and the {\ttfamily commands} map is cleared.
+\item The {\ttfamily loaded\+Catalog} is copied from the {\ttfamily other} \doxylink{class_engine}{Engine}.
+\item The {\ttfamily \doxylink{struct_command_context}{Command\+Context}} needs to be effectively "{}re-\/bound"{} or re-\/initialized to point to the newly copied {\ttfamily loaded\+Catalog} of {\ttfamily \texorpdfstring{$\ast$}{*}this} object, while retaining its references to the external I/O utilities. Note that direct re-\/assignment of a reference member is not possible. The current implementation implicitly assumes {\ttfamily context} can handle the {\ttfamily loaded\+Catalog} changing.
+\item New, independent {\ttfamily \doxylink{class_command}{Command}} objects are created by calling {\ttfamily clone()} on each command from the {\ttfamily other} \doxylink{class_engine}{Engine}.
 \end{DoxyEnumerate}
 
 
@@ -200,7 +200,7 @@ A reference to the current \doxylink{class_engine}{Engine} object ({\ttfamily \t
 
 Move assignment operator for the \doxylink{class_engine}{Engine} class. 
 
-Transfers resources from a temporary or expiring {\ttfamily other} \doxylink{class_engine}{Engine} object to the current \doxylink{class_engine}{Engine} object. This operation frees any resources currently held by {\ttfamily \texorpdfstring{$\ast$}{*}this}, then efficiently moves the {\ttfamily loaded\+Catalog} and ownership of {\ttfamily \doxylink{class_command}{Command}} objects from {\ttfamily other}. Self-\/assignment is handled. The {\ttfamily other} object is left in a valid, but unspecified, state suitable for destruction.
+Transfers resources from a temporary or expiring {\ttfamily other} \doxylink{class_engine}{Engine} object to the current \doxylink{class_engine}{Engine} object. Self-\/assignment is handled. The {\ttfamily other} object is left in a valid, but unspecified, state suitable for destruction.
 
 
 \begin{DoxyParams}{Parameters}
@@ -210,14 +210,14 @@ Transfers resources from a temporary or expiring {\ttfamily other} \doxylink{cla
 \begin{DoxyReturn}{Returns}
 A reference to the current \doxylink{class_engine}{Engine} object ({\ttfamily \texorpdfstring{$\ast$}{*}this}) after the move.
 \end{DoxyReturn}
-Transfers resources from a temporary or expiring {\ttfamily other} \doxylink{class_engine}{Engine} object to the current \doxylink{class_engine}{Engine} object. This operation frees any resources currently held by {\ttfamily \texorpdfstring{$\ast$}{*}this}, then efficiently moves the {\ttfamily loaded\+Catalog} and ownership of {\ttfamily \doxylink{class_command}{Command}} objects from {\ttfamily other}. Self-\/assignment is handled. The {\ttfamily other} object is left in a valid, but unspecified, state suitable for destruction.
+Transfers resources from a temporary or expiring {\ttfamily other} \doxylink{class_engine}{Engine} object to the current \doxylink{class_engine}{Engine} object. This operation frees any resources currently held by {\ttfamily \texorpdfstring{$\ast$}{*}this}, then efficiently moves the {\ttfamily loaded\+Catalog} and ownership of {\ttfamily \doxylink{class_command}{Command}} objects from {\ttfamily other}. Self-\/assignment is handled.
 
 
 \begin{DoxyEnumerate}
-\item {\bfseries{Self-\/\+Assignment Check\+:}} Prevents erroneous operations if {\ttfamily this} and {\ttfamily other} are the same object.
-\item {\bfseries{Clean Up\+:}} Calls {\ttfamily clear\+Memory()} to release existing {\ttfamily \doxylink{class_command}{Command}} objects owned by {\ttfamily \texorpdfstring{$\ast$}{*}this}.
-\item {\bfseries{Move Resources\+:}} {\ttfamily loaded\+Catalog} is moved from {\ttfamily other.\+loaded\+Catalog}. Ownership of {\ttfamily \doxylink{class_command}{Command}} objects (their raw pointers) is moved from {\ttfamily other.\+commands} to {\ttfamily this-\/\texorpdfstring{$>$}{>}commands}.
-\item {\bfseries{Context Re-\/binding\+:}} The {\ttfamily context} member is a value holding references. After {\ttfamily loaded\+Catalog = std\+::move(other.\+loaded\+Catalog)}, the {\ttfamily context} of {\ttfamily \texorpdfstring{$\ast$}{*}this} implicitly operates on its now-\/updated {\ttfamily loaded\+Catalog}. The references to external I/O objects remain unchanged.
+\item Prevents erroneous operations if {\ttfamily this} and {\ttfamily other} are the same object.
+\item Calls {\ttfamily clear\+Memory()} to release existing {\ttfamily \doxylink{class_command}{Command}} objects owned by {\ttfamily \texorpdfstring{$\ast$}{*}this}.
+\item {\ttfamily loaded\+Catalog} is moved from {\ttfamily other.\+loaded\+Catalog}. Ownership of {\ttfamily \doxylink{class_command}{Command}} objects (their raw pointers) is moved from {\ttfamily other.\+commands} to {\ttfamily this-\/\texorpdfstring{$>$}{>}commands}.
+\item The {\ttfamily context} member is a value holding references. After {\ttfamily loaded\+Catalog = std\+::move(other.\+loaded\+Catalog)}, the {\ttfamily context} of {\ttfamily \texorpdfstring{$\ast$}{*}this} implicitly operates on its now-\/updated {\ttfamily loaded\+Catalog}. The references to external I/O objects remain unchanged.
 \end{DoxyEnumerate}
 
 
@@ -242,16 +242,16 @@ This method displays a welcome message and then enters a loop to\+:
 \begin{DoxyEnumerate}
 \item Prompt the user for input.
 \item Parse the raw input into command arguments.
-\item Dispatch the command to the appropriate handler.
+\item Dispatch the command.
 \item Continues until the "{}exit"{} command is entered, at which point the loop terminates.
 \end{DoxyEnumerate}
 
-This method is the heart of the interactive database shell. It begins by displaying a friendly welcome message and instructions. It then enters an infinite loop, commonly known as a {\bfseries{Read-\/\+Eval-\/\+Print Loop (REPL)}}\+:
+It begins by displaying a friendly welcome message and instructions. It then enters an infinite loop\+:
 \begin{DoxyEnumerate}
-\item {\bfseries{Read\+:}} It prompts the user for input ({\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}) and reads an entire line.
-\item {\bfseries{Parse\+:}} The raw input is then parsed into a vector of arguments using {\ttfamily \doxylink{class_command_parser_ac55ccf87ff1dac5137f96084cece631a}{Command\+Parser\+::parse\+Raw\+Command}}, which intelligently handles spaces and quoted strings.
-\item {\bfseries{Dispatch\+:}} The parsed arguments are passed to {\ttfamily dispatch\+Command} for execution.
-\item {\bfseries{Loop/\+Exit\+:}} The loop continues until the user explicitly enters the "{}exit"{} command. Upon receiving "{}exit"{}, a goodbye message is printed, and the loop breaks, terminating the application\textquotesingle{}s interactive session. 
+\item It prompts the user for input ({\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}) and reads an entire line.
+\item The raw input is then parsed into a vector of arguments using {\ttfamily \doxylink{class_command_parser_ac55ccf87ff1dac5137f96084cece631a}{Command\+Parser\+::parse\+Raw\+Command}}, which handles spaces and quoted strings.
+\item The parsed arguments are passed to {\ttfamily dispatch\+Command} for execution.
+\item The loop continues until the user explicitly enters the "{}exit"{} command. Upon receiving "{}exit"{}, a goodbye message is printed, and the loop breaks, terminating the application. 
 \end{DoxyEnumerate}
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

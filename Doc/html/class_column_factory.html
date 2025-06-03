@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Database course project: ColumnFactory Class Reference</title>
+<title>Database Course Project: ColumnFactory Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Database course project
+   <div id="projectname">Database Course Project<span id="projectnumber">&#160;final</span>
    </div>
    <div id="projectbrief">Simple database console</div>
   </td>
@@ -110,29 +110,23 @@ $(function(){initNavTree('class_column_factory.html',''); initResizable(true); }
 </div><!--header-->
 <div class="contents">
 
-<p>A static factory class responsible for creating concrete <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> instances.  
+<p>A static factory class responsible for creating <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> instances.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_column_factory_8hpp_source.html">ColumnFactory.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:afaa5bf3744b29039de622a064fa168b5" id="r_afaa5bf3744b29039de622a064fa168b5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_string_column.html">StringColumn</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afaa5bf3744b29039de622a064fa168b5">makeStringColumn</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:afaa5bf3744b29039de622a064fa168b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <code><a class="el" href="class_string_column.html" title="Concrete implementation of TableColumn for storing string data.">StringColumn</a></code> with the specified name.  <br /></td></tr>
-<tr class="separator:afaa5bf3744b29039de622a064fa168b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29764eebeb0857209463eef0b1334e06" id="r_a29764eebeb0857209463eef0b1334e06"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_integer_column.html">IntegerColumn</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29764eebeb0857209463eef0b1334e06">makeIntegerColumn</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:a29764eebeb0857209463eef0b1334e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <code><a class="el" href="class_integer_column.html" title="Concrete implementation of TableColumn for storing integer data.">IntegerColumn</a></code> with the specified name.  <br /></td></tr>
-<tr class="separator:a29764eebeb0857209463eef0b1334e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac377bd001c8d09b29c45642a5b8f853e" id="r_ac377bd001c8d09b29c45642a5b8f853e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_double_column.html">DoubleColumn</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac377bd001c8d09b29c45642a5b8f853e">makeDoubleColumn</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:ac377bd001c8d09b29c45642a5b8f853e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <code><a class="el" href="class_double_column.html" title="Concrete implementation of TableColumn for storing double-precision floating-point data.">DoubleColumn</a></code> with the specified name.  <br /></td></tr>
-<tr class="separator:ac377bd001c8d09b29c45642a5b8f853e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c7fd3132cdbea0fcf0dd8bcc91dead6" id="r_a3c7fd3132cdbea0fcf0dd8bcc91dead6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_table_column.html">TableColumn</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c7fd3132cdbea0fcf0dd8bcc91dead6">makeColumn</a> (const std::string &amp;name, const std::string &amp;type)</td></tr>
+<tr class="memdesc:a3c7fd3132cdbea0fcf0dd8bcc91dead6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> instance of a specified <code>type</code> with the given <code>name</code>.  <br /></td></tr>
+<tr class="separator:a3c7fd3132cdbea0fcf0dd8bcc91dead6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A static factory class responsible for creating concrete <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> instances. </p>
-<p>The <code><a class="el" href="class_column_factory.html" title="A static factory class responsible for creating concrete TableColumn instances.">ColumnFactory</a></code> provides a centralized and type-safe way to instantiate different types of columns (String, Integer, Double) without exposing their specific constructors directly to client code. This promotes decoupling and simplifies the creation process for <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> objects. </p>
+<div class="textblock"><p>A static factory class responsible for creating <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> instances. </p>
+<p>The <code><a class="el" href="class_column_factory.html" title="A static factory class responsible for creating TableColumn instances.">ColumnFactory</a></code> provides a centralized safe way to instantiate different types of columns (String, Integer, Double) without exposing their specific constructors directly to client code. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac377bd001c8d09b29c45642a5b8f853e" name="ac377bd001c8d09b29c45642a5b8f853e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac377bd001c8d09b29c45642a5b8f853e">&#9670;&#160;</a></span>makeDoubleColumn()</h2>
+<a id="a3c7fd3132cdbea0fcf0dd8bcc91dead6" name="a3c7fd3132cdbea0fcf0dd8bcc91dead6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c7fd3132cdbea0fcf0dd8bcc91dead6">&#9670;&#160;</a></span>makeColumn()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -141,10 +135,14 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_double_column.html">DoubleColumn</a> * ColumnFactory::makeDoubleColumn </td>
+          <td class="memname"><a class="el" href="class_table_column.html">TableColumn</a> * ColumnFactory::makeColumn </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>type</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -154,109 +152,30 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a new <code><a class="el" href="class_double_column.html" title="Concrete implementation of TableColumn for storing double-precision floating-point data.">DoubleColumn</a></code> with the specified name. </p>
-<p>Creates a new <code><a class="el" href="class_double_column.html" title="Concrete implementation of TableColumn for storing double-precision floating-point data.">DoubleColumn</a></code> instance.</p>
+<p>Creates a new <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> instance of a specified <code>type</code> with the given <code>name</code>. </p>
+<p>Creates a new <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> instance.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>The name for the new double column. </td></tr>
+    <tr><td class="paramname">name</td><td>The name for the new column. </td></tr>
+    <tr><td class="paramname">type</td><td>The string representation of the column type to create (e.g., "String", "Integer", "Double"). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a newly allocated <code><a class="el" href="class_double_column.html" title="Concrete implementation of TableColumn for storing double-precision floating-point data.">DoubleColumn</a></code> object. </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The caller is responsible for <code>delete</code>ing the returned pointer to prevent memory leaks, as it is dynamically allocated using <code>new</code>. Consider using smart pointers (e.g., <code>std::unique_ptr&lt;<a class="el" href="class_double_column.html" title="Concrete implementation of TableColumn for storing double-precision floating-point data.">DoubleColumn</a>&gt;</code>) for automatic memory management.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The name for the new double column. </td></tr>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a newly allocated <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> object of the requested type. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>If the provided <code>type</code> string is unsupported. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A dynamically allocated <code><a class="el" href="class_double_column.html" title="Concrete implementation of TableColumn for storing double-precision floating-point data.">DoubleColumn</a></code> pointer. Caller takes ownership. </dd></dl>
-
-</div>
-</div>
-<a id="a29764eebeb0857209463eef0b1334e06" name="a29764eebeb0857209463eef0b1334e06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29764eebeb0857209463eef0b1334e06">&#9670;&#160;</a></span>makeIntegerColumn()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_integer_column.html">IntegerColumn</a> * ColumnFactory::makeIntegerColumn </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a new <code><a class="el" href="class_integer_column.html" title="Concrete implementation of TableColumn for storing integer data.">IntegerColumn</a></code> with the specified name. </p>
-<p>Creates a new <code><a class="el" href="class_integer_column.html" title="Concrete implementation of TableColumn for storing integer data.">IntegerColumn</a></code> instance.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The name for the new integer column. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a newly allocated <code><a class="el" href="class_integer_column.html" title="Concrete implementation of TableColumn for storing integer data.">IntegerColumn</a></code> object. </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The caller is responsible for <code>delete</code>ing the returned pointer to prevent memory leaks, as it is dynamically allocated using <code>new</code>. Consider using smart pointers (e.g., <code>std::unique_ptr&lt;<a class="el" href="class_integer_column.html" title="Concrete implementation of TableColumn for storing integer data.">IntegerColumn</a>&gt;</code>) for automatic memory management.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The name for the new integer column. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A dynamically allocated <code><a class="el" href="class_integer_column.html" title="Concrete implementation of TableColumn for storing integer data.">IntegerColumn</a></code> pointer. Caller takes ownership. </dd></dl>
-
-</div>
-</div>
-<a id="afaa5bf3744b29039de622a064fa168b5" name="afaa5bf3744b29039de622a064fa168b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaa5bf3744b29039de622a064fa168b5">&#9670;&#160;</a></span>makeStringColumn()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_string_column.html">StringColumn</a> * ColumnFactory::makeStringColumn </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a new <code><a class="el" href="class_string_column.html" title="Concrete implementation of TableColumn for storing string data.">StringColumn</a></code> with the specified name. </p>
-<p>Creates a new <code><a class="el" href="class_string_column.html" title="Concrete implementation of TableColumn for storing string data.">StringColumn</a></code> instance.</p>
+<dl class="section warning"><dt>Warning</dt><dd>The caller is responsible for <code>delete</code>ing the returned pointer to prevent memory leaks.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>The name for the new string column. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a newly allocated <code><a class="el" href="class_string_column.html" title="Concrete implementation of TableColumn for storing string data.">StringColumn</a></code> object. </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The caller is responsible for <code>delete</code>ing the returned pointer to prevent memory leaks, as it is dynamically allocated using <code>new</code>. Consider using smart pointers (e.g., <code>std::unique_ptr&lt;<a class="el" href="class_string_column.html" title="Concrete implementation of TableColumn for storing string data.">StringColumn</a>&gt;</code>) for automatic memory management.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The name for the new string column. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A dynamically allocated <code><a class="el" href="class_string_column.html" title="Concrete implementation of TableColumn for storing string data.">StringColumn</a></code> pointer. Caller takes ownership. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A dynamically allocated <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> pointer. Caller takes ownership. </dd></dl>
 
 </div>
 </div>

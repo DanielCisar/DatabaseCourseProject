@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Database course project: DatabaseCourseProject/ColumnFactory.hpp Source File</title>
+<title>Database Course Project: DatabaseCourseProject/ColumnFactory.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Database course project
+   <div id="projectname">Database Course Project<span id="projectnumber">&#160;final</span>
    </div>
    <div id="projectbrief">Simple database console</div>
   </td>
@@ -113,25 +113,18 @@ $(function(){initNavTree('_column_factory_8hpp_source.html',''); initResizable(t
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;StringColumn.hpp&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_column_factory.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="class_column_factory.html">ColumnFactory</a> {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_string_column.html">StringColumn</a>* <a class="code hl_function" href="class_column_factory.html#afaa5bf3744b29039de622a064fa168b5">makeStringColumn</a>(<span class="keyword">const</span> std::string&amp; name);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_integer_column.html">IntegerColumn</a>* <a class="code hl_function" href="class_column_factory.html#a29764eebeb0857209463eef0b1334e06">makeIntegerColumn</a>(<span class="keyword">const</span> std::string&amp; name);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_double_column.html">DoubleColumn</a>* <a class="code hl_function" href="class_column_factory.html#ac377bd001c8d09b29c45642a5b8f853e">makeDoubleColumn</a>(<span class="keyword">const</span> std::string&amp; name);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_column_factory.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="class_column_factory.html">ColumnFactory</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">static</span> <a class="code hl_class" href="class_table_column.html">TableColumn</a>* <a class="code hl_function" href="class_column_factory.html#a3c7fd3132cdbea0fcf0dd8bcc91dead6">makeColumn</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; type);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
 </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="ttc" id="aclass_column_factory_html"><div class="ttname"><a href="class_column_factory.html">ColumnFactory</a></div><div class="ttdoc">A static factory class responsible for creating concrete TableColumn instances.</div><div class="ttdef"><b>Definition</b> ColumnFactory.hpp:17</div></div>
-<div class="ttc" id="aclass_column_factory_html_a29764eebeb0857209463eef0b1334e06"><div class="ttname"><a href="class_column_factory.html#a29764eebeb0857209463eef0b1334e06">ColumnFactory::makeIntegerColumn</a></div><div class="ttdeci">static IntegerColumn * makeIntegerColumn(const std::string &amp;name)</div><div class="ttdoc">Creates a new IntegerColumn with the specified name.</div><div class="ttdef"><b>Definition</b> ColumnFactoryImpl.cpp:17</div></div>
-<div class="ttc" id="aclass_column_factory_html_ac377bd001c8d09b29c45642a5b8f853e"><div class="ttname"><a href="class_column_factory.html#ac377bd001c8d09b29c45642a5b8f853e">ColumnFactory::makeDoubleColumn</a></div><div class="ttdeci">static DoubleColumn * makeDoubleColumn(const std::string &amp;name)</div><div class="ttdoc">Creates a new DoubleColumn with the specified name.</div><div class="ttdef"><b>Definition</b> ColumnFactoryImpl.cpp:26</div></div>
-<div class="ttc" id="aclass_column_factory_html_afaa5bf3744b29039de622a064fa168b5"><div class="ttname"><a href="class_column_factory.html#afaa5bf3744b29039de622a064fa168b5">ColumnFactory::makeStringColumn</a></div><div class="ttdeci">static StringColumn * makeStringColumn(const std::string &amp;name)</div><div class="ttdoc">Creates a new StringColumn with the specified name.</div><div class="ttdef"><b>Definition</b> ColumnFactoryImpl.cpp:8</div></div>
-<div class="ttc" id="aclass_double_column_html"><div class="ttname"><a href="class_double_column.html">DoubleColumn</a></div><div class="ttdoc">Concrete implementation of TableColumn for storing double-precision floating-point data.</div><div class="ttdef"><b>Definition</b> DoubleColumn.hpp:17</div></div>
-<div class="ttc" id="aclass_integer_column_html"><div class="ttname"><a href="class_integer_column.html">IntegerColumn</a></div><div class="ttdoc">Concrete implementation of TableColumn for storing integer data.</div><div class="ttdef"><b>Definition</b> IntegerColumn.hpp:17</div></div>
-<div class="ttc" id="aclass_string_column_html"><div class="ttname"><a href="class_string_column.html">StringColumn</a></div><div class="ttdoc">Concrete implementation of TableColumn for storing string data.</div><div class="ttdef"><b>Definition</b> StringColumn.hpp:16</div></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="ttc" id="aclass_column_factory_html"><div class="ttname"><a href="class_column_factory.html">ColumnFactory</a></div><div class="ttdoc">A static factory class responsible for creating TableColumn instances.</div><div class="ttdef"><b>Definition</b> ColumnFactory.hpp:16</div></div>
+<div class="ttc" id="aclass_column_factory_html_a3c7fd3132cdbea0fcf0dd8bcc91dead6"><div class="ttname"><a href="class_column_factory.html#a3c7fd3132cdbea0fcf0dd8bcc91dead6">ColumnFactory::makeColumn</a></div><div class="ttdeci">static TableColumn * makeColumn(const std::string &amp;name, const std::string &amp;type)</div><div class="ttdoc">Creates a new TableColumn instance of a specified type with the given name.</div><div class="ttdef"><b>Definition</b> ColumnFactoryImpl.cpp:9</div></div>
+<div class="ttc" id="aclass_table_column_html"><div class="ttname"><a href="class_table_column.html">TableColumn</a></div><div class="ttdoc">Abstract base class for all column types in a database table.</div><div class="ttdef"><b>Definition</b> TableColumn.hpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

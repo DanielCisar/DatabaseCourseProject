@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Database course project: CatalogAddColumnCommand Class Reference</title>
+<title>Database Course Project: CatalogAddColumnCommand Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Database course project
+   <div id="projectname">Database Course Project<span id="projectnumber">&#160;final</span>
    </div>
    <div id="projectbrief">Simple database console</div>
   </td>
@@ -143,7 +143,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Command</b> ()=de
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_command.html" title="Abstract base class for all command operations.">Command</a> to add a new column to an existing table in the loaded catalog. </p>
-<p>This command facilitates schema modification by allowing users to extend an existing table with a new column. It requires the target table's name, the desired name for the new column, and its data type. The newly added column will be initialized with NULL (empty) values for all existing rows. </p>
+<p>This command allows users to extend an existing table with a new column. It requires the target table's name, the desired name for the new column, and its data type. The newly added column will be initialized with NULL (empty) values for all existing rows. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aba00651d082b5d15b6ddb1312e5d760f" name="aba00651d082b5d15b6ddb1312e5d760f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba00651d082b5d15b6ddb1312e5d760f">&#9670;&#160;</a></span>CatalogAddColumnCommand()</h2>
@@ -198,7 +198,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Command</b> ()=de
 
 <p>Creates a deep copy of the current object. </p>
 <p>Creates a deep copy of the current <code><a class="el" href="class_catalog_add_column_command.html" title="Command to add a new column to an existing table in the loaded catalog.">CatalogAddColumnCommand</a></code> object.</p>
-<p>This override implements the polymorphic cloning behavior defined in <code><a class="el" href="class_command.html" title="Abstract base class for all command operations.">Command</a></code>. It constructs a new instance, associating it with the provided <code>newContext</code>.</p>
+<p>This override implements cloning behavior defined in <code><a class="el" href="class_command.html" title="Abstract base class for all command operations.">Command</a></code>. It constructs a new instance, associating it with the provided <code>newContext</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newContext</td><td>A reference to the <code><a class="el" href="struct_command_context.html" title="Shared execution context passed to all command classes.">CommandContext</a></code> that the new cloned command should use. </td></tr>
@@ -264,7 +264,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Command</b> ()=de
     <tr><td class="paramname">std::runtime_error</td><td>If the number of parameters is incorrect (not 4). </td></tr>
     <tr><td class="paramname">std::runtime_error</td><td>If the specified table does not exist in the catalog. </td></tr>
     <tr><td class="paramname">std::runtime_error</td><td>If the provided column type string is invalid. </td></tr>
-    <tr><td class="paramname">std::exception</td><td>Any other exceptions propagated from underlying table/column operations (e.g., memory allocation issues).</td></tr>
+    <tr><td class="paramname">std::exception</td><td>Any other exceptions propagated from underlying table/column operations.</td></tr>
   </table>
   </dd>
 </dl>
@@ -273,7 +273,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Command</b> ()=de
 <li>Verifies the correct number of parameters (4) is provided.</li>
 <li>Validates that the specified column type string is one of "String", "Integer", or "Double".</li>
 </ol>
-<p>Upon successful validation, a new <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> of the specified type and name is created using <code><a class="el" href="class_column_factory.html" title="A static factory class responsible for creating concrete TableColumn instances.">ColumnFactory</a></code>. This new column is then pre-filled with NULL values for all existing rows in the table. Finally, the new column is added to the table. Status messages are printed to the console upon success or error.</p>
+<p>Upon successful validation, a new <code><a class="el" href="class_table_column.html" title="Abstract base class for all column types in a database table.">TableColumn</a></code> of the specified type and name is created using <code><a class="el" href="class_column_factory.html" title="A static factory class responsible for creating TableColumn instances.">ColumnFactory</a></code>. This new column is then pre-filled with NULL values for all existing rows in the table. Finally, the new column is added to the table. Status messages are printed to the console upon success or error.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">params</td><td>A constant reference to a vector of strings containing the command-line arguments. Expected elements:<ul>

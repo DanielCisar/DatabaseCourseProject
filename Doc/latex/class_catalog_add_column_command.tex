@@ -34,7 +34,7 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Command} ()=default
 \doxysubsection{Detailed Description}
 \doxylink{class_command}{Command} to add a new column to an existing table in the loaded catalog. 
 
-This command facilitates schema modification by allowing users to extend an existing table with a new column. It requires the target table\textquotesingle{}s name, the desired name for the new column, and its data type. The newly added column will be initialized with NULL (empty) values for all existing rows. 
+This command allows users to extend an existing table with a new column. It requires the target table\textquotesingle{}s name, the desired name for the new column, and its data type. The newly added column will be initialized with NULL (empty) values for all existing rows. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_catalog_add_column_command_aba00651d082b5d15b6ddb1312e5d760f}\index{CatalogAddColumnCommand@{CatalogAddColumnCommand}!CatalogAddColumnCommand@{CatalogAddColumnCommand}}
@@ -71,7 +71,7 @@ Creates a deep copy of the current object.
 
 Creates a deep copy of the current {\ttfamily \doxylink{class_catalog_add_column_command}{Catalog\+Add\+Column\+Command}} object.
 
-This override implements the polymorphic cloning behavior defined in {\ttfamily \doxylink{class_command}{Command}}. It constructs a new instance, associating it with the provided {\ttfamily new\+Context}.
+This override implements cloning behavior defined in {\ttfamily \doxylink{class_command}{Command}}. It constructs a new instance, associating it with the provided {\ttfamily new\+Context}.
 
 
 \begin{DoxyParams}{Parameters}
@@ -133,7 +133,7 @@ This method adds a new column to the table identified by {\ttfamily params\mbox{
 \hline
 {\em std\+::runtime\+\_\+error} & If the provided column type string is invalid. \\
 \hline
-{\em std\+::exception} & Any other exceptions propagated from underlying table/column operations (e.\+g., memory allocation issues).\\
+{\em std\+::exception} & Any other exceptions propagated from underlying table/column operations.\\
 \hline
 \end{DoxyExceptions}
 This function processes the command-\/line arguments to identify the target table, the name for the new column, and its data type. It performs validation checks\+:

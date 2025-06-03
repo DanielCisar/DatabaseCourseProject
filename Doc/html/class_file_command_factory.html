@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Database course project: FileCommandFactory Class Reference</title>
+<title>Database Course Project: FileCommandFactory Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Database course project
+   <div id="projectname">Database Course Project<span id="projectnumber">&#160;final</span>
    </div>
    <div id="projectbrief">Simple database console</div>
   </td>
@@ -123,7 +123,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A factory class responsible for creating instances of file-related commands. </p>
-<p>This static factory provides a centralized mechanism to instantiate concrete <code><a class="el" href="class_command.html" title="Abstract base class for all command operations.">Command</a></code> objects that handle file system operations (like opening, saving, and closing files). It decouples the command creation logic from the client code, enabling easy extension with new file management commands. </p>
+<p>This static factory provides a centralized mechanism to instantiate concrete <code><a class="el" href="class_command.html" title="Abstract base class for all command operations.">Command</a></code> objects that handle file system operations (like opening, saving, and closing files). It decouples the command creation logic from the client code. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1d26ef77224ab6e8bbb43305a86d3b7d" name="a1d26ef77224ab6e8bbb43305a86d3b7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d26ef77224ab6e8bbb43305a86d3b7d">&#9670;&#160;</a></span>createCommand()</h2>
@@ -168,7 +168,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>This static method implements the factory logic for file-related commands. It checks the <code>name</code> against a list of recognized commands and returns a dynamically allocated instance of the corresponding command class, initialized with the provided <code>context</code>.</p>
+<p>This static method implements the factory logic for file-related commands. It checks the <code>name</code> against a list of recognized commands and returns a dynamically allocated instance of the corresponding command class.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>The string identifier of the command to create. </td></tr>
