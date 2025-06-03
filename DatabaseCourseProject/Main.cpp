@@ -16,13 +16,14 @@
  * @return 0 upon successful execution and program termination.
  */
 int main() {
-	InputFileReader fileReader;
 
 	OutputConsoleWritter outputConsoleWriter;
 
 	OutputFileWritter outputFileWritter;
 
 	InputConsoleReader inputConsoleReader;
+
+	InputFileReader fileReader(outputConsoleWriter);
 
 	Engine engine(outputConsoleWriter,
 		inputConsoleReader,

@@ -96,44 +96,65 @@ void CatalogInnerJoinCommand::execute(const std::vector<std::string>& params) {
             throw std::runtime_error("Incompatible column types. ");
         }
 
-        std::vector<TableColumn*> resultCols;
+        std::vector<std::string> resultColNames;
+        std::vector<std::string> resultColTypes;
 
         for (auto& col : table1) {
-            resultCols.push_back(col->clone());
+            resultColNames.push_back(col->getName());
+            resultColTypes.push_back(col->getTypeAsString());
         }
 
-        for (auto& col : table2) {
-            if (col == col2) {
+        for (int i = 0; i < table2.getNumberOfColumns(); ++i) {
+            if (i == column2) {
                 continue;
             }
-            resultCols.push_back(col->clone());
+            resultColNames.push_back(table2.getColumnAtGivenIndex(i)->getName());
+            resultColTypes.push_back(table2.getColumnAtGivenIndex(i)->getTypeAsString());
         }
+
+        std::vector<std::vector<std::string>> resultRows;
 
         for (int i = 0; i < col1->getSize(); ++i) {
             for (int j = 0; j < col2->getSize(); ++j) {
                 if (col1->returnValueAtGivenIndexAsString(i) == col2->returnValueAtGivenIndexAsString(j)) {
-                    int m = 0;
+                    std::vector<std::string> row;
+
                     for (auto& col : table1) {
-                        resultCols[m]->addCell(col->returnValueAtGivenIndexAsString(i));
-                        ++m;
+                        row.push_back(col->returnValueAtGivenIndexAsString(i));
                     }
 
                     for (int k = 0; k < table2.getNumberOfColumns(); ++k) {
                         if (k == column2) {
                             continue;
                         }
-                        resultCols[table1.getNumberOfColumns() + k - 1]->
-                            addCell(table2.getColumnAtGivenIndex(k)->
-                                returnValueAtGivenIndexAsString(j));
-
+                        row.push_back(table2.getColumnAtGivenIndex(k)->returnValueAtGivenIndexAsString(j));
                     }
+
+                    resultRows.push_back(row);
                 }
             }
         }
-        std::string targetFolder = FileUtils::getDirectoryPath(table1.getFilename());
-        std::string newName = "inner_join_of_" + table1.getName() + "_and_" + table2.getName();
 
+        std::vector<TableColumn*> resultCols;
+
+        for (int i = 0; i < resultColNames.size(); ++i) {
+            TableColumn* newCol = ColumnFactory::makeColumn(resultColNames[i], resultColTypes[i]);
+            for (const auto& row : resultRows) {
+                newCol->addCell(row[i]);
+            }
+            resultCols.push_back(newCol);
+        }
+
+        std::string targetFolder = FileUtils::getDirectoryPath(table1.getFilename());
+        std::string name = "inner_join_of_" + table1.getName() + "_and_" + table2.getName();
+        std::string newName = name;
         std::string newTablePath = targetFolder + "/" + newName + ".csv";
+
+        int counter = 1;
+        while (FileUtils::fileExists(newTablePath)) {
+            newName = name + "_" + std::to_string(counter++);
+            newTablePath = targetFolder + "/" + newName + ".csv";
+        }
 
         Table resTable(resultCols, "Inner_join_result", newTablePath);
         context.outputFileWritter.writeTableToFile(resTable, newTablePath);

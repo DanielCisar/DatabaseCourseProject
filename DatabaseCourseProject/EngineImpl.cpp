@@ -115,18 +115,18 @@ void Engine::run() {
  * to the console without crashing.
  *
  * If the `commandName` is not found in the `commands` map, an "Unknown command"
- * message is displayed to the user, guiding them to available commands.
+ * message is displayed  to the user, guiding them to available commands.
  *
- * @param args A constant reference to a `std::vector<std::string>` containing
+ * @param params A constant reference to a `std::vector<std::string>` containing
  * the command name (at index 0) and its subsequent parameters.
  */
-void Engine::dispatchCommand(const std::vector<std::string>& args) {
-    const std::string& commandName = args[0];
+void Engine::dispatchCommand(const std::vector<std::string>& params) {
+    const std::string& commandName = params[0];
 
-    auto it = commands.find(commandName);
-    if (it != commands.end()) {
+    auto command = commands.find(commandName);
+    if (command != commands.end()) {
         try {
-            it->second->execute(args);
+            command->second->execute(params);
         }
         catch (const std::exception& e) {
             context.outputConsoleWritter.printLine(e.what());

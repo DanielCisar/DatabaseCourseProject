@@ -63,40 +63,17 @@ void CatalogAddColumnCommand::execute(const std::vector<std::string>& params) {
         const std::string& columnName = params[2];
         const std::string& columnTypeStr = params[3];
 
-        ColumnType columnType;
-
-        if (columnTypeStr == "String") {
-            columnType = ColumnType::STRING;
-        }
-        else if (columnTypeStr == "Integer") {
-            columnType = ColumnType::INTEGER;
-        }
-        else if (columnTypeStr == "Double") {
-            columnType = ColumnType::DOUBLE;
-        }
-        else {
-            throw std::runtime_error("Invalid column type! Use 'String', 'Integer' or 'Double'. ");
-        }
-
         Table& table = context.loadedCatalog.returnTableByName(tableName);
         int colSize = table.getColumnAtGivenIndex(0)->getSize();
-
-        if (columnType == ColumnType::STRING) {
-            StringColumn* stringColumn = ColumnFactory::makeStringColumn(columnName);
-            stringColumn->fillColumnWithNULL(colSize);
-            table.addColumn(stringColumn);
+        try {
+            TableColumn* col = ColumnFactory::makeColumn(columnName, columnTypeStr);
+            col->fillColumnWithNULL(colSize);
+            table.addColumn(col);
         }
-        else if (columnType == ColumnType::INTEGER) {
-            IntegerColumn* integerColumn = ColumnFactory::makeIntegerColumn(columnName);
-            integerColumn->fillColumnWithNULL(colSize);
-            table.addColumn(integerColumn);
+        catch (const std::exception& e) {
+            context.outputConsoleWritter.printLine(e.what());
+            return;
         }
-        else {
-            DoubleColumn* doubleColumn = ColumnFactory::makeDoubleColumn(columnName);
-            doubleColumn->fillColumnWithNULL(colSize);
-            table.addColumn(doubleColumn);
-        }
-
         context.outputConsoleWritter.printLine("New empty column created and added successfuly. ");
     }
     catch (const std::exception& e) {

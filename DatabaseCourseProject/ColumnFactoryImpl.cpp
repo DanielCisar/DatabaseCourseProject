@@ -1,28 +1,15 @@
 #include "ColumnFactory.hpp"
+#include <stdexcept>
 
 /**
  * @brief Creates a new `StringColumn` instance.
  * @param name The name for the new string column.
  * @return A dynamically allocated `StringColumn` pointer. Caller takes ownership.
  */
-StringColumn* ColumnFactory::makeStringColumn(const std::string& name) {
-	return new StringColumn(name);
+TableColumn* ColumnFactory::makeColumn(const std::string& name, const std::string& type) {
+	if (type == "String") return new StringColumn(name);
+	if (type == "Integer") return new IntegerColumn(name);
+	if (type == "Double") return new DoubleColumn(name);
+	throw std::runtime_error("Unsupported column type: " + type);
 }
 
-/**
- * @brief Creates a new `IntegerColumn` instance.
- * @param name The name for the new integer column.
- * @return A dynamically allocated `IntegerColumn` pointer. Caller takes ownership.
- */
-IntegerColumn* ColumnFactory::makeIntegerColumn(const std::string& name) {
-	return new IntegerColumn(name);
-}
-
-/**
- * @brief Creates a new `DoubleColumn` instance.
- * @param name The name for the new double column.
- * @return A dynamically allocated `DoubleColumn` pointer. Caller takes ownership.
- */
-DoubleColumn* ColumnFactory::makeDoubleColumn(const std::string& name) {
-	return new DoubleColumn(name);
-}

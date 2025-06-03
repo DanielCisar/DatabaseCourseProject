@@ -1,4 +1,4 @@
-copy_Products
+Products_2
 Integer,String,Double
 Serial Number,Name,Price
 12,Cofee machine,400.000000

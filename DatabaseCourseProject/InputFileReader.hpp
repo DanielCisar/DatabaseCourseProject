@@ -8,6 +8,7 @@
 #include "ColumnFactory.hpp" 
 #include "CommandParser.hpp" 
 #include "Catalog.hpp"   
+#include "OutputConsoleWritter.hpp"
 
 /**
  * @class InputFileReader
@@ -18,13 +19,15 @@
  * interpreting file content to construct database objects.
  */
 class InputFileReader {
+    OutputConsoleWritter& outputConsoleWritter;
+
 public:
     /**
      * @brief Constructs a new `InputFileReader` instance.
      *
      * Initializes the file reader. No specific resources are managed by the constructor itself.
      */
-    InputFileReader();
+    InputFileReader(OutputConsoleWritter& outputConsoleWritter);
 
     /**
      * @brief Destroys the `InputFileReader` instance.

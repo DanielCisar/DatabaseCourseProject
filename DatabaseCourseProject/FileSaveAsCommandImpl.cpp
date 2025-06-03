@@ -64,9 +64,16 @@ void FileSaveAsCommand::execute(const std::vector<std::string>& params) {
     std::string targetFolder = FileUtils::getDirectoryPath(filepath);
 
     for (auto& table : context.loadedCatalog) {
-        std::string newName = "copy_" + table.getName();
-        std::string newTablePath = targetFolder + "/copy_" + newName + ".csv";
 
+        std::string name = table.getName();
+        std::string newName = name;
+        std::string newTablePath = targetFolder + "/" + newName + ".csv";
+
+        int counter = 1;
+        while (FileUtils::fileExists(newTablePath)) {
+            newName = name + "_" + std::to_string(counter++);
+            newTablePath = targetFolder + "/" + newName + ".csv";
+        }
         try {
             Table newTable = table.cloneWithNewNameAndPath(newName, newTablePath);
             context.outputFileWritter.writeTableToFile(newTable, newTablePath);

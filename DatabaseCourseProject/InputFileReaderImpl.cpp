@@ -19,7 +19,8 @@
  * This constructor performs no specific initialization beyond default-constructing
  * member variables (of which there are none in this class).
  */
-InputFileReader::InputFileReader()
+InputFileReader::InputFileReader(OutputConsoleWritter& outputConsoleWritter) : 
+    outputConsoleWritter(outputConsoleWritter)
 {
 }
 
@@ -71,17 +72,11 @@ Table InputFileReader::readTableFromFile(const std::string& filepath) {
     std::vector<TableColumn*> columns;
 
     for (int i = 0; i < types.size(); ++i) {
-        if (types[i] == "String") {
-            columns.push_back(ColumnFactory::makeStringColumn(columnNames[i]));
+        try {
+            columns.push_back(ColumnFactory::makeColumn(columnNames[i], types[i]));
         }
-        else if (types[i] == "Integer") {
-            columns.push_back(ColumnFactory::makeIntegerColumn(columnNames[i]));
-        }
-        else if (types[i] == "Double") {
-            columns.push_back(ColumnFactory::makeDoubleColumn(columnNames[i]));
-        }
-        else {
-            throw std::invalid_argument("Unsupported type. ");
+        catch (const std::exception& e) {
+            throw std::runtime_error("Table: " + tableName + " could not be loaded. It will skipped. ");
         }
     }
 
@@ -96,10 +91,9 @@ Table InputFileReader::readTableFromFile(const std::string& filepath) {
         }
 
         for (int i = 0; i < values.size(); ++i) {
-            const std::string& currentVal = values[i];
             TableColumn* currentCol = columns[i];
 
-            currentCol->addCell(currentVal);
+            currentCol->addCell(values[i]);
         }
 
 
@@ -152,6 +146,7 @@ Catalog InputFileReader::readCatalogFromFile(const std::string& filepath) {
             catalog.addTable(readTableFromFile(tableFilePath));
         }
         catch(const std::exception& e){
+            outputConsoleWritter.printLine(e.what());
             continue;
         }
     }
