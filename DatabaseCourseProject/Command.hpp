@@ -20,7 +20,7 @@
  * @class Command
  * @brief Abstract base class for all command operations.
  *
- * This class defines a uniform interface for executing operations such as
+ * This class defines a interface for executing operations such as
  * `open`, `insert`, `save`, etc. All concrete command classes should
  * inherit from this interface and implement the `execute` method.
  */

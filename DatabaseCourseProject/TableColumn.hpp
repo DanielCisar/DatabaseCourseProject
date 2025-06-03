@@ -8,7 +8,7 @@
  * @brief Abstract base class for all column types in a database table.
  *
  * This abstract class defines the common interface and fundamental operations
- * that all concrete column implementations (e.g., `IntegerColumn`, `DoubleColumn`,
+ * that all column implementations (e.g., `IntegerColumn`, `DoubleColumn`,
  * `StringColumn`) must provide. It ensures polymorphic behavior, allowing
  * tables to manage columns of various data types uniformly.
  */

@@ -7,8 +7,7 @@
  *
  * This static method implements the factory logic for file-related commands.
  * It checks the `name` against a list of recognized commands and returns a
- * dynamically allocated instance of the corresponding command class, initialized
- * with the provided `context`.
+ * dynamically allocated instance of the corresponding command class.
  *
  * @param name The string identifier of the command to create.
  * @param context A reference to the `CommandContext` to be used by the created command.

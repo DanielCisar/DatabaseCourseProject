@@ -14,8 +14,7 @@
  *
  * This static factory provides a centralized mechanism to instantiate concrete
  * `Command` objects that handle file system operations (like opening, saving,
- * and closing files). It decouples the command creation logic from the client code,
- * enabling easy extension with new file management commands.
+ * and closing files). It decouples the command creation logic from the client code.
  */
 class FileCommandFactory {
 public:

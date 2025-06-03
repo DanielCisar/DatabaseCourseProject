@@ -22,8 +22,7 @@
  *
  * This static factory provides a centralized mechanism to instantiate concrete
  * `Command` objects based on a given command name string. It decouples the
- * command creation logic from the client code, enabling easy extension with
- * new catalog commands.
+ * command creation logic from the client code.
  */
 class CatalogCommandFactory {
 public:
@@ -33,8 +32,7 @@ public:
     *
     * This static method acts as a factory for all commands that operate on the
     * database catalog. It maps a command name string to a specific `Command`
-    * implementation and constructs an instance of that command, passing it
-    * the shared `CommandContext`.
+    * implementation and constructs an instance of that command.
     *
     * @param name The string identifier of the command to create (e.g., "insert", "select", "describe").
     * @param context A reference to the `CommandContext` to be used by the created command.

@@ -9,12 +9,12 @@
 
 /**
  * @class Engine
- * @brief Orchestrates the command-line database application's execution flow.
+ * @brief Orchestrates the command-line database execution.
  *
- * The `Engine` class is the central controller responsible for initializing the
- * application's environment, managing user input and output, and dispatching
- * commands. It sets up the shared `CommandContext` which provides access to
- * the application's core data (`Catalog`) and I/O handlers for all commands.
+ * The `Engine` class is the central controller responsible for
+ * managing user input and output, and dispatching commands
+ * It sets up the shared `CommandContext` which provides access to
+ * the most important applicaton data and I/O handlers for all commands.
  * Commands are registered during initialization and executed based on user input.
  */
 class Engine {
@@ -22,10 +22,9 @@ public:
     /**
      * @brief Constructs the Engine, initializes shared resources, and registers supported commands.
      *
-     * This constructor sets up the `CommandContext` which encapsulates the `Catalog`
+     * This constructor sets up the `CommandContext` which contains the `Catalog`
      * and all necessary I/O handlers. It then uses `FileCommandFactory` and
-     * `CatalogCommandFactory` to create and register all recognized commands,
-     * making them available for execution during the `run` loop.
+     * `CatalogCommandFactory` to create and register all recognized commands.
      *
      * @param outputConsoleWritter A reference to the console output handler.
      * @param inputConsoleReader A reference to the console input handler.
@@ -42,10 +41,7 @@ public:
     /**
      * @brief Copy constructor for the Engine class.
      *
-     * Performs a deep copy of the `other` Engine object. This includes copying
-     * the `loadedCatalog` and creating new, independent instances of all `Command`
-     * objects using their `clone()` method. The new commands are associated with
-     * the `CommandContext` of the newly constructed Engine.
+     * Performs a deep copy of the `other` Engine object. 
      *
      * @param other The Engine object to be copied.
      */
@@ -78,8 +74,7 @@ public:
     * @brief Move constructor for the Engine class.
     *
     * Constructs a new Engine object by efficiently transferring resources
-    * (the `loadedCatalog` and ownership of `Command` objects) from a temporary
-    * or expiring `other` Engine object. This avoids unnecessary deep copies.
+    * from a temporary or expiring `other` Engine object.
     *
     * @param other The Engine object to be moved from.
     */
@@ -89,9 +84,7 @@ public:
      * @brief Move assignment operator for the Engine class.
      *
      * Transfers resources from a temporary or expiring `other` Engine object
-     * to the current Engine object. This operation frees any resources
-     * currently held by `*this`, then efficiently moves the `loadedCatalog`
-     * and ownership of `Command` objects from `other`. Self-assignment is handled.
+     * to the current Engine object. Self-assignment is handled.
      * The `other` object is left in a valid, but unspecified, state suitable for destruction.
      *
      * @param other The Engine object to be moved from (an rvalue reference).
@@ -106,7 +99,7 @@ public:
     * This method displays a welcome message and then enters a loop to:
     * 1. Prompt the user for input.
     * 2. Parse the raw input into command arguments.
-    * 3. Dispatch the command to the appropriate handler.
+    * 3. Dispatch the command.
     * 4. Continues until the "exit" command is entered, at which point the loop terminates.
     */
     void run();
@@ -134,7 +127,7 @@ private:
      *
      * @param args A constant reference to a vector of strings representing
      * the parsed command name and its parameters. The first element
-     * (`args[0]`) is expected to be the command name.
+     * (`args[0]`) is the command name.
      */
     void dispatchCommand(const std::vector<std::string>& params);
 

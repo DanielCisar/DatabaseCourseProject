@@ -6,10 +6,10 @@
  * @class CatalogAddColumnCommand
  * @brief Command to add a new column to an existing table in the loaded catalog.
  *
- * This command facilitates schema modification by allowing users to extend an
- * existing table with a new column. It requires the target table's name,
- * the desired name for the new column, and its data type. The newly added
- * column will be initialized with NULL (empty) values for all existing rows.
+ * This command allows users to extend an existing table with a new column.
+ * It requires the target table's name, the desired name for the new column,
+ * and its data type. The newly added column will be initialized with NULL (empty)
+ * values for all existing rows.
  */
 class CatalogAddColumnCommand : public Command {
 private:
@@ -45,14 +45,14 @@ public:
      * @throws std::runtime_error If the specified table does not exist in the catalog.
      * @throws std::runtime_error If the provided column type string is invalid.
      * @throws std::exception Any other exceptions propagated from underlying
-     * table/column operations (e.g., memory allocation issues).
+     * table/column operations.
      */
     void execute(const std::vector<std::string>& params) override;
 
     /**
     * @brief Creates a deep copy of the current object.
     *
-    * This override implements the polymorphic cloning behavior defined in `Command`.
+    * This override implements cloning behavior defined in `Command`.
     * It constructs a new instance, associating it
     * with the provided `newContext`.
     *
